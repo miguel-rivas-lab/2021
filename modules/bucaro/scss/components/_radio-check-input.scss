@@ -1,0 +1,175 @@
+// General Styles for Radio & Checkbox
+input[type=radio],
+input[type=checkbox] {
+	flex-basis: 20px;
+	width: 20px;
+	height: 20px;
+	margin-left: 0.25rem;
+	margin-right: 0.5rem;
+	position: relative;
+	flex-shrink: 0;
+	&:before {
+		@include themify {
+			border-color: themed('input-border');
+			background: themed('tertiary-bg');
+		}
+		content: '';
+		width: 20px;
+		height: 20px;
+		border: 1px solid transparent;
+		transform: translate(-50%, -50%);
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		cursor: pointer;
+	}
+
+	&:after {
+		@include themify {
+			color: themed('checkbox-color');
+		}
+		cursor: pointer;
+		transform: translate(-50%, -50%);
+		position: absolute;
+		left: 50%;
+		top: 50%;
+	}
+
+	&:focus {
+		&:before {
+			box-shadow: $btn-focus-box-shadow;
+		}
+	}
+
+	& + label {
+		@include themify {
+			font-weight: themed('font-weight-paragraph');
+			color: themed('primary-color');
+		}
+		font-weight: 600;
+		margin: 0;
+	}
+}
+
+// Checked Styles for Radio & Checkbox
+input[type=radio],
+input[type=checkbox] {
+	&:checked {
+		&:before {
+			border-color: transparent;
+			@include themify {
+				background: themed('checkbox-bg');
+			}
+		}
+
+		&:after {
+			// @include icomoon(12px, ('checkmark'));
+		}
+
+		& + label {
+			@include themify {
+				color: themed('secondary-color');
+			}
+		}
+	}
+}
+
+// Disabled Styles for Radio & Checkbox
+input[type=radio],
+input[type=checkbox] {
+	&.disabled,
+	&:disabled {
+		opacity: .5;
+
+		&:before {
+			cursor: default;
+		}
+	}
+}
+
+
+input[type=radio]:before {
+	border-radius: 50%;
+}
+input[type=checkbox]:before {
+	border-radius: 3px;
+}
+
+.field_with_errors {
+	+ label {
+		font-weight: 600;
+	}
+}
+
+.radio:not(.icon) {
+	margin: 10px 0;
+	label {
+		width: calc(100% - 34px);
+	}
+}
+
+
+/* -------------------------------------- check and radio input container ------------------------- */
+.radio-inline {
+	display: inline-flex;
+	align-items: flex-start;
+	margin-right: 30px;
+	margin-bottom: 0.5rem;
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+.check-container {
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 0.5rem;
+}
+
+/* -------------------------------------- Overrides ------------------------- */
+// Form Builder > Workflow > Choose Style Button modal
+.pick-style-modal {
+	.check-container {
+		align-items: center;
+		input {
+			margin-bottom: 0;
+		}
+		label {
+			width: 100%;
+		}
+		.btn {
+			display: block;
+		}
+	}
+}
+// Builder's Config Modals
+.modal-body {
+	input[type=checkbox],
+	input[type=radio] {
+		& + label {
+			font-size: 16px;
+			word-break: break-all;
+		}
+	}
+}
+
+// Config Panel
+.config-panel {
+	input[type=checkbox],
+	input[type=radio] {
+		& + label {
+			font-size: 14px;
+			margin-top: 2px;
+		}
+	}
+
+	.nested-field {
+		display: flex;
+		input {
+			max-width: 60px;
+			margin-top: -6px;
+			margin-right: 10px;
+			margin-bottom: 0;
+		}
+	}
+}

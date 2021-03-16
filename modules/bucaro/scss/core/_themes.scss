@@ -1,0 +1,7 @@
+@import 'themes-variables-light';
+@import 'themes-variables-dark';
+
+$themes: (
+	light: $theme-light,
+	dark: $theme-dark,
+);

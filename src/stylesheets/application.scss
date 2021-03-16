@@ -1,0 +1,89 @@
+@import "../../modules/kiwi/scss/kiwi";
+@import "../../modules/nano-grid/scss/nano-grid";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Montserrat', Helvetica, Arial, Tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #F88379;
+}
+
+.container {
+  flex-basis: 900px;
+  margin: auto;
+  padding: 0 1rem;
+}
+
+.builder-container {
+  border: 1px solid #F88379;
+  border-radius: 5px;
+  padding: 1rem;
+
+  .nano-row {
+    justify-content: center;
+    margin-bottom: 0;
+
+    .prefix,
+    .column,
+    .suffix {
+      transition: all ease 500ms;
+    }
+
+    button {
+      width: 100%;
+      padding: 13px 8px;
+    }
+  }
+}
+
+.nano-app {
+  height: 100vh;
+  align-items: stretch;
+
+  > .main-panel {
+    background: #232327;
+    border-right: 1px solid #19191d;
+  }
+  > .panel {
+    transition: all 200ms ease;
+    background: #1f1f23;
+    border-right: 1px solid #19191d;
+    
+    fieldset {
+      opacity: 1;
+      border: none;
+    }
+
+    legend {
+      font-weight: 700;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+
+    button,
+    label,
+    select,
+    input[type=text] {
+      width: 100%;
+    }
+    
+    &.hide-panel {
+      max-width: 0;
+      border-right: 0;
+
+      fieldset {
+        opacity: 0;
+      }
+    }
+  }
+  > .workarea {
+    display: flex;
+    transition: all 200ms ease;
+    background-color: #232327;
+  }
+}

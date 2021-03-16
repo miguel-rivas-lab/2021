@@ -1,0 +1,127 @@
+.tag-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tag-icon,
+.btn-icon,
+.btn,
+.pill {
+  @import 'btn-colors';
+
+  &.square {
+    border-radius: 10px;
+  }
+
+  &:disabled,
+  &.disabled {
+    &, &:hover, &:focus {
+      opacity: .5 !important;
+    }
+  }
+}
+
+.btn-icon,
+.btn {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.tag-icon,
+.btn-icon,
+.btn {
+  border: 1px solid;
+  > .icon,
+  > .icon-text {
+    vertical-align: middle;
+    display: inline-block;
+    pointer-events: none;
+    float: none;
+    opacity: 1;
+    position: static !important;
+    text-shadow: none;
+    color: inherit;
+  }
+
+  > .icon {
+    font-size: 0;
+    line-height: 0;
+
+    &:before,
+    &:after {
+      font-size: 11px;
+    }
+  }
+
+  &.md {
+    > .icon {
+      &:before,
+      &:after {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.btn {
+  font-weight: 800;
+  padding: 5px 20px;
+  border-radius: 22px;
+  max-width: 100%;
+  position: relative;
+
+  > .icon {
+    margin-right: .25rem;
+  }
+
+  &.responsive {
+    @media (max-width: 1290px) {
+      display: inline-flex;
+      line-height: normal;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      
+      &.sm { width: 22px; height: 22px; }
+      &.md { width: 34px; height: 34px; }
+      &.lg { width: 37px; height: 37px; }
+
+      > .icon {
+        margin-right: 0;
+      }
+
+      > .caption {
+        display: none;
+      }
+    }
+  }
+}
+
+.btn {
+  &.arrow {
+    padding-right: 35px;
+
+    &:after {
+      // @include icomoon(12px, ('arrow-chevron'));
+      display: block;
+      width: auto;
+      height: auto;
+      border: 0;
+      vertical-align: middle;
+      position: absolute;
+      top: calc(50% - 6px);
+      right: 15px;
+      transition: transform ease 500ms;
+    }
+    
+    &[aria-expanded=true]:after {
+      margin-bottom: 4px;
+      transform: rotate(180deg);
+    }
+  }
+}
+
+@import 'btn-icon';
+@import 'btn-pill';
+@import 'btn-link-icon';

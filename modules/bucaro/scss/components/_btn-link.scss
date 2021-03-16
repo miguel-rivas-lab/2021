@@ -1,0 +1,15 @@
+.btn-link {
+	font-weight: 700;
+
+	&:hover,
+	&:focus {
+		cursor: pointer;
+		text-decoration: underline;
+	}
+
+	@include themify {
+		color: darken(themed('blue'), 7.5%);
+	}
+
+	// @include item-text-colors;
+}

@@ -1,0 +1,194 @@
+$multi-input: 'multi-input';
+
+$basic-inputs: (
+  '> input',
+  '> label',
+  '> p',
+  '> span',
+  '> button',
+  '> select',
+  '> a',
+  '> .input-label',
+);
+
+$inputs: (
+  $basic-inputs,
+  '> input[type=checkbox]:before'
+);
+
+&.#{$multi-input} {
+  align-items: stretch;
+
+  > .prefix {
+    > label {
+      > .icon {
+        vertical-align: middle;
+      }
+    }
+  }
+
+  > .column {
+    flex-basis: 0;
+  }
+
+  > .prefix,
+  > .column,
+  > .suffix {
+
+    > .input-label,
+    > label
+    > p {
+      height: 100% !important;
+      align-items: center !important;
+      display: flex !important;
+      text-align: center;
+      
+      @include themify {
+        background-color: themed('input-bg');
+        color: themed('primary-color');
+      }
+    }
+
+    > .dropdown-toggle {
+      text-align: center;
+    }
+
+    > input,
+    > label,
+    > p,
+    > span,
+    > select,
+    > a,
+    > .input-label,
+    > input[type=checkbox]:before {
+      font-size: 18px;
+      line-height: 1.7;
+      font-weight: 400;
+
+      @include themify {
+        color: themed('primary-color');
+        background-color: themed('input-bg');
+        border-color: themed('input-border');
+      }
+    }
+
+    > input,
+    > label,
+    > p,
+    > span,
+    > select,
+    > button,
+    > a,
+    > .input-label,
+    > input[type=checkbox]:before {
+      padding: 6px 15px;
+      height: 43px;
+      min-height: 100%;
+      border-width: 1px 1px 1px 0;
+      border-style: solid;
+      margin: 0;
+      border-radius: 0;
+      width: 100%;
+      display: block;
+    }
+
+    > input[type=checkbox],
+    > input[type=radio] {
+      display: none;
+      + label {
+        &:before {
+          margin-right: 5px;
+          font-size: 16px;
+        }
+      }
+
+      &:checked {
+        + label {
+          @include themify {
+            background-color: themed('green');
+            color: #fff;
+          }
+          // &:before {
+          //   @include icomoon($icon: ('checkmark'));
+          // }
+        }
+      }
+    }
+
+    > input[type=checkbox] {
+      &:not(:checked) {
+        + label {
+          @include themify {
+            background-color: themed('red');
+            color: #fff;
+          }
+          // &:before {
+          //   @include icomoon($icon: ('close', 'times'));
+          // }
+        }
+      }
+    }
+
+    // components row inside a component row
+    .#{$multi-input} {
+      border-radius: 0;
+      margin-bottom: 0;
+
+      > .prefix,
+      > .column,
+      > .suffix {
+        #{$inputs} {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+    }
+
+    &:first-child {
+      #{$inputs}, .#{$multi-input} {
+        border-left-width: 1px;
+        border-top-left-radius: 22px;
+        border-bottom-left-radius: 22px;
+      }
+
+      .#{$multi-input} {
+        > .prefix,
+        > .column,
+        > .suffix {
+        &:first-child {
+          #{$basic-inputs} {
+            border-top-left-radius: 22px;
+            border-bottom-left-radius: 22px;
+          }
+        }
+      }
+      }
+    }
+
+    &:last-child {
+      #{$inputs}, .#{$multi-input} {
+        border-top-right-radius: 22px;
+        border-bottom-right-radius: 22px;
+      }
+
+      .#{$multi-input} {
+        > .prefix,
+        > .column,
+        > .suffix {
+          &:last-child {
+            #{$basic-inputs} {
+              border-top-right-radius: 22px;
+              border-bottom-right-radius: 22px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @import "grid-multi-input-compress";
+  @import "grid-multi-input-component";
+  @import "grid-multi-input-square-tag";
+}

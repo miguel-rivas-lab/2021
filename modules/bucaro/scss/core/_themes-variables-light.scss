@@ -1,0 +1,154 @@
+$theme-light:(
+	// item colors
+	'grey': gcolor('boulder'),
+	'gravel': gcolor('wild-sand'),
+	'charcoal': gcolor('charcoal'),
+	'blue': gcolor('mariner'),
+	'lake': gcolor('lake'),
+	'fuchsia': gcolor('fuchsia'),
+	'blue-violet': gcolor('blue-violet'),
+	'dark-purple': gcolor('purple-heart'),
+	'green': gcolor('laurel'),
+	'laurel': gcolor('green-pea'),
+	'brown': gcolor('golden-brown'),
+	'sepia': gcolor('sepia'),
+	'red': gcolor('alizarin'),
+	'orange': gcolor('rust'),
+	'tan': gcolor('yukon-gold'),
+	'milk-punch': gcolor('milk-punch'),
+	'yellow': gcolor('sunglow'),
+	'denim': gcolor('denim'),
+	'blush': gcolor('blush'),
+	'elm': gcolor('elf-green'),
+	'fire-brick': gcolor('fire-brick'),
+
+	'cardinal': gcolor('cardinal'),
+	'danube': gcolor('danube'),
+	'honeydew': gcolor('honeydew'),
+	'cream': gcolor('cream'),
+
+	// support for old colors
+	'light-grey': gcolor('wild-sand'),
+	'dark-grey': gcolor('charcoal'),
+	'dark-blue': gcolor('denim'),
+	'purple': gcolor('fuchsia'),
+	'dark-brown': gcolor('sepia'),
+	'dark-green': gcolor('green-pea'),
+
+	// static colors
+	'dark-text-color': gcolor('charcoal'),
+	'light-text-color': gcolor('white'),
+	'thunderbird': gcolor('thunderbird'),
+	'chablis': gcolor('chablis'),
+
+	header-orange: linear-gradient(to right, gcolor('fuchsia'), gcolor('carnation')),
+	header-blue-green: linear-gradient(to right, gcolor('picton-blue'), gcolor('fruit-salad')),
+	header-purple: linear-gradient(to right, gcolor('amethyst'), gcolor('medium-purple')),
+	header-blue-blue: linear-gradient(to right, gcolor('fun-blue'), gcolor('mariner')),
+
+	search-portals-bg: linear-gradient(to right, gcolor('amethyst'), gcolor('summer-sky')),
+	portal-search-btn: gcolor('moody-blue'),
+
+	// form field
+	input-border: gcolor('silver'),
+	input-placeholder: gcolor('boulder'),
+	input-bg: gcolor('white'),
+	range-bg: gcolor('wild-sand'),
+	input-focus-border: gcolor('malibu'),
+	input-focus-bg: gcolor('alice-blue'),
+	checkbox-color: gcolor('white'),
+	checkbox-bg: gcolor('laurel'),
+
+	/* ********************************************* */
+	input-search-purple: gcolor('fuchsia'),
+	input-search-purple-focus: gcolor('plum'),
+	input-search-blue: gcolor('steel-blue'),
+	input-search-blue-focus: gcolor('calypso'),
+	/* ********************************************* */
+
+	// ex: Form-Element, Workflow-Step, Step-Frame, Table-Row
+	element-border: gcolor('alto'),
+	element-bg: gcolor('white'),
+	element-empty-border: gcolor('gainsboro'),
+	element-empty-bg: gcolor('alabaster'),
+	element-active-border: gcolor('milk-punch'),
+	element-active-bg: gcolor('floral-white'),
+	// ex: Dropdown item
+	item-hover-color: gcolor('zambezi'),
+	item-hover-bg: gcolor('wild-sand'),
+	item-disabled-bg: gcolor('white-smoke'),
+	item-disabled-color: gcolor('nobel'),
+	item-focus-color: gcolor('white'),
+	item-focus-bg: gcolor('mariner'),
+
+	primary-color: gcolor('boulder'),
+	secondary-color: gcolor('charcoal'),
+	tertiary-color: gcolor('dim-grey'),
+
+	panel-title: gcolor('night-rider'),
+
+	primary-border: gcolor('mercury'),
+
+	body-bg: gcolor('snow'),
+	primary-bg: gcolor('white'),
+	secondary-bg: gcolor('wild-sand'),
+	tertiary-bg: gcolor('zinc'),
+
+	primary-shadow: gcolor('silver-chalice'),
+	// secondary-shadow: gcolor('dove-grey'),
+	tertiary-shadow: gcolor('black'),
+
+	row-disabled: gcolor('alto'),
+	datepicker-radius: 20px,
+	datepicker-top-panel-bg: gcolor('charcoal'),
+	datepicker-bottom-panel-bg: gcolor('boulder'),
+	datepicker-selected-bg: gcolor('mariner'),
+
+	repeatable-btn-color: gcolor('gravel'),
+	repeatable-btn-border: gcolor('mercury'),
+	repeatable-btn-bg: gcolor('wild-sand'),
+	repeatable-btn-focus-color: gcolor('white'),
+	repeatable-btn-focus-border: gcolor('mariner'),
+	repeatable-btn-focus-bg: gcolor('mariner'),
+
+	dynamic-parent-border: gcolor('alto'),
+	dynamic-parent-bg: gcolor('white'),
+	dynamic-child-border: gcolor('alto'),
+	dynamic-child-bg: gcolor('white'),
+
+	dropzone-hover: gcolor('alice-blue'),
+
+	dropzone-danger: gcolor('alizarin'),
+
+	dropzone-prompt-danger-background: gcolor('chablis'),
+	dropzone-prompt-danger-border: gcolor('roman'),
+	dropzone-prompt-danger-color: inherit,
+
+	dropzone-prompt-success-background: gcolor('honeydew'),
+	dropzone-prompt-success-border: gcolor('de-york'),
+	dropzone-prompt-success-color: inherit,
+
+	dropzone-listing-background: gcolor('zinc'),
+	dropzone-delete-hover: gcolor('moon'),
+
+	tooltip-color: gcolor('white'),
+	tooltip-bg: gcolor('boulder'),
+	tooltip-link: gcolor('cerulean'),
+
+	notification-hover: gcolor('zircon'),
+	unread-notification-hover: gcolor('honeydew'),
+
+	scroll-thumb: gcolor('moon'),
+	scroll-track: gcolor('zinc'),
+	scroll-track-hover: gcolor('wild-sand'),
+
+	// popkern
+  pop-background-home: gcolor('congo-pink'),
+  pop-text-contrast: gcolor('charcoal'),
+	pop-background-body: gcolor('white'),
+	pop-background-header: gcolor('picasso'),
+	pop-foreground-home: gcolor('mulled-wine'),
+	pop-text-header: gcolor('calypso'),
+	pop-text-content: gcolor('dim-grey'),
+	pop-border: gcolor('mercury'),
+)

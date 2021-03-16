@@ -1,0 +1,75 @@
+.xpinner {
+	> .bk {
+		fill: transparent;
+		stroke-width: 50px;
+	}
+
+	> .fill {
+		fill: transparent;
+		stroke-width: 50px;
+		animation-timing-function: ease-in-out;
+		animation-iteration-count: infinite !important;
+		animation-fill-mode: forwards;
+		animation-direction: normal;
+		transform-origin: 50% 50%;
+	}
+
+	// animation speed
+	& {
+		&.slow > .fill { animation-duration: 2000ms; }
+		&.regular > .fill { animation-duration: 1500ms; }
+		&.fast > .fill { animation-duration: 1000ms; }
+	}
+
+	// colors
+	@include themify {
+		@each $name, $text-color in $item-colors {
+			&.#{$name} > .fill {
+				stroke: themed($name);
+			}
+		}
+	}
+
+	&.white > .fill {
+		stroke: #fff;
+	}
+
+	//style: [single, double, triplet, draw]
+	& {
+		&.single > .fill {
+			animation-name: rotate;
+			stroke-dasharray: 400;
+		}
+
+		&.double > .fill {
+			animation-name: rotate;
+			stroke-dasharray: 280;
+		}
+
+		&.triplet > .fill {
+			animation-name: rotate;
+			stroke-dasharray: 180;
+		}
+
+		&.draw {
+			> .bk {
+				stroke: #c5c5c5;
+			}
+			> .fill {
+				transform: rotateZ(270deg);
+				animation-name: draw;
+				stroke-dasharray: 1100;
+			}
+		}
+	}
+}
+
+@keyframes rotate {
+	from { transform: rotateZ(0deg); }
+	to { transform: rotateZ(360deg); }
+}
+
+@keyframes draw {
+	from { stroke-dashoffset: 0; }
+	to { stroke-dashoffset: 2200; }
+}

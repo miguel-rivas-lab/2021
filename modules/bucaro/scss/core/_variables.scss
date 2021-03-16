@@ -1,0 +1,20 @@
+@import "variables-icons";
+@import "variables-global-colors";
+@import "variables-colors";
+
+$sans-serif: Helvetica, Arial, Tahoma, sans-serif;
+
+$scroll-track: rgb(249, 249, 249);
+$scroll-thumb: rgb(225, 225, 225);
+$scroll-track-hover: rgb(240, 240, 240);
+$btn-focus-box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+
+$xs-breakpoint: 576px;
+$sm-breakpoint: 768px;
+$md-breakpoint: 992px;
+$lg-breakpoint: 1200px;
+
+$thumb-width: 20px;
+$thumb-height: 20px;
+$thumb-radius: 25px;
+$track-radius: 25px;

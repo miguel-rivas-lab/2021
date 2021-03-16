@@ -1,0 +1,15 @@
+{
+  "name": "bucaro",
+  "version": "1.0.0",
+  "description": "Grid System",
+  "main": "index.js",
+  "private": true,
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miguel-rivas/bucaro"
+  },
+  "author": "Miguel Rivas",
+  "license": "MIT",
+  "homepage": "https://github.com/miguel-rivas/bucaro#readme"
+}
