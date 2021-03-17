@@ -1,3 +1,5 @@
+@import "grid-mixins";
+
 .nano-row {
   display: flex;
   flex-wrap: wrap;
@@ -25,7 +27,7 @@
 
     // styles
 
-  &.layout {
+  &.content {
     margin-right: -0.5rem;
     margin-left: -0.5rem;
 
@@ -36,7 +38,6 @@
       padding-left: 0.5rem;
     }
   }
-
 
   &.component-row {
     align-items: center;
@@ -76,5 +77,5 @@
     }
   }
 
-  @import 'group';
+  @import 'grid-group';
 }

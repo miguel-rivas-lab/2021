@@ -1,41 +1,6 @@
- $transition: 200ms;
- 
- // Colors
- $blue: #116ec4;
- $red: #d73333;
- $cyan: #38c7d2;
- $mustard: #e6b031;
- $purple: #64429c;
- $green: #5acf57;
- $orange: #f9722e;
- $fucsia: #da0040;
- $mint: #34ce7e;
- $brown: #a0613d;
- $gray: #444;
- $light-blue: lighten( $blue, 25%);
- 
- 
- @mixin button-color( $name, $color )
- {
-	 $newColor: darken( $color, 10% );
-	 &.#{$name} {
-		 background-color: $color;
-		 box-shadow: 0px 3px 0 $newColor;
-		 &:hover
-		 {
-			 background-color: $newColor;
-			 box-shadow: 0px 3px 0 darken( $color, 20% );
-		 }
-		 &:active
-		 {
-			 background-color: lighten( $color, 20% );
-			 box-shadow: 0px 3px 0 lighten( $color, 10% );
-			 color: darken( $color, 20% );
-		 }
-	 }
- }
+@import "btn-mixins";
 
- .btn {
+.btn {
   &.flat
   {
     $original-color: #888;
@@ -60,11 +25,16 @@
       outline: none;
     }
 
-    &:active,
+    &:active {
+      background-color: lighten( $original-color, 20% ) !important;
+      box-shadow: 0px 3px 0 lighten($original-color, 10% ) !important;
+      color: darken( $original-color, 20% ) !important;
+    }
+
     &.active {
-      background-color: lighten( #d73333, 20% ) !important;
-      box-shadow: 0px 3px 0 lighten( #d73333, 10% ) !important;
-      color: darken( #d73333, 20% ) !important;
+      background-color: lighten( #116ec4, 20% ) !important;
+      box-shadow: 0px 3px 0 lighten( #116ec4, 10% ) !important;
+      color: darken( #116ec4, 20% ) !important;
     }
 
     &:hover

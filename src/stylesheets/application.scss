@@ -1,4 +1,23 @@
-@import "../../modules/kiwi/scss/kiwi";
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v15/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_bZF3gnD_g.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@import "~@mdi/font/css/materialdesignicons.min.css";
+
 @import "../../modules/nano-grid/scss/nano-grid";
 
 * {
@@ -10,7 +29,6 @@ body {
   font-family: 'Montserrat', Helvetica, Arial, Tahoma, sans-serif;
   margin: 0;
   padding: 0;
-  color: #F88379;
 }
 
 .container {
@@ -20,7 +38,7 @@ body {
 }
 
 .builder-container {
-  border: 1px solid #F88379;
+  border: 1px solid #444444;
   border-radius: 5px;
   padding: 1rem;
 
@@ -48,21 +66,47 @@ body {
   > .main-panel {
     background: #232327;
     border-right: 1px solid #19191d;
+
+    button {
+      padding: 0;
+      width: 40px;
+      height: 40px;
+      margin: 0.5rem auto;
+      display: block;
+    }
   }
+
   > .panel {
     transition: all 200ms ease;
     background: #1f1f23;
     border-right: 1px solid #19191d;
+    padding-top: 1rem;
     
     fieldset {
       opacity: 1;
       border: none;
+      margin: 0 1rem 1rem;
+      padding: 0 0 1rem;
+      border-bottom: 1px solid #444444;
+
+      &:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+      }
     }
 
     legend {
       font-weight: 700;
       padding: 0;
+      color: #b9b90e;
       margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 11pt;
+      color: #4ca1ef;
     }
 
     button,
@@ -71,7 +115,7 @@ body {
     input[type=text] {
       width: 100%;
     }
-    
+
     &.hide-panel {
       max-width: 0;
       border-right: 0;
@@ -85,5 +129,32 @@ body {
     display: flex;
     transition: all 200ms ease;
     background-color: #232327;
+  }
+}
+
+select,
+input[type=text] {
+  font-weight: bold;
+  letter-spacing: 1pt;
+  text-decoration: none;
+  box-sizing: border-box;
+  display: inline-block;
+  transition: all $transition ease;
+  border-radius: 0;
+  padding: 0.50rem;
+  font-size: 9pt;
+  border: 0;
+
+  &:focus,
+  &:active {
+    outline: 0;
+    box-shadow: 0 0 2px 1px #116ec4;
+  }
+
+  &.disabled,
+  &:disabled {
+    background: #888888;
+    color:#444;
+    pointer-events: none;
   }
 }

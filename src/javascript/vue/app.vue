@@ -2,7 +2,7 @@
   <main>
     <row class="nano-app">
       <column size="50" class="main-panel">
-        <button @click="togglePanel()" class="btn flat grey">A</button>
+        <btn @click="togglePanel()" color="purple" glyph="robot-industrial"/>
       </column>
 
       <column size="300" class="panel" :class="{'hide-panel': !state.panel}">
@@ -23,6 +23,15 @@
 
             <row>
               <column size="100%">
+                <label class="btn flat grey" :class="{active: selection.row == 'Content'}">
+                  Content
+                  <input type="radio" value="Content" name="row-style" v-model="selection.row">
+                </label>
+              </column>
+            </row>
+
+            <row>
+              <column size="100%">
                 <label class="btn flat grey" :class="{active: selection.row == 'Group'}">
                   Group
                   <input type="radio" value="Group" name="row-style" v-model="selection.row">
@@ -30,7 +39,7 @@
               </column>
             </row>
 
-            <row>
+            <row v-if="selection.row == 'Group'">
               <column size="100%">
                 <label class="btn flat grey" :class="{active: selection.integrate}">
                   Integrate
@@ -47,7 +56,7 @@
             <legend>
               A: Prefix Styles
             </legend>
-            <row class="layout">
+            <row>
               <column size="100%">
                 <label for="a-size">Size</label>
               </column>
@@ -58,7 +67,7 @@
               </column>
             </row>
 
-            <row class="layout">
+            <row>
               <column size="100%" v-if="selection.a.mode == 'Percent'">
                 <select id="a-size" v-model="selection.a.size">
                   <option value="0" key="0" v-html="0"/>
@@ -85,7 +94,7 @@
               </column>
             </row>
 
-            <row class="layout" v-if="selection.a.mode != 'Fixed'">
+            <row v-if="selection.a.mode != 'Fixed'">
               <column size="100%">
                 <label for="a-subtraction">Subtraction</label>
               </column>
@@ -97,12 +106,12 @@
               </column>
             </row>
 
-            <row class="layout">
+            <row>
               <column>
                 <label for="a-result">Result</label>
               </column>
               <column size="100%">
-                <input id="a-result" type="text" v-model="aExpression">
+                <input id="a-result" disabled type="text" v-model="aExpression">
               </column>
             </row>
           </column>
@@ -113,7 +122,7 @@
             <legend>
               B: Column Styles
             </legend>
-            <row class="layout">
+            <row>
               <column size="100%">
                 <label for="b-size">Size</label>
               </column>
@@ -124,7 +133,7 @@
               </column>
             </row>
 
-            <row class="layout">
+            <row>
               <column size="100%" v-if="selection.b.mode == 'Percent'">
                 <select id="b-size" v-model="selection.b.size">
                   <option value="0" key="0" v-html="0"/>
@@ -151,7 +160,7 @@
               </column>
             </row>
 
-            <row class="layout" v-if="selection.b.mode != 'Fixed'">
+            <row v-if="selection.b.mode != 'Fixed'">
               <column size="100%">
                 <label for="b-subtraction">Subtraction</label>
               </column>
@@ -163,12 +172,12 @@
               </column>
             </row>
 
-            <row class="layout">
+            <row>
               <column size="100%">
                 <label for="b-result">Result</label>
               </column>
               <column size="100%">
-                <input id="b-result" type="text" v-model="bExpression">
+                <input id="b-result" disabled type="text" v-model="bExpression">
               </column>
             </row>
           </column>
@@ -180,7 +189,7 @@
               C: Suffix Styles
             </legend>
 
-            <row class="layout">
+            <row>
               <column size="100%">
                 <label for="c-size">Size</label>
               </column>
@@ -191,7 +200,7 @@
               </column>
             </row>
 
-            <row class="layout">
+            <row>
               <column size="100%" v-if="selection.c.mode == 'Percent'">
                 <select id="c-size" v-model="selection.c.size">
                   <option value="0" key="0" v-html="0"/>
@@ -218,7 +227,7 @@
               </column>
             </row>
 
-            <row class="layout" v-if="selection.b.mode != 'Fixed'">
+            <row v-if="selection.b.mode != 'Fixed'">
               <column size="100%">
                 <label for="c-subtraction">Subtraction</label>
               </column>
@@ -230,14 +239,21 @@
               </column>
             </row>
 
-            <row class="layout">
+            <row>
               <column size="100%">
                 <label for="c-result">Result</label>
               </column>
               <column size="100%">
-                <input id="c-result" type="text" v-model="cExpression">
+                <input id="c-result" disabled type="text" v-model="cExpression">
               </column>
             </row>
+
+          </column>
+        </row>
+
+        <row tag="fieldset">
+          <column size="100%">
+            <btn color="red" @click="resetValues()" value="Reset Styles" />
           </column>
         </row>
 
@@ -248,15 +264,15 @@
           <svg title="logo" width="300" height="300"></svg>
 
           <div class="builder-container">
-            <row :group="this.selection.row == 'Group'" :integrate="selection.integrate">
+            <row :group="selection.row == 'Group'" :integrate="selection.integrate" :content="selection.row == 'Content'">
               <prefix :size="aExpression">
-                <button class="btn flat blue">A</button>
+                <btn color="blue" value="A"/>
               </prefix>
               <column :size="bExpression">
-                <button class="btn flat">B</button>
+                <btn value="B"/>
               </column>
               <suffix :size="cExpression">
-                <button class="btn flat red">C</button>
+                <btn color="red" value="C"/>
               </suffix>
             </row>
           </div>
@@ -367,7 +383,6 @@
         this.columnsValues.push(`1/${c}`);
       }
     },
-    components: {},
     computed: {
       aExpression(){
         let result = "";
@@ -401,6 +416,11 @@
       },
     },
     methods: {
+      resetValues(){
+        this.selection.a.size = this.selection.b.size = this.selection.c.size = "1/3";
+        this.selection.a.mode = this.selection.b.mode = this.selection.c.mode = "Column Based"
+        this.selection.a.subtraction = this.selection.b.subtraction = this.selection.c.subtraction = "0";
+      },
       togglePanel(){
         this.state.panel = !this.state.panel;
       }

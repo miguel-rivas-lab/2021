@@ -25,6 +25,10 @@
         type: Boolean,
         default: false,
       },
+      content: {
+        type: Boolean,
+        default: false,
+      },
       integrate: {
         type: Boolean,
         default: false,
@@ -44,6 +48,7 @@
           {
             'nano-group': this.group,
             'integrate': this.integrate,
+            'content': this.content,
           }
         ]
       },
