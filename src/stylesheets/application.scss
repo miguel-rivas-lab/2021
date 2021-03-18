@@ -18,7 +18,7 @@
 
 @import "~@mdi/font/css/materialdesignicons.min.css";
 
-@import "../../modules/nano-grid/scss/nano-grid";
+@import "~nano-grid/scss/nano-grid";
 
 * {
   box-sizing: border-box;
@@ -61,16 +61,21 @@ body {
 
 .nano-app {
   height: 100vh;
+  margin-bottom: 0;
   align-items: stretch;
+
+  &,
+  & > .main-panel,
+  & > .panel,
+  & > .workarea {
+    max-height: 100vh;
+  }
 
   > .main-panel {
     background: #232327;
     border-right: 1px solid #19191d;
 
     button {
-      padding: 0;
-      width: 40px;
-      height: 40px;
       margin: 0.5rem auto;
       display: block;
     }
@@ -80,7 +85,10 @@ body {
     transition: all 200ms ease;
     background: #1f1f23;
     border-right: 1px solid #19191d;
-    padding-top: 1rem;
+
+    .scroll-area {
+      padding-top: 1rem;
+    }
     
     fieldset {
       opacity: 1;
