@@ -1,12 +1,12 @@
 <template>
   <main>
-    <row class="nano-app">
+    <row class="nano-app nano-dark">
       <column size="50" class="main-panel">
         <btn @click="togglePanel()" size="md" color="royal-purple" glyph="robot-industrial"/>
       </column>
 
       <column size="300" class="panel" :class="{'hide-panel': !state.panel}">
-        <scroll-area color="royal-purple" dark>
+        <scroll-area color="royal-purple">
           <panel-block title="Row Styles">
             <row>
               <column size="100%">
@@ -63,7 +63,8 @@
 
       <column :size="state.panel ? '100%-350' : '100%-50'" class="workarea">
         <div class="container">
-          <svg title="logo" width="300" height="300"></svg>
+          
+          <robotic-arm/>
 
           <div class="builder-container">
             <row
@@ -93,9 +94,10 @@
   import {validateSize} from 'nano-grid/ts/columns-manager.ts';
   import panelBlock from "./components/panel-block.vue";
   import panelBlockColumn from "./components/panel-block-column.vue";
+  import roboticArm from "./components/robotic-arm.vue";
 
   export default Vue.extend({
-    components: {panelBlock, panelBlockColumn},
+    components: {panelBlock, panelBlockColumn, roboticArm},
     data: () => ({
       state: {
         panel: true,
@@ -184,6 +186,7 @@
         return validateSize(result);
       },
       resetValues(){
+        this.selection.row = "Row";
         this.selection.a.size = this.selection.b.size = this.selection.c.size = "1/3";
         this.selection.a.mode = this.selection.b.mode = this.selection.c.mode = "Column Based"
         this.selection.a.subtraction = this.selection.b.subtraction = this.selection.c.subtraction = "0";
