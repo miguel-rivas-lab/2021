@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import app from './javascript/vue/app.vue';
+import app from './app.vue';
 import './stylesheets/application.scss';
 
 import NanoRow from 'nano-grid/vue/row.vue';

@@ -77,7 +77,7 @@
 <script lang="ts">
   import Vue from "vue";
   import panelBlock from "./panel-block.vue";
-  import {validateSize} from 'nano-grid/ts/columns-manager.ts';
+  import {validateSize} from 'nano-grid/ts/columns-manager';
 
   export default Vue.extend({
     components: {panelBlock},

@@ -93,7 +93,7 @@
 
 <script lang="ts">
   import Vue from "vue";
-  import {validateSize} from 'nano-grid/ts/columns-manager.ts';
+  import {validateSize} from 'nano-grid/ts/columns-manager';
   import panelBlock from "./components/panel-block.vue";
   import panelBlockColumn from "./components/panel-block-column.vue";
 
