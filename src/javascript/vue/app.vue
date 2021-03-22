@@ -2,7 +2,7 @@
   <main>
     <row class="nano-app nano-dark">
       <column size="50" class="main-panel">
-        <btn @click="togglePanel()" size="md" color="royal-purple" glyph="robot-industrial"/>
+        <btn @click="togglePanel()" size="md" color="royal-purple" :glyph="appIcon"/>
       </column>
 
       <column size="300" class="panel" :class="{'hide-panel': !state.panel}">
@@ -64,7 +64,9 @@
       <column :size="state.panel ? '100%-350' : '100%-50'" class="workarea">
         <div class="container">
           
-          <robotic-arm/>
+          <h1 class="app-title">
+            <m-icon :glyph="appIcon"/> Nano Grid
+          </h1>
 
           <div class="builder-container">
             <row
@@ -94,11 +96,11 @@
   import {validateSize} from 'nano-grid/ts/columns-manager.ts';
   import panelBlock from "./components/panel-block.vue";
   import panelBlockColumn from "./components/panel-block-column.vue";
-  import roboticArm from "./components/robotic-arm.vue";
 
   export default Vue.extend({
-    components: {panelBlock, panelBlockColumn, roboticArm},
+    components: {panelBlock, panelBlockColumn},
     data: () => ({
+      appIcon: "robot-industrial",
       state: {
         panel: true,
       },

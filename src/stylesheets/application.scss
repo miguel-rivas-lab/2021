@@ -1,24 +1,13 @@
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/montserrat/v15/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_bZF3gnD_g.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
+// ------------------ Fonts
+@import "~@fontsource/montserrat/300.css";
+@import "~@fontsource/montserrat/400.css";
+@import "~@fontsource/montserrat/600.css";
 @import "~@mdi/font/css/materialdesignicons.min.css";
 
+// ------------------ Modules
 @import "~nano-grid/scss/nano-grid";
+@import "~nano-grid/scss/btn";
+@import "~nano-grid/scss/scroll-area";
 
 * {
   box-sizing: border-box;
@@ -58,6 +47,15 @@ body {
       padding: 13px 8px;
     }
   }
+}
+
+.app-title {
+  font-weight: 300;
+  font-size: 70px;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: gcolor('white');
+  text-transform: uppercase;
 }
 
 .nano-app {

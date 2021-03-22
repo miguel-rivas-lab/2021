@@ -865,6 +865,11 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@fontsource/montserrat@^4.2.2":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/montserrat/-/montserrat-4.2.2.tgz#a1ad54b9302d6b840618fa1294fb4aec98e2b673"
+  integrity sha512-HnlV9Xim2mYa56Bz/UIO5r26Rq/DJWlYdMWTql+TE6n3yYMe8YV6dTwPzTbkr35IsyDq6cWy0rPert9MWyA2yA==
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -6018,8 +6023,10 @@ nan@^2.12.1:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.2.tgz#f5376400695168f4cc694ac9393d0c9585eeea19"
   integrity sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ==
 
-"nano-grid@file:../nano-grid-nodejs":
-  version "1.0.0"
+nano-grid@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/nano-grid/-/nano-grid-1.0.1.tgz#04e0f5c059b7357ea1e5a6774274546ca4d81cd7"
+  integrity sha512-k2U4deyyS3BIjhM+kQvTvxB8oxb6rgSnM+QmGRlHdoFHROh5XTh5YrGJMCAuOZGwsqZKxQ0wXt/mYmlEIkMiOg==
 
 nanomatch@^1.2.9:
   version "1.2.13"
