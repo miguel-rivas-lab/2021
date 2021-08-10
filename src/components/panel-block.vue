@@ -1,7 +1,21 @@
 <template>
-  <row tag="fieldset">
+  <row tag="fieldset" class="row-block">
     <column size="100%">
-      <legend v-html="title" />
+      <legend>
+        <row>
+          <column size="100%-35">
+            {{title}}
+          </column>
+          <suffix size="35">
+            <btn
+                color="persian-red"
+                size="md"
+                glyph="close"
+                @click="removeBlock"
+              />
+          </suffix>
+        </row>
+      </legend>
       <slot />
     </column>
   </row>
@@ -16,6 +30,14 @@
         type: String,
         default: "",
       }
+    },
+    created() {
+      this.$emit('created');
+    },
+    methods: {
+      removeBlock($event){
+        this.$emit('onRemove', $event);
+      },
     }
   });
 </script>

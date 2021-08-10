@@ -50,7 +50,6 @@ body {
 }
 
 .app-title {
-  font-weight: 300;
   font-size: 70px;
   margin-bottom: 2rem;
   text-align: center;
@@ -90,11 +89,14 @@ body {
     }
     
     fieldset {
+      border-radius: 5px;
+      border: 1px solid #444444;
+    }
+
+    .row-block {
       opacity: 1;
-      border: none;
       margin: 0 1rem 1rem;
-      padding: 0 0 1rem;
-      border-bottom: 1px solid #444444;
+      padding: 1rem;
 
       &:last-child {
         border-bottom: none;

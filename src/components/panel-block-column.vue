@@ -1,50 +1,49 @@
 <template>
-  <panel-block :title="`${name.toUpperCase()}: Column Styles`">
-
+  <panel-block @onRemove="removeBlock()" :title="`${name.toUpperCase()}: Column Styles`">
     <row>
       <column size="100%">
         <label :for="`${name}-size`">Size</label>
       </column>
       <column size="100%">
-        <select :id="`${name}-size-type`" v-model="selection.mode">
+        <select :id="`${name}-size-type`" v-model="selection.columns[index].mode">
           <option v-for="option in gridType" :value="option" :key="option" v-html="option"/>
         </select>
       </column>
     </row>
 
     <row>
-      <column size="100%" v-if="selection.mode == 'Percent'">
-        <select id="a-size" v-model="selection.size">
+      <column size="100%" v-if="selection.columns[index].mode == 'Percent'">
+        <select id="a-size" v-model="selection.columns[index].size">
           <option value="0" key="0" v-html="0"/>
           <option v-for="option in percentsValues" :value="option" :key="option" v-html="option"/>
         </select>
       </column>
-      <column size="100%" v-if="selection.mode == 'Twelve Grid'">
-        <select :id="`${name}-size`" v-model="selection.size">
+      <column size="100%" v-if="selection.columns[index].mode == 'Twelve Grid'">
+        <select :id="`${name}-size`" v-model="selection.columns[index].size">
           <option value="0" key="0" v-html="0"/>
           <option v-for="option in twelveValues" :value="option" :key="option" v-html="option"/>
         </select>
       </column>
-      <column size="100%" v-if="selection.mode == 'Fixed'">
-        <select :id="`${name}-size`" v-model="selection.size">
+      <column size="100%" v-if="selection.columns[index].mode == 'Fixed'">
+        <select :id="`${name}-size`" v-model="selection.columns[index].size">
           <option value="0" key="0" v-html="0"/>
           <option v-for="option in fixesValues" :value="option" :key="option" v-html="option"/>
         </select>
       </column>
-      <column size="100%" v-if="selection.mode == 'Column Based'">
-        <select id="`${name}-size`" v-model="selection.size">
+      <column size="100%" v-if="selection.columns[index].mode == 'Column Based'">
+        <select id="`${name}-size`" v-model="selection.columns[index].size">
           <option value="0" key="0" v-html="0"/>
           <option v-for="option in columnsValues" :value="option" :key="option" v-html="option"/>
         </select>
       </column>
     </row>
 
-    <row v-if="selection.mode != 'Fixed'">
+    <row v-if="selection.columns[index].mode != 'Fixed'">
       <column size="100%">
         <label :for="`${name}-subtraction`">Subtraction</label>
       </column>
       <column size="100%">
-        <select :id="`${name}-subtraction`" v-model="selection.subtraction">
+        <select :id="`${name}-subtraction`" v-model="selection.columns[index].subtraction">
           <option value="0" key="0" v-html="0"/>
           <option v-for="option in fixesSubstractionValues" :value="option" :key="option" v-html="option"/>
         </select>
@@ -65,8 +64,19 @@
         <label :for="`${name}-color`">Button Color</label>
       </column>
       <column size="100%">
-        <select :id="`${name}-color`" v-model="selection.color">
+        <select :id="`${name}-color`" v-model="selection.columns[index].color">
           <option v-for="option in colorValues" :value="option" :key="option" v-html="option"/>
+        </select>
+      </column>
+    </row>
+
+    <row>
+      <column size="100%">
+        <label :for="`${name}-style`">Column Style</label>
+      </column>
+      <column size="100%">
+        <select :id="`${name}-style`" v-model="selection.columns[index].block">
+          <option v-for="option in styles" :value="option" :key="option" v-html="option"/>
         </select>
       </column>
     </row>
@@ -87,6 +97,7 @@
         default: "",
       },
       selection: undefined,
+      index: undefined,
     },
     data: () => ({
       cssSizes: [
@@ -146,6 +157,11 @@
         'desert',
         'charcoal',
       ],
+      styles: [
+        'prefix',
+        'column',
+        'suffix',
+      ],
     }),
     computed: {
       fixesValues() {
@@ -185,14 +201,19 @@
       },
       finalValue(){
         let result = "";
-        if(this.selection.size){
-          result += this.selection.size;
-          if(this.selection.subtraction > 0){
-            result += `-${this.selection.subtraction}`;
+        if(this.selection.columns[this.index].size){
+          result += this.selection.columns[this.index].size;
+          if(this.selection.columns[this.index].subtraction > 0){
+            result += `-${this.selection.columns[this.index].subtraction}`;
           }
         }
         return validateSize(result);
       },
     },
+    methods: {
+      removeBlock(){
+        this.selection.columns.splice(this.index, 1);
+      }
+    }
   });
 </script>
