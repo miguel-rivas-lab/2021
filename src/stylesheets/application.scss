@@ -20,6 +20,8 @@ body {
   padding: 0;
 }
 
+@import "home";
+
 .container {
   flex-basis: 900px;
   margin: auto;
@@ -73,9 +75,8 @@ body {
     background: #232327;
     border-right: 1px solid #19191d;
 
-    button {
+    .btn.flat {
       margin: 0.5rem auto;
-      display: block;
     }
   }
 
@@ -168,4 +169,10 @@ input[type=text] {
     color:#444;
     pointer-events: none;
   }
+}
+
+.btn.flat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

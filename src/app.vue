@@ -1,14 +1,14 @@
 <template>
   <main>
-    <view-grid />
+    <router-view></router-view>
   </main>
 </template>
 
 <script lang="ts">
   import Vue from "vue";
-  import viewGrid from "./views/grid.vue";
 
   export default Vue.extend({
-    components: {viewGrid},
+    components: {
+    },
   });
 </script>

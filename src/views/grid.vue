@@ -1,104 +1,99 @@
 <template>
-  <main>
-    <row class="nano-app nano-dark">
-      <column size="50" class="main-panel">
-        <btn @click="togglePanel()" size="md" color="royal-purple" glyph="robot-industrial"/>
-        <btn size="md" color="burn-orange" glyph="gesture-tap-button"/>
-      </column>
+  <row class="nano-app nano-dark">
+    <panel-navigation />
 
-      <column size="300" class="panel" :class="{'hide-panel': !state.panel}">
-        <scroll-area color="royal-purple">
+    <column size="300" class="panel" :class="{'hide-panel': !state.panel}">
+      <scroll-area color="royal-purple">
 
-            <row class="row-block" tag="fieldset">
-                <column size="100%">
-                    <legend>Row Styles</legend>
+          <row class="row-block" tag="fieldset">
+              <column size="100%">
+                  <legend>Row Styles</legend>
 
-                    <row>
-                    <column size="100%">
-                        <label class="btn flat charcoal" :class="{active: selection.row == 'Row'}">
-                        Row
-                        <input type="radio" value="Row" name="row-style" v-model="selection.row">
-                        </label>
-                    </column>
-                    </row>
+                  <row>
+                  <column size="100%">
+                      <label class="btn flat charcoal" :class="{active: selection.row == 'Row'}">
+                      Row
+                      <input type="radio" value="Row" name="row-style" v-model="selection.row">
+                      </label>
+                  </column>
+                  </row>
 
-                    <row>
-                    <column size="100%">
-                        <label class="btn flat charcoal" :class="{active: selection.row == 'Content'}">
-                        Content
-                        <input type="radio" value="Content" name="row-style" v-model="selection.row">
-                        </label>
-                    </column>
-                    </row>
+                  <row>
+                  <column size="100%">
+                      <label class="btn flat charcoal" :class="{active: selection.row == 'Content'}">
+                      Content
+                      <input type="radio" value="Content" name="row-style" v-model="selection.row">
+                      </label>
+                  </column>
+                  </row>
 
-                    <row>
-                    <column size="100%">
-                        <label class="btn flat charcoal" :class="{active: selection.row == 'Group'}">
-                        Group
-                        <input type="radio" value="Group" name="row-style" v-model="selection.row">
-                        </label>
-                    </column>
-                    </row>
+                  <row>
+                  <column size="100%">
+                      <label class="btn flat charcoal" :class="{active: selection.row == 'Group'}">
+                      Group
+                      <input type="radio" value="Group" name="row-style" v-model="selection.row">
+                      </label>
+                  </column>
+                  </row>
 
-                    <row v-if="selection.row == 'Group'">
-                    <column size="100%">
-                        <label class="btn flat charcoal" :class="{active: selection.integrate}">
-                        Integrate
-                        <input type="checkbox" value="Integrate" v-model="selection.integrate">
-                        </label>
-                    </column>
-                    </row>
-                </column>
-            </row>
-
-
-          <template v-for="column, index in selection.columns">
-            <panel-block-column
-                v-bind:key="index"
-                :index="index"
-                :selection="selection"
-                :name="(index + 1).toString()" />
-          </template>
-
-          <row class="row-block">
-            <column size="100%">
-              <btn
-                color="denim"
-                @click="addColumn()"
-                value="Add Column"
-              />
-            </column>
+                  <row v-if="selection.row == 'Group'">
+                  <column size="100%">
+                      <label class="btn flat charcoal" :class="{active: selection.integrate}">
+                      Integrate
+                      <input type="checkbox" value="Integrate" v-model="selection.integrate">
+                      </label>
+                  </column>
+                  </row>
+              </column>
           </row>
-        </scroll-area>
-      </column>
 
-      <column :size="state.panel ? '100%-350' : '100%-50'" class="workarea">
-        <div class="container">
-          
-          <h1 class="app-title">
-            {{rowSize}}
-          </h1>
 
-          <div class="builder-container">
-            <row
-              :group="selection.row == 'Group'"
-              :integrate="selection.integrate"
-              :content="selection.row == 'Content'"
-            >
-                <template v-for="column, index in selection.columns">
-                    <component
-                        v-bind:is="column.block"
-                        v-bind:key="index"
-                        :size="finalExpression(index)">
-                        <btn :value="column.size" :color="column.color" />
-                    </component>
-                </template>
-            </row>
-          </div>
+        <template v-for="column, index in selection.columns">
+          <panel-block-column
+              v-bind:key="index"
+              :index="index"
+              :selection="selection"
+              :name="(index + 1).toString()" />
+        </template>
+
+        <row class="row-block">
+          <column size="100%">
+            <btn
+              color="denim"
+              @click="addColumn()"
+              value="Add Column"
+            />
+          </column>
+        </row>
+      </scroll-area>
+    </column>
+
+    <column :size="state.panel ? '100%-350' : '100%-50'" class="workarea">
+      <div class="container">
+        
+        <h1 class="app-title">
+          {{rowSize}}
+        </h1>
+
+        <div class="builder-container">
+          <row
+            :group="selection.row == 'Group'"
+            :integrate="selection.integrate"
+            :content="selection.row == 'Content'"
+          >
+              <template v-for="column, index in selection.columns">
+                  <component
+                      v-bind:is="column.block"
+                      v-bind:key="index"
+                      :size="finalExpression(index)">
+                      <btn :value="column.size" :color="column.color" />
+                  </component>
+              </template>
+          </row>
         </div>
-      </column>
-    </row>
-  </main>
+      </div>
+    </column>
+  </row>
 </template>
 
 <script lang="ts">
@@ -106,9 +101,14 @@
   import {validateSize} from 'nano-grid/ts/columns-manager';
   import panelBlock from "../components/panel-block.vue";
   import panelBlockColumn from "../components/panel-block-column.vue";
+  import PanelNavigation from "../components/panel-navigation.vue";
 
   export default Vue.extend({
-    components: {panelBlock, panelBlockColumn},
+    components: {
+      PanelNavigation,
+      panelBlock,
+      panelBlockColumn
+    },
     data: () => ({
       state: {
         panel: true,
@@ -116,7 +116,24 @@
       selection: {
         row: "Row",
         integrate: false,
-        columns: []
+        columns: [
+          {
+              mode: "Percent",
+              size: "50%",
+              subtraction: "0",
+              color: "denim",
+              expression: "sz1b4",
+              block: "column",
+          },
+          {
+              mode: "Percent",
+              size: "50%",
+              subtraction: "0",
+              color: "persian-red",
+              expression: "sz1b4",
+              block: "column",
+          },
+        ]
       },
     }),
     computed: {
@@ -195,7 +212,7 @@
           this.selection.columns.push(
               {
                 mode: "Percent",
-                size: "25%",
+                size: "50%",
                 subtraction: "0",
                 color: "desert",
                 expression: "sz1b4",
