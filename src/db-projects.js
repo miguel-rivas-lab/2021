@@ -611,27 +611,27 @@
             github: linkGithubDev("tetravex"),
         },
     },
-    {
-        date: "2017/01/01",
-        title: "FlatCSS",
-        type: mode.landingPage,
-        role: [
-            role.frontend,
-            role.design,
-        ],
-        client: client.miguelRivas,
-        tools: [
-            tool.pug,
-            tool.css,
-            tool.git,
-        ],
-        links: {
-            web: [
-                {url: linkWeb("flat-css"), text: "App"},
-            ],
-            github: linkGithubDev("flat-css"),
-        },
-    },
+    // {
+    //     date: "2017/01/01",
+    //     title: "FlatCSS",
+    //     type: mode.landingPage,
+    //     role: [
+    //         role.frontend,
+    //         role.design,
+    //     ],
+    //     client: client.miguelRivas,
+    //     tools: [
+    //         tool.pug,
+    //         tool.css,
+    //         tool.git,
+    //     ],
+    //     links: {
+    //         web: [
+    //             {url: linkWeb("flat-css"), text: "App"},
+    //         ],
+    //         github: linkGithubDev("flat-css"),
+    //     },
+    // },
     {
         date: "2017/02/20",
         title: "Pills",
@@ -753,7 +753,7 @@
     },
     {
         date: "2021/03/26",
-        title: "Gallery Portfolio",
+        title: "Letters Portfolio",
         type: mode.app,
         role: [
             role.design,
@@ -762,6 +762,26 @@
         client: client.miguelRivas,
         tools: [
             tool.react,
+            tool.sass,
+        ],
+        links: {
+            web: [
+                {url: linkWeb("miguel-rivas-2021-2"), text: "App"},
+            ],
+            github: linkGithubDev("miguel-rivas-2021-2"),
+        },
+    },
+    {
+        date: "2021/08/12",
+        title: "Card Portfolio",
+        type: mode.app,
+        role: [
+            role.design,
+            role.frontend,
+        ],
+        client: client.miguelRivas,
+        tools: [
+            tool.vue,
             tool.sass,
         ],
         links: {

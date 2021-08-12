@@ -36,6 +36,7 @@
                       <li v-bind:key="linkIndex">
                         <a
                           :href="link.url"
+                          target="_blank"
                           v-html="link.text"
                         />
                       </li>
@@ -47,7 +48,7 @@
                         tag="a"
                         size="md"
                         color="charcoal"
-                        :href="project.links.github.url"
+                        :href="project.links.github"
                         target="_blank"
                         glyph="github"
                       />
