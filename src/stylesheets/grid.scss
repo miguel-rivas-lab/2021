@@ -1,0 +1,119 @@
+.container {
+    flex-basis: 900px;
+    margin: auto;
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+  
+  .builder-container {
+    border: 1px solid #444444;
+    border-radius: 5px;
+    padding: 1rem;
+  
+    .nano-row {
+      justify-content: center;
+      margin-bottom: 0;
+  
+      .prefix,
+      .column,
+      .suffix {
+        transition: all ease 500ms;
+      }
+  
+      button {
+        width: 100%;
+        padding: 13px 8px;
+      }
+    }
+  }
+  
+  .app-title {
+    font-size: 70px;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: gcolor('white');
+    text-transform: uppercase;
+  }
+  
+  .nano-app {
+    height: 100vh;
+    margin-bottom: 0;
+    align-items: stretch;
+  
+    &,
+    & > .main-panel,
+    & > .panel,
+    & > .workarea {
+      max-height: 100vh;
+    }
+  
+    > .main-panel {
+      background: #232327;
+      border-right: 1px solid #19191d;
+  
+      .btn.flat {
+        margin: 0.5rem auto;
+      }
+    }
+  
+    > .panel {
+      transition: all 200ms ease;
+      background: #1f1f23;
+      border-right: 1px solid #19191d;
+  
+      .scroll-area {
+        padding-top: 1rem;
+      }
+      
+      fieldset {
+        border-radius: 5px;
+        border: 1px solid #444444;
+      }
+  
+      .row-block {
+        opacity: 1;
+        margin: 0 1rem 1rem;
+        padding: 1rem;
+  
+        &:last-child {
+          border-bottom: none;
+          margin-bottom: 0;
+        }
+      }
+  
+      legend {
+        font-weight: 700;
+        padding: 0;
+        color: #b9b90e;
+        margin-bottom: 1rem;
+      }
+  
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 11pt;
+        color: #4ca1ef;
+      }
+  
+      button,
+      label,
+      select,
+      input[type=text] {
+        width: 100%;
+      }
+  
+      &.hide-panel {
+        max-width: 0;
+        border-right: 0;
+  
+        fieldset {
+          opacity: 0;
+        }
+      }
+    }
+    > .workarea {
+      display: flex;
+      transition: all 200ms ease;
+      background-color: #1e1e1e;
+    }
+  }

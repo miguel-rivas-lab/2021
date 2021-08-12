@@ -25,8 +25,8 @@
     //   },
         navigation: [
             { icon: 'home', route: 'home' },
-            // { icon: 'projector-screen', route: 'projects' },
-            // { icon: 'duck', route: 'prototypes' },
+            { icon: 'duck', route: 'projects' },
+            // { icon: 'projector-screen', route: 'prototypes' },
             { icon: 'robot-industrial', route: 'grid' },
             // { icon: 'gesture-tap-button', route: 'buttons' },
             // { icon: 'format-color-fill', route: 'colors' },

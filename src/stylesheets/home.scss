@@ -51,14 +51,17 @@
 
         h1 {
             font-size: 72px;
-            color: #876cec;
+            // color: #876cec;
+            @media (max-width: 1024px) {
+                font-size: 58px;
+            }
         }
 
-        h2 {
-            color: #fff;
-        }
+        // h2 {
+        // }
         
         h1, h2 {
+            color: #fff;
             font-weight: 300;
             margin: 0;
             text-transform: uppercase;
