@@ -80,7 +80,9 @@
     }),
     computed: {
       projectsDB(){
-        return projects;
+        return projects.sort(function(a,b){
+          return new Date(b.date) - new Date(a.date);
+        });
       }
     },
     methods: {

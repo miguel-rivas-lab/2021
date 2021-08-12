@@ -7,7 +7,7 @@
                 color="gravel"
                 size="md"
                 :glyph="nav.icon"
-                @click="togglePanel()"
+                :active="$route.name === nav.route"
             />
         </template>
     </column>
@@ -20,13 +20,10 @@
     components: {
     },
     data: () => ({
-    //   state: {
-    //     panel: false,
-    //   },
         navigation: [
             { icon: 'home', route: 'home' },
-            { icon: 'duck', route: 'projects' },
-            // { icon: 'projector-screen', route: 'prototypes' },
+            { icon: 'projector-screen', route: 'projects' },
+            { icon: 'duck', route: 'prototypes' },
             { icon: 'robot-industrial', route: 'grid' },
             // { icon: 'gesture-tap-button', route: 'buttons' },
             // { icon: 'format-color-fill', route: 'colors' },
@@ -37,9 +34,6 @@
     computed: {
     },
     methods: {
-        togglePanel(){
-            // this.state.panel = !this.state.panel;
-        }
     },
   });
 </script>
