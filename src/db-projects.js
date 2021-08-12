@@ -925,24 +925,24 @@
     //     ],
     // },
     
-    // {
-    //     date: "2021/02/27",
-    //     title: "3D Graph Colors",
-    //     type: mode.prototype,
-    //     role: [
-    //         role.frontend,
-    //     ],
-    //     client: client.enovational,
-    //     tools: [
-    //         tool.javascript,
-    //         tool.three,
-    //     ],
-    //     links: {
-    //         web: [
-    //             {url: linkCodepen("dyOmXWO"), text: "Codepen Prototype"},
-    //         ],
-    //     },
-    // },
+    {
+        date: "2021/02/27",
+        title: "3D Graph Colors",
+        type: mode.prototype,
+        role: [
+            role.frontend,
+        ],
+        client: client.enovational,
+        tools: [
+            tool.javascript,
+            tool.three,
+        ],
+        links: {
+            web: [
+                {url: linkCodepen("dyOmXWO"), text: "Codepen Prototype"},
+            ],
+        },
+    },
   ];
 
 /*
