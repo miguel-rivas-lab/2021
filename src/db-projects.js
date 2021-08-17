@@ -449,26 +449,26 @@
             github: linkGithubDev("miguel-rivas-2016"),
         },
     },
-    {
-        date: "2021/03/26",
-        title: "Letters Portfolio",
-        type: mode.app,
-        role: [
-            role.design,
-            role.frontend,
-        ],
-        client: client.miguelRivas,
-        tools: [
-            tool.react,
-            tool.sass,
-        ],
-        links: {
-            web: [
-                {url: linkWeb("miguel-rivas-2021-2"), text: "App"},
-            ],
-            github: linkGithubDev("miguel-rivas-2021-2"),
-        },
-    },
+    // {
+    //     date: "2021/03/26",
+    //     title: "Letters Portfolio",
+    //     type: mode.app,
+    //     role: [
+    //         role.design,
+    //         role.frontend,
+    //     ],
+    //     client: client.miguelRivas,
+    //     tools: [
+    //         tool.react,
+    //         tool.sass,
+    //     ],
+    //     links: {
+    //         web: [
+    //             {url: linkWeb("miguel-rivas-2021-2"), text: "App"},
+    //         ],
+    //         github: linkGithubDev("miguel-rivas-2021-2"),
+    //     },
+    // },
     {
         date: "2021/08/12",
         title: "Card Portfolio",

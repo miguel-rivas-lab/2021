@@ -89,10 +89,13 @@
       }
   
       label {
-        display: block;
         margin-bottom: 0.5rem;
         font-size: 11pt;
         color: #4ca1ef;
+
+        &:not(.btn){ 
+          display: block;
+        }
       }
   
       button,

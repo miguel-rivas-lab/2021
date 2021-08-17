@@ -35,7 +35,7 @@
       this.$emit('created');
     },
     methods: {
-      removeBlock($event){
+      removeBlock($event:any) {
         this.$emit('onRemove', $event);
       },
     }

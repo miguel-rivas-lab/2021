@@ -5,6 +5,11 @@
 yarn install
 ```
 
+### Vue Cli
+```
+vue ui
+```
+
 ### Compiles and hot-reloads for development
 ```
 yarn serve

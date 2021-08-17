@@ -53,12 +53,16 @@ const routes: Array<RouteConfig> = [
     path: '/grid',
     component: GridView
   },
+  {
+    path: '*',
+    redirect: '/'
+  },
 ];
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
 })
 
-export default router
+export default router;

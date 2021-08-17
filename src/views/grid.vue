@@ -2,7 +2,7 @@
   <row class="nano-app nano-dark">
     <panel-navigation />
 
-    <column size="300" class="panel" :class="{'hide-panel': !state.panel}">
+    <column size="300" class="panel" :class="{'hide-panel': !panel}">
       <scroll-area color="royal-purple">
 
           <row class="row-block" tag="fieldset">
@@ -20,20 +20,22 @@
 
                   <row>
                   <column size="100%">
-                      <label class="btn flat charcoal" :class="{active: selection.row == 'Content'}">
-                      Content
-                      <input type="radio" value="Content" name="row-style" v-model="selection.row">
-                      </label>
-                  </column>
-                  </row>
-
-                  <row>
-                  <column size="100%">
                       <label class="btn flat charcoal" :class="{active: selection.row == 'Group'}">
                       Group
                       <input type="radio" value="Group" name="row-style" v-model="selection.row">
                       </label>
                   </column>
+                  </row>
+
+                  <row v-if="selection.row == 'Row'">
+                    <column size="100%">
+                      <label :for="`spacing`">Spacing</label>
+                    </column>
+                    <column size="100%">
+                      <select :id="`spacing`" v-model="selection.spacing">
+                        <option v-for="option in spacing" :value="option" :key="option" v-html="option/100"/>
+                      </select>
+                    </column>
                   </row>
 
                   <row v-if="selection.row == 'Group'">
@@ -47,12 +49,10 @@
               </column>
           </row>
 
-
         <template v-for="column, index in selection.columns">
           <panel-block-column
               v-bind:key="index"
               :index="index"
-              :selection="selection"
               :name="(index + 1).toString()" />
         </template>
 
@@ -68,7 +68,7 @@
       </scroll-area>
     </column>
 
-    <column :size="state.panel ? '100%-350' : '100%-50'" class="workarea">
+    <column :size="panel ? '100%-350' : '100%-50'" class="workarea">
       <div class="container">
         
         <h1 class="app-title">
@@ -78,15 +78,16 @@
         <div class="builder-container">
           <row
             :group="selection.row == 'Group'"
-            :integrate="selection.integrate"
-            :content="selection.row == 'Content'"
+            :integrate="computedIntegrate"
+            :spacing="computedSpacing"
           >
               <template v-for="column, index in selection.columns">
                   <component
-                      v-bind:is="column.block"
-                      v-bind:key="index"
-                      :size="finalExpression(index)">
-                      <btn :value="column.size" :color="column.color" />
+                    v-bind:is="column.block"
+                    v-bind:key="index"
+                    :size="finalExpression(index)"
+                  >
+                    <btn :value="column.size" :color="column.color" />
                   </component>
               </template>
           </row>
@@ -98,10 +99,15 @@
 
 <script lang="ts">
   import Vue from "vue";
-  import {validateSize} from 'nano-grid/ts/columns-manager';
+  import {
+    validateSize,
+  } from 'nano-grid/modules/columns-manager.js';
   import panelBlock from "../components/panel-block.vue";
   import panelBlockColumn from "../components/panel-block-column.vue";
   import PanelNavigation from "../components/panel-navigation.vue";
+  import {
+    mapGetters,
+  } from 'vuex';
 
   export default Vue.extend({
     components: {
@@ -110,74 +116,46 @@
       panelBlockColumn
     },
     data: () => ({
-      state: {
-        panel: true,
-      },
-      selection: {
-        row: "Row",
-        integrate: false,
-        columns: [
-          {
-              mode: "Percent",
-              size: "50%",
-              subtraction: "0",
-              color: "denim",
-              expression: "sz1b4",
-              block: "column",
-          },
-          {
-              mode: "Percent",
-              size: "50%",
-              subtraction: "0",
-              color: "persian-red",
-              expression: "sz1b4",
-              block: "column",
-          },
-        ]
-      },
+      selection: {columns: []},
+      spacing: [
+        0,
+        25,
+        50,
+        75,
+        100,
+        125,
+        150,
+        175,
+        200,
+        225,
+        250,
+        275,
+        300,
+        325,
+        350,
+        375,
+        400,
+      ],
     }),
+    mounted() {
+      this.$store.commit("setPanelVisibility", true);
+      this.selection = this.$store.getters.getSelection;
+    },
     computed: {
-      fixesValues() {
-        let result = [];
-        for(let c = 5; c <= 60; c++ ){
-          result.push(`${c * 5}`);
-        }
-        return result;
+      ...mapGetters({
+        panel: 'getPanelVisibility',
+      }),
+      computedSpacing():number {
+        return this.selection.row === 'Row' ? this.selection.spacing : 0;
       },
-      fixesSubstractionValues() {
-        let result = [];
-        for(let c = 1; c <= 120; c++ ){
-          result.push(`${c * 5}`);
-        }
-        return result;
+      computedIntegrate():boolean {
+        return this.selection.row === 'Group' ? this.selection.integrate : false;
       },
-      percentsValues() {
-        let result = [];
-        for(let c = 1; c*5 <= 100; c++ ){
-          result.push(`${c * 5}%`);
-        }
-        return result;
-      },
-      twelveValues() {
-        let result = [];
-        for(let c = 1; c <= 12; c++ ){
-          result.push(`${c}/12`);
-        }
-        return result;
-      },
-      columnsValues() {
-        let result = [];
-        for(let c = 1; c <= 20; c++ ){
-          result.push(`1/${c}`);
-        }
-        return result;
-      },
-      rowSize(){
+      rowSize():string {
         let subtraction = 0
         let fraction = 0
         let fixVal = 0;
         let columns = this.selection.columns;
-
 
         columns.forEach(column => {
             subtraction += parseInt(column.subtraction);
@@ -198,7 +176,7 @@
       }
     },
     methods: {
-      finalExpression(column){
+      finalExpression(column:number):string {
         let result = "";
         if(this.selection.columns[column].size){
           result += this.selection.columns[column].size;
@@ -208,21 +186,18 @@
         }
         return validateSize(result);
       },
-      addColumn(){
-          this.selection.columns.push(
-              {
-                mode: "Percent",
-                size: "50%",
-                subtraction: "0",
-                color: "desert",
-                expression: "sz1b4",
-                block: "column",
-              }
-          );
+      addColumn():any {
+        this.$store.commit("addColumn", {
+          mode: "Percent",
+          size: "50%",
+          subtraction: "0",
+          color: "desert",
+          expression: "sz1b4",
+          block: "column",
+        });
+        this.selection = this.$store.getters.getSelection;
       },
-      togglePanel(){
-        this.state.panel = !this.state.panel;
-      }
+      
     },
   });
 </script>

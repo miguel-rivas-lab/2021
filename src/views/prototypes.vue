@@ -12,7 +12,7 @@
         <div class="container">
           <template v-for="project, projectIndex in projectsDB">
             <article v-bind:key="projectIndex">
-              <row content>
+              <row :spacing="100">
                 <column size="100%-300">
                   <img
                     :src="getImage(project.client, project.date)"
@@ -79,12 +79,12 @@
       },
     }),
     computed: {
-      projectsDB(){
+      projectsDB():Array<any> {
         return prototypes;
       }
     },
     methods: {
-      getImage(client:string, date:string) {
+      getImage(client:string, date:string):any {
         client = client.replace(/\s/g, '').toLowerCase();
         date = date.replace(/\//g, '');
         return require(`@/assets/${client}_${date}.png`);
