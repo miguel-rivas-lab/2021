@@ -3,11 +3,10 @@ import VueRouter, { RouteConfig } from 'vue-router';
 
 import ButtonsView from './views/buttons.vue';
 import ColorsView from './views/colors.vue';
-import DocumentsView from './views/documents.vue';
 import GridView from './views/grid.vue';
 import HomeView from './views/home.vue';
 import ProjectsView from './views/projects.vue';
-import PrototypesView from './views/prototypes.vue';
+import ExperimentsView from './views/experiments.vue';
 
 Vue.use(VueRouter);
 
@@ -23,14 +22,9 @@ const routes: Array<RouteConfig> = [
     component: ProjectsView,
   },
   {
-    name: 'prototypes',
-    path: '/prototypes',
-    component: PrototypesView,
-  },
-  {
-    name: 'documents',
-    path: '/documents',
-    component: DocumentsView,
+    name: 'experiments',
+    path: '/experiments',
+    component: ExperimentsView,
   },
   {
     name: 'colors',

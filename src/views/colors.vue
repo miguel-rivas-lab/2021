@@ -14,14 +14,8 @@
             <template v-for="color, colorIndex in gColorsDB">
               <li v-bind:key="colorIndex">
                 <div class="color" :style="`background-color: ${color.hex}`" />
-                <div>
-                  <h4>
-                    {{color.label}}
-                  </h4>
-                  <p>
-                    {{color.hex}}
-                  </p>
-                </div>
+                <h4 v-html="color.label" />
+                <p v-html="color.hex" />
               </li>
             </template>
           </ul>
