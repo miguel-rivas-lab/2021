@@ -12,12 +12,12 @@ export default new Vuex.Store({
       spacing: 0,
       columns: [
         {
-            mode: "Percent",
-            size: "100%",
-            subtraction: "100",
-            color: "silver",
-            expression: "sz1b4m100",
-            block: "column",
+          mode: "Percent",
+          size: "100%",
+          subtraction: "100",
+          color: "silver",
+          expression: "sz1b4m100",
+          block: "column",
         },
         {
           mode: "Fixed",

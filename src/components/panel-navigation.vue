@@ -51,12 +51,12 @@
   },
   methods: {
     ...mapMutations(['togglePanelVisibility']),
-    playSound(frequecy:number, duration:number, number:number):any {
+    playSound(frequency:number, duration:number, number:number):any {
       let context = new AudioContext();
       let newSound = context.createOscillator();
       let newGain = context.createGain();
       newSound.connect(newGain);
-      newSound.frequency.value = frequecy;
+      newSound.frequency.value = frequency;
       newGain.connect(context.destination);
       newSound.start(0);
       newGain.gain.exponentialRampToValueAtTime(number, context.currentTime + duration );

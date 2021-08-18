@@ -55,11 +55,14 @@ input[type=text] {
   justify-content: center;
 }
 
-@import "animations";
+@import "core/animations";
 @import "views/home";
 @import "views/grid";
 @import "views/projects";
+@import "components/app";
+@import "components/container";
 @import "components/palette";
 @import "components/listings";
 @import "components/radio-select";
 @import "components/tooltip";
+@import "components/gallery";

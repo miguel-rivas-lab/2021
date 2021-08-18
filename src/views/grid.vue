@@ -71,7 +71,7 @@
     <column :size="panel ? '100%-350' : '100%-50'" class="workarea">
       <div class="container">
         
-        <h1 class="app-title">
+        <h1>
           {{rowSize}}
         </h1>
 
@@ -113,7 +113,7 @@
     components: {
       PanelNavigation,
       panelBlock,
-      panelBlockColumn
+      panelBlockColumn,
     },
     data: () => ({
       selection: {columns: []},
@@ -172,7 +172,7 @@
             }
         });
         let fixResult = fixVal-subtraction > -1 ? '+' + (fixVal-subtraction).toString() : (fixVal-subtraction).toString();
-        return `${fraction}%${fixResult}`;
+        return parseInt(fixResult) !== 0 ? `${fraction}%${fixResult}` : `${fraction}%`;
       }
     },
     methods: {

@@ -1,0 +1,85 @@
+.nano-app {
+    height: 100vh;
+    margin-bottom: 0;
+    align-items: stretch;
+  
+    &,
+    & > .main-panel,
+    & > .panel,
+    & > .workarea {
+      max-height: 100vh;
+    }
+  
+    > .main-panel {
+      background: #232327;
+      border-right: 1px solid #19191d;
+  
+      .btn.flat {
+        margin: 0.5rem auto;
+      }
+    }
+  
+    > .panel {
+      transition: all 200ms ease;
+      background: #1f1f23;
+      border-right: 1px solid #19191d;
+  
+      .scroll-area {
+        padding-top: 1rem;
+      }
+      
+      fieldset {
+        border-radius: 5px;
+        border: 1px solid #444444;
+      }
+  
+      .row-block {
+        opacity: 1;
+        margin: 0 1rem 1rem;
+        padding: 1rem;
+  
+        &:last-child {
+          border-bottom: none;
+          margin-bottom: 0;
+        }
+      }
+  
+      legend {
+        font-weight: 700;
+        padding: 0;
+        color: #b9b90e;
+        margin-bottom: 1rem;
+      }
+  
+      label {
+        margin-bottom: 0.5rem;
+        font-size: 11pt;
+        color: #4ca1ef;
+  
+        &:not(.btn){ 
+          display: block;
+        }
+      }
+  
+      button,
+      label,
+      select,
+      input[type=text] {
+        width: 100%;
+      }
+  
+      &.hide-panel {
+        max-width: 0;
+        border-right: 0;
+  
+        fieldset {
+          opacity: 0;
+        }
+      }
+    }
+    > .workarea {
+      display: flex;
+      transition: all 200ms ease;
+      background-color: #1e1e1e;
+    }
+  }

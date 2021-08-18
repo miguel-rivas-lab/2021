@@ -8,7 +8,6 @@ import GridView from './views/grid.vue';
 import HomeView from './views/home.vue';
 import ProjectsView from './views/projects.vue';
 import PrototypesView from './views/prototypes.vue';
-import VideosView from './views/videos.vue';
 
 Vue.use(VueRouter);
 
@@ -27,11 +26,6 @@ const routes: Array<RouteConfig> = [
     name: 'prototypes',
     path: '/prototypes',
     component: PrototypesView,
-  },
-  {
-    name: 'videos',
-    path: '/videos',
-    component: VideosView,
   },
   {
     name: 'documents',

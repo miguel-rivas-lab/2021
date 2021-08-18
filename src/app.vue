@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main :class="sectionName">
     <router-view></router-view>
   </main>
 </template>
@@ -8,7 +8,10 @@
   import Vue from "vue";
 
   export default Vue.extend({
-    components: {
+    computed: {
+      sectionName(){
+        return `section-${this.$route.name}`;
+      }
     },
   });
 </script>
