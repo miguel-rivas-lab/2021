@@ -6,6 +6,7 @@
           :to="{name: nav.route}"
           v-bind:key="index"
           color="gravel"
+          :class="['tooltip', nav.route]"
           size="md"
           :glyph="nav.icon"
         />
@@ -15,6 +16,7 @@
           v-bind:key="index"
           color="gravel"
           size="md"
+          :class="['tooltip', nav.route]"
           @click="togglePanelVisibility"
           :glyph="nav.icon"
           active

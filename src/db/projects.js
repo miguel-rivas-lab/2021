@@ -52,6 +52,9 @@ const tool = {
   afterEffects: "Adobe After Effects",
   premiere: "Adobe Premiere",
   inkscape: "Inkscape",
+  typescript: "TypeScript",
+  vuex: "Vuex",
+  vueRouter: "Vue Router",
 };
 
 const role = {
@@ -90,21 +93,13 @@ const client = {
   socialNetwork: "Social Network",
 };
 
-const linkWeb = (item) => {
-  return `https://miguel-rivas.github.io/${item}`;
-};
+const linkWeb = (item) => `https://miguel-rivas.github.io/${item}`;
 
-const linkGithub = (item) => {
-  return `https://github.com/miguel-rivas/${item}`;
-};
+const linkGithub = (item) => `https://github.com/miguel-rivas/${item}`;
 
-const linkGithubDev = (item) => {
-  return `https://github.com/miguel-rivas-lab/${item}-dev`;
-};
+const linkGithubDev = (item) => `https://github.com/miguel-rivas-lab/${item}-dev`;
 
-const linkCodepen = (item) => {
-  return `https://codepen.io/planetwurlex/pen/${item}`;
-};
+const linkCodepen = (item) => `https://codepen.io/planetwurlex/pen/${item}`;
 
 export const prototypes = [
 {
@@ -480,6 +475,9 @@ export const prototypes = [
     client: client.miguelRivas,
     tools: [
         tool.vue,
+        tool.vuex,
+        tool.vueRouter,
+        tool.typescript,
         tool.sass,
     ],
     links: {
