@@ -75,7 +75,7 @@
         getImage(client:string, date:string):any {
             client = client.replace(/\s/g, '').toLowerCase();
             date = date.replace(/\//g, '');
-            return require(`@/assets/${client}_${date}.png`);
+            return require(`@/assets/${client}_${date}.jpg`);
         }
     }
   });
