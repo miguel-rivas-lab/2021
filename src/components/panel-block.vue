@@ -4,7 +4,12 @@
       <legend>
         <row>
           <column size="100%-35">
-            {{title}}
+            <btn
+                :color="color"
+                size="md"
+                @click="toggleBlockVisibility()"
+                :value="title"
+              />
           </column>
           <suffix size="35">
             <btn
@@ -16,7 +21,11 @@
           </suffix>
         </row>
       </legend>
-      <slot />
+      <transition name="slide-fade">
+        <div class="column-content" v-if="blockVisibility">
+          <slot />
+        </div>
+      </transition>
     </column>
   </row>
 </template>
@@ -29,8 +38,15 @@
       title: {
         type: String,
         default: "",
+      },
+      color: {
+        type: String,
+        default: 'gravel',
       }
     },
+    data: () => ({
+      blockVisibility: false,
+    }),
     created() {
       this.$emit('created');
     },
@@ -38,6 +54,9 @@
       removeBlock($event:any) {
         this.$emit('onRemove', $event);
       },
+      toggleBlockVisibility() {
+        this.blockVisibility = !this.blockVisibility;
+      }
     }
   });
 </script>

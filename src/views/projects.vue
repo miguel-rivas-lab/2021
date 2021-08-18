@@ -2,12 +2,12 @@
   <row class="nano-app nano-dark section-project">
     <panel-navigation />
 
-    <column size="300" class="panel" :class="{'hide-panel': !state.panel}">
+    <column size="300" class="panel" :class="{'hide-panel': !panel}">
       <scroll-area color="royal-purple">
       </scroll-area>
     </column>
 
-    <column :size="state.panel ? '100%-350' : '100%-50'" class="workarea gallery">
+    <column :size="panel ? '100%-350' : '100%-50'" class="workarea gallery">
       <scroll-area color="royal-purple">
         <div class="container">
           <template v-for="project, projectIndex in projectsDB">
@@ -34,10 +34,13 @@
                   <ul class="navigation">
                     <template v-for="(link, linkIndex) in project.links.web">
                       <li v-bind:key="linkIndex">
-                        <a
-                          :href="link.url"
+                        <btn
+                          tag="a"
+                          size="md"
+                          color="royal-purple"
                           target="_blank"
-                          v-html="link.text"
+                          :href="link.url"
+                          :value="link.text"
                         />
                       </li>
                     </template>
@@ -67,16 +70,16 @@
 <script lang="ts">
   import Vue from "vue";
   import PanelNavigation from "../components/panel-navigation.vue";
-  import {projects} from '../db-projects.js';
+  import {
+    projects,
+  } from '../db/projects.js';
 
   export default Vue.extend({
     components: {
       PanelNavigation,
     },
     data: () => ({
-      state: {
-        panel: false,
-      },
+      panel: false,
     }),
     computed: {
       projectsDB():Array<any> {

@@ -3,6 +3,7 @@
     v-if="selection.columns[index]"
     @onRemove="removeBlock()"
     :title="`${name.toUpperCase()}: Column Styles`"
+    :color="selection.columns[index].color"
   >
     <row>
       <column size="100%">
@@ -56,21 +57,10 @@
 
     <row>
       <column size="100%">
-        <label :for="`id-${name}-result`">Result</label>
+        <label :for="`id-${name}-result`">Class Name</label>
       </column>
       <column size="100%">
         <input :id="`id-${name}-result`" disabled type="text" v-model="finalValue">
-      </column>
-    </row>
-
-    <row>
-      <column size="100%">
-        <label :for="`id-${name}-color`">Button Color</label>
-      </column>
-      <column size="100%">
-        <select :id="`id-${name}-color`" v-model="selection.columns[index].color">
-          <option v-for="option in colorValues" :value="option" :key="option" v-html="option"/>
-        </select>
       </column>
     </row>
 
@@ -85,6 +75,29 @@
       </column>
     </row>
 
+    <row>
+      <column size="100%">
+        <label>Button Color</label>
+      </column>
+      <column size="100%">
+        <div class="radio-select">
+          <template v-for="option in gColorsDB">
+              <label
+                :class="[option.spinalCase, 'btn', 'flat']"
+                v-bind:key="option.spinalCase"
+              >
+                <input
+                  type="radio"
+                  :name="`id-${name}-color`"
+                  :value="option.spinalCase"
+                  v-model="selection.columns[index].color"
+                >
+              </label>
+          </template>
+        </div>
+      </column>
+    </row>
+
   </panel-block>
 </template>
 
@@ -95,6 +108,9 @@
     validateSize,
     cssSizesWidth,
   } from 'nano-grid/modules/columns-manager.js';
+  import {
+    gColorsDB,
+  } from '../db/colors';
 
   export default Vue.extend({
     components: {panelBlock},
@@ -108,26 +124,12 @@
     data: () => ({
       cssSizes: cssSizesWidth,
       gridType: ['Percent', 'Fixed', 'Twelve Grid', 'Column Based'],
-      colorValues: [
-        'silver',
-        'royal-purple',
-        'persian-red',
-        'denim',
-        'gold-tips',
-        'shamrock',
-        'cod-grey',
-        'gravel',
-        'emerald',
-        'burn-orange',
-        'razzmatazz',
-        'desert',
-        'charcoal',
-      ],
       styles: [
         'prefix',
         'column',
         'suffix',
       ],
+      gColorsDB: gColorsDB,
       selection: {columns: []},
     }),
     mounted() {

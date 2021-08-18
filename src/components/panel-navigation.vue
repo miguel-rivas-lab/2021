@@ -40,8 +40,8 @@
       { icon: 'projector-screen', route: 'projects' },
       { icon: 'duck', route: 'prototypes' },
       { icon: 'robot-industrial', route: 'grid' },
-      // { icon: 'gesture-tap-button', route: 'buttons' },
-      // { icon: 'format-color-fill', route: 'colors' },
+      { icon: 'gesture-tap-button', route: 'buttons' },
+      { icon: 'format-color-fill', route: 'colors' },
     ],
     
   }),
@@ -60,21 +60,12 @@
       newGain.gain.exponentialRampToValueAtTime(number, context.currentTime + duration );
     },
   },
-  mounted(){
-    switch(this.$route.name){
-      default:
-        this.playSound(600, 0.3, 0.00000001);
-        break;
-      case "projects":
-        this.playSound(500, 0.3, 0.00000001);
-        break;
-      case "prototypes":
-        this.playSound(400, 0.3, 0.00000001);
-        break;
-      case "grid":
-        this.playSound(300, 0.3, 0.00000001);
-        break;
-    }
+  mounted() {
+    this.navigation.forEach( (value, index) => {
+      if(value.route == this.$route.name) {
+        this.playSound((100 * (index + 2)), 0.3, 0.00000001);
+      }
+    });
     this.panel = this.$store.getters.getPanelVisibility;
   }
   });

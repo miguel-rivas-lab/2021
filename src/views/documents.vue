@@ -2,12 +2,12 @@
   <row class="nano-app nano-dark">
     <panel-navigation />
 
-    <column size="300" class="panel" :class="{'hide-panel': !state.panel}">
+    <column size="300" class="panel" :class="{'hide-panel': !panel}">
       <scroll-area color="royal-purple">
       </scroll-area>
     </column>
 
-    <column :size="state.panel ? '100%-350' : '100%-50'" class="workarea">
+    <column :size="panel ? '100%-350' : '100%-50'" class="workarea">
       <div class="container">
           <h1>documents</h1>
       </div>
@@ -24,9 +24,7 @@
       PanelNavigation
     },
     data: () => ({
-      state: {
-        panel: false,
-      },
+      panel: false,
     }),
     computed: {
     },
