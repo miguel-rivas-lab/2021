@@ -107,7 +107,7 @@
   import {
     validateSize,
     cssSizesWidth,
-  } from 'nano-grid/modules/columns-manager.js';
+  } from 'nano-grid/modules/columns-manager';
   import {
     gColorsDB,
   } from '../db/colors';
@@ -123,7 +123,12 @@
     },
     data: () => ({
       cssSizes: cssSizesWidth,
-      gridType: ['Percent', 'Fixed', 'Twelve Grid', 'Column Based'],
+      gridType: [
+        'Percent',
+        'Fixed',
+        'Twelve Grid',
+        'Column Based'
+      ],
       styles: [
         'prefix',
         'column',

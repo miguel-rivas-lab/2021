@@ -102,849 +102,847 @@ const linkGithubDev = (item) => `https://github.com/miguel-rivas-lab/${item}-dev
 const linkCodepen = (item) => `https://codepen.io/planetwurlex/pen/${item}`;
 
 export const prototypes = [
-{
+  {
     date: "2015/01/03",
     title: "Mainfront",
     type: mode.app,
     role: [
-        role.frontend,
-        role.design,
+      role.frontend,
+      role.design,
     ],
     client: client.miguelRivas,
     tools: [
-        tool.pug,
-        tool.json,
-        tool.jQuery,
-        tool.grunt,
-        tool.css,
-        tool.illustrator,
+      tool.pug,
+      tool.json,
+      tool.jQuery,
+      tool.grunt,
+      tool.css,
+      tool.illustrator,
     ],
     links: {
-        web: [
-            {url: linkWeb("main-front"), text: "App"},
-        ],
-        github: linkGithubDev("main-front"),
+      web: [
+        { url: linkWeb("main-front"), text: "App" },
+      ],
+      github: linkGithubDev("main-front"),
     },
-},
-{
+  },
+  {
     date: "2015/04/19",
     title: "CSS Study",
     type: mode.app,
     role: [
-        role.frontend,
-        role.design,
+      role.frontend,
+      role.design,
     ],
     client: client.miguelRivas,
     tools: [
-        tool.angular,
-        "Sweetalert",
-        tool.json,
-        tool.illustrator,
-        tool.css,
-        tool.pug,
+      tool.angular,
+      "Sweetalert",
+      tool.json,
+      tool.illustrator,
+      tool.css,
+      tool.pug,
     ],
     links: {
-        web: [
-            {url: linkWeb("css-study"), text: "App"},
-        ],
-        github: linkGithubDev("css-study"),
+      web: [
+        { url: linkWeb("css-study"), text: "App" },
+      ],
+      github: linkGithubDev("css-study"),
     },
-},
-{
+  },
+  {
     date: "2015/04/26",
     title: "Evolution Of The Web",
     type: mode.app,
     role: [
-        role.frontend,
-        role.design,
+      role.frontend,
+      role.design,
     ],
     client: client.miguelRivas,
     tools: [
-        "stellarJS",
-        "jQueryMouseWheel",
-        "CSS's SVG Animations",
-        "CSS's Keyframes",
-        "Horizontal Layout",
-        tool.inkscape,
-        tool.pug,
-        tool.markdown,
-        tool.wordpress,
+      "stellarJS",
+      "jQueryMouseWheel",
+      "CSS's SVG Animations",
+      "CSS's Keyframes",
+      "Horizontal Layout",
+      tool.inkscape,
+      tool.pug,
+      tool.markdown,
+      tool.wordpress,
     ],
     links: {
-        web: [
-            {url: linkWeb("evolution-web"), text: "App"},
-        ],
-        github: linkGithubDev("evolution-web"),
+      web: [
+        { url: linkWeb("evolution-web"), text: "App" },
+      ],
+      github: linkGithubDev("evolution-web"),
     },
-},
-{
+  },
+  {
     date: "2015/05/14",
     title: "Screen",
     type: mode.prototype,
     role: [
-        role.frontend,
-        role.design,
+      role.frontend,
+      role.design,
     ],
     client: client.miguelRivas,
     tools: [
-        "HTML's Bones Structure",
-        "CSS's Hover Animations",
-        "CSS's Keyframes",
-        "SASS's Variables",
-        "SASS's Mixings",
-        tool.pug,
-        tool.css,
-        tool.illustrator,
+      "HTML's Bones Structure",
+      "CSS's Hover Animations",
+      "CSS's Keyframes",
+      "SASS's Variables",
+      "SASS's Mixings",
+      tool.pug,
+      tool.css,
+      tool.illustrator,
     ],
     links: {
-        web: [
-            {url: linkCodepen("oXxPvw"), text: "Codepen Prototype"},
-        ],
+      web: [
+        { url: linkCodepen("oXxPvw"), text: "Codepen Prototype" },
+      ],
     },
-},
-{
+  },
+  {
     date: "2015/05/23",
     title: "Mini Van",
     type: mode.prototype,
     role: [
-        role.frontend,
-        role.design,
+      role.frontend,
+      role.design,
     ],
     client: client.miguelRivas,
     tools: [
-        tool.pug,
-        tool.sass,
-        "CSS's Drawings",
-        "CSS's Hover Animations",
-        "CSS's Keyframes",
-        "SASS's Variables",
-        "SASS's Mixings",
+      tool.pug,
+      tool.sass,
+      "CSS's Drawings",
+      "CSS's Hover Animations",
+      "CSS's Keyframes",
+      "SASS's Variables",
+      "SASS's Mixings",
     ],
     links: {
-        web: [
-            {url: linkCodepen("VLKNBz"), text: "Codepen Prototype"},
-        ],
+      web: [
+        { url: linkCodepen("VLKNBz"), text: "Codepen Prototype" },
+      ],
     },
-},
-{
+  },
+  {
     date: "2015/05/25",
     title: "Windows Form",
     type: mode.prototype,
     role: [
-        role.frontend,
-        role.design,
+      role.frontend,
+      role.design,
     ],
     client: client.miguelRivas,
     tools: [
-        "CSS's 3d Transforms",
-        "CSS's 3d Perspective",
-        "CSS's Hover Animations",
-        "CSS's Drawings",
-        "SASS's Variables",
-        "SASS's Mixings",
-        "Jade's Variables",
-        "Jade's Mixings",
-        tool.illustrator,
+      "CSS's 3d Transforms",
+      "CSS's 3d Perspective",
+      "CSS's Hover Animations",
+      "CSS's Drawings",
+      "SASS's Variables",
+      "SASS's Mixings",
+      "Jade's Variables",
+      "Jade's Mixings",
+      tool.illustrator,
     ],
     links: {
-        web: [
-            {url: linkCodepen("PqbqpL"), text: "Codepen Prototype"},
-        ],
+      web: [
+        { url: linkCodepen("PqbqpL"), text: "Codepen Prototype" },
+      ],
     },
-},
-{
+  },
+  {
     date: "2015/05/28",
     title: "Gear",
     type: mode.prototype,
     role: [
-        role.frontend,
-        role.design,
+      role.frontend,
+      role.design,
     ],
     client: client.miguelRivas,
     tools: [
-        "Canvas",
-        tool.pug,
-        tool.css,
+      "Canvas",
+      tool.pug,
+      tool.css,
     ],
     links: {
-        web: [
-            {url: linkCodepen("yNJJpG"), text: "Codepen Prototype"},
-        ],
+      web: [
+        { url: linkCodepen("yNJJpG"), text: "Codepen Prototype" },
+      ],
     },
-},
-{
+  },
+  {
     date: "2015/12/07",
     title: "SVG 101",
     type: mode.prototype,
     role: [
-        role.frontend,
-        role.design,
+      role.frontend,
+      role.design,
     ],
     client: client.miguelRivas,
     tools: [
-        "jQueryMouseWheel",
-        "stellarJS",
-        "snapSVG",
-        "SVG Animations",
-        "Horizontal Layout",
-        tool.pug,
-        tool.css,
-        tool.illustrator,
+      "jQueryMouseWheel",
+      "stellarJS",
+      "snapSVG",
+      "SVG Animations",
+      "Horizontal Layout",
+      tool.pug,
+      tool.css,
+      tool.illustrator,
     ],
     links: {
-        web: [
-            {url: linkWeb("svg-101"), text: "Prototype"},
-        ],
-        github: linkGithubDev("svg-101"),
+      web: [
+        { url: linkWeb("svg-101"), text: "Prototype" },
+      ],
+      github: linkGithubDev("svg-101"),
     },
-},
-{
+  },
+  {
     date: "2015/12/22",
     title: "Tetravex",
     type: mode.app,
     role: [
-        role.frontend,
-        role.design,
+      role.frontend,
+      role.design,
     ],
     client: client.miguelRivas,
     tools: [
-        tool.javascript,
-        tool.pug,
-        tool.css,
-        "Modular Javascript",
-        "Sizzle",
-        "Lodash",
-        "Velocity.js",
-        tool.illustrator,
-        tool.inkscape,
+      tool.javascript,
+      tool.pug,
+      tool.css,
+      "Modular Javascript",
+      "Sizzle",
+      "Lodash",
+      "Velocity.js",
+      tool.illustrator,
+      tool.inkscape,
     ],
     links: {
-        web: [
-            {url: linkWeb("tetravex"), text: "App"},
-        ],
-        github: linkGithubDev("tetravex"),
+      web: [
+        { url: linkWeb("tetravex"), text: "App" },
+      ],
+      github: linkGithubDev("tetravex"),
     },
-},
-{
+  },
+  {
     date: "2017/02/20",
     title: "Pills",
     type: mode.prototype,
     role: [
-        role.frontend,
-        role.design,
+      role.frontend,
+      role.design,
     ],
     client: client.miguelRivas,
     tools: [
-        tool.slim,
-        tool.css,
-        "CSS's Drawings",
-        "CSS's Hover Animations",
-        "CSS's Keyframes",
+      tool.slim,
+      tool.css,
+      "CSS's Drawings",
+      "CSS's Hover Animations",
+      "CSS's Keyframes",
     ],
     links: {
-        web: [
-            {url: linkCodepen("qRzzmz"), text: "Codepen Prototype"},
-        ],
+      web: [
+        { url: linkCodepen("qRzzmz"), text: "Codepen Prototype" },
+      ],
     },
-},
-{
+  },
+  {
     date: "2010/07/07",
     title: "Walking",
     type: mode.motionGraphics,
     role: [
-        role.animation,
-        role.design,
+      role.animation,
+      role.design,
     ],
     client: client.itla,
     tools: [
-        tool.flash,
+      tool.flash,
     ],
     links: {
-        web: [
-            {url: "https://vimeo.com/224945169", text: "Video"},
-        ],
+      web: [
+        { url: "https://vimeo.com/224945169", text: "Video" },
+      ],
     }
-},
-{
+  },
+  {
     date: "2012/07/22",
     title: "La Guerra de Vectores",
     type: mode.motionGraphics,
     role: [
-        role.animation,
+      role.animation,
     ],
     client: client.itla,
     tools: [
-        tool.flash,
+      tool.flash,
     ],
     links: {
-        web: [
-            {url: "https://vimeo.com/175240185", text: "Video"},
-        ],
+      web: [
+        { url: "https://vimeo.com/175240185", text: "Video" },
+      ],
     }
-},
-{
+  },
+  {
     date: "2016/11/21",
     title: "Wurlex",
     type: mode.animation3D,
     role: [
-        role.animation,role.design
+      role.animation, role.design
     ],
     client: client.miguelRivas,
     tools: [
-        tool.unity,
-        tool.premiere
+      tool.unity,
+      tool.premiere
     ],
     links: {
-        web: [
-            {url: "https://vimeo.com/224977703", text: "Video"},
-        ],
+      web: [
+        { url: "https://vimeo.com/224977703", text: "Video" },
+      ],
     }
-},
-{
+  },
+  {
     date: "2014/03/22",
     title: "Screens Portfolio",
     type: mode.app,
     role: [
-        role.design,
-        role.frontend,
+      role.design,
+      role.frontend,
     ],
     client: client.miguelRivas,
     tools: [
-        tool.pug,
-        tool.sass,
-        tool.jQuery,
-        tool.php,
+      tool.pug,
+      tool.sass,
+      tool.jQuery,
+      tool.php,
     ],
     links: {
-        web: [
-            {url: linkWeb("miguel-rivas-2014"), text: "App"},
-        ],
-        github: linkGithubDev("miguel-rivas-2014"),
+      web: [
+        { url: linkWeb("miguel-rivas-2014"), text: "App" },
+      ],
+      github: linkGithubDev("miguel-rivas-2014"),
     },
-},
-{
+  },
+  {
     date: "2016/08/11",
     title: "Monster Portfolio",
     type: mode.app,
     role: [
-        role.design,
-        role.frontend,
+      role.design,
+      role.frontend,
     ],
     client: client.miguelRivas,
     tools: [
-        tool.pug,
-        tool.sass,
-        tool.jQuery,
-        tool.php,
+      tool.pug,
+      tool.sass,
+      tool.jQuery,
+      tool.php,
     ],
     links: {
-        web: [
-            {url: linkWeb("miguel-rivas-2016"), text: "App"},
-        ],
-        github: linkGithubDev("miguel-rivas-2016"),
+      web: [
+        { url: linkWeb("miguel-rivas-2016"), text: "App" },
+      ],
+      github: linkGithubDev("miguel-rivas-2016"),
     },
-},
-// {
-//     date: "2021/03/26",
-//     title: "Letters Portfolio",
-//     type: mode.app,
-//     role: [
-//         role.design,
-//         role.frontend,
-//     ],
-//     client: client.miguelRivas,
-//     tools: [
-//         tool.react,
-//         tool.sass,
-//     ],
-//     links: {
-//         web: [
-//             {url: linkWeb("miguel-rivas-2021-2"), text: "App"},
-//         ],
-//         github: linkGithubDev("miguel-rivas-2021-2"),
-//     },
-// },
-{
+  },
+  // {
+  //     date: "2021/03/26",
+  //     title: "Letters Portfolio",
+  //     type: mode.app,
+  //     role: [
+  //         role.design,
+  //         role.frontend,
+  //     ],
+  //     client: client.miguelRivas,
+  //     tools: [
+  //         tool.react,
+  //         tool.sass,
+  //     ],
+  //     links: {
+  //         web: [
+  //             {url: linkWeb("miguel-rivas-2021-2"), text: "App"},
+  //         ],
+  //         github: linkGithubDev("miguel-rivas-2021-2"),
+  //     },
+  // },
+  {
     date: "2021/08/12",
     title: "Card Portfolio",
     type: mode.app,
     role: [
-        role.design,
-        role.frontend,
+      role.design,
+      role.frontend,
     ],
     client: client.miguelRivas,
     tools: [
-        tool.vue,
-        tool.vuex,
-        tool.vueRouter,
-        tool.typescript,
-        tool.sass,
+      tool.vue,
+      tool.vuex,
+      tool.vueRouter,
+      tool.typescript,
+      tool.sass,
     ],
     links: {
-        web: [
-            {url: linkWeb("miguel-rivas-2021"), text: "App"},
-        ],
-        github: linkGithubDev("miguel-rivas-2021"),
+      web: [
+        { url: linkWeb("miguel-rivas-2021"), text: "App" },
+      ],
+      github: linkGithubDev("miguel-rivas-2021"),
     },
-},
-{
+  },
+  {
     date: "2018/01/01",
     title: "Grid Portfolio",
     type: mode.app,
     role: [
-        role.design,
-        role.frontend,
+      role.design,
+      role.frontend,
     ],
     client: client.miguelRivas,
     tools: [
-        tool.angular,
-        tool.sass,
+      tool.angular,
+      tool.sass,
     ],
     links: {
-        web: [
-            {url: linkWeb("miguel-rivas-2018"), text: "Home"},
-            {url: linkWeb("miguel-rivas-2018/drlogic.html"), text: "DrLogic"},
-            {url: linkWeb("miguel-rivas-2018/apap.html"), text: "Apap"},
-            {url: linkWeb("miguel-rivas-2018/bpr.html"), text: "BPR Bank"},
-            {url: linkWeb("miguel-rivas-2018/presidente.html"), text: "Presidente"},
-            {url: linkWeb("miguel-rivas-2018/tests.html"), text: "Tests"},
-            {url: "https://vimeo.com/260621089", text: "Video"},
-        ],
-        github: linkGithubDev("miguel-rivas-2018"),
+      web: [
+        { url: linkWeb("miguel-rivas-2018"), text: "Home" },
+        { url: linkWeb("miguel-rivas-2018/drlogic.html"), text: "DrLogic" },
+        { url: linkWeb("miguel-rivas-2018/apap.html"), text: "Apap" },
+        { url: linkWeb("miguel-rivas-2018/bpr.html"), text: "BPR Bank" },
+        { url: linkWeb("miguel-rivas-2018/presidente.html"), text: "Presidente" },
+        { url: linkWeb("miguel-rivas-2018/tests.html"), text: "Tests" },
+        { url: "https://vimeo.com/260621089", text: "Video" },
+      ],
+      github: linkGithubDev("miguel-rivas-2018"),
     },
-},
-{
+  },
+  {
     date: "2016/01/11",
     title: "HTML/LOVE",
     type: mode.landingPage,
     role: [
-        role.frontend,
-        role.design,
+      role.frontend,
+      role.design,
     ],
     client: client.miguelRivas,
     tools: [
-        tool.haml,
-        tool.css,
-        "Animate.css",
-        "CSS's Hover Animations",
-        "CSS's Keyframes",
-        "SASS's Variables",
-        "SASS's Mixings",
-        tool.illustrator
+      tool.haml,
+      tool.css,
+      "Animate.css",
+      "CSS's Hover Animations",
+      "CSS's Keyframes",
+      "SASS's Variables",
+      "SASS's Mixings",
+      tool.illustrator
     ],
     links: {
-        web: [
-            {url: linkWeb("html-love"), text: "App"},
-        ],
-        github: linkGithubDev("html-love"),
+      web: [
+        { url: linkWeb("html-love"), text: "App" },
+      ],
+      github: linkGithubDev("html-love"),
     },
-},
-{
+  },
+  {
     date: "2021/03/22",
     title: "Nano Grid",
     type: mode.module,
     role: [
-        role.frontend,
+      role.frontend,
     ],
     client: client.miguelRivas,
     tools: [
-        tool.vue,
-        tool.sass,
+      tool.vue,
+      tool.sass,
     ],
     links: {
-        web: [
-            {url: "https://www.npmjs.com/package/nano-grid", text: "Node Module"},
-        ],
-        github: "https://github.com/jmiguelrivas/nano-grid-module",
+      web: [
+        { url: "https://www.npmjs.com/package/nano-grid", text: "Node Module" },
+      ],
+      github: "https://github.com/jmiguelrivas/nano-grid-module",
     },
-},
-{
+  },
+  {
     date: "2014/02/09",
     title: "Print Portfolio",
     type: mode.document,
     role: [
-        role.design,
+      role.design,
     ],
     client: client.miguelRivas,
     tools: [
-        tool.indesign,
+      tool.indesign,
     ],
     links: {
-        web: [
-            {url: "https://issuu.com/jemiguelrivas/docs/ptf3_005", text: "Portfolio 3"},
-            {url: "https://issuu.com/jemiguelrivas/docs/ptf2_000", text: "Portfolio 2"},
-            {url: "https://issuu.com/jemiguelrivas/docs/ptf1_000", text: "Portfolio 1"},
-        ],
+      web: [
+        { url: "https://issuu.com/jemiguelrivas/docs/ptf3_005", text: "Portfolio 3" },
+        { url: "https://issuu.com/jemiguelrivas/docs/ptf2_000", text: "Portfolio 2" },
+        { url: "https://issuu.com/jemiguelrivas/docs/ptf1_000", text: "Portfolio 1" },
+      ],
     },
-},
-].sort(function(a ,b){
-return new Date(b.date) - new Date(a.date);
+  },
+].sort(function (a, b) {
+  return new Date(b.date) - new Date(a.date);
 });
 
 export const projects = [
-{
+  {
     date: "2014/06/16",
     title: "Destapa el Coro",
     type: mode.app,
     role: [
-        role.frontend
+      role.frontend
     ],
     client: client.presidente,
     tools: [
-        tool.html,
-        tool.jQuery,
-        tool.grunt,
-        tool.css
+      tool.html,
+      tool.jQuery,
+      tool.grunt,
+      tool.css
     ],
     links: {
-        web: [
-            {url: linkWeb("presidente-destapa-coro"), text: "App"},
-        ],
-        github: linkGithub("presidente-destapa-coro"),
+      web: [
+        { url: linkWeb("presidente-destapa-coro"), text: "App" },
+      ],
+      github: linkGithub("presidente-destapa-coro"),
     },
-},
-{
+  },
+  {
     date: "2015/03/24",
     title: "BigPapi Selfie",
     type: mode.motionGraphics,
     role: [
-        role.animation
+      role.animation
     ],
     client: client.pepsi,
     tools: [
-        tool.flash
+      tool.flash
     ],
     links: {
-        web: [
-            {url: "https://vimeo.com/175240184", text: "Video"},
-        ],
+      web: [
+        { url: "https://vimeo.com/175240184", text: "Video" },
+      ],
     },
-},
-{
+  },
+  {
     date: "2015/04/18",
     title: "Carnaval Presidente 2015",
     linkDirect: false,
     type: mode.landingPage,
     role: [
-        role.frontend
+      role.frontend
     ],
     client: client.presidente,
     tools: [
-        tool.html,
-        tool.jQuery,
-        tool.grunt,
-        tool.css,
-        tool.php
+      tool.html,
+      tool.jQuery,
+      tool.grunt,
+      tool.css,
+      tool.php
     ],
     links: {
-        web: [
-            {url: linkWeb("presidente-carnaval-2015/filter.html"), text: "Filter"},
-            {url: linkWeb("presidente-carnaval-2015/home.html"), text: "Home"},
-        ],
-        github: linkGithubDev("presidente-carnaval-2015"),
+      web: [
+        { url: linkWeb("presidente-carnaval-2015/filter.html"), text: "Filter" },
+        { url: linkWeb("presidente-carnaval-2015/home.html"), text: "Home" },
+      ],
+      github: linkGithubDev("presidente-carnaval-2015"),
     },
-},
-{
+  },
+  {
     date: "2015/05/20",
     title: "Recarga Con RedRock",
     type: mode.motionGraphics,
     role: [
-        role.animation
+      role.animation
     ],
     client: client.redRock,
     tools: [
-        tool.flash
+      tool.flash
     ],
     links: {
-        web: [
-            {url: "https://vimeo.com/175240186", text: "Video"},
-        ],
+      web: [
+        { url: "https://vimeo.com/175240186", text: "Video" },
+      ],
     },
-},
-{
+  },
+  {
     date: "2015/10/23",
     title: "Retrobrindis",
     type: mode.app,
     role: [
-        role.frontend
+      role.frontend
     ],
     client: client.presidente,
     tools: [
-        tool.html,
-        tool.css,
-        tool.jQuery,
-        tool.php
+      tool.html,
+      tool.css,
+      tool.jQuery,
+      tool.php
     ],
     links: {
-        web: [
-            {url: linkWeb("presidente-retro-brindis"), text: "App"},
-        ],
-        github: linkGithubDev("presidente-retro-brindis"),
+      web: [
+        { url: linkWeb("presidente-retro-brindis"), text: "App" },
+      ],
+      github: linkGithubDev("presidente-retro-brindis"),
     },
-},
-{
+  },
+  {
     date: "2015/11/12",
     title: "Mineriza a tu Familia",
     linkDirect: false,
     type: mode.app,
     role: [
-        role.frontend
+      role.frontend
     ],
     client: client.apap,
     tools: [
-        tool.pug,
-        tool.jQuery,
-        tool.css,
-        tool.afterEffects,
-        tool.premiere,
+      tool.pug,
+      tool.jQuery,
+      tool.css,
+      tool.afterEffects,
+      tool.premiere,
     ],
     links: {
-        web: [
-            {url: linkWeb("apap-mineriza-familia"), text: "App"},
-            {url: "https://vimeo.com/211801157", text: "Video"},
-        ],
-        github: linkGithubDev("apap-mineriza-familia"),
+      web: [
+        { url: linkWeb("apap-mineriza-familia"), text: "App" },
+        { url: "https://vimeo.com/211801157", text: "Video" },
+      ],
+      github: linkGithubDev("apap-mineriza-familia"),
     },
-},
-{
+  },
+  {
     date: "2015/12/16",
     title: "Verano Presidente 2015",
     linkDirect: false,
     type: mode.prototype,
     role: [
-        role.frontend
+      role.frontend
     ],
     client: client.presidente,
     tools: [
-        tool.html,
-        tool.jQuery,
-        tool.css
+      tool.html,
+      tool.jQuery,
+      tool.css
     ],
     links: {
-        web: [
-            {url: linkWeb("presidente-verano-2015"), text: "Filter"},
-            {url: linkWeb("presidente-loader"), text: "Loader"},
-        ],
-        github: linkGithubDev("presidente-verano-2015"),
+      web: [
+        { url: linkWeb("presidente-verano-2015"), text: "Filter" },
+        { url: linkWeb("presidente-loader"), text: "Loader" },
+      ],
+      github: linkGithubDev("presidente-verano-2015"),
     },
-},
-{
+  },
+  {
     date: "2016/02/22",
     title: "Website",
     linkDirect: false,
     type: mode.app,
     role: [
-        role.frontend
+      role.frontend
     ],
     client: client.drLogic,
     tools: [
-        tool.haml,
-        tool.css,
-        tool.jQuery,
-        tool.bootstrap,
-        tool.git,
-        tool.rails
+      tool.haml,
+      tool.css,
+      tool.jQuery,
+      tool.bootstrap,
+      tool.git,
+      tool.rails
     ],
     links: {
-        web: [
-            {url: linkWeb("drlogic/home.html"), text: "Home"},
-            {url: linkWeb("drlogic/about-us.html"), text: "About Us"},
-            {url: linkWeb("drlogic/contact-us.html"), text: "Contact Us"},
-            {url: linkWeb("drlogic/portfolio.html"), text: "Portfolio"},
-            {url: linkWeb("drlogic/404.html"), text: "404"},
-            {url: "https://vimeo.com/207152756", text: "Video"},
-        ],
-        github: linkGithubDev("drlogic"),
+      web: [
+        { url: linkWeb("drlogic/home.html"), text: "Home" },
+        { url: linkWeb("drlogic/about-us.html"), text: "About Us" },
+        { url: linkWeb("drlogic/contact-us.html"), text: "Contact Us" },
+        { url: linkWeb("drlogic/portfolio.html"), text: "Portfolio" },
+        { url: linkWeb("drlogic/404.html"), text: "404" },
+        { url: "https://vimeo.com/207152756", text: "Video" },
+      ],
+      github: linkGithubDev("drlogic"),
     },
-},
-{
+  },
+  {
     date: "2016/06/16",
     title: "Server Prompt",
     type: mode.prototype,
     role: [
-        role.frontend,
-        role.design,
+      role.frontend,
+      role.design,
     ],
     client: client.pixelPerfectTree,
     tools: [
-        tool.haml,
-        tool.css,
-        tool.git,
-        tool.illustrator,
-        tool.rails
+      tool.haml,
+      tool.css,
+      tool.git,
+      tool.illustrator,
+      tool.rails
     ],
     links: {
-        web: [
-            {url: linkWeb("pixel-server-prompt/404"), text: "404"},
-            {url: linkWeb("pixel-server-prompt/500"), text: "500"},
-        ],
-        github: linkGithubDev("pixel-server-prompt"),
+      web: [
+        { url: linkWeb("pixel-server-prompt/404"), text: "404" },
+        { url: linkWeb("pixel-server-prompt/500"), text: "500" },
+      ],
+      github: linkGithubDev("pixel-server-prompt"),
     },
-},
-{
+  },
+  {
     date: "2016/06/30",
     title: "Voxel Cube Games",
     type: mode.prototype,
     role: [
-        role.frontend,
-        role.design,
+      role.frontend,
+      role.design,
     ],
     client: client.voxel,
     tools: [
-        tool.haml,
-        tool.css,
-        tool.git,
-        tool.photoshop,
-        tool.rails
+      tool.haml,
+      tool.css,
+      tool.git,
+      tool.photoshop,
+      tool.rails
     ],
     links: {
-        web: [
-            {url: linkWeb("voxel-animation"), text: "Animated Header"},
-        ],
-        github: linkGithubDev("voxel-animation"),
+      web: [
+        { url: linkWeb("voxel-animation"), text: "Animated Header" },
+      ],
+      github: linkGithubDev("voxel-animation"),
     },
-},
-{
+  },
+  {
     date: "2015/05/27",
     title: "Orange Reel",
     type: mode.motionGraphics,
     role: [
-        role.animation,
+      role.animation,
     ],
     client: client.orange,
     tools: [
-        tool.flash,
-        tool.premiere,
+      tool.flash,
+      tool.premiere,
     ],
     links: {
-        web: [
-            {url: "https://vimeo.com/212177083", text: "Video"},
-        ],
+      web: [
+        { url: "https://vimeo.com/212177083", text: "Video" },
+      ],
     }
-},
-{
+  },
+  {
     date: "2014/01/14",
     title: "Website",
     type: client.app,
     role: [
-        role.frontend,
+      role.frontend,
     ],
     client: client.descubria,
     tools: [
-        tool.html,
-        tool.css,
-        tool.jQuery,
+      tool.html,
+      tool.css,
+      tool.jQuery,
     ],
     links: {
-        web: [
-            {url: linkWeb("descubria"), text: "Home"},
-        ],
-        github: linkGithubDev("descubria"),
+      web: [
+        { url: linkWeb("descubria"), text: "Home" },
+      ],
+      github: linkGithubDev("descubria"),
     },
-},
-{
+  },
+  {
     date: "2014/08/06",
     title: "Bloqueo",
     type: mode.prototype,
     role: [
-        role.frontend,
-        role.design,
+      role.frontend,
+      role.design,
     ],
     client: client.capitalDBG,
     tools: [
-        tool.html,
-        tool.css,
-        tool.illustrator
+      tool.html,
+      tool.css,
+      tool.illustrator
     ],
     links: {
-        web: [
-            {url: linkWeb("capital-dbg-server-prompt"), text: "Prototype"},
-        ],
-        github: linkGithub("capital-dbg-server-prompt"),
+      web: [
+        { url: linkWeb("capital-dbg-server-prompt"), text: "Prototype" },
+      ],
+      github: linkGithub("capital-dbg-server-prompt"),
     },
-},
-
-// {
-//     date: "2017/01/01",
-//     title: "FlatCSS",
-//     type: mode.landingPage,
-//     role: [
-//         role.frontend,
-//         role.design,
-//     ],
-//     client: client.miguelRivas,
-//     tools: [
-//         tool.pug,
-//         tool.css,
-//         tool.git,
-//     ],
-//     links: {
-//         web: [
-//             {url: linkWeb("flat-css"), text: "App"},
-//         ],
-//         github: linkGithubDev("flat-css"),
-//     },
-// },
-{
+  },
+  {
     date: "2015/10/28",
     title: "Pixel PT Test",
     type: mode.landingPage,
     role: [
-        role.frontend,
-        role.design,
+      role.frontend,
+      role.design,
     ],
     client: client.pixelPerfectTree,
     tools: [
-        tool.pug,
-        tool.sass,
-        tool.jQuery,
-        tool.illustrator
+      tool.pug,
+      tool.sass,
+      tool.jQuery,
+      tool.illustrator
     ],
     links: {
-        web: [
-            {url: linkWeb("test-pixel-perfect-tree"), text: "Test"},
-        ],
-        github: linkGithub("test-pixel-perfect-tree"),
+      web: [
+        { url: linkWeb("test-pixel-perfect-tree"), text: "Test" },
+      ],
+      github: linkGithub("test-pixel-perfect-tree"),
     },
-},
-// {
-//     client: client.presidente,
-//     title: "Destapa el Coro",
-//     date: "2014/06/02",
-//     links: {
-//         web: [
-//             {url: '', text: "User Flow"},
-//         ],
-//     },
-//     tools: [
-//         tool.illustrator,
-//     ],
-//     type: mode.userFlow,
-//     role: [
-//         role.design,
-//     ],
-// },
-
-{
+  },
+  {
     date: "2021/02/27",
     title: "3D Graph Colors",
     type: mode.prototype,
     role: [
-        role.frontend,
+      role.frontend,
     ],
     client: client.enovational,
     tools: [
-        tool.javascript,
-        tool.three,
+      tool.javascript,
+      tool.three,
     ],
     links: {
-        web: [
-            {url: linkCodepen("dyOmXWO"), text: "Codepen Prototype"},
-        ],
+      web: [
+        { url: linkCodepen("dyOmXWO"), text: "Codepen Prototype" },
+      ],
     },
-},
-].sort(function(a ,b){
-return new Date(b.date) - new Date(a.date);
+  },
+  // {
+  //     date: "2017/01/01",
+  //     title: "FlatCSS",
+  //     type: mode.landingPage,
+  //     role: [
+  //         role.frontend,
+  //         role.design,
+  //     ],
+  //     client: client.miguelRivas,
+  //     tools: [
+  //         tool.pug,
+  //         tool.css,
+  //         tool.git,
+  //     ],
+  //     links: {
+  //         web: [
+  //             {url: linkWeb("flat-css"), text: "App"},
+  //         ],
+  //         github: linkGithubDev("flat-css"),
+  //     },
+  // },
+  // {
+  //     client: client.presidente,
+  //     title: "Destapa el Coro",
+  //     date: "2014/06/02",
+  //     links: {
+  //         web: [
+  //             {url: '', text: "User Flow"},
+  //         ],
+  //     },
+  //     tools: [
+  //         tool.illustrator,
+  //     ],
+  //     type: mode.userFlow,
+  //     role: [
+  //         role.design,
+  //     ],
+  // },
+].sort(function (a, b) {
+  return new Date(b.date) - new Date(a.date);
 });
 
 /*

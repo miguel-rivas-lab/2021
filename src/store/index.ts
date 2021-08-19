@@ -26,7 +26,7 @@ export default new Vuex.Store({
           color: "cod-grey",
           expression: "sz100",
           block: "column",
-      },
+        },
       ]
     },
   },

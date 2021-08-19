@@ -6,8 +6,8 @@
                 <row :spacing="100">
                 <column size="100%-300">
                     <img
-                    :src="getImage(project.client, project.date)"
-                    alt=""
+                        :src="getImage(project.client, project.date)"
+                        :alt="`${project.client} ${project.date}`"
                     >
                 </column>
                 <column size="300">
@@ -72,7 +72,7 @@
         }
     },
     methods: {
-        getImage(client:string, date:string):any {
+        getImage(client:string, date:string):string {
             client = client.replace(/\s/g, '').toLowerCase();
             date = date.replace(/\//g, '');
             return require(`@/assets/${client}_${date}.jpg`);

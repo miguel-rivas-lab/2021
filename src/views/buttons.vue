@@ -2,16 +2,15 @@
   <row class="nano-app nano-dark">
     <panel-navigation />
 
-    <column size="300" class="panel" :class="{'hide-panel': !panel}">
-      <scroll-area color="royal-purple">
-      </scroll-area>
+    <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
+      <scroll-area color="royal-purple"> </scroll-area>
     </column>
 
     <column :size="panel ? '100%-350' : '100%-50'" class="workarea">
       <scroll-area color="royal-purple">
         <div class="container">
           <ul class="buttons">
-            <template v-for="color, colorIndex in gColorsDB">
+            <template v-for="(color, colorIndex) in gColorsDB">
               <li v-bind:key="colorIndex">
                 <btn
                   tag="span"
@@ -28,23 +27,19 @@
 </template>
 
 <script lang="ts">
-  import Vue from "vue";
-  import PanelNavigation from "../components/panel-navigation.vue";
-  import {
-    gColorsDB ,
-  } from '../db/colors';
+import Vue from "vue";
+import PanelNavigation from "../components/panel-navigation.vue";
+import { gColorsDB } from "../db/colors";
 
-  export default Vue.extend({
-    components: {
-      PanelNavigation
-    },
-    data: () => ({
-      panel: false,
-      gColorsDB: gColorsDB,
-    }),
-    computed: {
-    },
-    methods: {
-    },
-  });
+export default Vue.extend({
+  components: {
+    PanelNavigation,
+  },
+  data: () => ({
+    panel: false,
+    gColorsDB: gColorsDB,
+  }),
+  computed: {},
+  methods: {},
+});
 </script>

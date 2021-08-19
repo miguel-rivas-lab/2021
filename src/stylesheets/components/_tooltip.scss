@@ -1,59 +1,59 @@
 .tooltip {
-    position: relative;
-    z-index: 3;
+  position: relative;
+  z-index: 3;
 
+  &:before,
+  &:after {
+    position: absolute;
+    font-family: "Montserrat", Helvetica, Arial, Tahoma, sans-serif;
+    display: none;
+    background-color: #444444;
+  }
+
+  &:before {
+    font-size: 11px;
+    padding: 5px 8px;
+    border-radius: 5px;
+    top: 0;
+    left: 45px;
+    z-index: 2;
+    color: #eeeeee;
+    box-shadow: 3px 1px 5px rgb(0 0 0 / 40%);
+  }
+
+  &:after {
+    content: "";
+    top: 6px;
+    left: 42px;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    z-index: 1;
+  }
+
+  &:hover {
     &:before,
     &:after {
-        position: absolute;
-        font-family: 'Montserrat', Helvetica, Arial, Tahoma, sans-serif;
-        display: none;
-        background-color: #444444;
+      display: block;
     }
-  
-    &:before {
-      font-size: 11px;
-      padding: 5px 8px;
-      border-radius: 5px;
-      top: 0;
-      left: 45px;
-      z-index: 2;
-      color: #eeeeee;
-      box-shadow: 3px 1px 5px rgb(0 0 0 / 40%);
-    }
-  
-    &:after {
-      content: "";
-      top: 6px;
-      left: 42px;
-      width: 10px;
-      height: 10px;
-      transform: rotate(45deg);
-      z-index: 1;
-    }
-  
-    &:hover {
-      &:before,
-      &:after {
-        display: block;
-      }
-    }
-  
-    &.home:before {
-      content: "Home";
-    }
-    &.projects:before {
-      content: "Projects";
-    }
-    &.experiments:before {
-      content: "Experiments";
-    }
-    &.grid:before {
-      content: "Builder";
-    }
-    &.buttons:before {
-      content: "Buttons";
-    }
-    &.colors:before {
-      content: "Colors";
-    }
+  }
+
+  &.home:before {
+    content: "Home";
+  }
+  &.projects:before {
+    content: "Projects";
+  }
+  &.experiments:before {
+    content: "Experiments";
+  }
+  &.grid:before {
+    content: "Builder";
+  }
+  &.buttons:before {
+    content: "Buttons";
+  }
+  &.colors:before {
+    content: "Colors";
+  }
 }

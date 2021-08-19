@@ -51,7 +51,7 @@
   },
   methods: {
     ...mapMutations(['togglePanelVisibility']),
-    playSound(frequency:number, duration:number, number:number):any {
+    playSound(frequency:number, duration:number, number:number) {
       let context = new AudioContext();
       let newSound = context.createOscillator();
       let newGain = context.createGain();

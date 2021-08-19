@@ -51,7 +51,7 @@
       this.$emit('created');
     },
     methods: {
-      removeBlock($event:any) {
+      removeBlock($event) {
         this.$emit('onRemove', $event);
       },
       toggleBlockVisibility() {

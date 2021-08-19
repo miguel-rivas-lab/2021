@@ -2,13 +2,13 @@ class gColor {
   label: string;
   hex: string;
   item?: string;
-  
-  constructor(label:string, hex:string, item?:string){
+
+  constructor(label: string, hex: string, item?: string) {
     this.label = label;
     this.hex = hex;
     this.item = item;
   }
-    
+
   get RGB() {
     return {
       red: parseInt(this.hex.substr(1, 2), 16),
@@ -21,14 +21,14 @@ class gColor {
     const r = this.RGB.red / 255,
       g = this.RGB.green / 255,
       b = this.RGB.blue / 255,
-      cmin = Math.min(r,g,b),
-      cmax = Math.max(r,g,b),
+      cmin = Math.min(r, g, b),
+      cmax = Math.max(r, g, b),
       delta = cmax - cmin;
 
     let h = 0,
       s = 0,
       l = 0;
-  
+
     if (delta === 0) {
       h = 0;
     } else if (cmax === r) {
@@ -44,21 +44,21 @@ class gColor {
     if (h < 0) {
       h += 360;
     }
-    
+
     l = (cmax + cmin) / 2;
     s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
-    
+
     s = +(s * 100).toFixed(1);
     l = +(l * 100).toFixed(1);
 
-    return {hue: h, saturation: s, lightness: l};
+    return { hue: h, saturation: s, lightness: l };
   }
 
-  get hsl(){
+  get hsl() {
     return `hsl(${this.HSL.hue}, ${this.HSL.saturation}%, ${this.HSL.lightness}%)`;
   }
 
-  get rgb(){
+  get rgb() {
     return `rgb(${this.RGB.red}, ${this.RGB.green}, ${this.RGB.blue})`;
   }
 
@@ -83,8 +83,8 @@ export const gColorsDB = [
   new gColor('Denim', '#116ec4'),
   new gColor('Cobalt Blue', '#0B4EAB'),
   new gColor('Royal Purple', '#64429c'),
-  new gColor('Blue Violet', '#994aed'),
   new gColor('Purple Heart', '#7d32b0'),
+  new gColor('Blue Violet', '#994aed'),
   new gColor('Fuchsia', '#AF08AA'),
   new gColor('Razzmatazz', '#da0040'),
   new gColor('Alizarin', '#e72113'),
@@ -106,16 +106,16 @@ export const gColorsDB = [
   new gColor('Cod Grey', '#1b1b1b'),
 ];
 
-export const gColors = function (color){
-    return gColorsDB.find((item) => {
-        if(item.label == color){
-            return item;
-        }
-    });
-}
+// export const gColors = function (color) {
+//   return gColorsDB.find((item) => {
+//     if (item.label == color) {
+//       return item;
+//     }
+//   });
+// }
 
-export const eColors = gColorsDB.filter((item) => {
-    if(item.item){
-        return item;
-    }
-});
+// export const eColors = gColorsDB.filter((item) => {
+//   if (item.item) {
+//     return item;
+//   }
+// });

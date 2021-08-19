@@ -2,9 +2,8 @@
   <row class="nano-app nano-dark section-project">
     <panel-navigation />
 
-    <column size="300" class="panel" :class="{'hide-panel': !panel}">
-      <scroll-area color="royal-purple">
-      </scroll-area>
+    <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
+      <scroll-area color="royal-purple"> </scroll-area>
     </column>
 
     <column :size="panel ? '100%-350' : '100%-50'" class="workarea">
@@ -16,27 +15,24 @@
 </template>
 
 <script lang="ts">
-  import Vue from "vue";
-  import PanelNavigation from "../components/panel-navigation.vue";
-  import {
-    prototypes,
-  } from '../db/projects.js';
-  import Gallery from "../components/gallery.vue";
+import Vue from "vue";
+import PanelNavigation from "../components/panel-navigation.vue";
+import { prototypes } from "../db/projects.js";
+import Gallery from "../components/gallery.vue";
 
-  export default Vue.extend({
-    components: {
-      PanelNavigation,
-      Gallery,
+export default Vue.extend({
+  components: {
+    PanelNavigation,
+    Gallery,
+  },
+  data: () => ({
+    panel: false,
+  }),
+  computed: {
+    projectsDB() {
+      return prototypes;
     },
-    data: () => ({
-      panel: false,
-    }),
-    computed: {
-      projectsDB():Array<any> {
-        return prototypes;
-      }
-    },
-    methods: {
-    },
-  });
+  },
+  methods: {},
+});
 </script>
