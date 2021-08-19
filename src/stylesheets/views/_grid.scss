@@ -22,11 +22,18 @@
     }
   }
 
-  h1 {
-    font-size: 70px;
-    margin: 0 0 1rem;
-    text-align: center;
-    color: gcolor("white");
-    text-transform: uppercase;
+  .workarea {
+    .scroll-area {
+      height: 100%;
+      display: flex;
+    }
+
+    h1 {
+      font-size: 70px;
+      margin: 0;
+      text-align: center;
+      color: gcolor("white");
+      text-transform: uppercase;
+    }
   }
 }

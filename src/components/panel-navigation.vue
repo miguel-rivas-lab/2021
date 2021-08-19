@@ -1,29 +1,31 @@
 <template>
   <column size="50" class="main-panel">
-    <template v-for="(nav, index) in navigation">
-      <template v-if="$route.name !== nav.route">
-        <btn
-          :to="{name: nav.route}"
-          v-bind:key="index"
-          color="gravel"
-          :class="['tooltip', nav.route]"
-          size="md"
-          :glyph="nav.icon"
-        />
+    <scroll-area color="royal-purple">
+      <template v-for="(nav, index) in navigation">
+        <template v-if="$route.name !== nav.route">
+          <btn
+            :to="{name: nav.route}"
+            v-bind:key="index"
+            color="gravel"
+            :class="['tooltip', nav.route]"
+            size="md"
+            :glyph="nav.icon"
+          />
+        </template>
+        <template v-else>
+          <btn
+            v-bind:key="index"
+            color="gravel"
+            size="md"
+            :class="['tooltip', nav.route]"
+            @click="togglePanelVisibility"
+            :glyph="nav.icon"
+            active
+          />
+        </template>
+        
       </template>
-      <template v-else>
-        <btn
-          v-bind:key="index"
-          color="gravel"
-          size="md"
-          :class="['tooltip', nav.route]"
-          @click="togglePanelVisibility"
-          :glyph="nav.icon"
-          active
-        />
-      </template>
-      
-    </template>
+    </scroll-area>
   </column>
 </template>
 

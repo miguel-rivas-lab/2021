@@ -1,6 +1,6 @@
 <template>
   <main :class="sectionName">
-    <router-view></router-view>
+    <router-view />
   </main>
 </template>
 

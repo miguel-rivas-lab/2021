@@ -93,29 +93,29 @@
     </column>
 
     <column :size="panel ? '100%-350' : '100%-50'" class="workarea">
-      <div class="container">
-        <h1>
-          {{ rowSize }}
-        </h1>
+      <scroll-area color="royal-purple">
+        <div class="container">
+          <h1 v-html="rowSize" />
 
-        <div class="builder-container">
-          <row
-            :group="selection.row == 'Group'"
-            :integrate="computedIntegrate"
-            :spacing="computedSpacing"
-          >
-            <template v-for="(column, index) in selection.columns">
-              <component
-                v-bind:is="column.block"
-                v-bind:key="index"
-                :size="finalExpression(index)"
-              >
-                <btn :value="column.size" :color="column.color" />
-              </component>
-            </template>
-          </row>
+          <div class="builder-container">
+            <row
+              :group="selection.row == 'Group'"
+              :integrate="computedIntegrate"
+              :spacing="computedSpacing"
+            >
+              <template v-for="(column, index) in selection.columns">
+                <component
+                  v-bind:is="column.block"
+                  v-bind:key="index"
+                  :size="finalExpression(index)"
+                >
+                  <btn :value="column.size" :color="column.color" />
+                </component>
+              </template>
+            </row>
+          </div>
         </div>
-      </div>
+      </scroll-area>
     </column>
   </row>
 </template>

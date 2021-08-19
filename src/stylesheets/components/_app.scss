@@ -17,6 +17,10 @@
     .btn.flat {
       margin: 0.5rem auto;
     }
+
+    .scroll-area {
+      overflow-x: hidden;
+    }
   }
 
   > .panel {
@@ -78,7 +82,6 @@
     }
   }
   > .workarea {
-    display: flex;
     transition: all 200ms ease;
     background-color: #1e1e1e;
   }

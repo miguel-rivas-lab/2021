@@ -3,7 +3,7 @@
     <panel-navigation />
 
     <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
-      <scroll-area color="royal-purple"> </scroll-area>
+      <scroll-area color="royal-purple" />
     </column>
 
     <column :size="panel ? '100%-350' : '100%-50'" class="workarea">
