@@ -56,4 +56,10 @@
   &.colors:before {
     content: "Colors";
   }
+  &.cube:before {
+    content: "Cube";
+  }
+  &.theme:before {
+    content: "Toggle Theme";
+  }
 }

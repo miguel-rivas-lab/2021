@@ -1,5 +1,5 @@
 <template>
-  <row class="nano-app nano-dark section-project">
+  <row class="nano-app">
     <panel-navigation />
 
     <column size="300" class="panel" :class="{ 'hide-panel': !panel }">

@@ -8,6 +8,22 @@ ul.buttons {
   }
 }
 
+ul.standard {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    color: #eeeeee;
+    margin-bottom: 0.25rem;
+    font-size: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
 ul.skills {
   list-style: none;
   padding: 0;

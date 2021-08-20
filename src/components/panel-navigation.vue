@@ -1,10 +1,10 @@
 <template>
   <column size="50" class="main-panel">
-    <scroll-area color="royal-purple">
+    <div class="navigation">
       <template v-for="(nav, index) in navigation">
         <template v-if="$route.name !== nav.route">
           <btn
-            :to="{name: nav.route}"
+            :to="{ name: nav.route }"
             v-bind:key="index"
             color="gravel"
             :class="['tooltip', nav.route]"
@@ -23,37 +23,39 @@
             active
           />
         </template>
-        
       </template>
-    </scroll-area>
+    </div>
+    <btn
+      color="charcoal"
+      size="md"
+      class="tooltip theme"
+      glyph="brightness-4"
+      @click="toggleTheme"
+    />
   </column>
 </template>
 
 <script lang="ts">
-  import Vue from "vue";
-  import {
-    mapMutations,
-  } from 'vuex';
+import Vue from "vue";
+import { mapMutations } from "vuex";
 
-  export default Vue.extend({
-  components: {
-  },
+export default Vue.extend({
+  components: {},
   data: () => ({
     navigation: [
-      { icon: 'home', route: 'home' },
-      { icon: 'projector-screen', route: 'projects' },
-      { icon: 'duck', route: 'experiments' },
-      { icon: 'robot-industrial', route: 'grid' },
-      { icon: 'gesture-tap-button', route: 'buttons' },
-      { icon: 'format-color-fill', route: 'colors' },
+      { icon: "home", route: "home" },
+      { icon: "projector-screen", route: "projects" },
+      { icon: "duck", route: "experiments" },
+      { icon: "robot-industrial", route: "grid" },
+      { icon: "gesture-tap-button", route: "buttons" },
+      { icon: "format-color-fill", route: "colors" },
+      { icon: "cube-outline", route: "cube" },
     ],
-    
   }),
-  computed: {
-  },
+  computed: {},
   methods: {
-    ...mapMutations(['togglePanelVisibility']),
-    playSound(frequency:number, duration:number, number:number) {
+    ...mapMutations(["togglePanelVisibility", "toggleTheme"]),
+    playSound(frequency: number, duration: number, number: number) {
       let context = new AudioContext();
       let newSound = context.createOscillator();
       let newGain = context.createGain();
@@ -61,16 +63,19 @@
       newSound.frequency.value = frequency;
       newGain.connect(context.destination);
       newSound.start(0);
-      newGain.gain.exponentialRampToValueAtTime(number, context.currentTime + duration );
+      newGain.gain.exponentialRampToValueAtTime(
+        number,
+        context.currentTime + duration
+      );
     },
   },
   mounted() {
-    this.navigation.forEach( (value, index) => {
-      if(value.route == this.$route.name) {
-        this.playSound((100 * (index + 2)), 0.3, 0.00000001);
+    this.navigation.forEach((value, index) => {
+      if (value.route == this.$route.name) {
+        this.playSound(100 * (index + 2), 0.3, 0.00000001);
       }
     });
     this.panel = this.$store.getters.getPanelVisibility;
-  }
-  });
+  },
+});
 </script>

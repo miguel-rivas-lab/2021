@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     panel: true,
+    theme: false,
     selection: {
       row: "Row",
       integrate: false,
@@ -37,6 +38,12 @@ export default new Vuex.Store({
     togglePanelVisibility(state) {
       state.panel = !state.panel;
     },
+    setTheme(state, value) {
+      state.theme = value;
+    },
+    toggleTheme(state) {
+      state.theme = !state.theme;
+    },
     addColumn(state, value) {
       state.selection.columns.push(value);
     },
@@ -50,6 +57,7 @@ export default new Vuex.Store({
   },
   getters: {
     getPanelVisibility: state => state.panel,
+    getTheme: state => state.theme,
     getSelection: state => state.selection,
   }
 });

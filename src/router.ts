@@ -3,6 +3,7 @@ import VueRouter, { RouteConfig } from 'vue-router';
 
 import ButtonsView from './views/buttons.vue';
 import ColorsView from './views/colors.vue';
+import CubeView from './views/cube.vue';
 import GridView from './views/grid.vue';
 import HomeView from './views/home.vue';
 import ProjectsView from './views/projects.vue';
@@ -39,7 +40,12 @@ const routes: Array<RouteConfig> = [
   {
     name: 'grid',
     path: '/grid',
-    component: GridView
+    component: GridView,
+  },
+  {
+    name: 'cube',
+    path: '/cube',
+    component: CubeView,
   },
   {
     path: '*',
