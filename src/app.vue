@@ -17,8 +17,8 @@ export default Vue.extend({
       return `section-${this.$route.name}`;
     },
     classes() {
-      return [this.sectionName, { 'nano-dark': !this.theme }]
-    }
+      return [this.sectionName, this.theme ? "nano-light" : "nano-dark"];
+    },
   },
 });
 </script>

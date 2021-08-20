@@ -1,6 +1,6 @@
 {
   "name": "miguel-rivas-app",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -35,7 +35,7 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "nano-grid": "file:../../nano-grid-module",
-    "sass": "^1.33.0",
+    "sass": "^1.38.0",
     "sass-loader": "^8.0.2",
     "typescript": "~4.1.5",
     "vue-template-compiler": "^2.6.11"

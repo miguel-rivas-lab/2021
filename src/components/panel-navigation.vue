@@ -31,13 +31,14 @@
       class="tooltip theme"
       glyph="brightness-4"
       @click="toggleTheme"
+      :active="!theme"
     />
   </column>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import { mapMutations } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default Vue.extend({
   components: {},
@@ -52,7 +53,11 @@ export default Vue.extend({
       { icon: "cube-outline", route: "cube" },
     ],
   }),
-  computed: {},
+  computed: {
+    ...mapGetters({
+      theme: "getTheme",
+    }),
+  },
   methods: {
     ...mapMutations(["togglePanelVisibility", "toggleTheme"]),
     playSound(frequency: number, duration: number, number: number) {

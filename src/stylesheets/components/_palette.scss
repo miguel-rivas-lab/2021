@@ -1,8 +1,8 @@
 .palette {
   text-align: center;
   li {
-    color: #eee;
-    background-color: #272727;
+    color: var(--color-foreground);
+    background-color: var(--color-palette);
     display: inline-block;
     padding: 1rem;
     margin: 1rem;
@@ -14,7 +14,7 @@
       width: 200px;
       height: 200px;
       margin: auto;
-      border: 1px solid #4e4e4e;
+      border: 1px solid var(--color-border);
       margin: 0 0 1rem;
     }
 

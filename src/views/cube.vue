@@ -27,28 +27,18 @@
 
             <row>
               <column size="100%">
-                <label
-                  class="btn flat charcoal"
-                >
+                <label class="btn flat charcoal">
                   Grid
-                  <input
-                    type="checkbox"
-                    value="grid"
-                  />
+                  <input type="checkbox" value="grid" />
                 </label>
               </column>
             </row>
 
             <row>
               <column size="100%">
-                <label
-                  class="btn flat charcoal"
-                >
+                <label class="btn flat charcoal">
                   Lines
-                  <input
-                    type="checkbox"
-                    value="lines"
-                  />
+                  <input type="checkbox" value="lines" />
                 </label>
               </column>
             </row>
@@ -57,13 +47,13 @@
 
         <row class="row-block" tag="fieldset">
           <column size="100%">
-          <legend>Colors</legend>
+            <legend>Colors</legend>
             <row>
               <column size="100%">
                 <ul class="standard">
-                  <template v-for="color, colorIndex in gColorsDB">
+                  <template v-for="(color, colorIndex) in gColorsDB">
                     <li v-bind:key="colorIndex">
-                      {{colorIndex}}: {{color.label}}
+                      {{ colorIndex }}: {{ color.label }}
                     </li>
                   </template>
                 </ul>

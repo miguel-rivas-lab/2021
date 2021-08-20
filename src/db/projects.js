@@ -478,6 +478,7 @@ export const prototypes = [
       tool.vuex,
       tool.vueRouter,
       tool.typescript,
+      tool.three,
       tool.sass,
     ],
     links: {

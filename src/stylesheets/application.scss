@@ -20,6 +20,39 @@ body {
   padding: 0;
 }
 
+main {
+  &.nano-light {
+    --color-title: #9c330a;
+    --color-background: #ffffff;
+    --color-foreground: #1e1e1e;
+    --color-workarea-background: #f8f7fb;
+    --color-panel-details-background: #ffffff;
+    --color-panel-background: #f7f7f7;
+    --color-panel-border-separator: #cccccc;
+    --color-border: #e2e2e2;
+    --color-palette: #f7f7f7;
+    --color-label: #104e86;
+    --color-legend: #9c330a;
+  }
+  &.nano-dark {
+    --color-title: #e69b28;
+    --color-background: #222;
+    --color-foreground: #eee;
+    --color-workarea-background: #1e1e1e;
+    --color-panel-details-background: #1f1f23;
+    --color-panel-background: #232327;
+    --color-panel-border-separator: #19191d;
+    --color-border: #444444;
+    --color-palette: #272727;
+    --color-label: #4ca1ef;
+    --color-legend: #b9b90e;
+  }
+  --color-shadow: rgb(0 0 0 / 65%);
+  --color-background-card: #5d2b5b;
+  --color-background-out-card: #3f48b7;
+  --shadow-depth: 2px 2px 5px;
+}
+
 select,
 input[type="text"] {
   font-weight: bold;
@@ -53,6 +86,11 @@ input[type="range"] {
   width: 100%;
 }
 
+hr {
+  border-color: var(--color-border);
+  border-width: 0 0 1px 0;
+}
+
 .btn.flat {
   display: flex;
   align-items: center;
@@ -62,7 +100,6 @@ input[type="range"] {
 @import "core/animations";
 @import "views/home";
 @import "views/grid";
-@import "views/projects";
 @import "components/app";
 @import "components/container";
 @import "components/palette";

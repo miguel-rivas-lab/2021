@@ -26,29 +26,24 @@
   }
 
   article {
-    border: 1px solid #404040;
+    border: 1px solid var(--color-border);
     border-radius: 5px;
     padding: 2rem;
     margin-bottom: 1rem;
     height: 100%;
     position: relative;
     overflow: hidden;
-    color: #fff;
+    color: var(--color-foreground);
 
     img {
       width: 100%;
-      border: 1px solid #404040;
-    }
-
-    hr {
-      border-style: dashed;
-      opacity: 0.2;
+      border: 1px solid var(--color-border);
     }
 
     h3 {
       font-weight: 600;
       font-size: 25px;
-      color: #e69b28;
+      color: var(--color-title);
     }
     h4 {
       font-weight: 400;

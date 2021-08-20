@@ -14,7 +14,7 @@ ul.standard {
   margin: 0;
 
   li {
-    color: #eeeeee;
+    color: var(--color-foreground);
     margin-bottom: 0.25rem;
     font-size: 12px;
 
@@ -55,7 +55,6 @@ ul.navigation {
 
   li {
     a {
-      color: #fff;
       font-size: 12px;
       font-weight: 700;
       text-decoration: none;

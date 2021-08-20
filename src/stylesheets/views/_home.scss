@@ -19,20 +19,20 @@
         font-size: 3042px;
         font-weight: 600;
         line-height: 0;
-        text-shadow: 2px 2px 5px #000;
+        text-shadow: var(--shadow-depth) var(--color-shadow);
       }
     }
 
     .bk {
       &:before {
-        color: #5d2b5b;
+        color: var(--color-background-card);
         content: "MIGUEL";
       }
     }
 
     .out-bk {
       &:before {
-        color: #3f48b7;
+        color: var(--color-background-out-card);
         z-index: 1;
         content: "RIVAS";
       }
@@ -45,14 +45,13 @@
       text-align: center;
       justify-content: center;
       align-items: center;
-      box-shadow: 2px 2px 18px #000;
       position: relative;
       z-index: 2;
-      background-color: #222;
+      box-shadow: var(--shadow-depth) var(--color-shadow);
+      background-color: var(--color-background);
 
       h1 {
         font-size: 72px;
-        // color: #876cec;
         @media (max-width: 1024px) {
           font-size: 58px;
         }
@@ -60,11 +59,11 @@
 
       h1,
       h2 {
-        color: #fff;
         font-weight: 300;
         margin: 0;
         text-transform: uppercase;
-        text-shadow: 2px 2px 5px #000;
+        text-shadow: var(--shadow-depth)var(--color-shadow);
+        color: var(--color-foreground);
       }
 
       .content {

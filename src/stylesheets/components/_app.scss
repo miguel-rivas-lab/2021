@@ -11,8 +11,8 @@
   }
 
   > .main-panel {
-    background: #232327;
-    border-right: 1px solid #19191d;
+    background: var(--color-panel-background);
+    border-right: 1px solid var(--color-panel-border-separator);
     display: flex;
     flex-flow: column;
 
@@ -27,8 +27,8 @@
 
   > .panel {
     transition: all 200ms ease;
-    background: #1f1f23;
-    border-right: 1px solid #19191d;
+    background: var(--color-panel-details-background);
+    border-right: 1px solid var(--color-panel-border-separator);
 
     .scroll-area {
       padding-top: 1rem;
@@ -37,7 +37,7 @@
 
     fieldset {
       border-radius: 5px;
-      border: 1px solid #444444;
+      border: 1px solid var(--color-border);
     }
 
     .row-block {
@@ -53,7 +53,7 @@
     legend {
       font-weight: 700;
       padding: 0;
-      color: #b9b90e;
+      color: var(--color-legend);
       margin-bottom: 1rem;
     }
 
@@ -62,7 +62,7 @@
       margin: 0 0 0.5rem;
       font-size: 11pt;
       font-weight: 700;
-      color: #4ca1ef;
+      color: var(--color-label);
 
       &:not(.btn) {
         display: block;
@@ -87,6 +87,6 @@
   }
   > .workarea {
     transition: all 200ms ease;
-    background-color: #1e1e1e;
+    background-color: var(--color-workarea-background);
   }
 }
