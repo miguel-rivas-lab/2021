@@ -2,13 +2,13 @@
   <row class="nano-app">
     <panel-navigation />
 
-    <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
+    <column size="300" class="panel">
       <scroll-area color="royal-purple">
-        <row class="row-block" tag="fieldset">
+        <row class="row-block" tag="fieldset" v-if="sceneCtrl">
           <column size="100%">
             <legend>Cube Controllers</legend>
 
-            <row>
+            <!-- <row>
               <column size="100%">
                 <label for="rotation">Rotation Speed</label>
               </column>
@@ -19,26 +19,44 @@
                   name="rotation"
                   min="-0.05"
                   max="0.05"
-                  value="0.005"
-                  step="0.001"
+                  step="0.0001"
+                  v-model="sceneCtrl.rotation"
                 />
               </column>
-            </row>
+            </row> -->
 
             <row>
               <column size="100%">
-                <label class="btn flat charcoal">
-                  Grid
-                  <input type="checkbox" value="grid" />
+                <label
+                  class="btn flat charcoal"
+                  :class="{ active: sceneCtrl.pause }"
+                >
+                  Pause
+                  <input type="checkbox" v-model="sceneCtrl.pause" />
                 </label>
               </column>
             </row>
 
             <row>
               <column size="100%">
-                <label class="btn flat charcoal">
+                <label
+                  class="btn flat charcoal"
+                  :class="{ active: sceneCtrl.grid }"
+                >
+                  Grid
+                  <input type="checkbox" v-model="sceneCtrl.grid" />
+                </label>
+              </column>
+            </row>
+
+            <row>
+              <column size="100%">
+                <label
+                  class="btn flat charcoal"
+                  :class="{ active: sceneCtrl.lines }"
+                >
                   Lines
-                  <input type="checkbox" value="lines" />
+                  <input type="checkbox" v-model="sceneCtrl.lines" />
                 </label>
               </column>
             </row>
@@ -64,7 +82,7 @@
       </scroll-area>
     </column>
 
-    <column :size="panel ? '100%-350' : '100%-50'" class="workarea">
+    <column size="100%-350" class="workarea">
       <div id="my-graph"></div>
     </column>
   </row>
@@ -96,9 +114,9 @@ export default Vue.extend({
     sceneCtrl: undefined,
     linesGroup: undefined,
     sceneControls: function () {
-      this.rotation = 0.005;
+      this.rotation = 0.025;
       this.grid = true;
-      this.lines = true;
+      this.lines = false;
       this.zoom = 10;
       this.pause = false;
     },
@@ -106,9 +124,10 @@ export default Vue.extend({
   computed: {
     ...mapGetters({
       panel: "getPanelVisibility",
+      theme: "getTheme",
     }),
     panelsSize() {
-      return 50; //this.panel ? 350 : 50;
+      return 350;
     },
   },
   methods: {
@@ -148,6 +167,13 @@ export default Vue.extend({
       let line = new THREE.Line(lineGeometry, lineMaterial);
       return line;
     },
+    switchThemes(){
+      if(this.getTheme){
+        this.renderer.setClearColor("#e0e0e0");
+      } else {
+        this.renderer.setClearColor("#151619");
+      }
+    },
   },
   mounted() {
     this.winHeight = window.innerHeight;
@@ -162,7 +188,7 @@ export default Vue.extend({
     );
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
 
-    this.$store.commit("setPanelVisibility", false);
+    this.$store.commit("setPanelVisibility", true);
 
     this.camera.position.x =
       (-this.maxValue - 1) * this.distanceBetweenCubes * 0.5;
@@ -172,7 +198,11 @@ export default Vue.extend({
     this.renderer.setSize(this.winWidth, this.winHeight);
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
-    this.renderer.setClearColor("#1e1e1e");
+    if(this.getTheme){
+      this.renderer.setClearColor("#e0e0e0");
+    } else {
+      this.renderer.setClearColor("#1e1e1e");
+    }
 
     const geometry = new THREE.BoxGeometry(1, 1, 1);
 

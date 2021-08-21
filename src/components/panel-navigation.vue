@@ -1,38 +1,44 @@
 <template>
   <column size="50" class="main-panel">
-    <div class="navigation">
-      <template v-for="(nav, index) in navigation">
-        <template v-if="$route.name !== nav.route">
+    <div class="container">
+      <row vertical>
+        <column size="100%-35">
+          <template v-for="(nav, index) in navigation">
+            <template v-if="$route.name !== nav.route">
+              <btn
+                :to="{ name: nav.route }"
+                v-bind:key="index"
+                color="gravel"
+                :class="['tooltip', nav.route]"
+                size="md"
+                :glyph="nav.icon"
+              />
+            </template>
+            <template v-else>
+              <btn
+                v-bind:key="index"
+                color="gravel"
+                size="md"
+                :class="['tooltip', nav.route]"
+                @click="togglePanelVisibility"
+                :glyph="nav.icon"
+                active
+              />
+            </template>
+          </template>
+        </column>
+        <suffix size="35">
           <btn
-            :to="{ name: nav.route }"
-            v-bind:key="index"
-            color="gravel"
-            :class="['tooltip', nav.route]"
+            color="charcoal"
             size="md"
-            :glyph="nav.icon"
+            class="tooltip theme"
+            glyph="brightness-4"
+            @click="toggleTheme"
+            :active="!theme"
           />
-        </template>
-        <template v-else>
-          <btn
-            v-bind:key="index"
-            color="gravel"
-            size="md"
-            :class="['tooltip', nav.route]"
-            @click="togglePanelVisibility"
-            :glyph="nav.icon"
-            active
-          />
-        </template>
-      </template>
+        </suffix>
+      </row>
     </div>
-    <btn
-      color="charcoal"
-      size="md"
-      class="tooltip theme"
-      glyph="brightness-4"
-      @click="toggleTheme"
-      :active="!theme"
-    />
   </column>
 </template>
 

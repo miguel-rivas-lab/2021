@@ -13,15 +13,16 @@
   > .main-panel {
     background: var(--color-panel-background);
     border-right: 1px solid var(--color-panel-border-separator);
-    display: flex;
-    flex-flow: column;
 
-    .navigation {
-      flex-grow: 1;
+    .container {
+      margin: unset;
+      height: 100%;
     }
 
-    .btn.flat {
-      margin: 0.5rem auto;
+    .column {
+      > .btn.flat {
+        margin: 0 0 0.75rem;
+      }
     }
   }
 
@@ -33,6 +34,7 @@
     .scroll-area {
       padding-top: 1rem;
       padding-bottom: 1rem;
+      overflow-x: hidden;
     }
 
     fieldset {
