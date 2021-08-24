@@ -43,6 +43,7 @@ const tool = {
   jQuery: "jQuery",
   json: "JSON",
   miva: "Miva",
+  markdown: "Markdown",
   bootstrap: "Bootstrap",
   git: "Git",
   flash: "Adobe Flash",
@@ -55,6 +56,15 @@ const tool = {
   typescript: "TypeScript",
   vuex: "Vuex",
   vueRouter: "Vue Router",
+  sizzle: "Sizzle",
+  lodash: "Lodash",
+  velocity: "Velocity.js",
+  canvas: "Canvas",
+  sweetAlert: "Sweetalert",
+  stellar: "stellarJS",
+  animate: "Animate CSS",
+  snapSVG: "snapSVG",
+  chartJS: "ChartJS",
 };
 
 const role = {
@@ -113,11 +123,11 @@ export const prototypes = [
     client: client.miguelRivas,
     tools: [
       tool.pug,
-      tool.json,
       tool.jQuery,
       tool.grunt,
-      tool.css,
+      tool.scss,
       tool.illustrator,
+      tool.git,
     ],
     links: {
       web: [
@@ -137,11 +147,11 @@ export const prototypes = [
     client: client.miguelRivas,
     tools: [
       tool.angular,
-      "Sweetalert",
-      tool.json,
+      tool.sweetAlert,
       tool.illustrator,
-      tool.css,
+      tool.scss,
       tool.pug,
+      tool.git,
     ],
     links: {
       web: [
@@ -160,15 +170,11 @@ export const prototypes = [
     ],
     client: client.miguelRivas,
     tools: [
-      "stellarJS",
-      "jQueryMouseWheel",
-      "CSS's SVG Animations",
-      "CSS's Keyframes",
-      "Horizontal Layout",
+      tool.stellar,
       tool.inkscape,
       tool.pug,
-      tool.markdown,
-      tool.wordpress,
+      tool.git,
+      tool.scss,
     ],
     links: {
       web: [
@@ -187,13 +193,8 @@ export const prototypes = [
     ],
     client: client.miguelRivas,
     tools: [
-      "HTML's Bones Structure",
-      "CSS's Hover Animations",
-      "CSS's Keyframes",
-      "SASS's Variables",
-      "SASS's Mixings",
       tool.pug,
-      tool.css,
+      tool.scss,
       tool.illustrator,
     ],
     links: {
@@ -214,11 +215,6 @@ export const prototypes = [
     tools: [
       tool.pug,
       tool.sass,
-      "CSS's Drawings",
-      "CSS's Hover Animations",
-      "CSS's Keyframes",
-      "SASS's Variables",
-      "SASS's Mixings",
     ],
     links: {
       web: [
@@ -236,14 +232,10 @@ export const prototypes = [
     ],
     client: client.miguelRivas,
     tools: [
-      "CSS's 3d Transforms",
-      "CSS's 3d Perspective",
-      "CSS's Hover Animations",
-      "CSS's Drawings",
-      "SASS's Variables",
-      "SASS's Mixings",
-      "Jade's Variables",
-      "Jade's Mixings",
+      "CSS 3D Transforms",
+      "CSS 3D Perspective",
+      tool.scss,
+      tool.jade,
       tool.illustrator,
     ],
     links: {
@@ -262,9 +254,9 @@ export const prototypes = [
     ],
     client: client.miguelRivas,
     tools: [
-      "Canvas",
+      tool.canvas,
       tool.pug,
-      tool.css,
+      tool.scss,
     ],
     links: {
       web: [
@@ -282,14 +274,12 @@ export const prototypes = [
     ],
     client: client.miguelRivas,
     tools: [
-      "jQueryMouseWheel",
-      "stellarJS",
-      "snapSVG",
-      "SVG Animations",
-      "Horizontal Layout",
+      tool.stellar,
+      tool.snapSVG,
       tool.pug,
-      tool.css,
+      tool.scss,
       tool.illustrator,
+      tool.git,
     ],
     links: {
       web: [
@@ -310,13 +300,13 @@ export const prototypes = [
     tools: [
       tool.javascript,
       tool.pug,
-      tool.css,
-      "Modular Javascript",
-      "Sizzle",
-      "Lodash",
-      "Velocity.js",
+      tool.scss,
+      tool.sizzle,
+      tool.lodash,
+      tool.velocity,
       tool.illustrator,
       tool.inkscape,
+      tool.git,
     ],
     links: {
       web: [
@@ -336,10 +326,7 @@ export const prototypes = [
     client: client.miguelRivas,
     tools: [
       tool.slim,
-      tool.css,
-      "CSS's Drawings",
-      "CSS's Hover Animations",
-      "CSS's Keyframes",
+      tool.scss,
     ],
     links: {
       web: [
@@ -414,6 +401,7 @@ export const prototypes = [
       tool.sass,
       tool.jQuery,
       tool.php,
+      tool.git,
     ],
     links: {
       web: [
@@ -436,6 +424,7 @@ export const prototypes = [
       tool.sass,
       tool.jQuery,
       tool.php,
+      tool.git,
     ],
     links: {
       web: [
@@ -480,6 +469,8 @@ export const prototypes = [
       tool.typescript,
       tool.three,
       tool.sass,
+      tool.git,
+      tool.chartJS,
     ],
     links: {
       web: [
@@ -500,6 +491,7 @@ export const prototypes = [
     tools: [
       tool.angular,
       tool.sass,
+      tool.git,
     ],
     links: {
       web: [
@@ -525,13 +517,10 @@ export const prototypes = [
     client: client.miguelRivas,
     tools: [
       tool.haml,
-      tool.css,
-      "Animate.css",
-      "CSS's Hover Animations",
-      "CSS's Keyframes",
-      "SASS's Variables",
-      "SASS's Mixings",
-      tool.illustrator
+      tool.scss,
+      tool.illustrator,
+      tool.animate,
+      tool.git,
     ],
     links: {
       web: [
@@ -551,6 +540,7 @@ export const prototypes = [
     tools: [
       tool.vue,
       tool.sass,
+      tool.git,
     ],
     links: {
       web: [
@@ -595,7 +585,8 @@ export const projects = [
       tool.html,
       tool.jQuery,
       tool.grunt,
-      tool.css
+      tool.css,
+      tool.git,
     ],
     links: {
       web: [
@@ -634,8 +625,9 @@ export const projects = [
       tool.html,
       tool.jQuery,
       tool.grunt,
-      tool.css,
-      tool.php
+      tool.scss,
+      tool.php,
+      tool.git,
     ],
     links: {
       web: [
@@ -674,7 +666,8 @@ export const projects = [
       tool.html,
       tool.css,
       tool.jQuery,
-      tool.php
+      tool.php,
+      tool.git,
     ],
     links: {
       web: [
@@ -698,6 +691,7 @@ export const projects = [
       tool.css,
       tool.afterEffects,
       tool.premiere,
+      tool.git,
     ],
     links: {
       web: [
@@ -719,7 +713,8 @@ export const projects = [
     tools: [
       tool.html,
       tool.jQuery,
-      tool.css
+      tool.css,
+      tool.git,
     ],
     links: {
       web: [
@@ -740,11 +735,11 @@ export const projects = [
     client: client.drLogic,
     tools: [
       tool.haml,
-      tool.css,
+      tool.scss,
       tool.jQuery,
       tool.bootstrap,
+      tool.rails,
       tool.git,
-      tool.rails
     ],
     links: {
       web: [
@@ -769,10 +764,10 @@ export const projects = [
     client: client.pixelPerfectTree,
     tools: [
       tool.haml,
-      tool.css,
-      tool.git,
+      tool.scss,
       tool.illustrator,
-      tool.rails
+      tool.rails,
+      tool.git,
     ],
     links: {
       web: [
@@ -793,10 +788,10 @@ export const projects = [
     client: client.voxel,
     tools: [
       tool.haml,
-      tool.css,
-      tool.git,
+      tool.scss,
       tool.photoshop,
-      tool.rails
+      tool.rails,
+      tool.git,
     ],
     links: {
       web: [
@@ -835,6 +830,7 @@ export const projects = [
       tool.html,
       tool.css,
       tool.jQuery,
+      tool.git,
     ],
     links: {
       web: [
@@ -855,7 +851,8 @@ export const projects = [
     tools: [
       tool.html,
       tool.css,
-      tool.illustrator
+      tool.illustrator,
+      tool.git,
     ],
     links: {
       web: [
@@ -877,7 +874,8 @@ export const projects = [
       tool.pug,
       tool.sass,
       tool.jQuery,
-      tool.illustrator
+      tool.illustrator,
+      tool.git,
     ],
     links: {
       web: [
@@ -916,7 +914,7 @@ export const projects = [
   //     tools: [
   //         tool.pug,
   //         tool.css,
-  //         tool.git,
+  //     
   //     ],
   //     links: {
   //         web: [
@@ -1139,7 +1137,7 @@ export const projects = [
         tool.css,
         tool.jQuery,
         tool.bootstrap,
-        tool.git,
+
         tool.rails
     ],
 }

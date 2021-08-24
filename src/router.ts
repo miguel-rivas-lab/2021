@@ -8,6 +8,7 @@ import GridView from './views/grid.vue';
 import HomeView from './views/home.vue';
 import ProjectsView from './views/projects.vue';
 import ExperimentsView from './views/experiments.vue';
+import StatisticsView from './views/statistics.vue';
 
 Vue.use(VueRouter);
 
@@ -46,6 +47,11 @@ const routes: Array<RouteConfig> = [
     name: 'cube',
     path: '/cube',
     component: CubeView,
+  },
+  {
+    name: 'statistics',
+    path: '/statistics',
+    component: StatisticsView,
   },
   {
     path: '*',

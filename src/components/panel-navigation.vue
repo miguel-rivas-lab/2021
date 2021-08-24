@@ -57,6 +57,7 @@ export default Vue.extend({
       { icon: "gesture-tap-button", route: "buttons" },
       { icon: "format-color-fill", route: "colors" },
       { icon: "cube-outline", route: "cube" },
+      { icon: "chart-areaspline", route: "statistics" },
     ],
   }),
   computed: {

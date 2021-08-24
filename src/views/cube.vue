@@ -83,7 +83,7 @@
     </column>
 
     <column size="100%-350" class="workarea">
-      <div id="my-graph"></div>
+      <div id="cube" />
     </column>
   </row>
 </template>
@@ -167,8 +167,8 @@ export default Vue.extend({
       let line = new THREE.Line(lineGeometry, lineMaterial);
       return line;
     },
-    switchThemes(){
-      if(this.getTheme){
+    switchThemes() {
+      if (this.getTheme) {
         this.renderer.setClearColor("#e0e0e0");
       } else {
         this.renderer.setClearColor("#151619");
@@ -198,7 +198,7 @@ export default Vue.extend({
     this.renderer.setSize(this.winWidth, this.winHeight);
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
-    if(this.getTheme){
+    if (this.getTheme) {
       this.renderer.setClearColor("#e0e0e0");
     } else {
       this.renderer.setClearColor("#1e1e1e");
@@ -328,7 +328,7 @@ export default Vue.extend({
 
     this.render();
 
-    document.getElementById("my-graph").appendChild(this.renderer.domElement);
+    document.getElementById("cube").appendChild(this.renderer.domElement);
     window.addEventListener("resize", this.resizeWindow);
   },
   destroyed() {

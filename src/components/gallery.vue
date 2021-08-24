@@ -3,7 +3,7 @@
          <div class="container">
         <template v-for="project, projectIndex in dataBase">
             <article v-bind:key="projectIndex">
-                <row :spacing="100">
+                <row :spacing="100" breakpoint="lg">
                 <column size="100%-300">
                     <img
                         :src="getImage(project.client, project.date)"
