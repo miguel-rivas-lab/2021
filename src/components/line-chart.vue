@@ -32,9 +32,7 @@ export default {
       let cb = b.date;
       return ca - cb;
     });
-    const dates = orgData.map(
-      (d) => `${d.date.slice(0, 4)}/${d.date.slice(-2)}`
-    );
+    const dates = orgData.map((d) => `${d.date.slice(0, 4)}`);
     const totals = orgData.map((d) => d.total);
 
     this.renderChart(

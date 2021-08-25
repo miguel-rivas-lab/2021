@@ -11,15 +11,35 @@
         <div class="gallery">
           <div class="container">
             <article>
-              <h1>Projects Per Month</h1>
-              <br>
+              <h1>Yearly Average</h1>
+              <br />
               <line-chart :chart-data="dates" />
             </article>
 
             <article>
-              <h1>Project's Skills</h1>
-              <br>
+              <h1>Skills</h1>
+              <br />
               <bar-chart :chart-data="tools" />
+            </article>
+
+            <article>
+              <h1>Projects</h1>
+              <hr>
+              <div class="table">
+                <div class="table-head">
+                  <row breakpoint="md" table-element>
+                    <column size="40%" table-element>Name</column>
+                    <column size="20%" table-element>Type</column>
+                    <column size="20%" table-element>Date</column>
+                    <column size="20%" table-element>Client</column>
+                  </row>
+                </div>
+                <div class="table-body">
+                  <template v-for="(project, projectIndex) in projectsDB">
+                    <row-more v-bind:key="projectIndex" :row-data="project" />
+                  </template>
+                </div>
+              </div>
             </article>
           </div>
         </div>
@@ -31,22 +51,24 @@
 <script lang="ts">
 import Vue from "vue";
 import PanelNavigation from "../components/panel-navigation.vue";
-import { projects, prototypes } from "../db/projects.js";
+import { allProjects } from "../db/projects.js";
 import LineChart from "../components/line-chart.vue";
 import BarChart from "../components/bar-chart.vue";
+import RowMore from "../components/row-more.vue";
 
 export default Vue.extend({
   components: {
     PanelNavigation,
     LineChart,
     BarChart,
+    RowMore,
   },
   data: () => ({
     panel: false,
   }),
   computed: {
     projectsDB() {
-      return projects.concat(prototypes);
+      return allProjects;
     },
     tools() {
       let tools = {};
@@ -82,10 +104,7 @@ export default Vue.extend({
 
       this.projectsDB.forEach((project) => {
         if (typeof project.date !== "undefined") {
-          let date = project.date.split("/");
-          let year = date[0];
-          let month = date[1];
-          let key = `${year}${month}`;
+          let key = project.date.split("/")[0];
 
           if (typeof dates[key] === "undefined") {
             dates[key] = 1;

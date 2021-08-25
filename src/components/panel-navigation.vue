@@ -2,7 +2,7 @@
   <column size="50" class="main-panel">
     <div class="container">
       <row vertical>
-        <column size="100%-35">
+        <column size="100%-35*2">
           <template v-for="(nav, index) in navigation">
             <template v-if="$route.name !== nav.route">
               <btn
@@ -37,6 +37,16 @@
             :active="!theme"
           />
         </suffix>
+        <suffix size="35">
+          <btn
+            color="persian-red"
+            size="md"
+            class="tooltip universe"
+            glyph="cow"
+            @click="toggleUniverse"
+            :active="universe"
+          />
+        </suffix>        
       </row>
     </div>
   </column>
@@ -53,20 +63,21 @@ export default Vue.extend({
       { icon: "home", route: "home" },
       { icon: "projector-screen", route: "projects" },
       { icon: "duck", route: "experiments" },
+      { icon: "chart-areaspline", route: "statistics" },
       { icon: "robot-industrial", route: "grid" },
       { icon: "gesture-tap-button", route: "buttons" },
       { icon: "format-color-fill", route: "colors" },
       { icon: "cube-outline", route: "cube" },
-      { icon: "chart-areaspline", route: "statistics" },
     ],
   }),
   computed: {
     ...mapGetters({
       theme: "getTheme",
+      universe: "getUniverse"
     }),
   },
   methods: {
-    ...mapMutations(["togglePanelVisibility", "toggleTheme"]),
+    ...mapMutations(["togglePanelVisibility", "toggleTheme", "toggleUniverse"]),
     playSound(frequency: number, duration: number, number: number) {
       let context = new AudioContext();
       let newSound = context.createOscillator();

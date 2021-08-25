@@ -18,6 +18,8 @@ body {
   font-family: "Montserrat", Helvetica, Arial, Tahoma, sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #222;
+  overflow: hidden;
 }
 
 main {
@@ -93,10 +95,77 @@ hr {
   border-width: 0 0 1px 0;
 }
 
+/*------------------------*/
+
 .btn.flat {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/*------------------------*/
+
+.table {
+  .suffix {
+    padding-bottom: 2px;
+  }
+  .table-head {
+    .nano-row {
+      .column {
+        text-transform: uppercase;
+        font-weight: 300;
+        padding: 0.25rem 1rem;
+        font-size: 14px;
+      }
+    }
+  }
+  .table-body {
+    .nano-row {
+      background-color: rgba(127.5, 127.5, 127.5, 0.2);
+      transition: background-color ease-in-out 200ms;
+      &:hover {
+        background-color: rgba(127.5, 127.5, 127.5, 0.35);
+      }
+      .column {
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
+}
+
+/*------------------------*/
+.pill-container {
+  background-color: rgba(127.5, 127.5, 127.5, 0.2);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.pill {
+  padding: 4px 12px;
+  background-color: #1d774a;
+  border-radius: 10px;
+  margin-right: 0.5rem;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/*------------------------*/
+main.universe {
+  .nano-app * {
+    animation: chaos 15s linear infinite;
+  }
+}
+
+@keyframes chaos {
+  from {
+    transform: rotateY(0deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateY(360deg) rotateZ(360deg);
+  }
 }
 
 @import "core/animations";

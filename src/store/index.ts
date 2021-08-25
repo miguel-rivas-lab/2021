@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     panel: true,
     theme: false,
+    parallelUniverse: false,
     selection: {
       row: "Row",
       integrate: false,
@@ -44,6 +45,9 @@ export default new Vuex.Store({
     toggleTheme(state) {
       state.theme = !state.theme;
     },
+    toggleUniverse(state) {
+      state.parallelUniverse = !state.parallelUniverse;
+    },
     addColumn(state, value) {
       state.selection.columns.push(value);
     },
@@ -58,6 +62,7 @@ export default new Vuex.Store({
   getters: {
     getPanelVisibility: state => state.panel,
     getTheme: state => state.theme,
+    getUniverse: state => state.parallelUniverse,
     getSelection: state => state.selection,
   }
 });

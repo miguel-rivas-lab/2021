@@ -11,11 +11,11 @@
                     >
                 </column>
                 <column size="300">
-                    <h3 v-html="project.client" />
-                    <h4 v-html="project.title" />
-                    <h5>
-                    <time v-html="project.date" />
-                    </h5>
+                    <h1 v-html="project.client" />
+                    <h2 v-html="project.title" />
+                    <h3>
+                        <time v-html="project.date" />
+                    </h3>
                     <ul class="skills">
                     <template v-for="(tool, toolIndex) in project.tools">
                         <li v-bind:key="toolIndex">{{tool}}</li>
@@ -36,7 +36,7 @@
                         </li>
                     </template>
                     </ul>
-                    <ul class="links">
+                    <ul class="navigation">
                     <li v-if="project.links.github">
                         <btn
                         tag="a"
@@ -44,7 +44,7 @@
                         color="charcoal"
                         :href="project.links.github"
                         target="_blank"
-                        glyph="github"
+                        value="Github"
                         />
                     </li>
                     </ul>

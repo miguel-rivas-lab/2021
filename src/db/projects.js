@@ -22,6 +22,7 @@ export const letter = [
 
 const tool = {
   html: "HTML",
+  erb: "HTML/ERB",
   pug: "Pug",
   jade: "Pug",
   haml: "Haml",
@@ -30,6 +31,7 @@ const tool = {
   sass: "SCSS",
   scss: "SCSS",
   less: "Less",
+  cucumber: "Cucumber",
   unity: "Unity",
   rails: "Ruby on Rails",
   php: "PHP",
@@ -65,6 +67,9 @@ const tool = {
   animate: "Animate CSS",
   snapSVG: "snapSVG",
   chartJS: "ChartJS",
+  wordpress: "Wordpress",
+  kotlin: "Kotlin",
+  tweenMax: "TweenMax",
 };
 
 const role = {
@@ -101,6 +106,7 @@ const client = {
   apap: "APAP",
   enovational: "Enovational",
   socialNetwork: "Social Network",
+  jellyfish: "Jellyfish",
 };
 
 const linkWeb = (item) => `https://miguel-rivas.github.io/${item}`;
@@ -158,6 +164,32 @@ export const prototypes = [
         { url: linkWeb("css-study"), text: "App" },
       ],
       github: linkGithubDev("css-study"),
+    },
+  },
+  {
+    date: "2021/03/24",
+    title: "Hello",
+    type: mode.app,
+    role: [
+      role.frontend,
+      role.design,
+    ],
+    client: client.miguelRivas,
+    tools: [
+      tool.vue,
+      tool.illustrator,
+      tool.scss,
+      tool.git,
+    ],
+    links: {
+      web: [
+        { url: `${linkWeb("hello")}?city=berlin`, text: "berlin" },
+        { url: `${linkWeb("hello")}?city=dusseldorf`, text: "dusseldorf" },
+        { url: `${linkWeb("hello")}?city=melbourne`, text: "melbourne" },
+        { url: `${linkWeb("hello")}?city=schwangau`, text: "schwangau" },
+        { url: `${linkWeb("hello")}?city=texas`, text: "texas" },
+      ],
+      github: linkGithubDev("hello"),
     },
   },
   {
@@ -433,26 +465,6 @@ export const prototypes = [
       github: linkGithubDev("miguel-rivas-2016"),
     },
   },
-  // {
-  //     date: "2021/03/26",
-  //     title: "Letters Portfolio",
-  //     type: mode.app,
-  //     role: [
-  //         role.design,
-  //         role.frontend,
-  //     ],
-  //     client: client.miguelRivas,
-  //     tools: [
-  //         tool.react,
-  //         tool.sass,
-  //     ],
-  //     links: {
-  //         web: [
-  //             {url: linkWeb("miguel-rivas-2021-2"), text: "App"},
-  //         ],
-  //         github: linkGithubDev("miguel-rivas-2021-2"),
-  //     },
-  // },
   {
     date: "2021/08/12",
     title: "Card Portfolio",
@@ -821,7 +833,7 @@ export const projects = [
   {
     date: "2014/01/14",
     title: "Website",
-    type: client.app,
+    type: mode.app,
     role: [
       role.frontend,
     ],
@@ -884,274 +896,390 @@ export const projects = [
       github: linkGithub("test-pixel-perfect-tree"),
     },
   },
-  // {
-  //   date: "2021/02/27",
-  //   title: "3D Graph Colors",
-  //   type: mode.prototype,
-  //   role: [
-  //     role.frontend,
-  //   ],
-  //   client: client.enovational,
-  //   tools: [
-  //     tool.javascript,
-  //     tool.three,
-  //   ],
-  //   links: {
-  //     web: [
-  //       { url: linkCodepen("dyOmXWO"), text: "Codepen Prototype" },
-  //     ],
-  //   },
-  // },
-  // {
-  //     date: "2017/01/01",
-  //     title: "FlatCSS",
-  //     type: mode.landingPage,
-  //     role: [
-  //         role.frontend,
-  //         role.design,
-  //     ],
-  //     client: client.miguelRivas,
-  //     tools: [
-  //         tool.pug,
-  //         tool.css,
-  //     
-  //     ],
-  //     links: {
-  //         web: [
-  //             {url: linkWeb("flat-css"), text: "App"},
-  //         ],
-  //         github: linkGithubDev("flat-css"),
-  //     },
-  // },
-  // {
-  //     client: client.presidente,
-  //     title: "Destapa el Coro",
-  //     date: "2014/06/02",
-  //     links: {
-  //         web: [
-  //             {url: '', text: "User Flow"},
-  //         ],
-  //     },
-  //     tools: [
-  //         tool.illustrator,
-  //     ],
-  //     type: mode.userFlow,
-  //     role: [
-  //         role.design,
-  //     ],
-  // },
+
 ].sort(function (a, b) {
   return new Date(b.date) - new Date(a.date);
 });
 
-/*
-{
-    date: "2021/03/28",
-    title: "Gallery Portfolio",
+export const extra = [
+  {
+    date: "2021/03/26",
+    title: "Letters Portfolio",
     type: mode.app,
     role: [
-        role.design,
-        role.frontend,
+      role.design,
+      role.frontend,
     ],
     client: client.miguelRivas,
     tools: [
-        tool.react,
-        tool.sass,
+      tool.react,
+      tool.sass,
+      tool.git,
+    ],
+  },
+  {
+    date: "2017/01/01",
+    title: "FlatCSS",
+    type: mode.module,
+    role: [
+      role.frontend,
+      role.design,
+    ],
+    client: client.miguelRivas,
+    tools: [
+      tool.pug,
+      tool.css,
+      tool.git,
     ],
     links: {
-        web: [
-            {url: linkWeb("miguel-rivas-2021"), text: "App"},
-        ],
-        github: linkGithubDev("miguel-rivas-2021"),
+      web: [
+        { url: linkWeb("flat-css"), text: "App" },
+      ],
+      github: linkGithubDev("flat-css"),
     },
-},
-{
+  },
+  {
+    client: client.presidente,
+    title: "Destapa el Coro",
+    date: "2014/06/02",
+    links: {
+      web: [
+        { url: '', text: "User Flow" },
+      ],
+    },
+    tools: [
+      tool.illustrator,
+    ],
+    type: mode.userFlow,
+    role: [
+      role.design,
+    ],
+  },
+  {
     date: "2020/05/05",
     title: "Popkern",
     type: mode.app,
     role: [
-    role.frontend,
-    role.design,
-],
+      role.frontend,
+      role.design,
+    ],
     client: client.enovational,
     tools: [
-        tool.vue,
-        tool.rails,
-        tool.slim,
-        tool.sass,
-    ]
-},
-*/
-
-
-/*
-{
+      tool.vue,
+      tool.vueRouter,
+      tool.rails,
+      tool.slim,
+      tool.sass,
+      tool.git,
+      tool.three,
+      tool.tweenMax,
+    ],
+    links: {
+      web: [
+        { url: linkCodepen("zYvjwEM"), text: "Codepen Prototype" },
+      ]
+    }
+  },
+  {
     date: "2012/09/26",
     title: "Tips of Design",
     type: "Book",
     role: [
-    role.design,
-],
+      role.design,
+    ],
     client: client.miguelRivas,
     tools: [
-        tool.indesign,
+      tool.indesign,
     ]
-},
-{
+  },
+  {
     date: "2017/03/05",
     title: "Art Direction",
     type: "Portfolio",
     role: [
-    role.design,
-],
+      role.design,
+    ],
     client: client.miguelRivas,
     tools: [
-        tool.indesign,
-        tool.illustrator,
-        tool.photoshop
+      tool.indesign,
+      tool.illustrator,
+      tool.photoshop,
     ]
-},
-    {
+  },
+  {
     date: "2015/05/10",
     title: "Bootstrap Prototype",
     type: mode.landingPage,
     role: [
-    role.frontend,
-    role.design,
-],
+      role.frontend,
+      role.design,
+    ],
     client: client.miguelRivas,
     tools: [
-        "Bootstrap",
-        "Responsive Design",
-        tool.pug,
-        tool.illustrator
+      tool.bootstrap,
+      tool.pug,
+      tool.illustrator,
+      tool.scss,
     ]
-},
-    {
+  },
+  {
     date: "2017/09/20",
     title: "Lemon Deal",
     type: mode.landingPage,
     role: [
-    role.frontend,
-    role.design
-],
+      role.frontend,
+      role.design,
+    ],
     client: "Plant Therapy",
     tools: [
-        tool.html,
-        tool.miva,
-        tool.css,
-        tool.jQuery,
-        tool.illustrator
+      tool.html,
+      tool.miva,
+      tool.css,
+      tool.jQuery,
+      tool.illustrator,
     ]
-},
-{
+  },
+  {
     date: "2015/08/03",
     title: "SIP",
     type: "Website",
     role: [
-    role.frontend,
-],
+      role.frontend,
+    ],
     client: "SIP",
     tools: [
-        tool.pug,
-        tool.css,
-        tool.jQuery,
+      tool.pug,
+      tool.scss,
+      tool.jQuery,
     ]
-},
-{
+  },
+  {
     date: "2014/10/18",
     title: "Photo Assignmet",
     type: mode.app,
     role: [
-        role.frontend
+      role.frontend,
     ],
     client: client.presidente,
     tools: [
-        tool.html,
-        tool.jQuery,
-        tool.grunt,
-        tool.css
+      tool.html,
+      tool.jQuery,
+      tool.grunt,
+      tool.php,
+      tool.scss,
     ]
-},
-{
+  },
+  {
     date: "2014/11/05",
     title: "Pronosticos",
-    type: mode.wireframe,
+    type: mode.wireFrame,
     role: [
-        role.design
+      role.design,
     ],
     client: client.presidente,
     tools: [
-        tool.illustrator
+      tool.illustrator,
     ]
-},
-,{
+  },
+  {
     date: "2016/03/08",
     title: "DrLogic",
     type: "Terms and Conditions",
     role: [
-        role.design
+      role.design,
     ],
     client: client.drLogic,
     tools: [
-        tool.indesign
+      tool.indesign
     ]
-}
-,{
+  },
+  {
     date: "2016/01/29",
     title: "Shop.pr",
     type: mode.document,
     role: [
-        role.design,
+      role.design,
     ],
     client: "Shop.pr",
     tools: [
-        tool.illustrator
+      tool.illustrator,
     ]
-},
-
-{
+  },
+  {
     date: "2017/08/04",
     title: "Chakras",
-    type: mode.wireframe,
+    type: mode.wireFrame,
     role: [
-        role.frontend,
-        role.design,
+      role.frontend,
+      role.design,
     ],
     client: "Plant Therapy",
     tools: [
-        tool.illustrator,
+      tool.illustrator,
     ]
-},
-,{
+  },
+  {
     date: "2016/02/18",
     title: "BPR Bank",
     linkDirect: false,
     type: mode.app,
     role: [
-        role.frontend
+      role.frontend
     ],
     client: client.bprBank,
     tools: [
-        tool.haml,
-        tool.css,
-        tool.jQuery,
-        tool.bootstrap,
-
-        tool.rails
+      tool.haml,
+      tool.scss,
+      tool.jQuery,
+      tool.bootstrap,
+      tool.rails,
+      tool.git,
     ],
-}
-{
+  },
+  {
     date: "2016/06/24",
     title: "Voxel Cube Games",
     type: "Social Media",
     role: [
-        role.design,
+      role.design,
     ],
     client: client.voxel,
     tools: [
-        tool.photoshop,
-        tool.illustrator,
+      tool.photoshop,
+      tool.illustrator,
     ]
-},
-*/
+  },
+].sort(function (a, b) {
+  return new Date(b.date) - new Date(a.date);
+});
+
+export const noData = [
+  {
+    date: "2019/01/01",
+    title: "Maryland State Ethics Commision Financial Disclosures Portal",
+    type: mode.app,
+    role: [
+      role.frontend,
+    ],
+    client: client.enovational,
+    tools: [
+      tool.html,
+      tool.rails,
+      tool.sass,
+      tool.git,
+      tool.bootstrap,
+    ],
+    links: {
+      web: [
+        { url: "https://efds.ethics.maryland.gov/", text: "Website" },
+      ],
+    },
+  },
+  {
+    date: "2018/01/01",
+    title: "Maryland Department of Agriculture Vetboard Portal",
+    type: mode.app,
+    role: [
+      role.frontend,
+    ],
+    client: client.enovational,
+    tools: [
+      tool.html,
+      tool.rails,
+      tool.sass,
+      tool.git,
+      tool.bootstrap,
+    ],
+    links: {
+      web: [
+        { url: "https://portal.mda.maryland.gov/", text: "Website" },
+      ],
+    },
+  },
+  {
+    date: "2019/01/01",
+    title: "Maryland Onestop",
+    type: mode.app,
+    role: [
+      role.frontend,
+    ],
+    client: client.enovational,
+    tools: [
+      tool.vue,
+      tool.rails,
+      tool.sass,
+      tool.git,
+      tool.bootstrap,
+    ],
+    links: {
+      web: [
+        { url: "https://onestop.md.gov/", text: "Website" },
+      ],
+    },
+  },
+  {
+    date: "2019/01/01",
+    title: "Formability",
+    type: mode.app,
+    role: [
+      role.frontend,
+    ],
+    client: client.enovational,
+    tools: [
+      tool.vue,
+      tool.vueRouter,
+      tool.vuex,
+      tool.rails,
+      tool.sass,
+      tool.git,
+      tool.cucumber,
+      tool.bootstrap,
+    ],
+    links: {
+      web: [
+        { url: "http://formability.com/", text: "App" },
+      ]
+    }
+  },
+  {
+    date: "2021/06/21",
+    title: "Connections Academy",
+    type: mode.app,
+    role: [
+      role.frontend,
+    ],
+    client: client.jellyfish,
+    tools: [
+      tool.php,
+      tool.wordpress,
+      tool.html,
+      tool.scss,
+      tool.git,
+      tool.grunt,
+    ]
+  },
+  {
+    date: "2020/10/04",
+    title: "Fake Audience",
+    type: mode.app,
+    role: [
+      role.frontend,
+    ],
+    client: client.miguelRivas,
+    tools: [
+      tool.kotlin,
+      tool.git,
+    ],
+    links: {
+      web: [
+        { url: "http://formability.com/", text: "App" },
+      ]
+    }
+  },
+].sort(function (a, b) {
+  return new Date(b.date) - new Date(a.date);
+});
+
+export const allProjects = projects.concat(prototypes, extra, noData).sort(function (a, b) {
+  return new Date(b.date) - new Date(a.date);
+});
