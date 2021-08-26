@@ -1,6 +1,12 @@
 <template>
   <main :class="classes">
     <router-view />
+    <img
+      src="./assets/cow.png"
+      alt="the cow that will finish your existence"
+      class="cow"
+      width="90"
+    />
   </main>
 </template>
 

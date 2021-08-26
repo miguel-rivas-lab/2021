@@ -154,8 +154,35 @@ hr {
 
 /*------------------------*/
 main.universe {
-  .nano-app * {
-    animation: chaos 15s linear infinite;
+  .nano-app {
+    .panel,
+    .workarea {
+      &, * {
+        animation: chaos 15s linear infinite;
+      }
+    }
+  }
+
+  .cow {
+    animation: cow-stalker 2s;
+    animation-fill-mode: forwards;
+  }
+}
+.cow {
+  position: fixed;
+  bottom: -100px;
+  left: -100px;
+  z-index: 1;
+}
+
+@keyframes cow-stalker {
+  from {
+    bottom: -100px;
+    left: -100px;
+  }
+  to {
+    bottom: 0;
+    left: 48px;
   }
 }
 
