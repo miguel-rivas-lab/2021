@@ -1,6 +1,5 @@
 .tooltip {
   position: relative;
-  z-index: 3;
 
   &:before,
   &:after {
@@ -16,7 +15,6 @@
     border-radius: 5px;
     top: 0;
     left: 45px;
-    z-index: 2;
     color: #eeeeee;
     box-shadow: 3px 1px 5px rgb(0 0 0 / 40%);
     white-space: nowrap;
@@ -29,7 +27,6 @@
     width: 10px;
     height: 10px;
     transform: rotate(45deg);
-    z-index: 1;
   }
 
   &:hover {

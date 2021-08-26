@@ -164,7 +164,7 @@ main.universe {
   }
 
   .cow {
-    animation: cow-stalker 2s;
+    animation: cow-stalker 1s;
     animation-fill-mode: forwards;
   }
 }
@@ -172,7 +172,6 @@ main.universe {
   position: fixed;
   bottom: -100px;
   left: -100px;
-  z-index: 1;
 }
 
 @keyframes cow-stalker {
@@ -196,6 +195,7 @@ main.universe {
 }
 
 @import "core/animations";
+@import "core/layers";
 @import "views/home";
 @import "views/grid";
 @import "components/app";
