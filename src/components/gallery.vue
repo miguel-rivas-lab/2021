@@ -62,7 +62,15 @@ export default Vue.extend({
     getImage(client: string, date: string): string {
       client = client.replace(/\s/g, "").toLowerCase();
       date = date.replace(/\//g, "");
-      return require(`@/assets/${client}_${date}.jpg`);
+      let result;
+      try {
+        result = require(`@/assets/${client}_${date}.jpg`);
+      }
+      catch (e) {
+        result = require(`@/assets/miguelrivas.jpg`);
+      }
+      return result;
+
     },
   },
 });

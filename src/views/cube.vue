@@ -93,7 +93,7 @@ import Vue from "vue";
 import PanelNavigation from "../components/panel-navigation.vue";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { gColorsDB } from "../db/colors";
+import { gColorsDB } from "../modules/colors";
 import { mapGetters } from "vuex";
 
 export default Vue.extend({

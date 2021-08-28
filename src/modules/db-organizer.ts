@@ -3,11 +3,11 @@ import { db } from "./firebase-db";
 
 // ---------------- Enums
 
-import { tool, toolEnum } from "./enums/tools";
-import { role, roleEnum } from "./enums/roles";
-import { type, typeEnum } from "./enums/types";
-import { client, clientEnum } from "./enums/clients";
-import { categoryEnum } from "./enums/categories";
+import { tool, toolEnum } from "../enums/tools";
+import { role, roleEnum } from "../enums/roles";
+import { type, typeEnum } from "../enums/types";
+import { client, clientEnum } from "../enums/clients";
+import { categoryEnum } from "../enums/categories";
 
 // ---------------- Selection
 

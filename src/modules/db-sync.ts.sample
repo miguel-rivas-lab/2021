@@ -1,8 +1,8 @@
-import { toolEnum } from "./enums/tools";
-import { roleEnum } from "./enums/roles";
-import { typeEnum } from "./enums/types";
-import { clientEnum } from "./enums/clients";
-import { categoryEnum } from "./enums/categories";
+import { toolEnum } from "../enums/tools";
+import { roleEnum } from "../enums/roles";
+import { typeEnum } from "../enums/types";
+import { clientEnum } from "../enums/clients";
+import { categoryEnum } from "../enums/categories";
 
 import { db } from "./firebase-db";
 
@@ -1073,7 +1073,7 @@ const projects = [
       toolEnum.three,
       toolEnum.tweenMax,
     ],
-    disabled: true,
+    disabled: false,
   },
   {
     date: "2017/09/20",
@@ -1267,17 +1267,12 @@ const projects = [
       toolEnum.git,
       toolEnum.bootstrap,
     ],
-    links: {
-      web: [
-        { url: "https://onestop.md.gov/", text: "Website" },
-      ],
-    },
   },
   {
-    date: "2019/01/01",
+    date: "2019/01/02",
     title: "Formability",
     type: typeEnum.app,
-    disabled: true,
+    disabled: false,
     role: [
       roleEnum.frontend,
     ],
@@ -1292,11 +1287,6 @@ const projects = [
       toolEnum.cucumber,
       toolEnum.bootstrap,
     ],
-    links: {
-      web: [
-        { url: "http://formability.com/", text: "App" },
-      ]
-    }
   },
   {
     date: "2021/06/21",

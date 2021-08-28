@@ -71,6 +71,7 @@ export enum toolEnum {
   miva = 700,
   wordpress,
   drupal,
+  joomla,
   
   markdown = 750,
 }
@@ -137,4 +138,5 @@ export const tool = {
   mongo: "MongoDB",
   gulp: "Gulp",
   svg: "SVG",
+  joomla: "Joomla",
 };

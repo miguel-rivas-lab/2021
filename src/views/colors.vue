@@ -27,7 +27,7 @@
 <script lang="ts">
 import Vue from "vue";
 import PanelNavigation from "../components/panel-navigation.vue";
-import { gColorsDB } from "../db/colors";
+import { gColorsDB } from "../modules/colors";
 
 export default Vue.extend({
   components: {

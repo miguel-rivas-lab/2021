@@ -1,15 +1,15 @@
 import Vue from 'vue';
 import app from './app.vue';
-import router from './router';
-import {store} from './store';
+import router from './modules/router';
+import {store} from './modules/store';
 import { firestorePlugin } from 'vuefire';
 
 // to sort firebase database
-// import "./db-sync";
+// import "./modules/db-sync";
 
 import './stylesheets/application.scss';
-import './commons.ts';
-import './db-organizer';
+import './modules/commons.ts';
+import './modules/db-organizer';
 
 Vue.use(firestorePlugin);
 Vue.config.productionTip = false;
