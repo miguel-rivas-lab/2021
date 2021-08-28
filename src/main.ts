@@ -1,15 +1,17 @@
 import Vue from 'vue';
 import app from './app.vue';
-import './stylesheets/application.scss';
 import router from './router';
+import {store} from './store';
+import { firestorePlugin } from 'vuefire';
+
+// to sort firebase database
+// import "./db-sync";
+
+import './stylesheets/application.scss';
 import './commons.ts';
-import store from './store';
-import VueGtag from 'vue-gtag';
+import './db-organizer';
 
-Vue.use(VueGtag, {
-  config: { id: "G-R0PK9P1L3L" }
-});
-
+Vue.use(firestorePlugin);
 Vue.config.productionTip = false;
 
 new Vue({

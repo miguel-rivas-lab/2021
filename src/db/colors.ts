@@ -105,17 +105,3 @@ export const gColorsDB = [
   new gColor('Charcoal', '#444444'),
   new gColor('Cod Grey', '#1b1b1b'),
 ];
-
-// export const gColors = function (color) {
-//   return gColorsDB.find((item) => {
-//     if (item.label == color) {
-//       return item;
-//     }
-//   });
-// }
-
-// export const eColors = gColorsDB.filter((item) => {
-//   if (item.item) {
-//     return item;
-//   }
-// });

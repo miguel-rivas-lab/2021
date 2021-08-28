@@ -1,10 +1,10 @@
 <template>
-  <row breakpoint="md" class="component-row" table-element>
-    <column size="40%" table-element>{{ rowData.title }}</column>
-    <column size="20%" table-element>{{ rowData.type }}</column>
-    <column size="20%" table-element>{{ rowData.date }}</column>
-    <column size="20%-35" table-element>{{ rowData.client }}</column>
-    <suffix size="35" table-element>
+  <t-row breakpoint="md" class="component-row">
+    <t-column size="40%">{{ rowData.title }}</t-column>
+    <t-column size="20%">{{ rowData.type }}</t-column>
+    <t-column size="20%">{{ rowData.date }}</t-column>
+    <t-column size="20%-35">{{ rowData.client }}</t-column>
+    <t-suffix size="35">
       <btn
         :glyph="showData ? 'chevron-up' : 'chevron-down'"
         :active="showData"
@@ -12,27 +12,32 @@
         color="denim"
         tag="a"
       />
-    </suffix>
+    </t-suffix>
     <template v-if="showData">
-      <column size="200" v-if="rowData.links && rowData.links.web">
-        <btn
-          tag="a"
-          size="md"
-          color="royal-purple"
-          target="_blank"
-          :href="rowData.links.web[0].url"
-          value="See Preview"
-        />
-      </column>
-      <column :size="rowData.links && rowData.links.web ? '100%-200' : '100%'" table-element>
+      <t-column size="200">
+        <template v-if="rowData.links && rowData.links[0]">
+          <btn
+            tag="a"
+            size="md"
+            color="royal-purple"
+            target="_blank"
+            :href="rowData.links[0].url"
+            value="See Preview"
+          />
+        </template>
+        <template v-else>
+          <btn tag="span" size="md" color="persian-red" value="No Link" />
+        </template>
+      </t-column>
+      <t-column size="100%-200">
         <div class="pill-container">
           <template v-for="(tool, toolIndex) in rowData.tools">
             <span class="pill" v-bind:key="toolIndex" v-html="tool" />
           </template>
         </div>
-      </column>
+      </t-column>
     </template>
-  </row>
+  </t-row>
 </template>
 
 <script lang="ts">

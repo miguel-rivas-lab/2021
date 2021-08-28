@@ -17,8 +17,8 @@
 <script lang="ts">
 import Vue from "vue";
 import PanelNavigation from "../components/panel-navigation.vue";
-import { projects } from "../db/projects.js";
 import Gallery from "../components/gallery.vue";
+import { mapGetters } from "vuex";
 
 export default Vue.extend({
   components: {
@@ -29,10 +29,14 @@ export default Vue.extend({
     panel: false,
   }),
   computed: {
+    ...mapGetters({
+      projects: "getProjects",
+    }),
     projectsDB() {
-      return projects;
+      return this.projects.filter(
+        (item) => item.category == "project" && !item.disabled
+      );
     },
   },
-  methods: {},
 });
 </script>

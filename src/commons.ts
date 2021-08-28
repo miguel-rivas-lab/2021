@@ -48,6 +48,30 @@ Vue.component("t-column", Vue.extend({
   extends: NanoColumn
 }));
 
+Vue.component("t-prefix", Vue.extend({
+  props: {
+    mode: {
+      default: 'prefix'
+    },
+    tableElement: {
+      default: true
+    }
+  },
+  extends: NanoColumn
+}));
+
+Vue.component("t-suffix", Vue.extend({
+  props: {
+    mode: {
+      default: 'suffix'
+    },
+    tableElement: {
+      default: true
+    }
+  },
+  extends: NanoColumn
+}));
+
 // ---------------------------------- Alias:Row
 Vue.component("t-row", Vue.extend({
   props: {

@@ -51,10 +51,10 @@
 <script lang="ts">
 import Vue from "vue";
 import PanelNavigation from "../components/panel-navigation.vue";
-import { allProjects } from "../db/projects.js";
 import LineChart from "../components/line-chart.vue";
 import BarChart from "../components/bar-chart.vue";
 import RowMore from "../components/row-more.vue";
+import { mapGetters } from "vuex";
 
 export default Vue.extend({
   components: {
@@ -67,9 +67,9 @@ export default Vue.extend({
     panel: false,
   }),
   computed: {
-    projectsDB() {
-      return allProjects;
-    },
+    ...mapGetters({
+      projectsDB: "getProjects",
+    }),
     tools() {
       let tools = {};
       let result = [];

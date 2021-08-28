@@ -3,44 +3,29 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+export const store = new Vuex.Store({
   state: {
     panel: true,
     theme: false,
     parallelUniverse: false,
+    user: {},
+    projects: [],
     selection: {
       row: "Row",
       integrate: false,
       spacing: 0,
-      columns: [
-        {
-          mode: "Percent",
-          size: "100%",
-          subtraction: "100",
-          color: "silver",
-          expression: "sz1b4m100",
-          block: "column",
-        },
-        {
-          mode: "Fixed",
-          size: "100",
-          subtraction: "0",
-          color: "cod-grey",
-          expression: "sz100",
-          block: "column",
-        },
-      ]
+      columns: []
     },
   },
   mutations: {
-    setPanelVisibility(state, value) {
-      state.panel = value;
+    setPanelVisibility(state, payload) {
+      state.panel = payload;
     },
     togglePanelVisibility(state) {
       state.panel = !state.panel;
     },
-    setTheme(state, value) {
-      state.theme = value;
+    setTheme(state, payload) {
+      state.theme = payload;
     },
     toggleTheme(state) {
       state.theme = !state.theme;
@@ -48,15 +33,20 @@ export default new Vuex.Store({
     toggleUniverse(state) {
       state.parallelUniverse = !state.parallelUniverse;
     },
-    addColumn(state, value) {
-      state.selection.columns.push(value);
+    addColumn(state, payload) {
+      state.selection.columns.push(payload);
     },
     removeColumn(state, index) {
       state.selection.columns.splice(index, 1);
-    }
+    },
+    loadUsers(state, payload) {
+      state.user = payload;
+    },
+    loadProjects(state, payload) {
+      state.projects = payload;
+    },
   },
-  actions: {
-  },
+  actions: {},
   modules: {
   },
   getters: {
@@ -64,5 +54,7 @@ export default new Vuex.Store({
     getTheme: state => state.theme,
     getUniverse: state => state.parallelUniverse,
     getSelection: state => state.selection,
+    getUser: state => state.user,
+    getProjects: state => state.projects,
   }
 });
