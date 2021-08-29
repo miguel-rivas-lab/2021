@@ -175,7 +175,7 @@ export default Vue.extend({
     selection: { columns: [] },
   }),
   mounted() {
-    this.selection = this.$store.getters.getSelection;
+    this.selection = this.$store.getters.getGridSelection;
   },
   computed: {
     fixedValues(): Array<string> {
@@ -227,7 +227,7 @@ export default Vue.extend({
   methods: {
     removeBlock() {
       this.$store.commit("removeColumn", this.index);
-      this.selection = this.$store.getters.getSelection;
+      this.selection = this.$store.getters.getGridSelection;
     },
   },
 });

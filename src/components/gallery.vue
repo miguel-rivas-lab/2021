@@ -64,10 +64,10 @@ export default Vue.extend({
       date = date.replace(/\//g, "");
       let result;
       try {
-        result = require(`@/assets/${client}_${date}.jpg`);
+        result = require(`@/assets/previews/${client}_${date}.jpg`);
       }
       catch (e) {
-        result = require(`@/assets/miguelrivas.jpg`);
+        result = require(`@/assets/previews/miguelrivas.jpg`);
       }
       return result;
 

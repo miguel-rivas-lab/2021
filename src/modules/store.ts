@@ -11,10 +11,12 @@ export const store = new Vuex.Store({
     user: {},
     projects: [],
     selection: {
-      row: "Row",
-      integrate: false,
-      spacing: 0,
-      columns: []
+      grid: {
+        row: "Row",
+        integrate: false,
+        spacing: 0,
+        columns: [],
+      },
     },
   },
   mutations: {
@@ -34,10 +36,10 @@ export const store = new Vuex.Store({
       state.parallelUniverse = !state.parallelUniverse;
     },
     addColumn(state, payload) {
-      state.selection.columns.push(payload);
+      state.selection.grid.columns.push(payload);
     },
     removeColumn(state, index) {
-      state.selection.columns.splice(index, 1);
+      state.selection.grid.columns.splice(index, 1);
     },
     loadUsers(state, payload) {
       state.user = payload;
@@ -47,13 +49,12 @@ export const store = new Vuex.Store({
     },
   },
   actions: {},
-  modules: {
-  },
+  modules: {},
   getters: {
     getPanelVisibility: state => state.panel,
     getTheme: state => state.theme,
     getUniverse: state => state.parallelUniverse,
-    getSelection: state => state.selection,
+    getGridSelection: state => state.selection.grid,
     getUser: state => state.user,
     getProjects: state => state.projects,
   }

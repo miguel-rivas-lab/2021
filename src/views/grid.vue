@@ -140,7 +140,7 @@ export default Vue.extend({
   }),
   mounted() {
     this.$store.commit("setPanelVisibility", true);
-    this.selection = this.$store.getters.getSelection;
+    this.selection = this.$store.getters.getGridSelection;
     for (let c = 0; c <= 400; c += 25) {
       this.spacing.push(c);
     }
@@ -204,7 +204,7 @@ export default Vue.extend({
         expression: "sz1b4",
         block: "column",
       });
-      this.selection = this.$store.getters.getSelection;
+      this.selection = this.$store.getters.getGridSelection;
     },
   },
 });

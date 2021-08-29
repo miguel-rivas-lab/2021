@@ -9,3 +9,16 @@
   transform: translateY(-10px);
   opacity: 0;
 }
+
+.animation-rotate {
+  animation: rotate-y 15s linear infinite;
+}
+
+@keyframes rotate-y {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}

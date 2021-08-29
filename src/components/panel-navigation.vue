@@ -3,11 +3,11 @@
     <div class="container">
       <row vertical>
         <column size="100%-35*2">
-          <template v-for="(nav, index) in navigation">
+          <template v-for="(nav) in navigation">
             <template v-if="$route.name !== nav.route">
               <btn
                 :to="{ name: nav.route }"
-                v-bind:key="index"
+                v-bind:key="nav.route"
                 color="gravel"
                 :class="['tooltip', nav.route]"
                 size="md"
@@ -16,7 +16,31 @@
             </template>
             <template v-else>
               <btn
-                v-bind:key="index"
+                v-bind:key="nav.route"
+                color="gravel"
+                size="md"
+                :class="['tooltip', nav.route]"
+                @click="togglePanelVisibility"
+                :glyph="nav.icon"
+                active
+              />
+            </template>
+          </template>
+          <hr />
+          <template v-for="(nav) in navigationBuilder">
+            <template v-if="$route.name !== nav.route">
+              <btn
+                :to="{ name: nav.route }"
+                v-bind:key="nav.route"
+                color="gravel"
+                :class="['tooltip', nav.route]"
+                size="md"
+                :glyph="nav.icon"
+              />
+            </template>
+            <template v-else>
+              <btn
+                v-bind:key="nav.route"
                 color="gravel"
                 size="md"
                 :class="['tooltip', nav.route]"
@@ -46,7 +70,7 @@
             @click="toggleUniverse"
             :active="universe"
           />
-        </suffix>        
+        </suffix>
       </row>
     </div>
   </column>
@@ -64,16 +88,20 @@ export default Vue.extend({
       { icon: "projector-screen", route: "projects" },
       { icon: "duck", route: "experiments" },
       { icon: "chart-areaspline", route: "statistics" },
-      { icon: "robot-industrial", route: "grid" },
       { icon: "gesture-tap-button", route: "buttons" },
       { icon: "format-color-fill", route: "colors" },
       { icon: "cube-outline", route: "cube" },
+    ],
+    navigationBuilder: [
+      { icon: "robot-industrial", route: "grid" },
+      { icon: "cog", route: "gear" },
+      { icon: "palette", route: "wheel" },
     ],
   }),
   computed: {
     ...mapGetters({
       theme: "getTheme",
-      universe: "getUniverse"
+      universe: "getUniverse",
     }),
   },
   methods: {
@@ -93,7 +121,7 @@ export default Vue.extend({
     },
   },
   mounted() {
-    this.navigation.forEach((value, index) => {
+    this.navigation.concat(this.navigationBuilder).forEach((value, index) => {
       if (value.route == this.$route.name) {
         this.playSound(100 * (index + 2), 0.3, 0.00000001);
       }

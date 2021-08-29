@@ -3,6 +3,7 @@ import { roleEnum } from "../enums/roles";
 import { typeEnum } from "../enums/types";
 import { clientEnum } from "../enums/clients";
 import { categoryEnum } from "../enums/categories";
+import h from "./helpers";
 
 import { db } from "./firebase-db";
 
@@ -1311,12 +1312,8 @@ const projects = [
   return item;
 });
 
-function dateToNumber(date) {
-  return parseInt(date.split("/").join(""))
-}
-
 const all = experiments.concat(projects).sort((a, b) => {
-  return dateToNumber(b.date) - dateToNumber(a.date);
+  return h.dateToNumber(b.date) - h.dateToNumber(a.date);
 }).map(item => {
 
   let links = [];

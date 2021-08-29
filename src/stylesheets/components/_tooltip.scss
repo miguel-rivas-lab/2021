@@ -46,7 +46,13 @@
     content: "Experiments";
   }
   &.grid:before {
-    content: "Builder";
+    content: "Grid Builder";
+  }
+  &.wheel:before {
+    content: "Color Wheel Builder";
+  }
+  &.gear:before {
+    content: "Gear Builder";
   }
   &.buttons:before {
     content: "Buttons";

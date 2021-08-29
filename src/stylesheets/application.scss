@@ -58,7 +58,9 @@ main {
 }
 
 select,
-input[type="text"] {
+input[type="text"],
+input[type="number"],
+.input-label {
   font-weight: bold;
   letter-spacing: 1pt;
   text-decoration: none;
@@ -68,9 +70,9 @@ input[type="text"] {
   border-radius: 0;
   padding: 0.5rem;
   font-size: 9pt;
-  border: 0;
   background: #444444;
   color: #fff;
+  border: 0 none transparent;
 
   &:focus,
   &:active {
@@ -83,6 +85,15 @@ input[type="text"] {
     background: #888888;
     color: #444;
     pointer-events: none;
+  }
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 }
 
@@ -157,7 +168,8 @@ main.universe {
   .nano-app {
     .panel,
     .workarea {
-      &, * {
+      &,
+      * {
         animation: chaos 15s linear infinite;
       }
     }
@@ -198,6 +210,7 @@ main.universe {
 @import "core/layers";
 @import "views/home";
 @import "views/grid";
+@import "views/gear";
 @import "components/app";
 @import "components/container";
 @import "components/palette";

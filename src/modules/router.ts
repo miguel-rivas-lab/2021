@@ -9,6 +9,8 @@ import HomeView from '../views/home.vue';
 import ProjectsView from '../views/projects.vue';
 import ExperimentsView from '../views/experiments.vue';
 import StatisticsView from '../views/statistics.vue';
+import GearView from '../views/gear.vue';
+import WheelView from '../views/wheel.vue';
 
 Vue.use(VueRouter);
 
@@ -39,11 +41,6 @@ const routes: Array<RouteConfig> = [
     component: ButtonsView,
   },
   {
-    name: 'grid',
-    path: '/grid',
-    component: GridView,
-  },
-  {
     name: 'cube',
     path: '/cube',
     component: CubeView,
@@ -52,6 +49,21 @@ const routes: Array<RouteConfig> = [
     name: 'statistics',
     path: '/statistics',
     component: StatisticsView,
+  },
+  {
+    name: 'grid',
+    path: '/grid',
+    component: GridView,
+  },
+  {
+    name: 'gear',
+    path: '/gear',
+    component: GearView,
+  },
+  {
+    name: 'wheel',
+    path: '/wheel',
+    component: WheelView,
   },
   {
     path: '*',

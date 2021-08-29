@@ -1,0 +1,12 @@
+.section-gear {
+  .workarea {
+    .scroll-area {
+      height: 100%;
+      display: flex;
+      canvas {
+        margin: auto;
+        display: block;
+      }
+    }
+  }
+}

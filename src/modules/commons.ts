@@ -81,12 +81,3 @@ Vue.component("t-row", Vue.extend({
   },
   extends: NanoRow
 }));
-
-Vue.component("multi-input", Vue.extend({
-  props: {
-    multiInput: {
-      default: true
-    }
-  },
-  extends: NanoRow
-}));
