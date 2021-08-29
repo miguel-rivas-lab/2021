@@ -94,7 +94,7 @@ export default Vue.extend({
     ],
     navigationBuilder: [
       { icon: "robot-industrial", route: "grid" },
-      { icon: "cog", route: "gear" },
+      { icon: "cog-transfer-outline", route: "gear" },
       { icon: "palette", route: "wheel" },
     ],
   }),

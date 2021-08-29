@@ -665,6 +665,25 @@ const experiments = [
     ],
     links: {
       web: [
+        { url: linkCodepen("ERdMLO"), text: "Codepen Prototype" },
+      ]
+    },
+  },
+  {
+    date: "2018/09/11",
+    title: "Movie projector",
+    type: typeEnum.prototype,
+    disabled: true,
+    role: [
+      roleEnum.frontend,
+    ],
+    client: clientEnum.miguelRivas,
+    tools: [
+      toolEnum.svg,
+      toolEnum.scss,
+    ],
+    links: {
+      web: [
         { url: linkCodepen("rZdMYj"), text: "Codepen Prototype" },
       ]
     },
