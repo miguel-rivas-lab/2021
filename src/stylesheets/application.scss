@@ -2,7 +2,7 @@
 @import "~@fontsource/montserrat/300.css";
 @import "~@fontsource/montserrat/400.css";
 @import "~@fontsource/montserrat/600.css";
-@import "~@mdi/font/css/materialdesignicons.min.css";
+// @import "~@mdi/font/css/materialdesignicons.min.css";
 
 // ------------------ Modules
 @import "~nano-grid/scss/nano-grid";
@@ -206,6 +206,7 @@ main.universe {
   }
 }
 
+@import "core/icomoon";
 @import "core/animations";
 @import "core/layers";
 @import "views/home";

@@ -8,12 +8,12 @@
           <column size="100%">
             <legend>Cube Controllers</legend>
 
-            <!-- <number-input
+            <number-input
               id="outter-circle-radius"
               :value="cubeRotation"
               label="Rotation"
               v-on:update-value="updateSpeed($event)"
-            /> -->
+            />
 
             <row>
               <column size="100%">
@@ -85,12 +85,12 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { gColorsDB } from "../modules/colors";
 import { mapGetters } from "vuex";
-// import NumberInput from "../components/number-input.vue";
+import NumberInput from "../components/number-input.vue";
 
 export default Vue.extend({
   components: {
     PanelNavigation,
-    // NumberInput,
+    NumberInput,
   },
   data: () => ({
     gColorsDB: gColorsDB,
@@ -105,7 +105,7 @@ export default Vue.extend({
     renderer: undefined,
     sceneCtrl: undefined,
     linesGroup: undefined,
-    cubeRotation: 1,
+    cubeRotation: 3,
     sceneControls: function () {
       this.grid = true;
       this.lines = false;
@@ -125,7 +125,6 @@ export default Vue.extend({
   methods: {
     updateSpeed(newVal) {
       this.cubeRotation = parseInt(newVal);
-      this.render();
     },
     render() {
       if (this.controls) {
@@ -196,125 +195,125 @@ export default Vue.extend({
 
     const geometry = new THREE.BoxGeometry(1, 1, 1);
 
-      for (const value of gColorsDB) {
-        let x = value.RGB.red;
-        let y = value.RGB.green;
-        let z = value.RGB.blue;
-        let material = new THREE.MeshBasicMaterial({
-          color: value.rgb,
-        });
-        let mesh = new THREE.Mesh(geometry, material);
-        mesh.position.x =
-          x * this.distanceBetweenCubes -
-          this.maxValue * this.distanceBetweenCubes * 0.5;
-        mesh.position.y = y * this.distanceBetweenCubes;
-        mesh.position.z =
-          z * this.distanceBetweenCubes -
-          this.maxValue * this.distanceBetweenCubes * 0.5;
-        mesh.name = value.spinalCase;
-        this.scene.add(mesh);
-      }
+    for (const value of gColorsDB) {
+      let x = value.RGB.red;
+      let y = value.RGB.green;
+      let z = value.RGB.blue;
+      let material = new THREE.MeshBasicMaterial({
+        color: value.rgb,
+      });
+      let mesh = new THREE.Mesh(geometry, material);
+      mesh.position.x =
+        x * this.distanceBetweenCubes -
+        this.maxValue * this.distanceBetweenCubes * 0.5;
+      mesh.position.y = y * this.distanceBetweenCubes;
+      mesh.position.z =
+        z * this.distanceBetweenCubes -
+        this.maxValue * this.distanceBetweenCubes * 0.5;
+      mesh.name = value.spinalCase;
+      this.scene.add(mesh);
+    }
 
-      const size = this.maxValue * this.distanceBetweenCubes;
-      const divisions = 25;
-      this.gridHelper = new THREE.GridHelper(size, divisions);
+    const size = this.maxValue * this.distanceBetweenCubes;
+    const divisions = 25;
+    this.gridHelper = new THREE.GridHelper(size, divisions);
 
-      const red = this.createLine(
-        "255,0,0",
-        [-255 / 2, 0, -255 / 2],
-        [255 / 2, 0, -255 / 2]
-      );
-      const blue = this.createLine(
-        "0,0,255",
-        [-255 / 2, 0, -255 / 2],
-        [-255 / 2, 0, 255 / 2]
-      );
-      const green = this.createLine(
-        "0,255,0",
-        [-255 / 2, 0, -255 / 2],
-        [-255 / 2, 255, -255 / 2]
-      );
-      const cyan = this.createLine(
-        "0,255,255",
-        [-255 / 2, 0, -255 / 2],
-        [-255 / 2, 255, 255 / 2]
-      );
-      const magenta = this.createLine(
-        "255,0,255",
-        [-255 / 2, 0, -255 / 2],
-        [255 / 2, 0, 255 / 2]
-      );
-      const yellow = this.createLine(
-        "255,255,0",
-        [-255 / 2, 0, -255 / 2],
+    const red = this.createLine(
+      "255,0,0",
+      [-255 / 2, 0, -255 / 2],
+      [255 / 2, 0, -255 / 2]
+    );
+    const blue = this.createLine(
+      "0,0,255",
+      [-255 / 2, 0, -255 / 2],
+      [-255 / 2, 0, 255 / 2]
+    );
+    const green = this.createLine(
+      "0,255,0",
+      [-255 / 2, 0, -255 / 2],
+      [-255 / 2, 255, -255 / 2]
+    );
+    const cyan = this.createLine(
+      "0,255,255",
+      [-255 / 2, 0, -255 / 2],
+      [-255 / 2, 255, 255 / 2]
+    );
+    const magenta = this.createLine(
+      "255,0,255",
+      [-255 / 2, 0, -255 / 2],
+      [255 / 2, 0, 255 / 2]
+    );
+    const yellow = this.createLine(
+      "255,255,0",
+      [-255 / 2, 0, -255 / 2],
+      [255 / 2, 255, -255 / 2]
+    );
+    const white = this.createLine(
+      "255,255,255",
+      [-255 / 2, 0, -255 / 2],
+      [255 / 2, 255, 255 / 2]
+    );
+
+    const boxGroup = new THREE.Group();
+    boxGroup.add(
+      this.createLine(
+        "80,80,80",
+        [255 / 2, 0, -255 / 2],
         [255 / 2, 255, -255 / 2]
-      );
-      const white = this.createLine(
-        "255,255,255",
-        [-255 / 2, 0, -255 / 2],
+      ),
+      this.createLine(
+        "80,80,80",
+        [255 / 2, 0, -255 / 2],
+        [255 / 2, 0, 255 / 2]
+      ),
+      this.createLine(
+        "80,80,80",
+        [255 / 2, 0, 255 / 2],
         [255 / 2, 255, 255 / 2]
-      );
+      ),
+      this.createLine(
+        "80,80,80",
+        [-255 / 2, 0, 255 / 2],
+        [255 / 2, 0, 255 / 2]
+      ),
+      this.createLine(
+        "80,80,80",
+        [-255 / 2, 255, -255 / 2],
+        [255 / 2, 255, -255 / 2]
+      ),
+      this.createLine(
+        "80,80,80",
+        [-255 / 2, 255, -255 / 2],
+        [-255 / 2, 255, 255 / 2]
+      ),
+      this.createLine(
+        "80,80,80",
+        [-255 / 2, 0, 255 / 2],
+        [-255 / 2, 255, 255 / 2]
+      ),
+      this.createLine(
+        "80,80,80",
+        [255 / 2, 255, -255 / 2],
+        [255 / 2, 255, 255 / 2]
+      ),
+      this.createLine(
+        "80,80,80",
+        [255 / 2, 255, 255 / 2],
+        [-255 / 2, 255, 255 / 2]
+      )
+    );
 
-      const boxGroup = new THREE.Group();
-      boxGroup.add(
-        this.createLine(
-          "80,80,80",
-          [255 / 2, 0, -255 / 2],
-          [255 / 2, 255, -255 / 2]
-        ),
-        this.createLine(
-          "80,80,80",
-          [255 / 2, 0, -255 / 2],
-          [255 / 2, 0, 255 / 2]
-        ),
-        this.createLine(
-          "80,80,80",
-          [255 / 2, 0, 255 / 2],
-          [255 / 2, 255, 255 / 2]
-        ),
-        this.createLine(
-          "80,80,80",
-          [-255 / 2, 0, 255 / 2],
-          [255 / 2, 0, 255 / 2]
-        ),
-        this.createLine(
-          "80,80,80",
-          [-255 / 2, 255, -255 / 2],
-          [255 / 2, 255, -255 / 2]
-        ),
-        this.createLine(
-          "80,80,80",
-          [-255 / 2, 255, -255 / 2],
-          [-255 / 2, 255, 255 / 2]
-        ),
-        this.createLine(
-          "80,80,80",
-          [-255 / 2, 0, 255 / 2],
-          [-255 / 2, 255, 255 / 2]
-        ),
-        this.createLine(
-          "80,80,80",
-          [255 / 2, 255, -255 / 2],
-          [255 / 2, 255, 255 / 2]
-        ),
-        this.createLine(
-          "80,80,80",
-          [255 / 2, 255, 255 / 2],
-          [-255 / 2, 255, 255 / 2]
-        )
-      );
-
-      this.linesGroup = new THREE.Group();
-      this.linesGroup.add(
-        red,
-        blue,
-        green,
-        cyan,
-        magenta,
-        yellow,
-        white,
-        boxGroup
-      );
+    this.linesGroup = new THREE.Group();
+    this.linesGroup.add(
+      red,
+      blue,
+      green,
+      cyan,
+      magenta,
+      yellow,
+      white,
+      boxGroup
+    );
 
     this.render();
     this.switchThemes();
