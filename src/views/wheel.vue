@@ -72,16 +72,6 @@ export default Vue.extend({
     removeBlock() {
       this.colors--;
     },
-    createColor(index, max_color_amount) {
-      var hue, difference, filter_max_color, filter_min_color;
-      filter_max_color = max_color_amount > 359 ? 359 : max_color_amount;
-      filter_min_color = filter_max_color < 3 ? 3 : filter_max_color;
-      max_color_amount = filter_min_color;
-
-      difference = 360 / max_color_amount;
-      hue = (index * difference).toFixed(1);
-      return `hsl(${hue}, 59%, 51%)`;
-    },
   },
 });
 </script>

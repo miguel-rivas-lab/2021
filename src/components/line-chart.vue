@@ -26,29 +26,34 @@ export default {
       },
     },
   }),
-  mounted() {
-    const orgData = this.chartData.sort((a, b) => {
-      let ca = a.date;
-      let cb = b.date;
-      return ca - cb;
-    });
-    const dates = orgData.map((d) => `${d.date.slice(0, 4)}`);
-    const totals = orgData.map((d) => d.total);
+  methods: {
+    render() {
+      const orgData = this.chartData.sort((a, b) => {
+        let ca = a.date;
+        let cb = b.date;
+        return ca - cb;
+      });
+      const dates = orgData.map((d) => `${d.date.slice(0, 4)}`);
+      const totals = orgData.map((d) => d.total);
 
-    this.renderChart(
-      {
-        labels: dates,
-        datasets: [
-          {
-            data: totals,
-            borderColor: "rgba(22, 86, 144, .5)",
-            pointBackgroundColor: "rgb(52, 206, 126)",
-            backgroundColor: "rgba(56, 118, 204, .8)",
-          },
-        ],
-      },
-      this.options
-    );
+      this.renderChart(
+        {
+          labels: dates,
+          datasets: [
+            {
+              data: totals,
+              borderColor: "rgba(22, 86, 144, .5)",
+              pointBackgroundColor: "rgb(52, 206, 126)",
+              backgroundColor: "rgba(56, 118, 204, .8)",
+            },
+          ],
+        },
+        this.options
+      );
+    },
+  },
+  mounted() {
+    this.render();
   },
 };
 </script>

@@ -3,13 +3,16 @@ import app from './app.vue';
 import router from './modules/router';
 import {store} from './modules/store';
 import { firestorePlugin } from 'vuefire';
-
-// to sort firebase database
-// import "./modules/db-sync";
-
 import './stylesheets/application.scss';
 import './modules/commons.ts';
 import './modules/db-organizer';
+
+try {
+  require("./modules/db-sync");
+}
+catch (e) {
+  console.log("No DB Sorting");
+}
 
 Vue.use(firestorePlugin);
 Vue.config.productionTip = false;

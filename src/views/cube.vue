@@ -8,22 +8,12 @@
           <column size="100%">
             <legend>Cube Controllers</legend>
 
-            <!-- <row>
-              <column size="100%">
-                <label for="rotation">Rotation Speed</label>
-              </column>
-              <column size="100%">
-                <input
-                  id="rotation"
-                  type="range"
-                  name="rotation"
-                  min="-0.05"
-                  max="0.05"
-                  step="0.0001"
-                  v-model="sceneCtrl.rotation"
-                />
-              </column>
-            </row> -->
+            <!-- <number-input
+              id="outter-circle-radius"
+              :value="cubeRotation"
+              label="Rotation"
+              v-on:update-value="updateSpeed($event)"
+            /> -->
 
             <row>
               <column size="100%">
@@ -83,7 +73,7 @@
     </column>
 
     <column size="100%-350" class="workarea">
-      <div id="cube" />
+      <div ref="cube" />
     </column>
   </row>
 </template>
@@ -95,10 +85,12 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { gColorsDB } from "../modules/colors";
 import { mapGetters } from "vuex";
+// import NumberInput from "../components/number-input.vue";
 
 export default Vue.extend({
   components: {
     PanelNavigation,
+    // NumberInput,
   },
   data: () => ({
     gColorsDB: gColorsDB,
@@ -113,8 +105,8 @@ export default Vue.extend({
     renderer: undefined,
     sceneCtrl: undefined,
     linesGroup: undefined,
+    cubeRotation: 1,
     sceneControls: function () {
-      this.rotation = 0.025;
       this.grid = true;
       this.lines = false;
       this.zoom = 10;
@@ -131,13 +123,17 @@ export default Vue.extend({
     },
   },
   methods: {
+    updateSpeed(newVal) {
+      this.cubeRotation = parseInt(newVal);
+      this.render();
+    },
     render() {
       if (this.controls) {
         this.controls.update();
       }
       requestAnimationFrame(this.render);
       if (!this.sceneCtrl.pause) {
-        this.scene.rotation.y += this.sceneCtrl.rotation;
+        this.scene.rotation.y += this.cubeRotation * 0.01;
       }
       this.renderer.render(this.scene, this.camera);
       this.sceneCtrl.lines
@@ -168,14 +164,16 @@ export default Vue.extend({
       return line;
     },
     switchThemes() {
-      if (this.getTheme) {
+      if (this.theme) {
         this.renderer.setClearColor("#e0e0e0");
       } else {
-        this.renderer.setClearColor("#151619");
+        this.renderer.setClearColor("#1e1e1e");
       }
     },
   },
   mounted() {
+    this.$store.commit("setPanelVisibility", true);
+
     this.winHeight = window.innerHeight;
     this.winWidth = window.innerWidth - this.panelsSize;
     this.sceneCtrl = new this.sceneControls();
@@ -188,8 +186,6 @@ export default Vue.extend({
     );
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
 
-    this.$store.commit("setPanelVisibility", true);
-
     this.camera.position.x =
       (-this.maxValue - 1) * this.distanceBetweenCubes * 0.5;
     this.camera.position.y = 40;
@@ -198,138 +194,137 @@ export default Vue.extend({
     this.renderer.setSize(this.winWidth, this.winHeight);
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
-    if (this.getTheme) {
-      this.renderer.setClearColor("#e0e0e0");
-    } else {
-      this.renderer.setClearColor("#1e1e1e");
-    }
-
     const geometry = new THREE.BoxGeometry(1, 1, 1);
 
-    for (const value of gColorsDB) {
-      let x = value.RGB.red;
-      let y = value.RGB.green;
-      let z = value.RGB.blue;
-      let material = new THREE.MeshBasicMaterial({
-        color: value.rgb,
-      });
-      let mesh = new THREE.Mesh(geometry, material);
-      mesh.position.x =
-        x * this.distanceBetweenCubes -
-        this.maxValue * this.distanceBetweenCubes * 0.5;
-      mesh.position.y = y * this.distanceBetweenCubes;
-      mesh.position.z =
-        z * this.distanceBetweenCubes -
-        this.maxValue * this.distanceBetweenCubes * 0.5;
-      mesh.name = value.spinalCase;
-      this.scene.add(mesh);
-    }
+      for (const value of gColorsDB) {
+        let x = value.RGB.red;
+        let y = value.RGB.green;
+        let z = value.RGB.blue;
+        let material = new THREE.MeshBasicMaterial({
+          color: value.rgb,
+        });
+        let mesh = new THREE.Mesh(geometry, material);
+        mesh.position.x =
+          x * this.distanceBetweenCubes -
+          this.maxValue * this.distanceBetweenCubes * 0.5;
+        mesh.position.y = y * this.distanceBetweenCubes;
+        mesh.position.z =
+          z * this.distanceBetweenCubes -
+          this.maxValue * this.distanceBetweenCubes * 0.5;
+        mesh.name = value.spinalCase;
+        this.scene.add(mesh);
+      }
 
-    const size = this.maxValue * this.distanceBetweenCubes;
-    const divisions = 25;
-    this.gridHelper = new THREE.GridHelper(size, divisions);
+      const size = this.maxValue * this.distanceBetweenCubes;
+      const divisions = 25;
+      this.gridHelper = new THREE.GridHelper(size, divisions);
 
-    const red = this.createLine(
-      "255,0,0",
-      [-255 / 2, 0, -255 / 2],
-      [255 / 2, 0, -255 / 2]
-    );
-    const blue = this.createLine(
-      "0,0,255",
-      [-255 / 2, 0, -255 / 2],
-      [-255 / 2, 0, 255 / 2]
-    );
-    const green = this.createLine(
-      "0,255,0",
-      [-255 / 2, 0, -255 / 2],
-      [-255 / 2, 255, -255 / 2]
-    );
-    const cyan = this.createLine(
-      "0,255,255",
-      [-255 / 2, 0, -255 / 2],
-      [-255 / 2, 255, 255 / 2]
-    );
-    const magenta = this.createLine(
-      "255,0,255",
-      [-255 / 2, 0, -255 / 2],
-      [255 / 2, 0, 255 / 2]
-    );
-    const yellow = this.createLine(
-      "255,255,0",
-      [-255 / 2, 0, -255 / 2],
-      [255 / 2, 255, -255 / 2]
-    );
-    const white = this.createLine(
-      "255,255,255",
-      [-255 / 2, 0, -255 / 2],
-      [255 / 2, 255, 255 / 2]
-    );
-
-    const boxGroup = new THREE.Group();
-    boxGroup.add(
-      this.createLine(
-        "80,80,80",
-        [255 / 2, 0, -255 / 2],
-        [255 / 2, 255, -255 / 2]
-      ),
-      this.createLine(
-        "80,80,80",
-        [255 / 2, 0, -255 / 2],
+      const red = this.createLine(
+        "255,0,0",
+        [-255 / 2, 0, -255 / 2],
+        [255 / 2, 0, -255 / 2]
+      );
+      const blue = this.createLine(
+        "0,0,255",
+        [-255 / 2, 0, -255 / 2],
+        [-255 / 2, 0, 255 / 2]
+      );
+      const green = this.createLine(
+        "0,255,0",
+        [-255 / 2, 0, -255 / 2],
+        [-255 / 2, 255, -255 / 2]
+      );
+      const cyan = this.createLine(
+        "0,255,255",
+        [-255 / 2, 0, -255 / 2],
+        [-255 / 2, 255, 255 / 2]
+      );
+      const magenta = this.createLine(
+        "255,0,255",
+        [-255 / 2, 0, -255 / 2],
         [255 / 2, 0, 255 / 2]
-      ),
-      this.createLine(
-        "80,80,80",
-        [255 / 2, 0, 255 / 2],
-        [255 / 2, 255, 255 / 2]
-      ),
-      this.createLine(
-        "80,80,80",
-        [-255 / 2, 0, 255 / 2],
-        [255 / 2, 0, 255 / 2]
-      ),
-      this.createLine(
-        "80,80,80",
-        [-255 / 2, 255, -255 / 2],
+      );
+      const yellow = this.createLine(
+        "255,255,0",
+        [-255 / 2, 0, -255 / 2],
         [255 / 2, 255, -255 / 2]
-      ),
-      this.createLine(
-        "80,80,80",
-        [-255 / 2, 255, -255 / 2],
-        [-255 / 2, 255, 255 / 2]
-      ),
-      this.createLine(
-        "80,80,80",
-        [-255 / 2, 0, 255 / 2],
-        [-255 / 2, 255, 255 / 2]
-      ),
-      this.createLine(
-        "80,80,80",
-        [255 / 2, 255, -255 / 2],
+      );
+      const white = this.createLine(
+        "255,255,255",
+        [-255 / 2, 0, -255 / 2],
         [255 / 2, 255, 255 / 2]
-      ),
-      this.createLine(
-        "80,80,80",
-        [255 / 2, 255, 255 / 2],
-        [-255 / 2, 255, 255 / 2]
-      )
-    );
+      );
 
-    this.linesGroup = new THREE.Group();
-    this.linesGroup.add(
-      red,
-      blue,
-      green,
-      cyan,
-      magenta,
-      yellow,
-      white,
-      boxGroup
-    );
+      const boxGroup = new THREE.Group();
+      boxGroup.add(
+        this.createLine(
+          "80,80,80",
+          [255 / 2, 0, -255 / 2],
+          [255 / 2, 255, -255 / 2]
+        ),
+        this.createLine(
+          "80,80,80",
+          [255 / 2, 0, -255 / 2],
+          [255 / 2, 0, 255 / 2]
+        ),
+        this.createLine(
+          "80,80,80",
+          [255 / 2, 0, 255 / 2],
+          [255 / 2, 255, 255 / 2]
+        ),
+        this.createLine(
+          "80,80,80",
+          [-255 / 2, 0, 255 / 2],
+          [255 / 2, 0, 255 / 2]
+        ),
+        this.createLine(
+          "80,80,80",
+          [-255 / 2, 255, -255 / 2],
+          [255 / 2, 255, -255 / 2]
+        ),
+        this.createLine(
+          "80,80,80",
+          [-255 / 2, 255, -255 / 2],
+          [-255 / 2, 255, 255 / 2]
+        ),
+        this.createLine(
+          "80,80,80",
+          [-255 / 2, 0, 255 / 2],
+          [-255 / 2, 255, 255 / 2]
+        ),
+        this.createLine(
+          "80,80,80",
+          [255 / 2, 255, -255 / 2],
+          [255 / 2, 255, 255 / 2]
+        ),
+        this.createLine(
+          "80,80,80",
+          [255 / 2, 255, 255 / 2],
+          [-255 / 2, 255, 255 / 2]
+        )
+      );
+
+      this.linesGroup = new THREE.Group();
+      this.linesGroup.add(
+        red,
+        blue,
+        green,
+        cyan,
+        magenta,
+        yellow,
+        white,
+        boxGroup
+      );
 
     this.render();
-
-    document.getElementById("cube").appendChild(this.renderer.domElement);
+    this.switchThemes();
+    this.$refs.cube.appendChild(this.renderer.domElement);
     window.addEventListener("resize", this.resizeWindow);
+  },
+  watch: {
+    theme: function () {
+      this.switchThemes();
+    },
   },
   destroyed() {
     window.removeEventListener("resize", this.resizeWindow);
