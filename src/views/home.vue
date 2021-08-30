@@ -1,5 +1,5 @@
 <template>
-  <row class="nano-app">
+  <row class="nano-app" :class="classes">
     <panel-navigation />
 
     <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
@@ -7,16 +7,24 @@
     </column>
 
     <column :size="panel ? '100%-350' : '100%-50'" class="workarea">
-      <div class="out-card">
-        <div class="card">
-          <div v-if="user.lastName" class="content">
-            <h1 v-html="`${user.middleName} ${user.lastName}`" />
-            <h2 v-html="user.title" />
-          </div>
-          <div class="bk" />
+      <template v-if="user.lastName">
+        <div class="card" v-if="this.getModality == 'loop'">
+          <monster />
+          <h1 v-html="`${user.middleName} ${user.lastName}`" />
+          <h2 v-html="user.title" />
         </div>
-        <div class="out-bk" />
-      </div>
+
+        <div class="out-card" v-if="this.getModality == 'card'">
+          <div class="card">
+            <div class="content">
+              <h1 v-html="`${user.middleName} ${user.lastName}`" />
+              <h2 v-html="user.title" />
+            </div>
+            <div class="bk" />
+          </div>
+          <div class="out-bk" />
+        </div>
+      </template>
     </column>
   </row>
 </template>
@@ -24,20 +32,29 @@
 <script lang="ts">
 import Vue from "vue";
 import PanelNavigation from "../components/panel-navigation.vue";
+import Monster from "../components/monster.vue";
 import { mapGetters } from "vuex";
 
 export default Vue.extend({
   components: {
     PanelNavigation,
+    Monster,
   },
   data: () => ({
     panel: false,
-
   }),
   computed: {
     ...mapGetters({
       user: "getUser",
     }),
+    getModality() {
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      return urlParams.get("mode") ? urlParams.get("mode").toLowerCase() : "loop";
+    },
+    classes() {
+      return [this.getModality];
+    },
   },
 });
 </script>

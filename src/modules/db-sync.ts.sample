@@ -745,6 +745,114 @@ const experiments = [
       ]
     },
   },
+  {
+    date: "2012/11/06",
+    title: "Drakkar",
+    type: typeEnum.animation3D,
+    role: [
+      roleEnum.design,
+    ],
+    client: clientEnum.miguelRivas,
+    tools: [
+      toolEnum.blender,
+    ],
+    links: {
+      web: [
+        { url: "https://sketchfab.com/3d-models/drakkar-d0f14c73155e460cb848a3db80e1cb07", text: "3D Model" },
+      ]
+    },
+  },
+  {
+    date: "2011/12/05",
+    title: "Reloj",
+    type: typeEnum.animation3D,
+    disabled: true,
+    role: [
+      roleEnum.design,
+    ],
+    client: clientEnum.itla,
+    tools: [
+      toolEnum.maya,
+    ],
+  },
+  {
+    date: "2011/11/15",
+    title: "Pencil Sharpener",
+    type: typeEnum.animation3D,
+    disabled: true,
+    role: [
+      roleEnum.design,
+    ],
+    client: clientEnum.itla,
+    tools: [
+      toolEnum.maya,
+    ],
+  },
+  {
+    date: "2011/11/18",
+    title: "Batteries: depth of field",
+    type: typeEnum.animation3D,
+    disabled: true,
+    role: [
+      roleEnum.design,
+    ],
+    client: clientEnum.itla,
+    tools: [
+      toolEnum.maya,
+    ],
+  },
+  {
+    date: "2011/07/04",
+    title: "Audi",
+    type: typeEnum.animation3D,
+    disabled: true,
+    role: [
+      roleEnum.design,
+    ],
+    client: clientEnum.itla,
+    tools: [
+      toolEnum.maya,
+    ],
+  },
+  {
+    date: "2011/07/03",
+    title: "Mackbook Pro",
+    type: typeEnum.animation3D,
+    disabled: true,
+    role: [
+      roleEnum.design,
+    ],
+    client: clientEnum.itla,
+    tools: [
+      toolEnum.maya,
+    ],
+  },
+  {
+    date: "2011/07/02",
+    title: "Backpack",
+    type: typeEnum.animation3D,
+    disabled: true,
+    role: [
+      roleEnum.design,
+    ],
+    client: clientEnum.itla,
+    tools: [
+      toolEnum.maya,
+    ],
+  },
+  {
+    date: "2011/07/01",
+    title: "X-wing",
+    type: typeEnum.animation3D,
+    disabled: false,
+    role: [
+      roleEnum.design,
+    ],
+    client: clientEnum.itla,
+    tools: [
+      toolEnum.maya,
+    ],
+  },
 ].map(item => {
   item["category"] = categoryEnum.experiment;
   return item;
@@ -1384,13 +1492,13 @@ const all = experiments.concat(projects).sort((a, b) => {
 console.table(users);
 console.table(all);
 
-db.collection('users')
-  .doc("main")
-  .set(users);
+// db.collection('users')
+//   .doc("main")
+//   .set(users);
 
-all.forEach(
-  (item, index) => {
-    const i = index < 10 ? `P0${index}` : `P${index}`;
-    db.collection("projects").doc(i).set(item);
-  }
-);
+// all.forEach(
+//   (item, index) => {
+//     const i = index < 10 ? `P0${index}` : `P${index}`;
+//     db.collection("projects").doc(i).set(item);
+//   }
+// );

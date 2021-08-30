@@ -58,6 +58,11 @@ export default {
       );
     },
   },
+  watch: {
+    chartData: function () {
+      this.render();
+    },
+  },
   mounted() {
     this.render();
   },

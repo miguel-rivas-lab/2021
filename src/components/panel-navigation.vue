@@ -85,6 +85,7 @@ export default Vue.extend({
   data: () => ({
     navigation: [
       { icon: "home", route: "home" },
+      { icon: "chart-areaspline", route: "statistics" },
       { icon: "projector-screen", route: "projects" },
       { icon: "duck", route: "experiments" },
       { icon: "gesture-tap-button", route: "buttons" },
@@ -95,7 +96,6 @@ export default Vue.extend({
       { icon: "robot-industrial", route: "grid" },
       { icon: "cog-transfer-outline", route: "gear" },
       { icon: "palette", route: "wheel" },
-      { icon: "chart-areaspline", route: "statistics" },
     ],
   }),
   computed: {
