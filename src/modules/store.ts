@@ -14,6 +14,7 @@ export const store = new Vuex.Store({
       grid: {
         row: "Row",
         integrate: false,
+        breakpoint: "",
         spacing: 0,
         columns: [],
       },

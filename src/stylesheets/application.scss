@@ -2,7 +2,6 @@
 @import "~@fontsource/montserrat/300.css";
 @import "~@fontsource/montserrat/400.css";
 @import "~@fontsource/montserrat/600.css";
-// @import "~@mdi/font/css/materialdesignicons.min.css";
 
 // ------------------ Modules
 @import "~nano-grid/scss/nano-grid";
@@ -37,6 +36,8 @@ main {
     --color-legend: #9c330a;
     --color-background-card: #bd738b;
     --color-background-out-card: #363fb4;
+    --title-shadow: 0;
+    --title-shadow-hover: 0;
   }
   &.nano-dark {
     --color-title: #e69b28;
@@ -52,6 +53,8 @@ main {
     --color-legend: #b9b90e;
     --color-background-card: #5d2b5b;
     --color-background-out-card: #3f48b7;
+    --title-shadow: 0 0 9px #0a91b9;
+    --title-shadow-hover: 0 0 11px #0a91b9;
   }
   --color-shadow: rgb(0 0 0 / 65%);
   --shadow-depth: 2px 2px 5px;
@@ -112,6 +115,10 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &.fsz {
+    width: 100%;
+  }
 }
 
 /*------------------------*/

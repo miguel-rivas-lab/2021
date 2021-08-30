@@ -32,6 +32,7 @@ export enum toolEnum {
   canvas,
   sweetAlert,
   stellar,
+  highlight,
 
   rails = 250,
   php,
@@ -96,7 +97,7 @@ export const tool = {
   vue: "Vue",
   angular: "Angular",
   react: "React",
-  grunt: "GruntJs",
+  grunt: "GruntJS",
   three: "ThreeJS",
   jQuery: "jQuery",
   json: "JSON",
@@ -139,4 +140,5 @@ export const tool = {
   gulp: "Gulp",
   svg: "SVG",
   joomla: "Joomla",
+  highlight: "Highlight.js"
 };

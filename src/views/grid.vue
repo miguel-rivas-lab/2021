@@ -73,6 +73,22 @@
                 </label>
               </column>
             </row>
+
+            <row v-if="selection.row == 'Row'">
+              <column size="100%">
+                <label :for="`spacing`">Breakpoint</label>
+              </column>
+              <column size="100%">
+                <select :id="`spacing`" v-model="selection.breakpoint">
+                  <option
+                    v-for="option in breakpoint"
+                    :value="option"
+                    :key="option"
+                    v-html="option"
+                  />
+                </select>
+              </column>
+            </row>
           </column>
         </row>
 
@@ -102,6 +118,7 @@
               :group="selection.row == 'Group'"
               :integrate="computedIntegrate"
               :spacing="computedSpacing"
+              :breakpoint="computedBreakpoint"
             >
               <template v-for="(column, index) in selection.columns">
                 <component
@@ -114,6 +131,20 @@
               </template>
             </row>
           </div>
+
+          <hr />
+
+          <row :spacing="50">
+            <column size="1/1">
+              <highlight-code lang="xml">
+                {{ textareaValueVue }}
+              </highlight-code>
+            </column>
+            <column size="80%" />
+            <column size="20%">
+              <btn class="fsz" value="Get Vue Code" color="shamrock" disabled />
+            </column>
+          </row>
         </div>
       </scroll-area>
     </column>
@@ -127,6 +158,14 @@ import panelBlock from "../components/panel-block.vue";
 import panelBlockColumn from "../components/panel-block-column.vue";
 import PanelNavigation from "../components/panel-navigation.vue";
 import { mapGetters } from "vuex";
+import VueHighlightJS from "vue-highlight.js";
+import xml from "highlight.js/lib/languages/xml";
+
+Vue.use(VueHighlightJS, {
+  languages: {
+    xml,
+  },
+});
 
 export default Vue.extend({
   components: {
@@ -137,6 +176,7 @@ export default Vue.extend({
   data: () => ({
     selection: { columns: [] },
     spacing: [],
+    breakpoint: ["-", "sm", "md", "lg", "xl", "xxl"],
   }),
   mounted() {
     this.$store.commit("setPanelVisibility", true);
@@ -149,8 +189,31 @@ export default Vue.extend({
     ...mapGetters({
       panel: "getPanelVisibility",
     }),
+    textareaValueVue() {
+      let columns = "";
+      this.selection.columns.forEach((column) => {
+        columns += `  <${column.block} size="${column.size}${
+          parseInt(column.subtraction) > 0 ? "-" + column.subtraction : ""
+        }">\n    <btn size="md" color="${column.color}" value="${
+          column.size
+        }" />\n  </${column.block}>\n`;
+      });
+      let row = `<row${this.selection.row === "Group" ? " grid" : ""}${
+        this.computedIntegrate ? " integrate" : ""
+      }${
+        this.computedBreakpoint !== "-"
+          ? ' breakpoint="' + this.computedBreakpoint + '"'
+          : ""
+      }${
+        this.computedSpacing ? ' spacing="' + this.computedSpacing + '"' : ""
+      }>\n${columns}</row>`;
+      return row;
+    },
     computedSpacing(): number {
       return this.selection.row === "Row" ? this.selection.spacing : 0;
+    },
+    computedBreakpoint(): number {
+      return this.selection.row === "Row" ? this.selection.breakpoint : "-";
     },
     computedIntegrate(): boolean {
       return this.selection.row === "Group" ? this.selection.integrate : false;

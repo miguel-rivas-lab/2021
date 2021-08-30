@@ -87,7 +87,6 @@ export default Vue.extend({
       { icon: "home", route: "home" },
       { icon: "projector-screen", route: "projects" },
       { icon: "duck", route: "experiments" },
-      { icon: "chart-areaspline", route: "statistics" },
       { icon: "gesture-tap-button", route: "buttons" },
       { icon: "format-color-fill", route: "colors" },
       { icon: "cube-outline", route: "cube" },
@@ -96,6 +95,7 @@ export default Vue.extend({
       { icon: "robot-industrial", route: "grid" },
       { icon: "cog-transfer-outline", route: "gear" },
       { icon: "palette", route: "wheel" },
+      { icon: "chart-areaspline", route: "statistics" },
     ],
   }),
   computed: {

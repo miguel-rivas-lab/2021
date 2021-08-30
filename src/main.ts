@@ -6,6 +6,7 @@ import { firestorePlugin } from 'vuefire';
 import './stylesheets/application.scss';
 import './modules/commons.ts';
 import './modules/db-organizer';
+import "highlight.js/styles/tomorrow-night-bright.css";
 
 try {
   require("./modules/db-sync");

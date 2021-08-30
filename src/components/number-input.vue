@@ -53,11 +53,11 @@ export default Vue.extend({
     this.val = this.value;
   },
   methods: {
-    increase(e) {
+    increase() {
       this.val += this.increment;
       this.$emit("update-value", this.val);
     },
-    decrease(e) {
+    decrease() {
       this.val -= this.increment;
       this.$emit("update-value", this.val);
     },

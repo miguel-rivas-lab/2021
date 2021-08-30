@@ -405,6 +405,7 @@ const experiments = [
       toolEnum.git,
       toolEnum.chartJS,
       toolEnum.firebase,
+      toolEnum.highlight,
     ],
     links: {
       web: [
