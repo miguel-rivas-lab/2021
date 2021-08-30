@@ -8,6 +8,10 @@
 
     <column :size="panel ? '100%-350' : '100%-50'" class="workarea">
       <template v-if="user.lastName">
+        <!-- <div class="card" v-if="this.getModality == '3d'">
+          <div ref="drakkar" />
+        </div> -->
+
         <div class="card" v-if="this.getModality == 'loop'">
           <monster />
           <h1 v-html="`${user.middleName} ${user.lastName}`" />
@@ -34,6 +38,7 @@ import Vue from "vue";
 import PanelNavigation from "../components/panel-navigation.vue";
 import Monster from "../components/monster.vue";
 import { mapGetters } from "vuex";
+// import * as THREE from "three";
 
 export default Vue.extend({
   components: {
@@ -56,5 +61,10 @@ export default Vue.extend({
       return [this.getModality];
     },
   },
+  // methods: {
+  // },
+  // mounted(){
+  //   this.renderer = new THREE.WebGLRenderer({ antialias: true });
+  // }
 });
 </script>

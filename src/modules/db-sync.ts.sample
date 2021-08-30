@@ -510,6 +510,7 @@ const experiments = [
     role: [
       roleEnum.design,
     ],
+    disabled: true,
     client: clientEnum.miguelRivas,
     tools: [
       toolEnum.indesign,
@@ -527,7 +528,8 @@ const experiments = [
       toolEnum.indesign,
       toolEnum.illustrator,
       toolEnum.photoshop,
-    ]
+    ],
+    disabled: true,
   },
   {
     date: "2015/05/10",
@@ -537,6 +539,7 @@ const experiments = [
       roleEnum.frontend,
       roleEnum.design,
     ],
+    disabled: true,
     client: clientEnum.miguelRivas,
     tools: [
       toolEnum.bootstrap,
@@ -559,6 +562,7 @@ const experiments = [
       toolEnum.scss,
       toolEnum.git,
     ],
+    disabled: true,
   },
   {
     date: "2017/01/01",
@@ -593,6 +597,7 @@ const experiments = [
       toolEnum.kotlin,
       toolEnum.git,
     ],
+    disabled: true,
   },
   {
     date: "2021/02/27",
@@ -1182,6 +1187,7 @@ const projects = [
     role: [
       roleEnum.design,
     ],
+    disabled: true,
   },
   {
     date: "2020/05/05",
@@ -1290,11 +1296,13 @@ const projects = [
     client: clientEnum.pixelPerfectTree,
     tools: [
       toolEnum.illustrator,
-    ]
+    ],
+    disabled: true,
   },
   {
     date: "2017/08/04",
     title: "Chakras",
+    disabled: true,
     type: typeEnum.wireFrame,
     role: [
       roleEnum.frontend,
@@ -1322,11 +1330,13 @@ const projects = [
       toolEnum.rails,
       toolEnum.git,
     ],
+    disabled: true,
   },
   {
     date: "2016/06/24",
     title: "Voxel Cube Games: Social Media Posts",
     type: typeEnum.socialMedia,
+    disabled: true,
     role: [
       roleEnum.design,
     ],
@@ -1472,9 +1482,6 @@ const all = experiments.concat(projects).sort((a, b) => {
   const tools = item["tools"].sort();
 
   let disabled = item.disabled ? true : false;
-  if (links.length == 0) {
-    disabled = true;
-  }
 
   return {
     "title": item.title,
@@ -1492,13 +1499,13 @@ const all = experiments.concat(projects).sort((a, b) => {
 console.table(users);
 console.table(all);
 
-// db.collection('users')
-//   .doc("main")
-//   .set(users);
+db.collection('users')
+  .doc("main")
+  .set(users);
 
-// all.forEach(
-//   (item, index) => {
-//     const i = index < 10 ? `P0${index}` : `P${index}`;
-//     db.collection("projects").doc(i).set(item);
-//   }
-// );
+all.forEach(
+  (item, index) => {
+    const i = index < 10 ? `P0${index}` : `P${index}`;
+    db.collection("projects").doc(i).set(item);
+  }
+);

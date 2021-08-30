@@ -94,7 +94,6 @@ export default Vue.extend({
   },
   data: () => ({
     gColorsDB: gColorsDB,
-    gui: undefined,
     winHeight: undefined,
     winWidth: undefined,
     controls: undefined,

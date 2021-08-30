@@ -25,6 +25,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.mdi-monster:before {
+  content: "\e900";
+}
 .mdi-brightness-4:before {
   content: "\f00dd";
 }
@@ -33,6 +36,9 @@
 }
 .mdi-chevron-down:before {
   content: "\f0140";
+}
+.mdi-chevron-up:before {
+  content: "\f0143";
 }
 .mdi-close:before {
   content: "\f0156";
@@ -58,6 +64,12 @@
 .mdi-home:before {
   content: "\f02dc";
 }
+.mdi-language-html5:before {
+  content: "\f031d";
+}
+.mdi-language-javascript:before {
+  content: "\f031e";
+}
 .mdi-linkedin:before {
   content: "\f033b";
 }
@@ -72,6 +84,18 @@
 }
 .mdi-projector-screen:before {
   content: "\f042f";
+}
+.mdi-angular:before {
+  content: "\f06b2";
+}
+.mdi-react:before {
+  content: "\f0708";
+}
+.mdi-sass:before {
+  content: "\f07ec";
+}
+.mdi-vuejs:before {
+  content: "\f0844";
 }
 .mdi-robot-industrial:before {
   content: "\f0b46";
