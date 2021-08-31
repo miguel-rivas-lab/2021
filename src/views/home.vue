@@ -8,13 +8,6 @@
           <column size="100%">
             <legend>Animation Controllers</legend>
 
-            <number-input
-              id="outter-circle-radius"
-              :value="cubeRotation"
-              label="Rotation"
-              v-on:update-value="updateSpeed($event)"
-            />
-
             <row>
               <column size="100%">
                 <label
@@ -243,7 +236,7 @@ export default Vue.extend({
 
       (function (scene) {
         loader.load(
-          "/drakkar.glb",
+          "/3d/drakkar.glb",
           function (gltf) {
             scene.add(gltf.scene);
           },
