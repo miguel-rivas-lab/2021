@@ -1,5 +1,5 @@
 <template>
-  <row class="nano-app" :class="classes">
+  <row class="nano-app">
     <panel-navigation />
 
     <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
@@ -49,18 +49,6 @@
                 </label>
               </column>
             </row>
-
-            <!-- <row>
-              <column size="100%">
-                <label
-                  class="btn flat charcoal"
-                  :class="{ active: sceneCtrl.grid }"
-                >
-                  Grid
-                  <input type="checkbox" v-model="sceneCtrl.grid" />
-                </label>
-              </column>
-            </row> -->
           </column>
         </row>
 
@@ -68,32 +56,13 @@
     </column>
 
     <column :size="panel ? '100%-350' : '100%-50'" class="workarea">
-      <template v-if="this.getModality == 'drakkar'">
+      <template>
         <div ref="drakkar" class="drakkar" />
         <div class="cover" v-if="cover">
           <template v-if="user.lastName">
             <h1 v-html="`${user.middleName} ${user.lastName}`" />
             <h2 v-html="user.title" />
           </template>
-        </div>
-      </template>
-
-      <template v-if="user.lastName">
-        <div class="card" v-if="this.getModality == 'loop'">
-          <monster />
-          <h1 v-html="`${user.middleName} ${user.lastName}`" />
-          <h2 v-html="user.title" />
-        </div>
-
-        <div class="out-card" v-if="this.getModality == 'card'">
-          <div class="card">
-            <div class="content">
-              <h1 v-html="`${user.middleName} ${user.lastName}`" />
-              <h2 v-html="user.title" />
-            </div>
-            <div class="bk" />
-          </div>
-          <div class="out-bk" />
         </div>
       </template>
     </column>
@@ -103,7 +72,6 @@
 <script lang="ts">
 import Vue from "vue";
 import PanelNavigation from "../components/panel-navigation.vue";
-import Monster from "../components/monster.vue";
 import { mapGetters } from "vuex";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
@@ -112,7 +80,6 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 export default Vue.extend({
   components: {
     PanelNavigation,
-    Monster,
   },
   data: () => ({
     winHeight: undefined,
@@ -139,16 +106,6 @@ export default Vue.extend({
       theme: "getTheme",
       panel: "getPanelVisibility",
     }),
-    getModality() {
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      return urlParams.get("mode")
-        ? urlParams.get("mode").toLowerCase()
-        : "drakkar";
-    },
-    classes() {
-      return [this.getModality];
-    },
     panelsSize() {
       return this.panel ? 350 : 50;
     },
@@ -236,7 +193,7 @@ export default Vue.extend({
 
       (function (scene) {
         loader.load(
-          "/3d/drakkar.glb",
+          "3d/drakkar-crystal.glb",
           function (gltf) {
             scene.add(gltf.scene);
           },
