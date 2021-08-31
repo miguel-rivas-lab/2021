@@ -2,7 +2,7 @@
   <row class="nano-app">
     <panel-navigation />
 
-    <column size="300" class="panel">
+    <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
       <scroll-area color="royal-purple">
         <row class="row-block" tag="fieldset" v-if="sceneCtrl">
           <column size="100%">
@@ -72,7 +72,7 @@
       </scroll-area>
     </column>
 
-    <column size="100%-350" class="workarea">
+    <column :size="panel ? '100%-350' : '100%-50'" class="workarea">
       <div ref="cube" />
     </column>
   </row>
@@ -118,13 +118,10 @@ export default Vue.extend({
       theme: "getTheme",
     }),
     panelsSize() {
-      return 350;
+      return this.panel ? 350 : 50;
     },
   },
   methods: {
-    updateSpeed(newVal) {
-      this.cubeRotation = parseInt(newVal);
-    },
     render() {
       if (this.controls) {
         this.controls.update();
@@ -168,163 +165,178 @@ export default Vue.extend({
         this.renderer.setClearColor("#1e1e1e");
       }
     },
+    buildScene() {
+      this.winHeight = window.innerHeight;
+      this.winWidth = window.innerWidth - this.panelsSize;
+      this.sceneCtrl = new this.sceneControls();
+      this.scene = new THREE.Scene();
+      this.camera = new THREE.PerspectiveCamera(
+        75,
+        this.winWidth / this.winHeight,
+        0.1,
+        1000
+      );
+      this.renderer = new THREE.WebGLRenderer({ antialias: true });
+
+      this.camera.position.x =
+        (-this.maxValue - 1) * this.distanceBetweenCubes * 0.5;
+      this.camera.position.y = 40;
+      this.camera.position.z = 10;
+      this.scene.position.y = (-this.maxValue - 1) * 0.5;
+      this.renderer.setSize(this.winWidth, this.winHeight);
+      this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+      this.switchThemes();
+      this.$refs.cube.appendChild(this.renderer.domElement);
+    },
+    buildGeometry() {
+      const geometry = new THREE.BoxGeometry(1, 1, 1);
+
+      for (const value of gColorsDB) {
+        let x = value.RGB.red;
+        let y = value.RGB.green;
+        let z = value.RGB.blue;
+        let material = new THREE.MeshBasicMaterial({
+          color: value.rgb,
+        });
+        let mesh = new THREE.Mesh(geometry, material);
+        mesh.position.x =
+          x * this.distanceBetweenCubes -
+          this.maxValue * this.distanceBetweenCubes * 0.5;
+        mesh.position.y = y * this.distanceBetweenCubes;
+        mesh.position.z =
+          z * this.distanceBetweenCubes -
+          this.maxValue * this.distanceBetweenCubes * 0.5;
+        mesh.name = value.spinalCase;
+        this.scene.add(mesh);
+      }
+
+      const size = this.maxValue * this.distanceBetweenCubes;
+      const divisions = 25;
+      this.gridHelper = new THREE.GridHelper(size, divisions);
+
+      const red = this.createLine(
+        "255,0,0",
+        [-255 / 2, 0, -255 / 2],
+        [255 / 2, 0, -255 / 2]
+      );
+      const blue = this.createLine(
+        "0,0,255",
+        [-255 / 2, 0, -255 / 2],
+        [-255 / 2, 0, 255 / 2]
+      );
+      const green = this.createLine(
+        "0,255,0",
+        [-255 / 2, 0, -255 / 2],
+        [-255 / 2, 255, -255 / 2]
+      );
+      const cyan = this.createLine(
+        "0,255,255",
+        [-255 / 2, 0, -255 / 2],
+        [-255 / 2, 255, 255 / 2]
+      );
+      const magenta = this.createLine(
+        "255,0,255",
+        [-255 / 2, 0, -255 / 2],
+        [255 / 2, 0, 255 / 2]
+      );
+      const yellow = this.createLine(
+        "255,255,0",
+        [-255 / 2, 0, -255 / 2],
+        [255 / 2, 255, -255 / 2]
+      );
+      const white = this.createLine(
+        "255,255,255",
+        [-255 / 2, 0, -255 / 2],
+        [255 / 2, 255, 255 / 2]
+      );
+
+      const boxGroup = new THREE.Group();
+      boxGroup.add(
+        this.createLine(
+          "80,80,80",
+          [255 / 2, 0, -255 / 2],
+          [255 / 2, 255, -255 / 2]
+        ),
+        this.createLine(
+          "80,80,80",
+          [255 / 2, 0, -255 / 2],
+          [255 / 2, 0, 255 / 2]
+        ),
+        this.createLine(
+          "80,80,80",
+          [255 / 2, 0, 255 / 2],
+          [255 / 2, 255, 255 / 2]
+        ),
+        this.createLine(
+          "80,80,80",
+          [-255 / 2, 0, 255 / 2],
+          [255 / 2, 0, 255 / 2]
+        ),
+        this.createLine(
+          "80,80,80",
+          [-255 / 2, 255, -255 / 2],
+          [255 / 2, 255, -255 / 2]
+        ),
+        this.createLine(
+          "80,80,80",
+          [-255 / 2, 255, -255 / 2],
+          [-255 / 2, 255, 255 / 2]
+        ),
+        this.createLine(
+          "80,80,80",
+          [-255 / 2, 0, 255 / 2],
+          [-255 / 2, 255, 255 / 2]
+        ),
+        this.createLine(
+          "80,80,80",
+          [255 / 2, 255, -255 / 2],
+          [255 / 2, 255, 255 / 2]
+        ),
+        this.createLine(
+          "80,80,80",
+          [255 / 2, 255, 255 / 2],
+          [-255 / 2, 255, 255 / 2]
+        )
+      );
+
+      this.linesGroup = new THREE.Group();
+      this.linesGroup.add(
+        red,
+        blue,
+        green,
+        cyan,
+        magenta,
+        yellow,
+        white,
+        boxGroup
+      );
+    },
+    updateSpeed(newVal) {
+      this.cubeRotation = parseInt(newVal);
+    },
   },
   mounted() {
     this.$store.commit("setPanelVisibility", true);
 
-    this.winHeight = window.innerHeight;
-    this.winWidth = window.innerWidth - this.panelsSize;
-    this.sceneCtrl = new this.sceneControls();
-    this.scene = new THREE.Scene();
-    this.camera = new THREE.PerspectiveCamera(
-      75,
-      this.winWidth / this.winHeight,
-      0.1,
-      1000
-    );
-    this.renderer = new THREE.WebGLRenderer({ antialias: true });
-
-    this.camera.position.x =
-      (-this.maxValue - 1) * this.distanceBetweenCubes * 0.5;
-    this.camera.position.y = 40;
-    this.camera.position.z = 10;
-    this.scene.position.y = (-this.maxValue - 1) * 0.5;
-    this.renderer.setSize(this.winWidth, this.winHeight);
-    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-
-    for (const value of gColorsDB) {
-      let x = value.RGB.red;
-      let y = value.RGB.green;
-      let z = value.RGB.blue;
-      let material = new THREE.MeshBasicMaterial({
-        color: value.rgb,
-      });
-      let mesh = new THREE.Mesh(geometry, material);
-      mesh.position.x =
-        x * this.distanceBetweenCubes -
-        this.maxValue * this.distanceBetweenCubes * 0.5;
-      mesh.position.y = y * this.distanceBetweenCubes;
-      mesh.position.z =
-        z * this.distanceBetweenCubes -
-        this.maxValue * this.distanceBetweenCubes * 0.5;
-      mesh.name = value.spinalCase;
-      this.scene.add(mesh);
-    }
-
-    const size = this.maxValue * this.distanceBetweenCubes;
-    const divisions = 25;
-    this.gridHelper = new THREE.GridHelper(size, divisions);
-
-    const red = this.createLine(
-      "255,0,0",
-      [-255 / 2, 0, -255 / 2],
-      [255 / 2, 0, -255 / 2]
-    );
-    const blue = this.createLine(
-      "0,0,255",
-      [-255 / 2, 0, -255 / 2],
-      [-255 / 2, 0, 255 / 2]
-    );
-    const green = this.createLine(
-      "0,255,0",
-      [-255 / 2, 0, -255 / 2],
-      [-255 / 2, 255, -255 / 2]
-    );
-    const cyan = this.createLine(
-      "0,255,255",
-      [-255 / 2, 0, -255 / 2],
-      [-255 / 2, 255, 255 / 2]
-    );
-    const magenta = this.createLine(
-      "255,0,255",
-      [-255 / 2, 0, -255 / 2],
-      [255 / 2, 0, 255 / 2]
-    );
-    const yellow = this.createLine(
-      "255,255,0",
-      [-255 / 2, 0, -255 / 2],
-      [255 / 2, 255, -255 / 2]
-    );
-    const white = this.createLine(
-      "255,255,255",
-      [-255 / 2, 0, -255 / 2],
-      [255 / 2, 255, 255 / 2]
-    );
-
-    const boxGroup = new THREE.Group();
-    boxGroup.add(
-      this.createLine(
-        "80,80,80",
-        [255 / 2, 0, -255 / 2],
-        [255 / 2, 255, -255 / 2]
-      ),
-      this.createLine(
-        "80,80,80",
-        [255 / 2, 0, -255 / 2],
-        [255 / 2, 0, 255 / 2]
-      ),
-      this.createLine(
-        "80,80,80",
-        [255 / 2, 0, 255 / 2],
-        [255 / 2, 255, 255 / 2]
-      ),
-      this.createLine(
-        "80,80,80",
-        [-255 / 2, 0, 255 / 2],
-        [255 / 2, 0, 255 / 2]
-      ),
-      this.createLine(
-        "80,80,80",
-        [-255 / 2, 255, -255 / 2],
-        [255 / 2, 255, -255 / 2]
-      ),
-      this.createLine(
-        "80,80,80",
-        [-255 / 2, 255, -255 / 2],
-        [-255 / 2, 255, 255 / 2]
-      ),
-      this.createLine(
-        "80,80,80",
-        [-255 / 2, 0, 255 / 2],
-        [-255 / 2, 255, 255 / 2]
-      ),
-      this.createLine(
-        "80,80,80",
-        [255 / 2, 255, -255 / 2],
-        [255 / 2, 255, 255 / 2]
-      ),
-      this.createLine(
-        "80,80,80",
-        [255 / 2, 255, 255 / 2],
-        [-255 / 2, 255, 255 / 2]
-      )
-    );
-
-    this.linesGroup = new THREE.Group();
-    this.linesGroup.add(
-      red,
-      blue,
-      green,
-      cyan,
-      magenta,
-      yellow,
-      white,
-      boxGroup
-    );
-
+    this.buildScene();
+    this.buildGeometry();
     this.render();
-    this.switchThemes();
-    this.$refs.cube.appendChild(this.renderer.domElement);
+  },
+  created() {
     window.addEventListener("resize", this.resizeWindow);
   },
   watch: {
     theme: function () {
       this.switchThemes();
     },
+    panel: function () {
+      this.resizeWindow();
+    },
   },
-  destroyed() {
+  beforeDestroy() {
+    this.render = () => {
+      // remove render loop
+    };
     window.removeEventListener("resize", this.resizeWindow);
   },
 });

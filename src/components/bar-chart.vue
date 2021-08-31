@@ -27,7 +27,7 @@ export default {
     },
   }),
   methods: {
-    render() {
+    render(): void {
       const orgData = this.chartData.sort((a, b) => {
         let ca = a.skill.toUpperCase();
         let cb = b.skill.toUpperCase();
@@ -59,12 +59,17 @@ export default {
     },
   },
   watch: {
-    chartData: function () {
+    chartData: function (): void {
       this.render();
     },
   },
-  mounted() {
+  mounted(): void {
     this.render();
+  },
+  beforeDestroy(): void {
+    this.render = () => {
+      // remove render loop
+    };
   },
 };
 </script>

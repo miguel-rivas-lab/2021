@@ -402,6 +402,7 @@ const experiments = [
       toolEnum.typescript,
       toolEnum.three,
       toolEnum.scss,
+      toolEnum.blender,
       toolEnum.git,
       toolEnum.chartJS,
       toolEnum.firebase,

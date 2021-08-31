@@ -12,7 +12,7 @@ try {
   require("./modules/db-sync");
 }
 catch (e) {
-  console.log("No DB Sorting");
+  // No sorting or renewing database;
 }
 
 Vue.use(firestorePlugin);

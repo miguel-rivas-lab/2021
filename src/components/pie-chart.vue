@@ -62,6 +62,11 @@ export default {
         this.options
       );
     },
+    beforeDestroy() {
+      this.render = () => {
+        // remove render loop
+      };
+    },
   },
 };
 </script>
