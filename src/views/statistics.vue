@@ -1,12 +1,10 @@
 <template>
-  <row class="nano-app">
-    <panel-navigation />
-
+  <row>
     <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
       <scroll-area color="royal-purple" />
     </column>
 
-    <column :size="panel ? '100%-350' : '100%-50'" class="workarea">
+    <column :size="panel ? '100%-300' : '100%'" class="workarea">
       <scroll-area color="royal-purple">
         <div class="gallery">
           <div class="container">
@@ -50,7 +48,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import PanelNavigation from "../components/panel-navigation.vue";
 import LineChart from "../components/line-chart.vue";
 import BarChart from "../components/bar-chart.vue";
 import RowMore from "../components/row-more.vue";
@@ -58,7 +55,6 @@ import { mapGetters } from "vuex";
 
 export default Vue.extend({
   components: {
-    PanelNavigation,
     LineChart,
     BarChart,
     RowMore,

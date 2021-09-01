@@ -34,9 +34,6 @@ main {
     --color-palette: #f7f7f7;
     --color-label: #104e86;
     --color-legend: #9c330a;
-    --color-background-card: #bd738b;
-    --color-background-out-card: #363fb4;
-    --title-shadow: 0;
   }
   &.nano-dark {
     --color-title: #e69b28;
@@ -50,10 +47,8 @@ main {
     --color-palette: #272727;
     --color-label: #4ca1ef;
     --color-legend: #b9b90e;
-    --color-background-card: #5d2b5b;
-    --color-background-out-card: #3f48b7;
-    --title-shadow: 0 0 9px rgb(22 202 119);
   }
+  --title-shadow: 0;
   --color-shadow: rgb(0 0 0 / 65%);
   --shadow-depth: 2px 2px 5px;
 }
@@ -210,6 +205,9 @@ main.universe {
     transform: rotateY(360deg) rotateZ(360deg);
   }
 }
+
+@import "core/vue-theme";
+// @import "core/react-theme";
 
 @import "core/icomoon";
 @import "core/animations";

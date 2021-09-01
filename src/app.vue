@@ -1,6 +1,11 @@
 <template>
-  <main :class="classes">
-    <router-view />
+  <main class="vue-theme" :class="classes">
+    <row class="nano-app">
+      <panel-navigation />
+      <column size="100%-50">
+        <router-view class="router-area" />
+      </column>
+    </row>
     <img
       v-if="universe"
       src="./assets/cow.png"
@@ -14,8 +19,12 @@
 <script lang="ts">
 import Vue from "vue";
 import { mapGetters } from "vuex";
+import PanelNavigation from "./components/panel-navigation.vue";
 
 export default Vue.extend({
+  components: {
+    PanelNavigation,
+  },
   computed: {
     ...mapGetters({
       theme: "getTheme",

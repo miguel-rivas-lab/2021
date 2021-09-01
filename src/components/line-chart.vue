@@ -42,9 +42,9 @@ export default {
           datasets: [
             {
               data: totals,
-              borderColor: "rgba(22, 86, 144, .5)",
-              pointBackgroundColor: "rgb(52, 206, 126)",
-              backgroundColor: "rgba(56, 118, 204, .8)",
+              borderColor: "hsl(155deg 50% 25% / 0.5)",
+              pointBackgroundColor: "hsl(155deg 50% 50%)",
+              backgroundColor: "hsl(155deg 50% 50%)",
             },
           ],
         },

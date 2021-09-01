@@ -388,7 +388,7 @@ const experiments = [
   },
   {
     date: "2021/08/12",
-    title: "Card Portfolio",
+    title: "3D Portfolio",
     type: typeEnum.app,
     role: [
       roleEnum.design,

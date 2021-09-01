@@ -1,7 +1,5 @@
 <template>
-  <row class="nano-app">
-    <panel-navigation />
-
+  <row>
     <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
       <scroll-area color="royal-purple">
         <row class="row-block" tag="fieldset">
@@ -54,9 +52,11 @@
       </scroll-area>
     </column>
 
-    <column :size="panel ? '100%-350' : '100%-50'" class="workarea">
+    <column :size="panel ? '100%-300' : '100%'" class="workarea">
       <scroll-area color="royal-purple">
-        <canvas class="animation-rotate" ref="gear" width="400" height="400"> no canvas </canvas>
+        <canvas class="animation-rotate" ref="gear" width="400" height="400">
+          no canvas
+        </canvas>
       </scroll-area>
     </column>
   </row>
@@ -64,13 +64,11 @@
 
 <script lang="ts">
 import Vue from "vue";
-import PanelNavigation from "../components/panel-navigation.vue";
 import NumberInput from "../components/number-input.vue";
 import { mapGetters } from "vuex";
 
 export default Vue.extend({
   components: {
-    PanelNavigation,
     NumberInput,
   },
   data: () => ({

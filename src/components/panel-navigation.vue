@@ -3,7 +3,7 @@
     <div class="container">
       <row vertical>
         <column size="100%-35*2">
-          <template v-for="(nav) in navigation">
+          <template v-for="nav in navigation">
             <template v-if="$route.name !== nav.route">
               <btn
                 :to="{ name: nav.route }"
@@ -27,7 +27,7 @@
             </template>
           </template>
           <hr />
-          <template v-for="(nav) in navigationBuilder">
+          <template v-for="nav in navigationBuilder">
             <template v-if="$route.name !== nav.route">
               <btn
                 :to="{ name: nav.route }"
@@ -118,15 +118,19 @@ export default Vue.extend({
         number,
         context.currentTime + duration
       );
+      window.setTimeout(() => {
+        context.close();
+      }, 100);
     },
   },
   mounted() {
-    this.navigation.concat(this.navigationBuilder).forEach((value, index) => {
-      if (value.route == this.$route.name) {
-        this.playSound(100 * (index + 2), 0.3, 0.00000001);
-      }
-    });
     this.panel = this.$store.getters.getPanelVisibility;
+    const links = document.querySelectorAll(".main-panel .btn.flat");
+    links.forEach((item, index) => {
+      item.addEventListener("click", () => {
+        this.playSound(100 * (index + 2), 0.5, 0.00000001);
+      });
+    });
   },
 });
 </script>

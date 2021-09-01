@@ -4,13 +4,13 @@
   align-items: stretch;
 
   &,
-  & > .main-panel,
-  & > .panel,
-  & > .workarea {
+  .main-panel,
+  .panel,
+  .workarea {
     max-height: 100vh;
   }
 
-  > .main-panel {
+  .main-panel {
     position: relative;
     background: var(--color-panel-background);
     border-right: 1px solid #222;
@@ -27,7 +27,13 @@
     }
   }
 
-  > .panel {
+  .router-area {
+    > .column {
+      height: 100vh;
+    }
+  }
+
+  .panel {
     transition: all 200ms ease;
     background: var(--color-panel-details-background);
     border-right: 1px solid var(--color-panel-border-separator);
@@ -88,7 +94,7 @@
       }
     }
   }
-  > .workarea {
+  .workarea {
     transition: all 200ms ease;
     background-color: var(--color-workarea-background);
   }

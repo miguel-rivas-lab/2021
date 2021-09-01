@@ -50,7 +50,7 @@ export default {
           datasets: [
             {
               data: totals,
-              backgroundColor: "#d73333",
+              backgroundColor: "hsl(50deg 50% 50%)",
             },
           ],
         },

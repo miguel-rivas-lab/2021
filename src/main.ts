@@ -8,12 +8,10 @@ import './modules/commons.ts';
 import './modules/db-organizer';
 import "highlight.js/styles/tomorrow-night-bright.css";
 
-try {
-  require("./modules/db-sync");
-}
-catch (e) {
-  // No sorting or renewing database;
-}
+// const env = process.env.NODE_ENV;
+// const isProduction = env === 'production';
+
+// import "./modules/db-sync";
 
 Vue.use(firestorePlugin);
 Vue.config.productionTip = false;

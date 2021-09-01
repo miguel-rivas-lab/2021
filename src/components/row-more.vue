@@ -9,7 +9,7 @@
         :glyph="showData ? 'chevron-up' : 'chevron-down'"
         :active="showData"
         @click="toggleDataView()"
-        color="denim"
+        color="elf-green"
         tag="a"
       />
     </t-suffix>

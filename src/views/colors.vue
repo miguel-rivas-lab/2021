@@ -1,12 +1,10 @@
 <template>
-  <row class="nano-app">
-    <panel-navigation />
-
+  <row>
     <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
       <scroll-area color="royal-purple" />
     </column>
 
-    <column :size="panel ? '100%-350' : '100%-50'" class="workarea">
+    <column :size="panel ? '100%-300' : '100%'" class="workarea">
       <scroll-area color="royal-purple">
         <div class="container">
           <ul class="palette">
@@ -26,13 +24,9 @@
 
 <script lang="ts">
 import Vue from "vue";
-import PanelNavigation from "../components/panel-navigation.vue";
 import { gColorsDB } from "../modules/colors";
 
 export default Vue.extend({
-  components: {
-    PanelNavigation,
-  },
   data: () => ({
     panel: false,
     gColorsDB: gColorsDB,

@@ -1,12 +1,17 @@
 <template>
-  <row class="nano-app">
-    <panel-navigation />
-
+  <row>
     <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
       <scroll-area color="royal-purple">
         <row class="row-block" tag="fieldset" v-if="sceneCtrl">
           <column size="100%">
             <legend>Animation Controllers</legend>
+
+            <number-input
+              id="outter-circle-radius"
+              :value="sceneRotation"
+              label="Rotation"
+              v-on:update-value="updateSpeed($event)"
+            />
 
             <row>
               <column size="100%">
@@ -55,7 +60,7 @@
       </scroll-area>
     </column>
 
-    <column :size="panel ? '100%-350' : '100%-50'" class="workarea">
+    <column :size="panel ? '100%-300' : '100%'" class="workarea">
       <template>
         <div ref="drakkar" class="drakkar" />
         <div class="cover" v-if="cover">
@@ -71,15 +76,15 @@
 
 <script lang="ts">
 import Vue from "vue";
-import PanelNavigation from "../components/panel-navigation.vue";
 import { mapGetters } from "vuex";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import NumberInput from "../components/number-input.vue";
 
 export default Vue.extend({
   components: {
-    PanelNavigation,
+    NumberInput,
   },
   data: () => ({
     winHeight: undefined,
@@ -203,6 +208,9 @@ export default Vue.extend({
           }
         );
       })(this.scene);
+    },
+    updateSpeed(newVal) {
+      this.sceneRotation = parseInt(newVal);
     },
   },
   mounted() {

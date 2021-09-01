@@ -1,7 +1,5 @@
 <template>
-  <row class="nano-app">
-    <panel-navigation />
-
+  <row>
     <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
       <scroll-area color="royal-purple">
         <row class="row-block" tag="fieldset">
@@ -102,13 +100,13 @@
 
         <row class="row-block">
           <column size="100%">
-            <btn color="denim" @click="addColumn()" value="Add Column" />
+            <btn color="gold-tips" @click="addColumn()" value="Add Column" />
           </column>
         </row>
       </scroll-area>
     </column>
 
-    <column :size="panel ? '100%-350' : '100%-50'" class="workarea">
+    <column :size="panel ? '100%-300' : '100%'" class="workarea">
       <scroll-area color="royal-purple">
         <div class="container">
           <h1 v-html="rowSize" />
@@ -156,7 +154,6 @@ import Vue from "vue";
 import { validateSize } from "nano-grid/modules/columns-manager";
 import panelBlock from "../components/panel-block.vue";
 import panelBlockColumn from "../components/panel-block-column.vue";
-import PanelNavigation from "../components/panel-navigation.vue";
 import { mapGetters } from "vuex";
 import VueHighlightJS from "vue-highlight.js";
 import xml from "highlight.js/lib/languages/xml";
@@ -169,7 +166,6 @@ Vue.use(VueHighlightJS, {
 
 export default Vue.extend({
   components: {
-    PanelNavigation,
     panelBlock,
     panelBlockColumn,
   },

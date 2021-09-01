@@ -1,12 +1,10 @@
 <template>
-  <row class="nano-app">
-    <panel-navigation />
-
+  <row>
     <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
       <scroll-area color="royal-purple" />
     </column>
 
-    <column :size="panel ? '100%-350' : '100%-50'" class="workarea">
+    <column :size="panel ? '100%-300' : '100%'" class="workarea">
       <scroll-area color="royal-purple">
         <gallery :db="projectsDB" />
       </scroll-area>
@@ -16,13 +14,11 @@
 
 <script lang="ts">
 import Vue from "vue";
-import PanelNavigation from "../components/panel-navigation.vue";
 import Gallery from "../components/gallery.vue";
 import { mapGetters } from "vuex";
 
 export default Vue.extend({
   components: {
-    PanelNavigation,
     Gallery,
   },
   data: () => ({

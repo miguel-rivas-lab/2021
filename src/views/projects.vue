@@ -1,7 +1,5 @@
 <template>
-  <row class="nano-app">
-    <panel-navigation />
-
+  <row>
     <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
       <scroll-area color="royal-purple" />
     </column>
@@ -16,13 +14,11 @@
 
 <script lang="ts">
 import Vue from "vue";
-import PanelNavigation from "../components/panel-navigation.vue";
 import Gallery from "../components/gallery.vue";
 import { mapGetters } from "vuex";
 
 export default Vue.extend({
   components: {
-    PanelNavigation,
     Gallery,
   },
   data: () => ({
