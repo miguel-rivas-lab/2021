@@ -20,7 +20,7 @@
                 color="gravel"
                 size="md"
                 :class="['tooltip', nav.route]"
-                @click="togglePanelVisibility"
+                @click="togglePanelVisibility(), playSound()"
                 :glyph="nav.icon"
                 active
               />
@@ -44,12 +44,21 @@
                 color="gravel"
                 size="md"
                 :class="['tooltip', nav.route]"
-                @click="togglePanelVisibility"
+                @click="togglePanelVisibility(), playSound()"
                 :glyph="nav.icon"
                 active
               />
             </template>
           </template>
+          <hr />
+          <btn
+            href="https://miguel-rivas.github.io/miguel-rivas-2021-2/"
+            color="gravel"
+            class="tooltip react"
+            size="md"
+            glyph="react"
+            tag="a"
+          />
         </column>
         <suffix size="35">
           <btn
@@ -57,7 +66,7 @@
             size="md"
             class="tooltip theme"
             glyph="brightness-4"
-            @click="toggleTheme"
+            @click="toggleTheme(), playSound()"
             :active="!theme"
           />
         </suffix>
@@ -67,7 +76,7 @@
             size="md"
             class="tooltip universe"
             glyph="cow"
-            @click="toggleUniverse"
+            @click="toggleUniverse(), playSound()"
             :active="universe"
           />
         </suffix>
@@ -106,31 +115,22 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations(["togglePanelVisibility", "toggleTheme", "toggleUniverse"]),
-    playSound(frequency: number, duration: number, number: number) {
+    playSound() {
       let context = new AudioContext();
       let newSound = context.createOscillator();
       let newGain = context.createGain();
       newSound.connect(newGain);
-      newSound.frequency.value = frequency;
+      newSound.frequency.value = 300;
       newGain.connect(context.destination);
       newSound.start(0);
       newGain.gain.exponentialRampToValueAtTime(
-        number,
-        context.currentTime + duration
+        0.00000001,
+        context.currentTime + 0.5
       );
-      window.setTimeout(() => {
-        context.close();
-      }, 100);
     },
   },
   mounted() {
     this.panel = this.$store.getters.getPanelVisibility;
-    const links = document.querySelectorAll(".main-panel .btn.flat");
-    links.forEach((item, index) => {
-      item.addEventListener("click", () => {
-        this.playSound(100 * (index + 2), 0.5, 0.00000001);
-      });
-    });
   },
 });
 </script>

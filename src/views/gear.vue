@@ -81,6 +81,7 @@ export default Vue.extend({
     sidePerforationDistance: 25,
   }),
   mounted() {
+    this.$store.commit("setPanelVisibility", true);
     this.render();
   },
   computed: {

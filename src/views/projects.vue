@@ -4,7 +4,7 @@
       <scroll-area color="royal-purple" />
     </column>
 
-    <column :size="panel ? '100%-350' : '100%-50'" class="workarea">
+    <column :size="panel ? '100%-300' : '100%'" class="workarea">
       <scroll-area color="royal-purple">
         <gallery :db="projectsDB" />
       </scroll-area>

@@ -69,5 +69,8 @@ export default Vue.extend({
       this.colors--;
     },
   },
+  mounted() {
+    this.$store.commit("setPanelVisibility", true);
+  }
 });
 </script>

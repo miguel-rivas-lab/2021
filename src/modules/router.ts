@@ -18,52 +18,72 @@ const routes: Array<RouteConfig> = [
   {
     name: 'home',
     path: '/',
-    component: HomeView,
+    components: {
+      default: HomeView,
+    },
   },
   {
     name: 'projects',
     path: '/projects',
-    component: ProjectsView,
+    components: {
+      default: ProjectsView,
+    },
   },
   {
     name: 'experiments',
     path: '/experiments',
-    component: ExperimentsView,
+    components: {
+      default: ExperimentsView,
+    },
   },
   {
     name: 'colors',
     path: '/colors',
-    component: ColorsView,
+    components: {
+      default: ColorsView,
+    },
   },
   {
     name: 'buttons',
     path: '/buttons',
-    component: ButtonsView,
+    components: {
+      default: ButtonsView,
+    },
   },
   {
     name: 'cube',
     path: '/cube',
-    component: CubeView,
+    components: {
+      default: CubeView,
+    },
   },
   {
     name: 'statistics',
     path: '/statistics',
-    component: StatisticsView,
+    components: {
+      default: StatisticsView,
+    },
   },
   {
     name: 'grid',
     path: '/grid',
-    component: GridView,
+    components: {
+      default: GridView,
+    },
   },
   {
     name: 'gear',
     path: '/gear',
-    component: GearView,
+    components: {
+      default: GearView,
+    },
   },
   {
     name: 'wheel',
     path: '/wheel',
-    component: WheelView,
+    components: {
+      default: WheelView,
+    },
   },
   {
     path: '*',

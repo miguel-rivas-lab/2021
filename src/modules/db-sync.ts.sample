@@ -1479,10 +1479,8 @@ const all = experiments.concat(projects).sort((a, b) => {
   }
 
   const roles = item["role"].sort();
-
   const tools = item["tools"].sort();
-
-  let disabled = item.disabled ? true : false;
+  const disabled = item.disabled ? true : false;
 
   return {
     "title": item.title,
