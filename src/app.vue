@@ -3,15 +3,11 @@
     <row class="nano-app">
       <panel-navigation />
       <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
-        <scroll-area color="royal-purple">
-          <router-view name="panel" />
-        </scroll-area>
+        <router-view name="panel" />
       </column>
 
       <column :size="panel ? '100%-350' : '100%-50'" class="workarea">
-        <scroll-area color="royal-purple">
-          <router-view name="workarea" />
-        </scroll-area>
+        <router-view name="workarea" />
       </column>
     </row>
     <img

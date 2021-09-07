@@ -2,6 +2,7 @@ import { store } from "./store";
 import { firebaseApp } from "./firebase";
 import 'firebase/firestore';
 import { images as storage } from "./firebase-storage";
+import helpers from "./helpers";
 
 // ---------------- Enums
 
@@ -37,12 +38,6 @@ store.commit("addColumn",
 
 // ---------------- Firebase
 const db = firebaseApp.firestore();
-
-function getID(client: string, date: string): string {
-  client = client.replace(/\s/g, "").toLowerCase();
-  date = date.replace(/\//g, "");
-  return `${client}_${date}`;
-}
 
 db.collection("users")
   .doc("main")
@@ -89,16 +84,16 @@ db.collection('projects')
         "tools": tools,
       };
 
-      const key = getID(project.client, project.date);
+      const key = helpers.getID(project.client, project.date);
       const src = `preview-wide/${key}.jpg`;
 
-      // storage
-      //   .ref(src)
-      //   .getDownloadURL()
-      //   .then(url => {
-      //     project["image"] = url;
-      //   })
-      //   .catch((e) => project["image"] = "");
+      storage
+        .ref(src)
+        .getDownloadURL()
+        .then(url => {
+          project["image"] = url;
+        })
+        .catch(() => project["image"] = "");
 
       return project;
     });

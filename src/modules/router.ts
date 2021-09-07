@@ -1,20 +1,20 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 
-import ButtonsView from '../views/buttons.vue';
-import ColorsView from '../views/colors.vue';
-import CubeView from '../views/cube.vue';
+import ButtonsWorkareaView from '../views/buttons-workarea.vue';
+import ColorsWorkareaView from '../views/colors-workarea.vue';
+import CubeWorkareaView from '../views/cube-workarea.vue';
 import CubePanelView from '../views/cube-panel.vue';
-import GridView from '../views/grid.vue';
+import GridWorkareaView from '../views/grid-workarea.vue';
 import GridPanelView from '../views/grid-panel.vue';
-import HomeView from '../views/home.vue';
+import HomeWorkareaView from '../views/home-workarea.vue';
 import HomePanelView from '../views/home-panel.vue';
-import ProjectsView from '../views/projects.vue';
-import ExperimentsView from '../views/experiments.vue';
-import StatisticsView from '../views/statistics.vue';
-import GearView from '../views/gear.vue';
+import ProjectsWorkareaView from '../views/projects-workarea.vue';
+import ExperimentsWorkareaView from '../views/experiments-workarea.vue';
+import StatisticsWorkareaView from '../views/statistics-workarea.vue';
+import GearWorkareaView from '../views/gear-workarea.vue';
 import GearPanelView from '../views/gear-panel.vue';
-import WheelView from '../views/wheel.vue';
+import WheelWorkareaView from '../views/wheel-workarea.vue';
 import WheelPanelView from '../views/wheel-panel.vue';
 
 Vue.use(VueRouter);
@@ -24,7 +24,7 @@ const routes: Array<RouteConfig> = [
     name: 'home',
     path: '/',
     components: {
-      workarea: HomeView,
+      workarea: HomeWorkareaView,
       panel: HomePanelView,
     },
   },
@@ -32,35 +32,35 @@ const routes: Array<RouteConfig> = [
     name: 'projects',
     path: '/projects',
     components: {
-      workarea: ProjectsView,
+      workarea: ProjectsWorkareaView,
     },
   },
   {
     name: 'experiments',
     path: '/experiments',
     components: {
-      workarea: ExperimentsView,
+      workarea: ExperimentsWorkareaView,
     },
   },
   {
     name: 'colors',
     path: '/colors',
     components: {
-      workarea: ColorsView,
+      workarea: ColorsWorkareaView,
     },
   },
   {
     name: 'buttons',
     path: '/buttons',
     components: {
-      workarea: ButtonsView,
+      workarea: ButtonsWorkareaView,
     },
   },
   {
     name: 'cube',
     path: '/cube',
     components: {
-      workarea: CubeView,
+      workarea: CubeWorkareaView,
       panel: CubePanelView,
     },
   },
@@ -68,14 +68,14 @@ const routes: Array<RouteConfig> = [
     name: 'statistics',
     path: '/statistics',
     components: {
-      workarea: StatisticsView,
+      workarea: StatisticsWorkareaView,
     },
   },
   {
     name: 'grid',
     path: '/grid',
     components: {
-      workarea: GridView,
+      workarea: GridWorkareaView,
       panel: GridPanelView,
     },
   },
@@ -83,7 +83,7 @@ const routes: Array<RouteConfig> = [
     name: 'gear',
     path: '/gear',
     components: {
-      workarea: GearView,
+      workarea: GearWorkareaView,
       panel: GearPanelView,
     },
   },
@@ -91,7 +91,7 @@ const routes: Array<RouteConfig> = [
     name: 'wheel',
     path: '/wheel',
     components: {
-      workarea: WheelView,
+      workarea: WheelWorkareaView,
       panel: WheelPanelView,
     },
   },

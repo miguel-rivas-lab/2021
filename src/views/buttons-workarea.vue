@@ -1,13 +1,15 @@
 <template>
   <scroll-area color="royal-purple">
-    <div class="container">
-      <ul class="buttons">
-        <template v-for="(color, colorIndex) in gColorsDB">
-          <li v-bind:key="colorIndex">
-            <btn tag="span" :color="color.spinalCase" :value="color.label" />
-          </li>
-        </template>
-      </ul>
+    <div class="gallery">
+      <div class="container">
+        <ul class="buttons">
+          <template v-for="(color, colorIndex) in gColorsDB">
+            <li v-bind:key="colorIndex">
+              <btn tag="span" :color="color.spinalCase" :value="color.label" />
+            </li>
+          </template>
+        </ul>
+      </div>
     </div>
   </scroll-area>
 </template>

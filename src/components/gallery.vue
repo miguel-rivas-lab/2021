@@ -2,7 +2,7 @@
   <div class="gallery" v-if="dataBase">
     <div class="container">
       <template v-for="(project, projectIndex) in dataBase">
-        <article v-bind:key="projectIndex">
+        <article v-bind:key="projectIndex" class="nano-box">
           <row :spacing="100" breakpoint="lg">
             <column size="100%-300">
               <img
@@ -48,7 +48,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { images as storage } from "../modules/firebase-storage";
 
 export default Vue.extend({
   components: {},
@@ -64,11 +63,6 @@ export default Vue.extend({
     },
   },
   methods: {
-    getID(client: string, date: string): string {
-      client = client.replace(/\s/g, "").toLowerCase();
-      date = date.replace(/\//g, "");
-      return `${client}_${date}`;
-    },
     getImage(url: string): string {
       return url !== "" ? url : require(`@/assets/miguelrivas.jpg`);
     },

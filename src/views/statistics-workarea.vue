@@ -2,19 +2,19 @@
   <scroll-area color="royal-purple">
     <div class="gallery">
       <div class="container">
-        <article>
+        <article class="nano-box">
           <h1>Yearly Average</h1>
           <br />
           <line-chart :chart-data="dates" />
         </article>
 
-        <article>
+        <article class="nano-box">
           <h1>Skills</h1>
           <br />
           <bar-chart :chart-data="tools" />
         </article>
 
-        <article>
+        <article class="nano-box">
           <h1>Projects</h1>
           <hr />
           <div class="table">
@@ -115,7 +115,7 @@ export default Vue.extend({
       return result;
     },
   },
-  created(){
+  created() {
     this.$store.commit("setValue", { name: "panel", value: false });
   },
 });
