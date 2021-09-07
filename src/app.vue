@@ -10,13 +10,6 @@
         <router-view name="workarea" />
       </column>
     </row>
-    <img
-      v-if="universe"
-      src="./assets/cow.png"
-      alt="the cow that will finish your existence"
-      class="cow"
-      width="90"
-    />
   </main>
 </template>
 

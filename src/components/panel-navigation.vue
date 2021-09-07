@@ -53,7 +53,7 @@
           <hr />
           <btn
             href="https://miguel-rivas.github.io/miguel-rivas-2021-2/"
-            color="mariner"
+            color="gravel"
             class="tooltip react"
             size="md"
             glyph="react"

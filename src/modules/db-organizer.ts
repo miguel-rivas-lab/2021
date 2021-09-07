@@ -87,13 +87,15 @@ db.collection('projects')
       const key = helpers.getID(project.client, project.date);
       const src = `preview-wide/${key}.jpg`;
 
-      storage
-        .ref(src)
-        .getDownloadURL()
-        .then(url => {
-          project["image"] = url;
-        })
-        .catch(() => project["image"] = "");
+      if(!project.disabled){
+        storage
+          .ref(src)
+          .getDownloadURL()
+          .then(url => {
+            project["image"] = url;
+          })
+          .catch(() => project["image"] = "");
+      }
 
       return project;
     });

@@ -64,7 +64,7 @@ export default Vue.extend({
   },
   methods: {
     getImage(url: string): string {
-      return url !== "" ? url : require(`@/assets/miguelrivas.jpg`);
+      return url !== "" ? url : require(`@/img/miguelrivas.jpg`);
     },
   },
 });
