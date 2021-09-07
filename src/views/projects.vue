@@ -1,15 +1,8 @@
 <template>
-  <row>
-    <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
-      <scroll-area color="royal-purple" />
-    </column>
-
-    <column :size="panel ? '100%-300' : '100%'" class="workarea">
-      <scroll-area color="royal-purple">
-        <gallery :db="projectsDB" />
-      </scroll-area>
-    </column>
-  </row>
+  <scroll-area color="royal-purple">
+    <img :src="dummyImg" alt="" />
+    <gallery :db="projectsDB" />
+  </scroll-area>
 </template>
 
 <script lang="ts">
@@ -23,6 +16,7 @@ export default Vue.extend({
   },
   data: () => ({
     panel: false,
+    dummyImg: undefined,
   }),
   computed: {
     ...mapGetters({
@@ -33,6 +27,9 @@ export default Vue.extend({
         (item) => item.category == "project" && !item.disabled
       );
     },
+  },
+  created() {
+    this.$store.commit("setValue", { name: "panel", value: false });
   },
 });
 </script>

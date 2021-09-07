@@ -4,13 +4,18 @@ import VueRouter, { RouteConfig } from 'vue-router';
 import ButtonsView from '../views/buttons.vue';
 import ColorsView from '../views/colors.vue';
 import CubeView from '../views/cube.vue';
+import CubePanelView from '../views/cube-panel.vue';
 import GridView from '../views/grid.vue';
+import GridPanelView from '../views/grid-panel.vue';
 import HomeView from '../views/home.vue';
+import HomePanelView from '../views/home-panel.vue';
 import ProjectsView from '../views/projects.vue';
 import ExperimentsView from '../views/experiments.vue';
 import StatisticsView from '../views/statistics.vue';
 import GearView from '../views/gear.vue';
+import GearPanelView from '../views/gear-panel.vue';
 import WheelView from '../views/wheel.vue';
+import WheelPanelView from '../views/wheel-panel.vue';
 
 Vue.use(VueRouter);
 
@@ -19,70 +24,75 @@ const routes: Array<RouteConfig> = [
     name: 'home',
     path: '/',
     components: {
-      default: HomeView,
+      workarea: HomeView,
+      panel: HomePanelView,
     },
   },
   {
     name: 'projects',
     path: '/projects',
     components: {
-      default: ProjectsView,
+      workarea: ProjectsView,
     },
   },
   {
     name: 'experiments',
     path: '/experiments',
     components: {
-      default: ExperimentsView,
+      workarea: ExperimentsView,
     },
   },
   {
     name: 'colors',
     path: '/colors',
     components: {
-      default: ColorsView,
+      workarea: ColorsView,
     },
   },
   {
     name: 'buttons',
     path: '/buttons',
     components: {
-      default: ButtonsView,
+      workarea: ButtonsView,
     },
   },
   {
     name: 'cube',
     path: '/cube',
     components: {
-      default: CubeView,
+      workarea: CubeView,
+      panel: CubePanelView,
     },
   },
   {
     name: 'statistics',
     path: '/statistics',
     components: {
-      default: StatisticsView,
+      workarea: StatisticsView,
     },
   },
   {
     name: 'grid',
     path: '/grid',
     components: {
-      default: GridView,
+      workarea: GridView,
+      panel: GridPanelView,
     },
   },
   {
     name: 'gear',
     path: '/gear',
     components: {
-      default: GearView,
+      workarea: GearView,
+      panel: GearPanelView,
     },
   },
   {
     name: 'wheel',
     path: '/wheel',
     components: {
-      default: WheelView,
+      workarea: WheelView,
+      panel: WheelPanelView,
     },
   },
   {

@@ -1,79 +1,5 @@
 <template>
-  <row>
-    <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
-      <scroll-area color="royal-purple">
-        <row class="row-block" tag="fieldset" v-if="sceneCtrl">
-          <column size="100%">
-            <legend>Cube Controllers</legend>
-
-            <number-input
-              id="outter-circle-radius"
-              :value="cubeRotation"
-              label="Rotation"
-              v-on:update-value="updateSpeed($event)"
-            />
-
-            <row>
-              <column size="100%">
-                <label
-                  class="btn flat charcoal"
-                  :class="{ active: sceneCtrl.pause }"
-                >
-                  Pause
-                  <input type="checkbox" v-model="sceneCtrl.pause" />
-                </label>
-              </column>
-            </row>
-
-            <row>
-              <column size="100%">
-                <label
-                  class="btn flat charcoal"
-                  :class="{ active: sceneCtrl.grid }"
-                >
-                  Grid
-                  <input type="checkbox" v-model="sceneCtrl.grid" />
-                </label>
-              </column>
-            </row>
-
-            <row>
-              <column size="100%">
-                <label
-                  class="btn flat charcoal"
-                  :class="{ active: sceneCtrl.lines }"
-                >
-                  Lines
-                  <input type="checkbox" v-model="sceneCtrl.lines" />
-                </label>
-              </column>
-            </row>
-          </column>
-        </row>
-
-        <row class="row-block" tag="fieldset">
-          <column size="100%">
-            <legend>Colors</legend>
-            <row>
-              <column size="100%">
-                <ul class="standard">
-                  <template v-for="(color, colorIndex) in gColorsDB">
-                    <li v-bind:key="colorIndex">
-                      {{ colorIndex }}: {{ color.label }}
-                    </li>
-                  </template>
-                </ul>
-              </column>
-            </row>
-          </column>
-        </row>
-      </scroll-area>
-    </column>
-
-    <column :size="panel ? '100%-300' : '100%'" class="workarea">
-      <div ref="cube" />
-    </column>
-  </row>
+  <div ref="cube" />
 </template>
 
 <script lang="ts">
@@ -82,12 +8,9 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { gColorsDB } from "../modules/colors";
 import { mapGetters } from "vuex";
-import NumberInput from "../components/number-input.vue";
 
 export default Vue.extend({
-  components: {
-    NumberInput,
-  },
+  components: {},
   data: () => ({
     gColorsDB: gColorsDB,
     winHeight: undefined,
@@ -100,18 +23,15 @@ export default Vue.extend({
     renderer: undefined,
     sceneCtrl: undefined,
     linesGroup: undefined,
-    cubeRotation: 3,
+    selection: {},
     sceneControls: function () {
-      this.grid = true;
-      this.lines = false;
       this.zoom = 10;
-      this.pause = false;
     },
   }),
   computed: {
     ...mapGetters({
-      panel: "getPanelVisibility",
       theme: "getTheme",
+      panel: "getPanelVisibility",
     }),
     panelsSize() {
       return this.panel ? 350 : 50;
@@ -123,14 +43,14 @@ export default Vue.extend({
         this.controls.update();
       }
       requestAnimationFrame(this.render);
-      if (!this.sceneCtrl.pause) {
-        this.scene.rotation.y += this.cubeRotation * 0.01;
+      if (!this.selection.pause) {
+        this.scene.rotation.y += this.selection.cubeRotation * 0.01;
       }
       this.renderer.render(this.scene, this.camera);
-      this.sceneCtrl.lines
+      this.selection.lines
         ? this.scene.add(this.linesGroup)
         : this.scene.remove(this.linesGroup);
-      this.sceneCtrl.grid
+      this.selection.grid
         ? this.scene.add(this.gridHelper)
         : this.scene.remove(this.gridHelper);
     },
@@ -307,18 +227,15 @@ export default Vue.extend({
         boxGroup
       );
     },
-    updateSpeed(newVal) {
-      this.cubeRotation = parseInt(newVal);
-    },
   },
   mounted() {
-    this.$store.commit("setPanelVisibility", true);
-
     this.buildScene();
     this.buildGeometry();
     this.render();
   },
   created() {
+    this.$store.commit("setValue", { name: "panel", value: true });
+    this.selection = this.$store.getters.getCubeSelection;
     window.addEventListener("resize", this.resizeWindow);
   },
   watch: {

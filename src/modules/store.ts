@@ -11,6 +11,14 @@ export const store = new Vuex.Store({
     user: {},
     projects: [],
     selection: {
+      home: {
+        sceneRotation: 1,
+        cover: true,
+        rotateX: false,
+        rotateY: false,
+        rotateZ: true,
+        grid: true,
+      },
       grid: {
         row: "Row",
         integrate: false,
@@ -18,35 +26,38 @@ export const store = new Vuex.Store({
         spacing: 0,
         columns: [],
       },
+      cube: {
+        cubeRotation: 3,
+        pause: false,
+        grid: true,
+        lines: false,
+      },
+      gear: {
+        cornerAmount: 40,
+        outterCircleRadius: 50,
+        innerCircleRadius: 45,
+        mainPerforationRadius: 5,
+        sidePerforationAmount: 4,
+        sidePerforationRadius: 12,
+        sidePerforationDistance: 25,
+      },
+      wheel: {
+        colors: 12,
+      }
     },
   },
   mutations: {
-    setPanelVisibility(state, payload) {
-      state.panel = payload;
+    setValue(state, payload) {
+      state[payload.name] = payload.value;
     },
-    togglePanelVisibility(state) {
-      state.panel = !state.panel;
-    },
-    setTheme(state, payload) {
-      state.theme = payload;
-    },
-    toggleTheme(state) {
-      state.theme = !state.theme;
-    },
-    toggleUniverse(state) {
-      state.parallelUniverse = !state.parallelUniverse;
+    toggleValue(state, payload) {
+      state[payload] = !state[payload];
     },
     addColumn(state, payload) {
       state.selection.grid.columns.push(payload);
     },
     removeColumn(state, index) {
       state.selection.grid.columns.splice(index, 1);
-    },
-    loadUsers(state, payload) {
-      state.user = payload;
-    },
-    loadProjects(state, payload) {
-      state.projects = payload;
     },
   },
   actions: {},
@@ -55,8 +66,12 @@ export const store = new Vuex.Store({
     getPanelVisibility: state => state.panel,
     getTheme: state => state.theme,
     getUniverse: state => state.parallelUniverse,
-    getGridSelection: state => state.selection.grid,
     getUser: state => state.user,
     getProjects: state => state.projects,
+    getHomeSelection: state => state.selection.home,
+    getGridSelection: state => state.selection.grid,
+    getCubeSelection: state => state.selection.cube,
+    getGearSelection: state => state.selection.gear,
+    getWheelSelection: state => state.selection.wheel,
   }
 });

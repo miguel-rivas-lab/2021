@@ -1,15 +1,17 @@
 import Vue from 'vue';
-import NanoRow from 'nano-grid/vue/row.vue';
-import NanoColumn from 'nano-grid/vue/column.vue';
-import NanoIcon from 'nano-grid/vue/icon.vue';
-import NanoBtn from 'nano-grid/vue/btn.vue';
-import NanoScrollArea from 'nano-grid/vue/scroll-area.vue';
+import NanoRow from 'nano-grid/grid/vue/row.vue';
+import NanoColumn from 'nano-grid/grid/vue/column.vue';
+import NanoIcon from 'nano-grid/grid/vue/icon.vue';
+import NanoBtn from 'nano-grid/grid/vue/btn.vue';
+import NanoScrollArea from 'nano-grid/grid/vue/scroll-area.vue';
+import NumberInput from 'nano-grid/grid/vue/number-input.vue';
 
 Vue.component("row", NanoRow);
 Vue.component("column", NanoColumn);
 Vue.component("icon", NanoIcon);
 Vue.component("btn", NanoBtn);
 Vue.component("scroll-area", NanoScrollArea);
+Vue.component("number-input", NumberInput);
 
 // ---------------------------------- Alias:Icon
 Vue.component("m-icon", Vue.extend({

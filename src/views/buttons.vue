@@ -1,27 +1,15 @@
 <template>
-  <row>
-    <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
-      <scroll-area color="royal-purple" />
-    </column>
-
-    <column :size="panel ? '100%-300' : '100%'" class="workarea">
-      <scroll-area color="royal-purple">
-        <div class="container">
-          <ul class="buttons">
-            <template v-for="(color, colorIndex) in gColorsDB">
-              <li v-bind:key="colorIndex">
-                <btn
-                  tag="span"
-                  :color="color.spinalCase"
-                  :value="color.label"
-                />
-              </li>
-            </template>
-          </ul>
-        </div>
-      </scroll-area>
-    </column>
-  </row>
+  <scroll-area color="royal-purple">
+    <div class="container">
+      <ul class="buttons">
+        <template v-for="(color, colorIndex) in gColorsDB">
+          <li v-bind:key="colorIndex">
+            <btn tag="span" :color="color.spinalCase" :value="color.label" />
+          </li>
+        </template>
+      </ul>
+    </div>
+  </scroll-area>
 </template>
 
 <script lang="ts">
@@ -33,7 +21,8 @@ export default Vue.extend({
     panel: false,
     gColorsDB: gColorsDB,
   }),
-  computed: {},
-  methods: {},
+  created() {
+    this.$store.commit("setValue", { name: "panel", value: false });
+  },
 });
 </script>

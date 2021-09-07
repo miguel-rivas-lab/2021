@@ -1,5 +1,7 @@
 import { store } from "./store";
-import { db } from "./firebase-db";
+import { firebaseApp } from "./firebase";
+import 'firebase/firestore';
+import { images as storage } from "./firebase-storage";
 
 // ---------------- Enums
 
@@ -34,12 +36,19 @@ store.commit("addColumn",
 );
 
 // ---------------- Firebase
+const db = firebaseApp.firestore();
+
+function getID(client: string, date: string): string {
+  client = client.replace(/\s/g, "").toLowerCase();
+  date = date.replace(/\//g, "");
+  return `${client}_${date}`;
+}
 
 db.collection("users")
   .doc("main")
   .get()
   .then((doc) => {
-    store.commit("loadUsers", doc.data());
+    store.commit("setValue", { name: "user", value: doc.data() });
   });
 
 db.collection('projects')
@@ -80,7 +89,18 @@ db.collection('projects')
         "tools": tools,
       };
 
+      const key = getID(project.client, project.date);
+      const src = `preview-wide/${key}.jpg`;
+
+      // storage
+      //   .ref(src)
+      //   .getDownloadURL()
+      //   .then(url => {
+      //     project["image"] = url;
+      //   })
+      //   .catch((e) => project["image"] = "");
+
       return project;
     });
-    store.commit("loadProjects", projectsDB);
+    store.commit("setValue", { name: "projects", value: projectsDB });
   });

@@ -1,77 +1,13 @@
 <template>
-  <row>
-    <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
-      <scroll-area color="royal-purple">
-        <row class="row-block" tag="fieldset" v-if="sceneCtrl">
-          <column size="100%">
-            <legend>Animation Controllers</legend>
-
-            <number-input
-              id="outter-circle-radius"
-              :value="sceneRotation"
-              label="Rotation"
-              v-on:update-value="updateSpeed($event)"
-            />
-
-            <row>
-              <column size="100%">
-                <label
-                  class="btn flat charcoal"
-                  :class="{ active: cover }"
-                >
-                  Cover
-                  <input type="checkbox" v-model="cover" />
-                </label>
-              </column>
-            </row>
-
-            <row>
-              <column size="100%">
-                <label class="btn flat charcoal" :class="{ active: !rotateX }">
-                  Rotate X
-                  <input type="checkbox" v-model="rotateX" />
-                </label>
-              </column>
-            </row>
-
-            <row>
-              <column size="100%">
-                <label class="btn flat charcoal" :class="{ active: !rotateZ }">
-                  Rotate Z
-                  <input type="checkbox" v-model="rotateZ" />
-                </label>
-              </column>
-            </row>
-
-             <row>
-              <column size="100%">
-                <label
-                  class="btn flat charcoal"
-                  :class="{ active: !sceneCtrl.rotateY }"
-                >
-                  Pause
-                  <input type="checkbox" v-model="sceneCtrl.rotateY" />
-                </label>
-              </column>
-            </row>
-          </column>
-        </row>
-
-      </scroll-area>
-    </column>
-
-    <column :size="panel ? '100%-300' : '100%'" class="workarea">
-      <template>
-        <div ref="drakkar" class="drakkar" />
-        <div class="cover" v-if="cover">
-          <template v-if="user.lastName">
-            <h1 v-html="`${user.middleName} ${user.lastName}`" />
-            <h2 v-html="user.title" />
-          </template>
-        </div>
+  <div>
+    <div ref="drakkar" class="drakkar" />
+    <div class="cover" v-if="selection.cover">
+      <template v-if="user.lastName">
+        <h1 v-html="`${user.middleName} ${user.lastName}`" />
+        <h2 v-html="user.title" />
       </template>
-    </column>
-  </row>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -80,12 +16,8 @@ import { mapGetters } from "vuex";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-import NumberInput from "../components/number-input.vue";
 
 export default Vue.extend({
-  components: {
-    NumberInput,
-  },
   data: () => ({
     winHeight: undefined,
     winWidth: undefined,
@@ -95,14 +27,9 @@ export default Vue.extend({
     renderer: undefined,
     sceneCtrl: undefined,
     linesGroup: undefined,
-    sceneRotation: 1,
-    rotateX: false,
-    rotateZ: true,
-    cover: true,
+    selection: {},
     sceneControls: function () {
-      this.grid = true;
       this.zoom = 10;
-      this.rotateY = false;
     },
   }),
   computed: {
@@ -177,15 +104,15 @@ export default Vue.extend({
       if (this.controls) {
         this.controls.update();
       }
-      this.scene.rotation.x = !this.rotateX ? 45 : 0;
-      this.scene.rotation.z = !this.rotateZ ? 45 : 0;
+      this.scene.rotation.x = !this.selection.rotateX ? 45 : 0;
+      this.scene.rotation.z = !this.selection.rotateZ ? 45 : 0;
 
       requestAnimationFrame(this.render);
-      if (!this.sceneCtrl.rotateY) {
-        this.scene.rotation.y += this.sceneRotation * 0.01;
+      if (!this.selection.rotateY) {
+        this.scene.rotation.y += this.selection.sceneRotation * 0.01;
       }
       this.renderer.render(this.scene, this.camera);
-      this.sceneCtrl.grid
+      this.selection.grid
         ? this.scene.add(this.gridHelper)
         : this.scene.remove(this.gridHelper);
     },
@@ -210,18 +137,16 @@ export default Vue.extend({
       })(this.scene);
     },
     updateSpeed(newVal) {
-      this.sceneRotation = parseInt(newVal);
+      this.selection.sceneRotation = parseInt(newVal);
     },
   },
   mounted() {
-    this.$store.commit("setPanelVisibility", false);
-
     this.buildScene();
     this.buildGeometry();
     this.render();
   },
-
   created() {
+    this.selection = this.$store.getters.getHomeSelection;
     window.addEventListener("resize", this.resizeWindow);
   },
   beforeDestroy() {

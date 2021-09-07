@@ -20,7 +20,7 @@
                 color="gravel"
                 size="md"
                 :class="['tooltip', nav.route]"
-                @click="togglePanelVisibility(), playSound()"
+                @click="toggleValue('panel'), playSound()"
                 :glyph="nav.icon"
                 active
               />
@@ -44,7 +44,7 @@
                 color="gravel"
                 size="md"
                 :class="['tooltip', nav.route]"
-                @click="togglePanelVisibility(), playSound()"
+                @click="toggleValue('panel'), playSound()"
                 :glyph="nav.icon"
                 active
               />
@@ -53,7 +53,7 @@
           <hr />
           <btn
             href="https://miguel-rivas.github.io/miguel-rivas-2021-2/"
-            color="gravel"
+            color="mariner"
             class="tooltip react"
             size="md"
             glyph="react"
@@ -66,7 +66,7 @@
             size="md"
             class="tooltip theme"
             glyph="brightness-4"
-            @click="toggleTheme(), playSound()"
+            @click="toggleValue('theme'), playSound()"
             :active="!theme"
           />
         </suffix>
@@ -76,7 +76,7 @@
             size="md"
             class="tooltip universe"
             glyph="cow"
-            @click="toggleUniverse(), playSound()"
+            @click="toggleValue('parallelUniverse'), playSound()"
             :active="universe"
           />
         </suffix>
@@ -114,7 +114,7 @@ export default Vue.extend({
     }),
   },
   methods: {
-    ...mapMutations(["togglePanelVisibility", "toggleTheme", "toggleUniverse"]),
+    ...mapMutations(["toggleValue"]),
     playSound() {
       let context = new AudioContext();
       let newSound = context.createOscillator();

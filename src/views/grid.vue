@@ -1,160 +1,47 @@
 <template>
-  <row>
-    <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
-      <scroll-area color="royal-purple">
-        <row class="row-block" tag="fieldset">
-          <column size="100%">
-            <legend>Row Styles</legend>
+  <scroll-area color="royal-purple">
+    <div class="container">
+      <h1 v-html="rowSize" />
 
-            <row>
-              <column size="100%">
-                <label
-                  class="btn flat charcoal"
-                  :class="{ active: selection.row == 'Row' }"
-                >
-                  Row
-                  <input
-                    type="radio"
-                    value="Row"
-                    name="row-style"
-                    v-model="selection.row"
-                  />
-                </label>
-              </column>
-            </row>
-
-            <row>
-              <column size="100%">
-                <label
-                  class="btn flat charcoal"
-                  :class="{ active: selection.row == 'Group' }"
-                >
-                  Group
-                  <input
-                    type="radio"
-                    value="Group"
-                    name="row-style"
-                    v-model="selection.row"
-                  />
-                </label>
-              </column>
-            </row>
-
-            <row v-if="selection.row == 'Row'">
-              <column size="100%">
-                <label :for="`spacing`">Spacing</label>
-              </column>
-              <column size="100%">
-                <select :id="`spacing`" v-model="selection.spacing">
-                  <option
-                    v-for="option in spacing"
-                    :value="option"
-                    :key="option"
-                    v-html="option / 100"
-                  />
-                </select>
-              </column>
-            </row>
-
-            <row v-if="selection.row == 'Group'">
-              <column size="100%">
-                <label
-                  class="btn flat charcoal"
-                  :class="{ active: selection.integrate }"
-                >
-                  Integrate
-                  <input
-                    type="checkbox"
-                    value="Integrate"
-                    v-model="selection.integrate"
-                  />
-                </label>
-              </column>
-            </row>
-
-            <row v-if="selection.row == 'Row'">
-              <column size="100%">
-                <label :for="`spacing`">Breakpoint</label>
-              </column>
-              <column size="100%">
-                <select :id="`spacing`" v-model="selection.breakpoint">
-                  <option
-                    v-for="option in breakpoint"
-                    :value="option"
-                    :key="option"
-                    v-html="option"
-                  />
-                </select>
-              </column>
-            </row>
-          </column>
-        </row>
-
-        <template v-for="(column, index) in selection.columns">
-          <panel-block-column
-            v-bind:key="index"
-            :index="index"
-            :name="(index + 1).toString()"
-          />
-        </template>
-
-        <row class="row-block">
-          <column size="100%">
-            <btn color="gold-tips" @click="addColumn()" value="Add Column" />
-          </column>
-        </row>
-      </scroll-area>
-    </column>
-
-    <column :size="panel ? '100%-300' : '100%'" class="workarea">
-      <scroll-area color="royal-purple">
-        <div class="container">
-          <h1 v-html="rowSize" />
-
-          <div class="builder-container">
-            <row
-              :group="selection.row == 'Group'"
-              :integrate="computedIntegrate"
-              :spacing="computedSpacing"
-              :breakpoint="computedBreakpoint"
+      <div class="builder-container">
+        <row
+          :group="selection.row == 'Group'"
+          :integrate="computedIntegrate"
+          :spacing="computedSpacing"
+          :breakpoint="computedBreakpoint"
+        >
+          <template v-for="(column, index) in selection.columns">
+            <component
+              v-bind:is="column.block"
+              v-bind:key="index"
+              :size="finalExpression(index)"
             >
-              <template v-for="(column, index) in selection.columns">
-                <component
-                  v-bind:is="column.block"
-                  v-bind:key="index"
-                  :size="finalExpression(index)"
-                >
-                  <btn :value="column.size" :color="column.color" />
-                </component>
-              </template>
-            </row>
-          </div>
+              <btn :value="column.size" :color="column.color" />
+            </component>
+          </template>
+        </row>
+      </div>
 
-          <hr />
+      <hr />
 
-          <row :spacing="50">
-            <column size="1/1">
-              <highlight-code lang="xml">
-                {{ textareaValueVue }}
-              </highlight-code>
-            </column>
-            <column size="80%" />
-            <column size="20%">
-              <btn class="fsz" value="Get Vue Code" color="shamrock" disabled />
-            </column>
-          </row>
-        </div>
-      </scroll-area>
-    </column>
-  </row>
+      <row :spacing="50">
+        <column size="1/1">
+          <highlight-code lang="xml">
+            {{ textareaValueVue }}
+          </highlight-code>
+        </column>
+        <column size="80%" />
+        <column size="20%">
+          <btn class="fsz" value="Get Vue Code" color="shamrock" disabled />
+        </column>
+      </row>
+    </div>
+  </scroll-area>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import { validateSize } from "nano-grid/modules/columns-manager";
-import panelBlock from "../components/panel-block.vue";
-import panelBlockColumn from "../components/panel-block-column.vue";
-import { mapGetters } from "vuex";
+import { validateSize } from "nano-grid/grid/modules/columns-manager";
 import VueHighlightJS from "vue-highlight.js";
 import xml from "highlight.js/lib/languages/xml";
 
@@ -165,26 +52,14 @@ Vue.use(VueHighlightJS, {
 });
 
 export default Vue.extend({
-  components: {
-    panelBlock,
-    panelBlockColumn,
-  },
   data: () => ({
     selection: { columns: [] },
-    spacing: [],
-    breakpoint: ["-", "sm", "md", "lg", "xl", "xxl"],
   }),
-  mounted() {
-    this.$store.commit("setPanelVisibility", true);
+  created() {
+    this.$store.commit("setValue", { name: "panel", value: true });
     this.selection = this.$store.getters.getGridSelection;
-    for (let c = 0; c <= 400; c += 25) {
-      this.spacing.push(c);
-    }
   },
   computed: {
-    ...mapGetters({
-      panel: "getPanelVisibility",
-    }),
     textareaValueVue() {
       let columns = "";
       this.selection.columns.forEach((column) => {
@@ -253,17 +128,6 @@ export default Vue.extend({
         }
       }
       return validateSize(result);
-    },
-    addColumn() {
-      this.$store.commit("addColumn", {
-        mode: "Percent",
-        size: "50%",
-        subtraction: "0",
-        color: "desert",
-        expression: "sz1b4",
-        block: "column",
-      });
-      this.selection = this.$store.getters.getGridSelection;
     },
   },
 });

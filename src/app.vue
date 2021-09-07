@@ -2,8 +2,16 @@
   <main class="vue-theme" :class="classes">
     <row class="nano-app">
       <panel-navigation />
-      <column size="100%-50">
-        <router-view class="router-area" />
+      <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
+        <scroll-area color="royal-purple">
+          <router-view name="panel" />
+        </scroll-area>
+      </column>
+
+      <column :size="panel ? '100%-350' : '100%-50'" class="workarea">
+        <scroll-area color="royal-purple">
+          <router-view name="workarea" />
+        </scroll-area>
       </column>
     </row>
     <img
@@ -29,6 +37,7 @@ export default Vue.extend({
     ...mapGetters({
       theme: "getTheme",
       universe: "getUniverse",
+      panel: "getPanelVisibility",
     }),
     sectionName() {
       return `section-${this.$route.name}`;

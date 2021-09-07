@@ -1,49 +1,41 @@
 <template>
-  <row>
-    <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
-      <scroll-area color="royal-purple" />
-    </column>
+  <scroll-area color="royal-purple">
+    <div class="gallery">
+      <div class="container">
+        <article>
+          <h1>Yearly Average</h1>
+          <br />
+          <line-chart :chart-data="dates" />
+        </article>
 
-    <column :size="panel ? '100%-300' : '100%'" class="workarea">
-      <scroll-area color="royal-purple">
-        <div class="gallery">
-          <div class="container">
-            <article>
-              <h1>Yearly Average</h1>
-              <br />
-              <line-chart :chart-data="dates" />
-            </article>
+        <article>
+          <h1>Skills</h1>
+          <br />
+          <bar-chart :chart-data="tools" />
+        </article>
 
-            <article>
-              <h1>Skills</h1>
-              <br />
-              <bar-chart :chart-data="tools" />
-            </article>
-
-            <article>
-              <h1>Projects</h1>
-              <hr>
-              <div class="table">
-                <div class="table-head">
-                  <row breakpoint="md" table-element>
-                    <column size="40%" table-element>Name</column>
-                    <column size="20%" table-element>Type</column>
-                    <column size="20%" table-element>Date</column>
-                    <column size="20%" table-element>Client</column>
-                  </row>
-                </div>
-                <div class="table-body">
-                  <template v-for="(project, projectIndex) in projectsDB">
-                    <row-more v-bind:key="projectIndex" :row-data="project" />
-                  </template>
-                </div>
-              </div>
-            </article>
+        <article>
+          <h1>Projects</h1>
+          <hr />
+          <div class="table">
+            <div class="table-head">
+              <row breakpoint="md" table-element>
+                <column size="40%" table-element>Name</column>
+                <column size="20%" table-element>Type</column>
+                <column size="20%" table-element>Date</column>
+                <column size="20%" table-element>Client</column>
+              </row>
+            </div>
+            <div class="table-body">
+              <template v-for="(project, projectIndex) in projectsDB">
+                <row-more v-bind:key="projectIndex" :row-data="project" />
+              </template>
+            </div>
           </div>
-        </div>
-      </scroll-area>
-    </column>
-  </row>
+        </article>
+      </div>
+    </div>
+  </scroll-area>
 </template>
 
 <script lang="ts">
@@ -122,6 +114,9 @@ export default Vue.extend({
 
       return result;
     },
+  },
+  created(){
+    this.$store.commit("setValue", { name: "panel", value: false });
   },
 });
 </script>

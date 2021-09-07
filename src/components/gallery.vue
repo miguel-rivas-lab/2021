@@ -6,7 +6,7 @@
           <row :spacing="100" breakpoint="lg">
             <column size="100%-300">
               <img
-                :src="getImage(project.client, project.date)"
+                :src="getImage(project.image)"
                 :alt="`${project.client} ${project.date}`"
               />
             </column>
@@ -28,7 +28,9 @@
                     <btn
                       tag="a"
                       size="md"
-                      :color="link.text== 'Github' ? 'charcoal' : 'royal-purple'"
+                      :color="
+                        link.text == 'Github' ? 'charcoal' : 'royal-purple'
+                      "
                       target="_blank"
                       :href="link.url"
                       :value="link.text"
@@ -46,31 +48,29 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { images as storage } from "../modules/firebase-storage";
 
 export default Vue.extend({
   components: {},
   props: {
     db: undefined,
   },
-  data: () => ({}),
+  data: () => ({
+    imagesStorage: [],
+  }),
   computed: {
     dataBase() {
       return this.db;
     },
   },
   methods: {
-    getImage(client: string, date: string): string {
+    getID(client: string, date: string): string {
       client = client.replace(/\s/g, "").toLowerCase();
       date = date.replace(/\//g, "");
-      let result;
-      try {
-        result = require(`@/assets/previews/${client}_${date}.jpg`);
-      }
-      catch (e) {
-        result = require(`@/assets/previews/miguelrivas.jpg`);
-      }
-      return result;
-
+      return `${client}_${date}`;
+    },
+    getImage(url: string): string {
+      return url !== "" ? url : require(`@/assets/miguelrivas.jpg`);
     },
   },
 });
