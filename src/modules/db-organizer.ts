@@ -1,7 +1,6 @@
 import { store } from "./store";
 import { firebaseApp } from "./firebase";
 import 'firebase/firestore';
-import { images as storage } from "./firebase-storage";
 import helpers from "./helpers";
 
 // ---------------- Enums
@@ -85,16 +84,12 @@ db.collection('projects')
       };
 
       const key = helpers.getID(project.client, project.date);
-      const src = `preview-wide/${key}.jpg`;
 
-      if(!project.disabled){
-        storage
-          .ref(src)
-          .getDownloadURL()
-          .then(url => {
-            project["image"] = url;
-          })
-          .catch(() => project["image"] = "");
+      try {
+        project["image"] = require(`@/img/preview/${key}.jpg`);
+      }
+      catch {
+        project["image"] = require(`@/img/miguelrivas.jpg`);
       }
 
       return project;

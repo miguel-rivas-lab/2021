@@ -1,12 +1,12 @@
 <template>
-  <div class="gallery" v-if="dataBase">
+  <div class="gallery" v-if="db">
     <div class="container">
-      <template v-for="(project, projectIndex) in dataBase">
+      <template v-for="(project, projectIndex) in db">
         <article v-bind:key="projectIndex" class="nano-box">
           <row :spacing="100" breakpoint="lg">
             <column size="100%-300">
               <img
-                :src="getImage(project.image)"
+                :src="project.image"
                 :alt="`${project.client} ${project.date}`"
               />
             </column>
@@ -53,19 +53,6 @@ export default Vue.extend({
   components: {},
   props: {
     db: undefined,
-  },
-  data: () => ({
-    imagesStorage: [],
-  }),
-  computed: {
-    dataBase() {
-      return this.db;
-    },
-  },
-  methods: {
-    getImage(url: string): string {
-      return url !== "" ? url : require(`@/img/miguelrivas.jpg`);
-    },
   },
 });
 </script>
