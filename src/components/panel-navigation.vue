@@ -54,7 +54,7 @@
           </column>
           <suffix size="130">
             <btn
-              href="https://miguel-rivas.github.io/miguel-rivas-2021-2/"
+              href="https://miguel-rivas.github.io/2021-react/"
               class="btn-react"
               v-nano-tooltip.right="'React site'"
               size="md"
