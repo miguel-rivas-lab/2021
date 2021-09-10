@@ -86,7 +86,7 @@ db.collection('projects')
       const key = helpers.getID(project.client, project.date);
 
       try {
-        project["image"] = require(`@/img/preview/${key}.jpg`);
+        project["image"] = `https://miguel-rivas.github.io/zapp/img/preview-wide/${key}.jpg`;
       }
       catch {
         project["image"] = require(`@/img/miguelrivas.jpg`);

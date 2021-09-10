@@ -3,19 +3,19 @@
     <div class="gallery">
       <div class="container">
         <article class="nano-box">
-          <h1>Yearly Average</h1>
+          <h1>Projects Yearly Average</h1>
           <br />
           <line-chart :chart-data="dates" />
         </article>
 
         <article class="nano-box">
-          <h1>Skills</h1>
+          <h1>Skills Used</h1>
           <br />
           <bar-chart :chart-data="tools" />
         </article>
 
         <article class="nano-box">
-          <h1>Projects</h1>
+          <h1>Database</h1>
           <hr />
           <div class="table">
             <div class="table-head">

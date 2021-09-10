@@ -7,10 +7,10 @@ import './stylesheets/application.scss';
 import './modules/commons.ts';
 import './modules/db-organizer';
 import "highlight.js/styles/tomorrow-night-bright.css";
-
 import { analytics } from 'firebase/app';
 import 'firebase/analytics';
 import { firebaseApp } from "./modules/firebase";
+import "nano-grid/grid/modules/tooltip"
 
 analytics(firebaseApp);
 

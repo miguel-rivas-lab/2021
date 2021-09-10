@@ -29,10 +29,16 @@
           <highlight-code lang="xml">
             {{ textareaValueVue }}
           </highlight-code>
+          <textarea ref="textarea" class="vue-code" v-html="textareaValueVue" />
         </column>
         <column size="80%" />
         <column size="20%">
-          <btn class="fsz" value="Get Vue Code" color="shamrock" disabled />
+          <btn
+            class="fsz"
+            value="Get Vue Code"
+            color="shamrock"
+            @click="copyCode()"
+          />
         </column>
       </row>
     </div>
@@ -128,6 +134,12 @@ export default Vue.extend({
         }
       }
       return validateSize(result);
+    },
+    copyCode() {
+      // console.log(this.$refs.textarea);
+      // document.getElementById("textarea").select();
+      this.$refs.textarea.select();
+      document.execCommand("copy");
     },
   },
 });
