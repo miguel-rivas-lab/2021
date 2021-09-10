@@ -3,7 +3,7 @@
     <scroll-area color="royal-purple" :horizontal="false">
       <div class="container">
         <row vertical>
-          <column size="100%-130">
+          <column size="100%-85">
             <template v-for="nav in navigation">
               <template v-if="$route.name !== nav.route">
                 <btn
@@ -52,15 +52,15 @@
               </template>
             </template>
           </column>
-          <suffix size="130">
-            <btn
+          <suffix size="85">
+            <!-- <btn
               href="https://miguel-rivas.github.io/2021-react/"
               class="btn-react"
               v-nano-tooltip.right="'React site'"
               size="md"
               glyph="react"
               tag="a"
-            />
+            /> -->
             <btn
               color="charcoal"
               size="md"

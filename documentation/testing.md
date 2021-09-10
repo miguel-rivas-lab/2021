@@ -1,4 +1,4 @@
-- Navigate to 'https://miguel-rivas.github.io/miguel-rivas-2021/'
+- Navigate to 'https://miguel-rivas.github.io/2021-vue/'
 - Click on grid button in the navigation panel
 
 ---- Testing: remove columns
