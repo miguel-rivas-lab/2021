@@ -8,7 +8,7 @@
                 :color="color"
                 size="md"
                 @click="toggleBlockVisibility()"
-                :value="title"
+                :text="title"
               />
           </column>
           <suffix size="35">
@@ -16,6 +16,7 @@
                 color="persian-red"
                 size="md"
                 glyph="close"
+                title="Remove button"
                 @click="removeBlock"
               />
           </suffix>

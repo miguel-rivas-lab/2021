@@ -72,10 +72,10 @@
 
         <row v-if="selection.row == 'Row'">
           <column size="100%">
-            <label :for="`spacing`">Breakpoint</label>
+            <label for="breakpoint">Breakpoint</label>
           </column>
           <column size="100%">
-            <select :id="`spacing`" v-model="selection.breakpoint">
+            <select id="breakpoint" v-model="selection.breakpoint">
               <option
                 v-for="option in breakpoint"
                 :value="option"
@@ -98,7 +98,7 @@
 
     <row class="row-block">
       <column size="100%">
-        <btn color="gold-tips" @click="addColumn()" value="Add Column" />
+        <btn color="gold-tips" @click="addColumn()" text="Add Column" />
       </column>
     </row>
   </scroll-area>

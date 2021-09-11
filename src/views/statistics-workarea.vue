@@ -17,8 +17,8 @@
         <article class="nano-box">
           <h1>Database</h1>
           <hr />
-          <div class="table">
-            <div class="table-head">
+          <div class="table" role="table">
+            <div role="rowgroup" class="table-head">
               <row breakpoint="md" table-element>
                 <column size="40%" table-element>Name</column>
                 <column size="20%" table-element>Type</column>
@@ -26,7 +26,7 @@
                 <column size="20%" table-element>Client</column>
               </row>
             </div>
-            <div class="table-body">
+            <div role="rowgroup" class="table-body">
               <template v-for="(project, projectIndex) in projectsDB">
                 <row-more v-bind:key="projectIndex" :row-data="project" />
               </template>

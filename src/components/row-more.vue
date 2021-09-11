@@ -10,6 +10,7 @@
         :active="showData"
         @click="toggleDataView()"
         color="elf-green"
+        title="Toggle row button"
         tag="a"
       />
     </t-suffix>
@@ -22,11 +23,11 @@
             color="royal-purple"
             target="_blank"
             :href="rowData.links[0].url"
-            value="See Preview"
+            text="See Preview"
           />
         </template>
         <template v-else>
-          <btn tag="span" size="md" color="persian-red" value="No Link" />
+          <btn tag="span" size="md" color="persian-red" text="No Link" />
         </template>
       </t-column>
       <t-column size="100%-200">

@@ -11,7 +11,7 @@
                 color="silver"
                 size="md"
                 @click="toggleBlockVisibility()"
-                :value="`Color #${colorIndex}`"
+                :text="`Color #${colorIndex}`"
               />
             </column>
             <suffix size="35">
@@ -19,6 +19,7 @@
                 color="persian-red"
                 size="md"
                 glyph="close"
+                title="Remove button"
                 @click="removeBlock()"
               />
             </suffix>
@@ -28,7 +29,7 @@
     </row>
     <row class="row-block">
       <column size="100%">
-        <btn color="gold-tips" @click="addColumn()" value="Add Color" />
+        <btn color="gold-tips" @click="addColumn()" text="Add Color" />
       </column>
     </row>
   </scroll-area>

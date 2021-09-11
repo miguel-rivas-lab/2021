@@ -16,7 +16,7 @@
               v-bind:key="index"
               :size="finalExpression(index)"
             >
-              <btn :value="column.size" :color="column.color" />
+              <btn :text="column.size" :color="column.color" />
             </component>
           </template>
         </row>
@@ -35,7 +35,7 @@
         <column size="20%">
           <btn
             class="fsz"
-            value="Get Vue Code"
+            text="Get Vue Code"
             color="shamrock"
             @click="copyCode()"
           />
@@ -71,7 +71,7 @@ export default Vue.extend({
       this.selection.columns.forEach((column) => {
         columns += `  <${column.block} size="${column.size}${
           parseInt(column.subtraction) > 0 ? "-" + column.subtraction : ""
-        }">\n    <btn size="md" color="${column.color}" value="${
+        }">\n    <btn size="md" color="${column.color}" text="${
           column.size
         }" />\n  </${column.block}>\n`;
       });

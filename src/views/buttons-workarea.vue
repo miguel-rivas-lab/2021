@@ -5,7 +5,7 @@
         <ul class="buttons">
           <template v-for="(color, colorIndex) in gColorsDB">
             <li v-bind:key="colorIndex">
-              <btn tag="span" :color="color.spinalCase" :value="color.label" />
+              <btn tag="span" :color="color.spinalCase" :text="color.label" />
             </li>
           </template>
         </ul>

@@ -11,6 +11,7 @@
                   v-bind:key="nav.route"
                   color="gravel"
                   size="md"
+                  :title="`${nav.route} button`"
                   v-nano-tooltip.right="nav.route"
                   :glyph="nav.icon"
                 />
@@ -20,6 +21,7 @@
                   v-bind:key="nav.route"
                   color="gravel"
                   size="md"
+                  :title="`${nav.route} button`"
                   v-nano-tooltip.right="nav.route"
                   @click="toggleValue('panel'), playSound()"
                   :glyph="nav.icon"
@@ -34,6 +36,7 @@
                   :to="{ name: nav.route }"
                   v-bind:key="nav.route"
                   color="gravel"
+                  :title="`${nav.route} button`"
                   v-nano-tooltip.right="nav.route"
                   size="md"
                   :glyph="nav.icon"
@@ -44,6 +47,7 @@
                   v-bind:key="nav.route"
                   color="gravel"
                   size="md"
+                  :title="`${nav.route} button`"
                   v-nano-tooltip.right="nav.route"
                   @click="toggleValue('panel'), playSound()"
                   :glyph="nav.icon"
@@ -64,6 +68,7 @@
             <btn
               color="charcoal"
               size="md"
+              title="Toggle theme button"
               v-nano-tooltip.right="'Toggle Theme'"
               glyph="brightness-4"
               @click="toggleValue('theme'), playSound()"
@@ -72,6 +77,7 @@
             <btn
               color="persian-red"
               size="md"
+              title="Toggle universe button"
               v-nano-tooltip.right="'A Parallel Universe Where Cows Rule Earth'"
               glyph="cow"
               @click="toggleValue('parallelUniverse'), playSound()"

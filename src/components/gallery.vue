@@ -33,7 +33,7 @@
                       "
                       target="_blank"
                       :href="link.url"
-                      :value="link.text"
+                      :text="link.text"
                     />
                   </li>
                 </template>
