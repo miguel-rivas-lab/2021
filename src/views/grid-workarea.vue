@@ -47,7 +47,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { validateSize } from "nano-grid/grid/modules/columns-manager";
+import { validateSize } from "nano-grid/modules/columns-manager";
 import VueHighlightJS from "vue-highlight.js";
 import xml from "highlight.js/lib/languages/xml";
 

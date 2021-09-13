@@ -10,7 +10,7 @@ import "highlight.js/styles/tomorrow-night-bright.css";
 import { analytics } from 'firebase/app';
 import 'firebase/analytics';
 import { firebaseApp } from "./modules/firebase";
-import "nano-grid/grid/modules/tooltip"
+import "nano-grid/modules/tooltip"
 
 analytics(firebaseApp);
 

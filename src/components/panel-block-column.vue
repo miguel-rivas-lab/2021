@@ -155,7 +155,7 @@
 <script lang="ts">
 import Vue from "vue";
 import panelBlock from "./panel-block.vue";
-import { validateSize, cssSizesWidth } from "nano-grid/grid/modules/columns-manager";
+import { validateSize, cssSizesWidth } from "nano-grid/modules/columns-manager";
 import { gColorsDB } from "../modules/colors";
 
 export default Vue.extend({
