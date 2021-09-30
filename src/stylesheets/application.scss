@@ -1,1 +1,8 @@
 @import "~mr-kernel/scss/vue";
+
+.gallery {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}

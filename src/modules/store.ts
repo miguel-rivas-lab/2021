@@ -8,8 +8,6 @@ export const store = new Vuex.Store({
     panel: true,
     theme: false,
     parallelUniverse: false,
-    user: {},
-    projects: [],
     selection: {
       home: {
         sceneRotation: 1,
@@ -66,8 +64,6 @@ export const store = new Vuex.Store({
     getPanelVisibility: state => state.panel,
     getTheme: state => state.theme,
     getUniverse: state => state.parallelUniverse,
-    getUser: state => state.user,
-    getProjects: state => state.projects,
     getHomeSelection: state => state.selection.home,
     getGridSelection: state => state.selection.grid,
     getCubeSelection: state => state.selection.cube,

@@ -34,10 +34,12 @@ export default Vue.extend({
   }),
   computed: {
     ...mapGetters({
-      user: "getUser",
       theme: "getTheme",
       panel: "getPanelVisibility",
     }),
+    user(){
+      return this.$root.user;
+    },
     panelsSize() {
       return this.panel ? 350 : 50;
     },

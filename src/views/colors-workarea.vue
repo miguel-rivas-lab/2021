@@ -3,11 +3,17 @@
     <div class="container">
       <ul class="palette">
         <template v-for="(color, colorIndex) in gColorsDB">
-          <li v-bind:key="colorIndex">
-            <div class="color" :style="`background-color: ${color.hex}`" />
-            <h1 v-html="color.label" />
-            <p v-html="color.hex" />
-          </li>
+          <row v-bind:key="colorIndex" tag="li" vertical>
+            <column
+              size="200, 200"
+              class="color"
+              :style="`background-color: ${color.hex}`"
+            />
+            <column>
+              <h1 v-html="color.label" />
+              <p v-html="color.hex" />
+            </column>
+          </row>
         </template>
       </ul>
     </div>
@@ -23,7 +29,7 @@ export default Vue.extend({
     panel: false,
     gColorsDB: gColorsDB,
   }),
-  created(){
+  created() {
     this.$store.commit("setValue", { name: "panel", value: false });
   },
 });

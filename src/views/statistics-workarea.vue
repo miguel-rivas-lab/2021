@@ -55,14 +55,14 @@ export default Vue.extend({
     panel: false,
   }),
   computed: {
-    ...mapGetters({
-      projectsDB: "getProjects",
-    }),
+    projectsDB(){
+      return this.$root.projects;
+    },
     tools() {
       let tools = {};
       let result = [];
 
-      this.projectsDB.forEach((project) => {
+      this.$root.projects.forEach((project) => {
         if (typeof project.tools !== "undefined") {
           project.tools.forEach((tool) => {
             if (typeof tools[tool] === "undefined") {
@@ -90,7 +90,7 @@ export default Vue.extend({
       let dates = {};
       let result = [];
 
-      this.projectsDB.forEach((project) => {
+      this.$root.projects.forEach((project) => {
         if (typeof project.date !== "undefined") {
           let key = project.date.split("/")[0];
 

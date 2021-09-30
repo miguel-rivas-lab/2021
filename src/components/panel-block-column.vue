@@ -7,7 +7,7 @@
   >
     <row>
       <column size="100%">
-        <label :for="`id-${name}-size-type`">Size</label>
+        <label :for="`id-${name}-size-type`">Width</label>
       </column>
       <column size="100%">
         <select
@@ -76,7 +76,7 @@
 
     <row v-if="selection.columns[index].mode != 'Fixed'">
       <column size="100%">
-        <label :for="`id-${name}-subtraction`">Subtraction</label>
+        <label :for="`id-${name}-subtraction`">Width Subtraction</label>
       </column>
       <column size="100%">
         <select

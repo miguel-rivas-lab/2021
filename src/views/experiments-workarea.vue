@@ -7,7 +7,6 @@
 <script lang="ts">
 import Vue from "vue";
 import Gallery from "../components/gallery.vue";
-import { mapGetters } from "vuex";
 
 export default Vue.extend({
   components: {
@@ -17,11 +16,8 @@ export default Vue.extend({
     panel: false,
   }),
   computed: {
-    ...mapGetters({
-      projects: "getProjects",
-    }),
     projectsDB() {
-      return this.projects.filter(
+      return this.$root.projects.filter(
         (item) => item.category === "experiment" && !item.disabled
       );
     },

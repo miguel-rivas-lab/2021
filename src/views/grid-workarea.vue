@@ -136,8 +136,6 @@ export default Vue.extend({
       return validateSize(result);
     },
     copyCode() {
-      // console.log(this.$refs.textarea);
-      // document.getElementById("textarea").select();
       this.$refs.textarea.select();
       document.execCommand("copy");
     },

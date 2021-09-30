@@ -6,6 +6,9 @@
           <row :spacing="100" breakpoint="lg">
             <column size="100%-300">
               <img
+                loading="lazy"
+                width="1050"
+                height="551"
                 :src="project.image"
                 :alt="`${project.client} ${project.date}`"
               />
