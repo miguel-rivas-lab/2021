@@ -10,7 +10,8 @@ import GridPanelView from '../views/grid-panel.vue';
 import HomeWorkareaView from '../views/home-workarea.vue';
 import HomePanelView from '../views/home-panel.vue';
 import ProjectsWorkareaView from '../views/projects-workarea.vue';
-import ExperimentsWorkareaView from '../views/experiments-workarea.vue';
+import ProjectsPanelView from '../views/projects-panel.vue';
+import StatisticsPanelView from '../views/statistics-panel.vue';
 import StatisticsWorkareaView from '../views/statistics-workarea.vue';
 import GearWorkareaView from '../views/gear-workarea.vue';
 import GearPanelView from '../views/gear-panel.vue';
@@ -33,13 +34,7 @@ const routes: Array<RouteConfig> = [
     path: '/projects',
     components: {
       workarea: ProjectsWorkareaView,
-    },
-  },
-  {
-    name: 'experiments',
-    path: '/experiments',
-    components: {
-      workarea: ExperimentsWorkareaView,
+      panel: ProjectsPanelView,
     },
   },
   {
@@ -69,6 +64,7 @@ const routes: Array<RouteConfig> = [
     path: '/statistics',
     components: {
       workarea: StatisticsWorkareaView,
+      panel: StatisticsPanelView,
     },
   },
   {

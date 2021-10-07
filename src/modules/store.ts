@@ -9,6 +9,9 @@ export const store = new Vuex.Store({
     theme: false,
     parallelUniverse: false,
     selection: {
+      projects: {
+        filterData: 'projects',
+      },
       home: {
         sceneRotation: 1,
         cover: true,
@@ -58,8 +61,8 @@ export const store = new Vuex.Store({
       state.selection.grid.columns.splice(index, 1);
     },
   },
-  actions: {},
-  modules: {},
+  // actions: {},
+  // modules: {},
   getters: {
     getPanelVisibility: state => state.panel,
     getTheme: state => state.theme,
@@ -69,5 +72,6 @@ export const store = new Vuex.Store({
     getCubeSelection: state => state.selection.cube,
     getGearSelection: state => state.selection.gear,
     getWheelSelection: state => state.selection.wheel,
+    getFilterData: state => state.selection.projects,
   }
 });

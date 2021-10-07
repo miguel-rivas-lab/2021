@@ -1,5 +1,5 @@
 <template>
-  <t-row breakpoint="md" class="component-row">
+  <t-row breakpoint="md">
     <t-column size="40%">{{ rowData.title }}</t-column>
     <t-column size="20%">{{ rowData.type }}</t-column>
     <t-column size="20%">{{ rowData.date }}</t-column>

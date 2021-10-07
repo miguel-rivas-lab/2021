@@ -99,8 +99,7 @@ export default Vue.extend({
   data: () => ({
     navigation: [
       { icon: "monster", route: "home" },
-      { icon: "projector-screen", route: "projects" },
-      { icon: "duck", route: "experiments" },
+      { icon: "duck", route: "projects" },
       { icon: "gesture-tap-button", route: "buttons" },
       { icon: "format-color-fill", route: "colors" },
     ],

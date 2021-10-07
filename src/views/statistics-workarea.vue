@@ -43,7 +43,8 @@ import Vue from "vue";
 import LineChart from "../components/line-chart.vue";
 import BarChart from "../components/bar-chart.vue";
 import RowMore from "../components/row-more.vue";
-import { mapGetters } from "vuex";
+import helpers from "mr-kernel/modules/helpers";
+import {Project} from "../modules/interfaces";
 
 export default Vue.extend({
   components: {
@@ -55,14 +56,16 @@ export default Vue.extend({
     panel: false,
   }),
   computed: {
-    projectsDB(){
-      return this.$root.projects;
+    projectsDB() {
+      return Object.values(this.$root.projects).sort((a:Project, b:Project) => {
+        return helpers.dateToNumber(b.date) - helpers.dateToNumber(a.date);
+      });
     },
     tools() {
       let tools = {};
       let result = [];
 
-      this.$root.projects.forEach((project) => {
+      this.projectsDB.forEach((project) => {
         if (typeof project.tools !== "undefined") {
           project.tools.forEach((tool) => {
             if (typeof tools[tool] === "undefined") {
@@ -90,7 +93,7 @@ export default Vue.extend({
       let dates = {};
       let result = [];
 
-      this.$root.projects.forEach((project) => {
+      this.projectsDB.forEach((project) => {
         if (typeof project.date !== "undefined") {
           let key = project.date.split("/")[0];
 
@@ -116,7 +119,7 @@ export default Vue.extend({
     },
   },
   created() {
-    this.$store.commit("setValue", { name: "panel", value: false });
+    this.$store.commit("setValue", { name: "panel", value: false});
   },
 });
 </script>

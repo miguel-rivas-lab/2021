@@ -1,8 +1,41 @@
 @import "~mr-kernel/scss/vue";
 
 .gallery {
-  img {
-    width: 100%;
-    height: auto;
+  article {
+    .scroll-area {
+      @media only screen and (min-width: 992px) {
+        max-height: 551px;
+        padding: 0 0.5rem;
+      }
+    }
+  }
+}
+
+ul {
+  &.skills {
+    li {
+      background-color: rgba(128, 128, 128, 0.2);
+      border-radius: 5px;
+      padding: 0.5rem;
+    }
+    padding: 10px 0;
+    margin: 0;
+  }
+
+  &.summary {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      > ul.summary {
+        padding-left: 1rem;
+      }
+    }
+  }
+
+  li {
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }

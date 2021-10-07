@@ -2,7 +2,12 @@
   <main class="vue-theme" :class="classes">
     <row class="nano-app">
       <panel-navigation />
-      <column size="300" class="panel" :class="{ 'hide-panel': !panel }">
+      <column
+        gsize:width="45"
+        size="300"
+        class="panel"
+        :class="{ 'hide-panel': !panel }"
+      >
         <router-view name="panel" />
       </column>
 

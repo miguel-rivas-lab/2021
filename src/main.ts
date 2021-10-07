@@ -12,8 +12,7 @@ import { firebaseApp } from "./modules/firebase";
 import "nano-grid/modules/tooltip";
 
 import 'firebase/firestore';
-const db = firebaseApp.firestore();
-import helpers from "./modules/helpers";
+import helpers from "mr-kernel/modules/helpers";
 
 // ---------------- Enums
 
@@ -21,7 +20,10 @@ import { tool, toolEnum } from "mr-kernel/enums/tools";
 import { role, roleEnum } from "mr-kernel/enums/roles";
 import { type, typeEnum } from "mr-kernel/enums/types";
 import { client, clientEnum } from "mr-kernel/enums/clients";
-import { categoryEnum } from "mr-kernel/enums/categories";
+
+import { all, users } from "./modules/db";
+
+const db = firebaseApp.firestore();
 
 // ---------------- Selection
 
@@ -47,7 +49,6 @@ store.commit("addColumn",
   },
 );
 
-
 db.collection("users")
   .doc("main")
   .get()
@@ -55,10 +56,11 @@ db.collection("users")
     vueApp.user = doc.data();
   });
 
-  db.collection('projects')
+db.collection('projects')
   .get()
   .then(querySnapshot => {
-    const projectsDB = querySnapshot.docs.map(doc => {
+    const projectsDB = {};
+    querySnapshot.docs.forEach(doc => {
       const p = doc.data();
 
       const links = p["links"].map(
@@ -83,27 +85,27 @@ db.collection("users")
 
       const project = {
         "title": p["title"],
-        "category": categoryEnum[p["category"]],
-        "client": client[clientEnum[p["client"]]],
+        "client": client[clientEnum[p.client]],
         "date": p["date"],
-        "type": type[typeEnum[p["type"]]],
-        "disabled": p["disabled"],
+        "type": type[typeEnum[p.type]],
+        "disabled": p.disabled,
         "links": links,
         "roles": roles,
         "tools": tools,
+        "children": p.children,
       };
 
-      const key = helpers.getID(project.client, project.date);
+      const id = helpers.getNewID(project.client, project.date);
 
       try {
-        project["image"] = `https://miguel-rivas.github.io/zapp/img/preview-wide/${key}.jpg`;
+        project["image"] = `https://miguel-rivas.github.io/zapp/img/preview-wide/${id}.jpg`;
       }
       catch {
         project["image"] = require(`@/img/miguelrivas.jpg`);
       }
-
-      return project;
+      projectsDB[id] = project;
     });
+    console.log(projectsDB);
     vueApp.projects = projectsDB;
   });
 
@@ -116,8 +118,8 @@ const vueApp = new Vue({
   router,
   store,
   data: () => ({
-    user: {},
-    projects: [],
+    user: users,
+    projects: {},
   }),
   render: h => h(app)
 }).$mount('#app');
