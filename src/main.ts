@@ -21,8 +21,6 @@ import { role, roleEnum } from "mr-kernel/enums/roles";
 import { type, typeEnum } from "mr-kernel/enums/types";
 import { client, clientEnum } from "mr-kernel/enums/clients";
 
-import { all, users } from "./modules/db";
-
 const db = firebaseApp.firestore();
 
 // ---------------- Selection
@@ -118,7 +116,7 @@ const vueApp = new Vue({
   router,
   store,
   data: () => ({
-    user: users,
+    user: {},
     projects: {},
   }),
   render: h => h(app)
