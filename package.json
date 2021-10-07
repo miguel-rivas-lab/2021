@@ -7,7 +7,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test": "jest"
+    "test": "clear && vue-cli-service test:unit"
   },
   "dependencies": {
     "chart.js": "2",
@@ -27,12 +27,13 @@
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@types/jest": "^27.0.2",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "@vue/cli-plugin-babel": "4.5.13",
     "@vue/cli-plugin-eslint": "4.5.13",
     "@vue/cli-plugin-typescript": "4.5.13",
-    "@vue/cli-plugin-unit-jest": "^4.5.13",
+    "@vue/cli-plugin-unit-jest": "~4.5.0",
     "@vue/cli-plugin-vuex": "4.5.13",
     "@vue/cli-service": "4.5.13",
     "@vue/eslint-config-typescript": "^7.0.0",
@@ -41,6 +42,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "sass": "^1.38.0",
     "sass-loader": "^8.0.2",
+    "ts-jest": "^26.4.2",
     "typescript": "~4.1.5",
     "vue-jest": "^3.0.7",
     "vue-template-compiler": "^2.6.11"
