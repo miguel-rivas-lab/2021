@@ -63,7 +63,7 @@
           <column size="100%">
             <label
               class="btn flat charcoal"
-              :class="{ active: !selection.rotateY }"
+              :class="{ active: selection.rotateY }"
             >
               Pause
               <input type="checkbox" v-model="selection.rotateY" />

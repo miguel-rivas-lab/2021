@@ -31,7 +31,6 @@ export default Vue.extend({
   methods: {
     deployProjects() {
       ProjectsDB.forEach((item) => {
-        console.log(item);
         const id = h.getNewID(client[clientEnum[item["client"]]], item.date);
         db.collection("projects").doc(id).set(item);
       });

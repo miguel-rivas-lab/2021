@@ -9,7 +9,7 @@ import Vue from "vue";
 import Gallery from "../components/gallery.vue";
 import { client } from "mr-kernel/enums/clients";
 import helpers from "mr-kernel/modules/helpers";
-import { Project } from "../modules/interfaces";
+import { Project } from "mr-kernel/interfaces/project";
 
 export default Vue.extend({
   components: {

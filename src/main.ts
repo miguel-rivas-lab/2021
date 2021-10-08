@@ -103,7 +103,6 @@ db.collection('projects')
       }
       projectsDB[id] = project;
     });
-    console.log(projectsDB);
     vueApp.projects = projectsDB;
   });
 

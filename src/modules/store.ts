@@ -10,7 +10,7 @@ export const store = new Vuex.Store({
     parallelUniverse: false,
     selection: {
       projects: {
-        filterData: 'projects',
+        filterData: 'all',
       },
       home: {
         sceneRotation: 1,

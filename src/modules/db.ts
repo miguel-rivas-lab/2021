@@ -2,7 +2,7 @@ import { toolEnum } from "mr-kernel/enums/tools";
 import { roleEnum } from "mr-kernel/enums/roles";
 import { typeEnum } from "mr-kernel/enums/types";
 import { client, clientEnum } from "mr-kernel/enums/clients";
-import { ProjectFirebase } from "./interfaces";
+import { ProjectFirebase } from "mr-kernel/interfaces/project-firebase";
 
 import h from "mr-kernel/modules/helpers";
 
@@ -2313,6 +2313,7 @@ const projects: ProjectsType = [
   {
     date: "2015/05/13",
     title: "Summary",
+    type: typeEnum.group,
     role: [
       roleEnum.design,
     ],
@@ -2343,6 +2344,7 @@ const projects: ProjectsType = [
   {
     date: "2009/09/01",
     title: "Summary",
+    type: typeEnum.group,
     role: [
       roleEnum.design,
     ],
@@ -2387,6 +2389,7 @@ const projects: ProjectsType = [
   {
     date: "2013/01/01",
     title: "Summary",
+    type: typeEnum.group,
     role: [
       roleEnum.frontend,
     ],
@@ -2407,6 +2410,7 @@ const projects: ProjectsType = [
   {
     date: "2014/06/01",
     title: "Summary",
+    type: typeEnum.group,
     role: [
       roleEnum.frontend,
     ],
@@ -2434,6 +2438,7 @@ const projects: ProjectsType = [
   {
     date: "2014/05/01",
     title: "Summary",
+    type: typeEnum.group,
     role: [
       roleEnum.frontend,
     ],
@@ -2469,6 +2474,7 @@ const projects: ProjectsType = [
   {
     date: "2016/01/01",
     title: "Summary",
+    type: typeEnum.group,
     role: [
       roleEnum.frontend,
     ],
@@ -2497,6 +2503,7 @@ const projects: ProjectsType = [
   {
     date: "2013/07/15",
     title: "Summary",
+    type: typeEnum.group,
     role: [
       roleEnum.frontend,
     ],
@@ -2520,6 +2527,7 @@ const projects: ProjectsType = [
   {
     date: "2017/07/01",
     title: "Summary",
+    type: typeEnum.group,
     role: [
       roleEnum.frontend,
     ],
@@ -2544,6 +2552,7 @@ const projects: ProjectsType = [
   {
     date: "2021/03/29",
     title: "Summary",
+    type: typeEnum.group,
     role: [
       roleEnum.frontend,
     ],
@@ -2565,6 +2574,7 @@ const projects: ProjectsType = [
   {
     date: "2018/04/01",
     title: "Summary",
+    type: typeEnum.group,
     role: [
       roleEnum.frontend,
     ],

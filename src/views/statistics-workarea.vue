@@ -44,7 +44,8 @@ import LineChart from "../components/line-chart.vue";
 import BarChart from "../components/bar-chart.vue";
 import RowMore from "../components/row-more.vue";
 import helpers from "mr-kernel/modules/helpers";
-import {Project} from "../modules/interfaces";
+import { Project } from "mr-kernel/interfaces/project";
+import { type } from "mr-kernel/enums/types";
 
 export default Vue.extend({
   components: {
@@ -57,9 +58,11 @@ export default Vue.extend({
   }),
   computed: {
     projectsDB() {
-      return Object.values(this.$root.projects).sort((a:Project, b:Project) => {
-        return helpers.dateToNumber(b.date) - helpers.dateToNumber(a.date);
-      });
+      return Object.values(this.$root.projects)
+        .sort((a: Project, b: Project) => {
+          return helpers.dateToNumber(b.date) - helpers.dateToNumber(a.date);
+        })
+        .filter((item: Project) => item.type !== type.group);
     },
     tools() {
       let tools = {};
@@ -119,7 +122,7 @@ export default Vue.extend({
     },
   },
   created() {
-    this.$store.commit("setValue", { name: "panel", value: false});
+    this.$store.commit("setValue", { name: "panel", value: false });
   },
 });
 </script>
