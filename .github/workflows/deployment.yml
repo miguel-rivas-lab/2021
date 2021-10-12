@@ -13,7 +13,7 @@ jobs:
         uses: actions/setup-node@v2.4.1
 
       - name: Installing dependencies
-        run: npm install
+        run: yarn install
 
       # - name: Running tests
       #   run: npm run tests
