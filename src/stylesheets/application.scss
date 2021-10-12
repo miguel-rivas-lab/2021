@@ -2,8 +2,45 @@
 
 .projector {
   background-color: #0e0e0e;
-  &, iframe {
+  &,
+  iframe {
     width: 100%;
     height: 100%;
+  }
+}
+
+.loading {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  color: var(--color-foreground);
+  overflow: hidden;
+
+  span, p {
+    opacity: 0.5;
+  }
+
+  span {
+    font-size: 36px;
+    margin-bottom: 0.25rem;
+    animation: swim 500ms ease-in-out alternate infinite;
+  }
+
+  p {
+    font-weight: 600;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-size: 13px;
+  }
+}
+
+@keyframes swim {
+  from {
+    transform: rotateZ(-10deg);
+  }
+  to {
+    transform: rotateZ(10deg);
   }
 }

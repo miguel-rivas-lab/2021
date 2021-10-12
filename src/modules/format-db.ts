@@ -7,7 +7,28 @@ import { role, roleEnum } from "mr-kernel/enums/roles";
 import { type, typeEnum } from "mr-kernel/enums/types";
 import { client, clientEnum } from "mr-kernel/enums/clients";
 
-export function formatDBToFirebase(item) {
+import { ProjectFirebase } from "mr-kernel/interfaces/project-firebase";
+
+interface ProjectLinkComb {
+  url: string;
+  text: string;
+  params?: Array<string>;
+  self?: boolean;
+}
+
+export interface ProjectComb {
+  date: string;
+  title: string;
+  types?: Array<string> | Array<number>;
+  roles?: Array<string> | Array<number>;
+  clients: Array<string> | Array<number>;
+  tools?: Array<string> | Array<number>;
+  links?: Array<ProjectLinkComb>;
+  disabled?: boolean;
+  children?: Array<string>;
+}
+
+export function formatDBToFirebase(item: ProjectFirebase): ProjectFirebase {
   let links = [];
   if (item.links?.length > 0) {
     links = item.links.map(
@@ -103,6 +124,6 @@ export function formatDBtoJSON(querySnapshot) {
   return projectsDB;
 }
 
-export function sortByDate(a, b) {
+export function sortByDate(a: ProjectComb, b: ProjectComb) {
   return helpers.dateToNumber(b.date) - helpers.dateToNumber(a.date);
 }

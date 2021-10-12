@@ -34,7 +34,7 @@
                   <btn
                     v-if="projectLink.self"
                     size="md"
-                    color="denim"
+                    color="gold-tips"
                     class="fsz"
                     :text="projectLink.text"
                     @click="sentToProjector(projectLink.url)"
@@ -80,9 +80,6 @@ export default Vue.extend({
     projects() {
       return this.$root.projects;
     },
-  },
-  mounted() {
-    this.hasSlots = this.$slots?.default;
   },
   methods: {
     sentToProjector(src){

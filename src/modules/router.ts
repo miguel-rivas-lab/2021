@@ -18,6 +18,8 @@ import GearPanelView from '../views/gear-panel.vue';
 import WheelWorkareaView from '../views/wheel-workarea.vue';
 import WheelPanelView from '../views/wheel-panel.vue';
 
+import DefaultPanelView from '../views/default-panel.vue';
+
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
@@ -42,6 +44,7 @@ const routes: Array<RouteConfig> = [
     path: '/colors',
     components: {
       workarea: ColorsWorkareaView,
+      panel: DefaultPanelView,
     },
   },
   {
@@ -49,6 +52,7 @@ const routes: Array<RouteConfig> = [
     path: '/buttons',
     components: {
       workarea: ButtonsWorkareaView,
+      panel: DefaultPanelView,
     },
   },
   {

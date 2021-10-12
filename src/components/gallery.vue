@@ -1,5 +1,5 @@
 <template>
-  <div class="gallery" v-if="database">
+  <div class="gallery" v-if="database.length > 0">
     <div class="container">
       <template v-for="(project, projectIndex) in database">
         <article v-bind:key="projectIndex" class="nano-box">
@@ -17,60 +17,13 @@
               <scroll-area color="royal-purple">
                 <h1 v-html="project.clients.join(' & ')" />
                 <ul class="summary">
-                  <li class="table" role="table">
-                    <div role="rowgroup" class="table-body">
-                      <toggle-row>
-                        <template v-slot:header>
-                          <column size="100%-35" v-html="project.title" />
-                        </template>
-                        <template v-slot:more>
-                          <t-column size="100%">
-                            <h2
-                              v-if="project.types !== 'Group'"
-                              v-html="project.types"
-                            />
-                            <h3>
-                              <time v-html="project.date" />
-                            </h3>
-                            <ul class="skills">
-                              <template
-                                v-for="(tool, toolIndex) in project.tools"
-                              >
-                                <li v-bind:key="`tool-${toolIndex}`">
-                                  {{ tool }}
-                                </li>
-                              </template>
-                            </ul>
-                            <ul class="navigation" v-if="project.links">
-                              <template
-                                v-for="(link, linkIndex) in project.links"
-                              >
-                                <li v-bind:key="linkIndex">
-                                  <btn
-                                    v-if="link.self"
-                                    size="md"
-                                    color="denim"
-                                    class="fsz"
-                                    :text="link.text"
-                                    @click="sentToProjector(link.url)"
-                                  />
-                                  <btn
-                                    v-else
-                                    tag="a"
-                                    size="md"
-                                    color="royal-purple"
-                                    target="_blank"
-                                    :href="link.url"
-                                    :text="link.text"
-                                  />
-                                </li>
-                              </template>
-                            </ul>
-                          </t-column>
-                        </template>
-                      </toggle-row>
-                    </div>
-
+                  <summary-row
+                    v-bind:key="`projectIndex-${projectIndex}`"
+                    :project="
+                      helpers.getNewID(project.clients[0], project.date)
+                    "
+                  />
+                  <li>
                     <ul class="summary" v-if="project.children.length">
                       <summary-row
                         v-for="(project2, projectIndex2) in project.children"
@@ -114,34 +67,34 @@
       </template>
     </div>
   </div>
+  <div v-else class="loading">
+    <m-icon glyph="duck" />
+    <p v-html="'Loading Projects'"/>
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 
-import toggleRow from "./toggle-row.vue";
 import summaryRow from "./summary.vue";
+import helpers from "mr-kernel/modules/helpers";
 
 export default Vue.extend({
-  components: { toggleRow, summaryRow },
+  components: { summaryRow },
   props: {
     db: {
       type: Array,
     },
   },
+  data: () => ({
+    helpers,
+  }),
   computed: {
     projects() {
       return this.$root.projects;
     },
     database() {
       return this.db;
-    },
-  },
-  methods: {
-    sentToProjector(src) {
-      this.$store.commit("setProject", {
-        value: src,
-      });
     },
   },
 });

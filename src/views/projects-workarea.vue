@@ -31,14 +31,16 @@ export default Vue.extend({
       filterData: undefined,
       currentLink: {},
     },
-    db: [],
   }),
   computed: {
     projectsDB() {
-      let result = this.db;
+      let db = Object.values(this.$root.projects)
+      .filter((item: Project) => !item.disabled)
+      .sort(sortByDate)
+      let result = db;
       switch (this.selection.filterData) {
         case "projects":
-          result = this.db.filter(
+          result = db.filter(
             (item: Project) =>
               !item.clients.includes(client.miguelRivas) &&
               !item.clients.includes(client.itla) &&
@@ -46,7 +48,7 @@ export default Vue.extend({
           );
           break;
         case "experiments":
-          result = this.db.filter(
+          result = db.filter(
             (item: Project) =>
               item.clients.includes(client.miguelRivas) ||
               item.clients.includes(client.itla) ||
@@ -54,7 +56,7 @@ export default Vue.extend({
           );
           break;
         case "companies":
-          result = this.db.filter(
+          result = db.filter(
             (item: Project) =>
               item.clients.includes(client.enovational) ||
               item.clients.includes(client.avante) ||
@@ -66,7 +68,7 @@ export default Vue.extend({
           );
           break;
         case "homework":
-          result = this.db.filter(
+          result = db.filter(
             (item: Project) =>
               !item.disabled && item.clients.includes(client.itla)
           );
@@ -81,9 +83,6 @@ export default Vue.extend({
       value: true,
     });
     this.selection = this.$store.getters.getFilterData;
-    this.db = Object.values(this.$root.projects)
-      .filter((item: Project) => !item.disabled)
-      .sort(sortByDate);
   },
 });
 </script>
