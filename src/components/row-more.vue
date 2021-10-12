@@ -1,9 +1,9 @@
 <template>
   <t-row breakpoint="md">
     <t-column size="40%">{{ rowData.title }}</t-column>
-    <t-column size="20%">{{ rowData.type }}</t-column>
+    <t-column size="20%">{{ rowData.types }}</t-column>
     <t-column size="20%">{{ rowData.date }}</t-column>
-    <t-column size="20%-35">{{ rowData.client }}</t-column>
+    <t-column size="20%-35">{{ rowData.clients.join(' & ') }}</t-column>
     <t-suffix size="35">
       <btn
         :glyph="showData ? 'chevron-up' : 'chevron-down'"

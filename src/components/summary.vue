@@ -7,12 +7,11 @@
         </template>
         <template v-slot:more>
           <t-column size="100%" v-if="projects[project]">
-            <h2>
-              <small v-html="projects[project].client" />
-            </h2>
-            <h3>
+            <h2 v-html="projects[project].clients.join(' & ')" />
+            <h3 v-html="projects[project].types" />
+            <h4>
               <time v-html="projects[project].date" />
-            </h3>
+            </h4>
             <ul class="skills">
               <template>
                 <template
@@ -33,11 +32,18 @@
               >
                 <li v-bind:key="`projectLinkIndex-${projectLinkIndex}`">
                   <btn
+                    v-if="projectLink.self"
+                    size="md"
+                    color="denim"
+                    class="fsz"
+                    :text="projectLink.text"
+                    @click="sentToProjector(projectLink.url)"
+                  />
+                  <btn
+                    v-else
                     tag="a"
                     size="md"
-                    :color="
-                      projectLink.text == 'Github' ? 'charcoal' : 'royal-purple'
-                    "
+                    color="royal-purple"
                     target="_blank"
                     :href="projectLink.url"
                     :text="projectLink.text"
@@ -78,5 +84,12 @@ export default Vue.extend({
   mounted() {
     this.hasSlots = this.$slots?.default;
   },
+  methods: {
+    sentToProjector(src){
+      this.$store.commit("setProject", {
+        value: src,
+      });
+    }
+  }
 });
 </script>

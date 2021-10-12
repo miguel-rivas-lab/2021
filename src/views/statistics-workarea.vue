@@ -43,9 +43,9 @@ import Vue from "vue";
 import LineChart from "../components/line-chart.vue";
 import BarChart from "../components/bar-chart.vue";
 import RowMore from "../components/row-more.vue";
-import helpers from "mr-kernel/modules/helpers";
 import { Project } from "mr-kernel/interfaces/project";
 import { type } from "mr-kernel/enums/types";
+import { sortByDate } from "../modules/format-db";
 
 export default Vue.extend({
   components: {
@@ -59,10 +59,8 @@ export default Vue.extend({
   computed: {
     projectsDB() {
       return Object.values(this.$root.projects)
-        .sort((a: Project, b: Project) => {
-          return helpers.dateToNumber(b.date) - helpers.dateToNumber(a.date);
-        })
-        .filter((item: Project) => item.type !== type.group);
+        .filter((item: Project) => !item.types.includes(type.group))
+        .sort(sortByDate);
     },
     tools() {
       let tools = {};

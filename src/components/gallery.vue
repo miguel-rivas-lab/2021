@@ -10,12 +10,12 @@
                 width="1050"
                 height="551"
                 :src="project.image"
-                :alt="`${project.client} ${project.date}`"
+                :alt="`${project.clients.join(' & ')} ${project.date}`"
               />
             </column>
             <column size="40%">
               <scroll-area color="royal-purple">
-                <h1 v-html="project.client" />
+                <h1 v-html="project.clients.join(' & ')" />
                 <ul class="summary">
                   <li class="table" role="table">
                     <div role="rowgroup" class="table-body">
@@ -25,6 +25,10 @@
                         </template>
                         <template v-slot:more>
                           <t-column size="100%">
+                            <h2
+                              v-if="project.types !== 'Group'"
+                              v-html="project.types"
+                            />
                             <h3>
                               <time v-html="project.date" />
                             </h3>
@@ -37,19 +41,24 @@
                                 </li>
                               </template>
                             </ul>
-                            <ul class="navigation">
+                            <ul class="navigation" v-if="project.links">
                               <template
                                 v-for="(link, linkIndex) in project.links"
                               >
                                 <li v-bind:key="linkIndex">
                                   <btn
+                                    v-if="link.self"
+                                    size="md"
+                                    color="denim"
+                                    class="fsz"
+                                    :text="link.text"
+                                    @click="sentToProjector(link.url)"
+                                  />
+                                  <btn
+                                    v-else
                                     tag="a"
                                     size="md"
-                                    :color="
-                                      link.text == 'Github'
-                                        ? 'charcoal'
-                                        : 'royal-purple'
-                                    "
+                                    color="royal-purple"
                                     target="_blank"
                                     :href="link.url"
                                     :text="link.text"
@@ -126,6 +135,13 @@ export default Vue.extend({
     },
     database() {
       return this.db;
+    },
+  },
+  methods: {
+    sentToProjector(src) {
+      this.$store.commit("setProject", {
+        value: src,
+      });
     },
   },
 });

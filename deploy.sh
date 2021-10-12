@@ -1,7 +1,8 @@
 #!/usr/bin/env sh
 clear
 npm run build
-cd dist
+git branch -D gh-pages
+cd dist || exit
 git init
 git add -A
 git commit -m 'deploy'

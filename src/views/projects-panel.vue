@@ -1,6 +1,10 @@
 <template>
   <scroll-area color="royal-purple">
-    <row class="row-block" tag="fieldset">
+    <row
+      v-if="selection.currentLink.src === ''"
+      class="row-block"
+      tag="fieldset"
+    >
       <column size="100%">
         <legend>Filter</legend>
 
@@ -21,7 +25,7 @@
           </column>
         </row>
 
-         <row>
+        <row>
           <column size="100%">
             <label
               class="btn flat charcoal"
@@ -90,6 +94,12 @@
         </row>
       </column>
     </row>
+
+    <row v-else class="row-block" tag="fieldset">
+      <column size="100%">
+        <btn @click="closeProject()" color="persian-red" text="Close Project" />
+      </column>
+    </row>
   </scroll-area>
 </template>
 
@@ -100,11 +110,18 @@ export default Vue.extend({
   data: () => ({
     selection: {
       filterData: undefined,
+      currentLink: {},
     },
   }),
   created() {
     this.selection = this.$store.getters.getFilterData;
   },
-  methods: {},
+  methods: {
+    closeProject() {
+      this.$store.commit("setProject", {
+        value: "",
+      });
+    },
+  },
 });
 </script>

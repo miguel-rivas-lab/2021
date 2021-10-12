@@ -11,6 +11,11 @@ export const store = new Vuex.Store({
     selection: {
       projects: {
         filterData: 'all',
+        currentLink: {
+          src: "",
+          frameborder:"0",
+          allowfullscreen: true
+        },
       },
       home: {
         sceneRotation: 1,
@@ -50,6 +55,9 @@ export const store = new Vuex.Store({
   mutations: {
     setValue(state, payload) {
       state[payload.name] = payload.value;
+    },
+    setProject(state, payload) {
+      state.selection.projects.currentLink.src = payload.value;
     },
     toggleValue(state, payload) {
       state[payload] = !state[payload];

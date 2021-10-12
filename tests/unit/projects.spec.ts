@@ -1,75 +1,89 @@
-// import { mount, shallowMount } from "@vue/test-utils";
-// import ProjectsWorkarea from "@/views/projects-workarea.vue";
-// import ProjectsPanel from "@/views/projects-panel.vue";
+import '@/modules/commons';
 
-// describe('Gallery component unit tests: ', () => {
-//   test('is a Vue instance', () => {
-//     const wrapper = mount(ProjectsWorkarea, {
-//       // propsData: {
+import { tool, toolEnum } from "mr-kernel/enums/tools";
+import { role, roleEnum } from "mr-kernel/enums/roles";
+import { client, clientEnum } from "mr-kernel/enums/clients";
+import { type, typeEnum } from "mr-kernel/enums/types";
 
-//       // }
-//     });
-//     expect(wrapper.isVueInstance()).toBeTruthy();
-//   });
-// });
-
-
-import Row from 'nano-grid/vue/row.vue';
-import Column from 'nano-grid/vue/column.vue';
-
-
-// import NanoIcon from 'nano-grid/vue/icon.vue';
-// import NanoBtn from 'nano-grid/vue/btn.vue';
-// import NanoScrollArea from 'nano-grid/vue/scroll-area.vue';
-// import NumberInput from 'nano-grid/vue/number-input.vue';
-
-// Vue.component("row", NanoRow);
-// Vue.component("column", NanoColumn);
-// Vue.component("icon", NanoIcon);
-// Vue.component("btn", NanoBtn);
-// Vue.component("scroll-area", NanoScrollArea);
-// Vue.component("number-input", NumberInput);
-
-import { mount, shallowMount } from "@vue/test-utils";
+import { mount } from "@vue/test-utils";
 import Gallery from "@/components/gallery.vue";
+
+const users = {
+  "name": "Jesus",
+  "middleName": "Miguel",
+  "lastName": "Rivas",
+  "title": "Frontend Developer",
+  "website": "miguel-rivas.github.io",
+  "location": {
+    "city": "Washington",
+    "state": "DC"
+  },
+  "media": {
+    "codepen": {
+      "user": "planetwurlex"
+    },
+    "issuu": {
+      "user": "jemiguelrivas"
+    },
+    "linkedin": {
+      "user": "jemiguelrivas"
+    },
+    "github": {
+      "user": "jemiguelrivas",
+      "development": "miguel-rivas-lab",
+      "production": "miguel-rivas"
+    }
+  }
+};
+
+const linkWeb = (item) => `https://${users.media.github.production}.github.io/${item}`;
 
 describe('Gallery component unit tests: ', () => {
   test('is a Vue instance', () => {
     const wrapper = mount(Gallery, {
       propsData: {
-        db: [{
-          "title": "olis",
-          "category": "project",
-          "client": "Presidente",
+        db: [
+        {
+          "title": "Destapa el Coro",
+          "clients": [client[clientEnum.presidente]],
+          "types": [type[typeEnum.graphicDesign]],
           "date": "2014/12/05",
-          "type": "banana",
           "disabled": false,
+          "links": [
+            { url: linkWeb("2018/presidente.html"), text: "Presidente" },
+          ],
+          "roles": [
+            role[roleEnum.frontend],
+          ],
+          "tools": [
+            tool[toolEnum.scss],
+            tool[toolEnum.javascript],
+          ],
+          "image": "https://miguel-rivas.github.io/zapp/img/preview.png",
+          "children": []
+        },
+        {
+          "title": "Cover",
+          "clients": [client[clientEnum.presidente]],
+          "types": [type[typeEnum.landingPage]],
+          "date": "2021/03/24",
+          "disabled": true,
           "links": [],
-          "roles": ["president"],
-          "tools": ["git"],
-          "image": "https://miguel-rivas.github.io/zapp/img/preview.png"
-        }]
+          "roles": [
+            role[roleEnum.frontend],
+          ],
+          "tools": [
+            tool[toolEnum.scss],
+            tool[toolEnum.typescript],
+          ],
+          "image": "https://miguel-rivas.github.io/zapp/img/preview.png",
+          "children": []
+        }
+      ]
       },
-      components : {Row, Column}
     });
-    // expect(wrapper.isVueInstance()).toBeTruthy();
-    // expect(wrapper.html()).toMatchSnapshot();
     console.log(wrapper.html());
+    expect(wrapper.isVueInstance()).toBeTruthy();
+    // expect(wrapper.html()).toMatchSnapshot();
   });
 });
-
-
-
-// import { shallowMount } from '@vue/test-utils'
-// import HelloWorld from '@/components/HelloWorld.vue'
-
-// describe('HelloWorld.vue', () => {
-//   it('renders props.msg when passed', () => {
-//     const msg = 'new message'
-//     const wrapper = shallowMount(HelloWorld, {
-//       propsData: { msg }
-//     })
-//     expect(wrapper.text()).toMatch(msg)
-//     console.log('olis')
-//   })
-// })

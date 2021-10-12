@@ -4,22 +4,14 @@ import router from './modules/router';
 import { store } from './modules/store';
 import { firestorePlugin } from 'vuefire';
 import './stylesheets/application.scss';
-import './modules/commons.ts';
+import './modules/commons';
 import "highlight.js/styles/tomorrow-night-bright.css";
 import { analytics } from 'firebase/app';
 import 'firebase/analytics';
 import { firebaseApp } from "./modules/firebase";
 import "nano-grid/modules/tooltip";
-
 import 'firebase/firestore';
-import helpers from "mr-kernel/modules/helpers";
-
-// ---------------- Enums
-
-import { tool, toolEnum } from "mr-kernel/enums/tools";
-import { role, roleEnum } from "mr-kernel/enums/roles";
-import { type, typeEnum } from "mr-kernel/enums/types";
-import { client, clientEnum } from "mr-kernel/enums/clients";
+import { formatDBtoJSON } from "./modules/format-db";
 
 const db = firebaseApp.firestore();
 
@@ -56,54 +48,8 @@ db.collection("users")
 
 db.collection('projects')
   .get()
-  .then(querySnapshot => {
-    const projectsDB = {};
-    querySnapshot.docs.forEach(doc => {
-      const p = doc.data();
-
-      const links = p["links"].map(
-        link => {
-          const params = link["params"].length ? `?${link["params"].join("&")}` : '';
-          const url = link["url"];
-
-          return {
-            "url": `${url}${params}`,
-            "text": link["text"],
-          }
-        }
-      );
-
-      const roles = p["roles"].map(
-        item => role[roleEnum[item]]
-      );
-
-      const tools = p["tools"].map(
-        item => tool[toolEnum[item]]
-      );
-
-      const project = {
-        "title": p["title"],
-        "client": client[clientEnum[p.client]],
-        "date": p["date"],
-        "type": type[typeEnum[p.type]],
-        "disabled": p.disabled,
-        "links": links,
-        "roles": roles,
-        "tools": tools,
-        "children": p.children,
-      };
-
-      const id = helpers.getNewID(project.client, project.date);
-
-      try {
-        project["image"] = `https://miguel-rivas.github.io/zapp/img/preview-wide/${id}.jpg`;
-      }
-      catch {
-        project["image"] = require(`@/img/miguelrivas.jpg`);
-      }
-      projectsDB[id] = project;
-    });
-    vueApp.projects = projectsDB;
+  .then(item => {
+    vueApp.projects = formatDBtoJSON(item);
   });
 
 analytics(firebaseApp);
