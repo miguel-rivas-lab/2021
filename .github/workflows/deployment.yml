@@ -15,8 +15,8 @@ jobs:
       - name: Installing dependencies
         run: npm install
 
-      - name: Running tests
-        run: npm run tests
+      # - name: Running tests
+      #   run: npm run tests
 
       - name: Building app
-        run: npm run build
+        run: ./deploy.sh
