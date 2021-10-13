@@ -1800,6 +1800,10 @@ const projects: ProjectsType = [
     ],
     links: [
       {
+        url: "https://www.npmjs.com/package/mr-kernel",
+        text: "Node Module",
+      },
+      {
         url: linkGithub("mr-kernel"),
         text: "Github",
         self: true,

@@ -86,6 +86,7 @@ export default Vue.extend({
       this.$store.commit("setProject", {
         value: src,
       });
+      console.clear();
     }
   }
 });
