@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
-clear
+echo "Getting ready for deployment"
+git push git@github.com:miguel-rivas/2021-vue.git --delete gh-pages
 npm run build
-git branch -D gh-pages
 cd dist || exit
 git init
 git add -A
