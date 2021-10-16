@@ -17,6 +17,8 @@ import GearWorkareaView from '../views/gear-workarea.vue';
 import GearPanelView from '../views/gear-panel.vue';
 import WheelWorkareaView from '../views/wheel-workarea.vue';
 import WheelPanelView from '../views/wheel-panel.vue';
+// import LocationsPanelView from '../views/locations-panel.vue';
+import LocationsWorkareaView from '../views/locations-workarea.vue';
 
 import DefaultPanelView from '../views/default-panel.vue';
 
@@ -85,6 +87,14 @@ const routes: Array<RouteConfig> = [
     components: {
       workarea: GearWorkareaView,
       panel: GearPanelView,
+    },
+  },
+  {
+    name: 'locations',
+    path: '/locations',
+    components: {
+      workarea: LocationsWorkareaView,
+      panel: DefaultPanelView,
     },
   },
   {

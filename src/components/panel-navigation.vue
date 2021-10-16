@@ -102,10 +102,11 @@ export default Vue.extend({
       { icon: "duck", route: "projects" },
       { icon: "gesture-tap-button", route: "buttons" },
       { icon: "format-color-fill", route: "colors" },
+      { icon: "projector-screen", route: "locations" },
+      { icon: "chart-areaspline", route: "statistics" },
     ],
     navigationBuilder: [
       { icon: "robot-industrial", route: "grid" },
-      { icon: "chart-areaspline", route: "statistics" },
       { icon: "cube-outline", route: "cube" },
       { icon: "cog-transfer-outline", route: "gear" },
       { icon: "palette", route: "wheel" },

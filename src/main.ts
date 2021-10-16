@@ -12,6 +12,7 @@ import { firebaseApp } from "./modules/firebase";
 import "nano-grid/modules/tooltip";
 import 'firebase/firestore';
 import { formatDBtoJSON } from "./modules/format-db";
+import './modules/google-maps';
 
 const db = firebaseApp.firestore();
 
