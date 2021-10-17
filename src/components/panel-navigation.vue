@@ -100,10 +100,9 @@ export default Vue.extend({
     navigation: [
       { icon: "monster", route: "home" },
       { icon: "duck", route: "projects" },
-      { icon: "gesture-tap-button", route: "buttons" },
-      { icon: "format-color-fill", route: "colors" },
-      { icon: "projector-screen", route: "locations" },
       { icon: "chart-areaspline", route: "statistics" },
+      { icon: "airplane", route: "locations" },
+      { icon: "format-color-fill", route: "colors" },
     ],
     navigationBuilder: [
       { icon: "robot-industrial", route: "grid" },

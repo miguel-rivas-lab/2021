@@ -21,7 +21,7 @@
 import Vue from "vue";
 import { firebaseApp } from "../modules/firebase";
 import "firebase/firestore";
-import { all as ProjectsDB } from "../modules/db";
+import { all as ProjectsDB } from "../db/projects";
 import h from "mr-kernel/modules/helpers";
 import { client, clientEnum } from "mr-kernel/enums/clients";
 

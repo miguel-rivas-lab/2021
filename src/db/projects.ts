@@ -3,37 +3,10 @@ import { roleEnum } from "mr-kernel/enums/roles";
 import { typeEnum } from "mr-kernel/enums/types";
 import { client, clientEnum } from "mr-kernel/enums/clients";
 import { ProjectFirebase } from "mr-kernel/interfaces/project-firebase";
-import { formatDBToFirebase, sortByDate } from "./format-db";
+import { formatDBToFirebase, sortByDate } from "../modules/format-db";
+import { users } from "./users";
 
 import h from "mr-kernel/modules/helpers";
-
-const users = {
-  "name": "Jesus",
-  "middleName": "Miguel",
-  "lastName": "Rivas",
-  "title": "Frontend Developer",
-  "website": "miguel-rivas.github.io",
-  "location": {
-    "city": "Washington",
-    "state": "DC"
-  },
-  "media": {
-    "codepen": {
-      "user": "planetwurlex"
-    },
-    "issuu": {
-      "user": "jemiguelrivas"
-    },
-    "linkedin": {
-      "user": "jemiguelrivas"
-    },
-    "github": {
-      "user": "jemiguelrivas",
-      "development": "miguel-rivas-lab",
-      "production": "miguel-rivas"
-    }
-  }
-};
 
 const linkWeb = (item) => `https://${users.media.github.production}.github.io/${item}`;
 const linkGithub = (item) => `https://github.com/${users.media.github.production}/${item}`;
@@ -3701,4 +3674,4 @@ const projects: ProjectsType = [
 
 const all = projects.sort(sortByDate).map(formatDBToFirebase);
 
-export { users, all };
+export { all };

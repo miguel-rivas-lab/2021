@@ -9,11 +9,19 @@ export const store = new Vuex.Store({
     theme: false,
     parallelUniverse: false,
     selection: {
+      locations: {
+        mapCenter: {
+          lat: 31,
+          lng: -94,
+        },
+        mapZoom: 4,
+        viewPath: false,
+      },
       projects: {
         filterData: 'all',
         currentLink: {
           src: "",
-          frameborder:"0",
+          frameborder: "0",
           allowfullscreen: true
         },
       },
@@ -59,6 +67,10 @@ export const store = new Vuex.Store({
     setProject(state, payload) {
       state.selection.projects.currentLink.src = payload.value;
     },
+    centerMap(state, payload) {
+      state.selection.locations.mapCenter = payload.position;
+      state.selection.locations.mapZoom = payload.zoom;
+    },
     toggleValue(state, payload) {
       state[payload] = !state[payload];
     },
@@ -80,6 +92,7 @@ export const store = new Vuex.Store({
     getCubeSelection: state => state.selection.cube,
     getGearSelection: state => state.selection.gear,
     getWheelSelection: state => state.selection.wheel,
+    getLocationSelection: state => state.selection.locations,
     getFilterData: state => state.selection.projects,
   }
 });

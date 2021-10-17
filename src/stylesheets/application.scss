@@ -1,5 +1,27 @@
 @import "~mr-kernel/scss/vue";
 
+.nano-app .panel {
+  .btn {
+    font-size: 9pt !important;
+  }
+}
+
+.area-box {
+  background-color: var(--color-table-background-2);
+  padding: 0.5rem;
+}
+
+.table {
+  .nano-row:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.map {
+  overflow: hidden;
+  position: relative;
+}
+
 .clouds {
   position: absolute;
   width: 100%;
@@ -7,7 +29,7 @@
   top: 0;
   left: 0;
   z-index: 12;
-  background-image: url('../img/clouds.svg');
+  background-image: url("../img/clouds.svg");
   background-repeat: repeat;
   animation: clouds 25s linear infinite forwards;
   pointer-events: none;
@@ -27,21 +49,21 @@
       font-weight: 600;
       letter-spacing: 0.5px;
       font-family: "Montserrat", Helvetica, Arial, Tahoma, sans-serif;
+      color: #0e0e0e;
     }
-    
+
     & .gm-style-iw-c {
       border-radius: 3px;
     }
-    
+
     &-iw-a {
-      [aria-label="Close"]{
+      [aria-label="Close"] {
         display: none !important;
         pointer-events: none;
       }
     }
-  
   }
-  }
+}
 
 .projector {
   background-color: #0e0e0e;
@@ -61,7 +83,8 @@
   color: var(--color-foreground);
   overflow: hidden;
 
-  span, p {
+  span,
+  p {
     opacity: 0.5;
   }
 

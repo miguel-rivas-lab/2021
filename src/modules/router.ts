@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 
-import ButtonsWorkareaView from '../views/buttons-workarea.vue';
+import ColorsPanelView from '../views/colors-panel.vue';
 import ColorsWorkareaView from '../views/colors-workarea.vue';
 import CubeWorkareaView from '../views/cube-workarea.vue';
 import CubePanelView from '../views/cube-panel.vue';
@@ -17,7 +17,7 @@ import GearWorkareaView from '../views/gear-workarea.vue';
 import GearPanelView from '../views/gear-panel.vue';
 import WheelWorkareaView from '../views/wheel-workarea.vue';
 import WheelPanelView from '../views/wheel-panel.vue';
-// import LocationsPanelView from '../views/locations-panel.vue';
+import LocationsPanelView from '../views/locations-panel.vue';
 import LocationsWorkareaView from '../views/locations-workarea.vue';
 
 import DefaultPanelView from '../views/default-panel.vue';
@@ -46,15 +46,7 @@ const routes: Array<RouteConfig> = [
     path: '/colors',
     components: {
       workarea: ColorsWorkareaView,
-      panel: DefaultPanelView,
-    },
-  },
-  {
-    name: 'buttons',
-    path: '/buttons',
-    components: {
-      workarea: ButtonsWorkareaView,
-      panel: DefaultPanelView,
+      panel: ColorsPanelView,
     },
   },
   {
@@ -94,7 +86,7 @@ const routes: Array<RouteConfig> = [
     path: '/locations',
     components: {
       workarea: LocationsWorkareaView,
-      panel: DefaultPanelView,
+      panel: LocationsPanelView,
     },
   },
   {

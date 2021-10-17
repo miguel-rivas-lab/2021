@@ -7619,10 +7619,8 @@ move-concurrently@^1.0.1:
     rimraf "^2.5.4"
     run-queue "^1.0.3"
 
-mr-kernel@^1.0.1:
+"mr-kernel@file:../../miguelrivas-tools/mr-kernel":
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/mr-kernel/-/mr-kernel-1.0.1.tgz#7876bcc9d5a053b99fc5778d7c6866754c25341a"
-  integrity sha512-yi9CTuAQAbHWaybdtNqKiQrZnExJUnDjSg0ZNiZmyFT/HkATjUDGj9X8+pVaWStQtnbNyMTEheB8qsxKiryh+Q==
   dependencies:
     "@fontsource/montserrat" "^4.2.2"
     nano-grid "^1.1.0"
@@ -7679,10 +7677,8 @@ nan@^2.12.1:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.15.0.tgz#3f34a473ff18e15c1b5626b62903b5ad6e665fee"
   integrity sha512-8ZtvEnA2c5aYCZYd1cvgdnU6cqwixRoYg70xPLWUws5ORTa/lnw+u4amixRS/Ac5U5mQVgp9pnlSUnbNWFaWZQ==
 
-nano-grid@^1.1.0:
+nano-grid@^1.1.0, "nano-grid@file:../../miguelrivas-tools/nano-grid":
   version "1.1.0"
-  resolved "https://registry.yarnpkg.com/nano-grid/-/nano-grid-1.1.0.tgz#1be605c76a52485a75eeff4895e210eeb53a15bc"
-  integrity sha512-h2bKlvuyIQBoUKwaKmPSK9ZVB+lnFAR6MyAsjOgxlvDwNZINJpZHc6Jw2Kzf7TTvRn864BM7MtQnqsOSaw8agA==
   dependencies:
     classnames "^2.2.6"
 

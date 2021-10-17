@@ -30,7 +30,7 @@ export default Vue.extend({
     gColorsDB: gColorsDB,
   }),
   created() {
-    this.$store.commit("setValue", { name: "panel", value: false });
+    this.$store.commit("setValue", { name: "panel", value: true });
   },
 });
 </script>
