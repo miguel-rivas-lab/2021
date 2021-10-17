@@ -62,7 +62,6 @@ export default Vue.extend({
     selection: { columns: [] },
   }),
   created() {
-    this.$store.commit("setValue", { name: "panel", value: true });
     this.selection = this.$store.getters.getGridSelection;
   },
   computed: {

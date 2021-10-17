@@ -234,7 +234,6 @@ export default Vue.extend({
     this.render();
   },
   created() {
-    this.$store.commit("setValue", { name: "panel", value: true });
     this.selection = this.$store.getters.getCubeSelection;
     window.addEventListener("resize", this.resizeWindow);
   },

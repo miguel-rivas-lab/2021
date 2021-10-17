@@ -119,8 +119,5 @@ export default Vue.extend({
       return result;
     },
   },
-  created() {
-    this.$store.commit("setValue", { name: "panel", value: false });
-  },
 });
 </script>
