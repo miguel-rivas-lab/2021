@@ -16,6 +16,7 @@ const locations = [
       lat: 18.4659438,
       lng: -69.915391,
     },
+    zoom: 21,
   },
   {
     title: client.socialNetwork,
@@ -24,6 +25,7 @@ const locations = [
       lat: 18.466018304331566,
       lng: -69.91533470462102,
     },
+    zoom: 21,
   },
   {
     title: client.avante,
