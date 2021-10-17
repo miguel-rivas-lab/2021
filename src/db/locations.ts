@@ -3,22 +3,31 @@ import { client } from "mr-kernel/enums/clients";
 const locations = [
   {
     title: client.itla,
+    description: "Multimedia Degree",
     position: {
       lat: 18.45316651707145,
       lng: -69.66131456337963,
     },
   },
   {
-    title: client.socialNetwork,
-    description: "Several Solutions > Social Network / Studio Several",
+    title: client.studioSeveral,
+    description: "Graphic Designer",
     position: {
       lat: 18.4659438,
       lng: -69.915391,
     },
   },
   {
+    title: client.socialNetwork,
+    description: "Web Designer",
+    position: {
+      lat: 18.466018304331566,
+      lng: -69.91533470462102,
+    },
+  },
+  {
     title: client.avante,
-    description: "Avante Group > Avante Marketing",
+    description: "Web Designer",
     position: {
       lat: 18.4703103,
       lng: -69.940124,
@@ -26,6 +35,7 @@ const locations = [
   },
   {
     title: client.capitalDBG,
+    description: "Frontend Developer",
     position: {
       lat: 18.4648539,
       lng: -69.9582155,
@@ -33,6 +43,7 @@ const locations = [
   },
   {
     title: client.pixelPerfectTree,
+    description: "Frontend Developer",
     position: {
       lat: 18.4460353,
       lng: -69.959968,
@@ -40,6 +51,7 @@ const locations = [
   },
   {
     title: client.plantTherapy,
+    description: "Graphic Web Designer",
     position: {
       lat: 42.5395726,
       lng: -114.4798225,
@@ -47,6 +59,7 @@ const locations = [
   },
   {
     title: client.enovational,
+    description: "Frontend Developer",
     position: {
       lat: 38.902872,
       lng: -77.0299321,
@@ -54,6 +67,7 @@ const locations = [
   },
   {
     title: client.jellyfish,
+    description: "Frontend Developer",
     position: {
       lat: 38.9550186,
       lng: -77.3670827,

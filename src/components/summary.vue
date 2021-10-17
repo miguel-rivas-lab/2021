@@ -88,6 +88,9 @@ export default Vue.extend({
       });
       console.clear();
     }
-  }
+  },
+  mounted(){
+    this.hasSlots = this.$slots.default?.length
+  },
 });
 </script>

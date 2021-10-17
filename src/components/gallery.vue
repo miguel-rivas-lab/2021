@@ -69,7 +69,7 @@
   </div>
   <div v-else class="loading">
     <m-icon glyph="duck" />
-    <p v-html="'Loading Projects'"/>
+    <p v-html="'Loading Projects'" />
   </div>
 </template>
 
