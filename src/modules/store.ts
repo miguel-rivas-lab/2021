@@ -8,7 +8,19 @@ export const store = new Vuex.Store({
     panel: true,
     theme: false,
     parallelUniverse: false,
+    alert: {
+      message: "",
+      status: "",
+    },
+    modal: {
+      visible: false,
+    },
     selection: {
+      login: {
+        email: "",
+        password: "",
+        logged: false,
+      },
       locations: {
         mapCenter: {
           lat: 31,
@@ -87,12 +99,16 @@ export const store = new Vuex.Store({
     getPanelVisibility: state => state.panel,
     getTheme: state => state.theme,
     getUniverse: state => state.parallelUniverse,
+    getAlert: state => state.alert,
+    getModal: state => state.modal,
     getHomeSelection: state => state.selection.home,
     getGridSelection: state => state.selection.grid,
     getCubeSelection: state => state.selection.cube,
     getGearSelection: state => state.selection.gear,
     getWheelSelection: state => state.selection.wheel,
     getLocationSelection: state => state.selection.locations,
+    getLoginSelection: state => state.selection.login,
     getFilterData: state => state.selection.projects,
+    
   }
 });

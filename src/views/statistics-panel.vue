@@ -1,48 +1,10 @@
 <template>
   <scroll-area color="royal-purple">
-    <form @submit.prevent="pressed" v-if="!logged">
-      <row class="row-block" tag="fieldset">
-        <column size="100%">
-          <legend>Firebase Login</legend>
-
-          <row>
-            <column size="100%">
-              <!-- <label for="email">Email</label> -->
-              <input
-                class="input-label fsz"
-                id="email"
-                name="email"
-                autocomplete="off"
-                type="email"
-                placeholder="Email"
-                v-model="email"
-              />
-            </column>
-          </row>
-
-          <row>
-            <column size="100%">
-              <!-- <label for="password">Password</label> -->
-              <input
-                class="input-label fsz"
-                id="password"
-                autocomplete="off"
-                name="password"
-                placeholder="Password"
-                type="password"
-                v-model="password"
-              />
-            </column>
-          </row>
-
-          <row>
-            <column size="100%">
-              <btn type="submit" color="gold-tips" text="Login" />
-            </column>
-          </row>
-        </column>
-      </row>
-    </form>
+    <row class="row-block" tag="fieldset" v-if="!selection.logged">
+      <column size="100%">
+        <btn @click="openModal()" color="gold-tips" text="Login" />
+      </column>
+    </row>
 
     <row class="row-block" tag="fieldset" v-else>
       <column size="100%">
@@ -60,11 +22,7 @@
 
         <row>
           <column size="100%">
-            <btn
-              @click="logoutFirebase()"
-              color="persian-red"
-              text="Logout"
-            />
+            <btn @click="logoutFirebase()" color="persian-red" text="Log out" />
           </column>
         </row>
       </column>
@@ -85,24 +43,30 @@ const db = firebaseApp.firestore();
 
 export default Vue.extend({
   data: () => ({
-    email: "",
-    password: "",
-    logged: false,
+    selection: {},
   }),
+  created() {
+    this.selection = this.$store.getters.getLoginSelection;
+  },
   methods: {
-    async pressed() {
-      try {
-        const val = await firebaseApp
-          .auth()
-          .signInWithEmailAndPassword(this.email, this.password);
-        this.logged = true;
-      } catch (err) {
-        console.error(err);
-      }
+    openModal() {
+      this.$store.commit("setValue", {
+        name: "modal",
+        value: {
+          visible: true,
+        },
+      });
     },
-    logoutFirebase(){
+    logoutFirebase() {
       firebaseApp.auth().signOut();
-      this.logged = false;
+      this.selection.logged = false;
+      this.$store.commit("setValue", {
+        name: "alert",
+        value: {
+          message: "You have successfully logged out.",
+          status: "success",
+        },
+      });
     },
     deployProjects() {
       ProjectsDB.forEach((item) => {
