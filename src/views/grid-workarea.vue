@@ -1,6 +1,6 @@
 <template>
   <scroll-area color="royal-purple">
-    <div class="container">
+    <container size="900">
       <h1 v-html="rowSize" />
 
       <div class="builder-container">
@@ -41,7 +41,7 @@
           />
         </column>
       </row>
-    </div>
+    </container>
   </scroll-area>
 </template>
 

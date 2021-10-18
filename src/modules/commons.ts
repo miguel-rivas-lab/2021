@@ -6,6 +6,10 @@ import NanoBtn from 'nano-grid/vue/btn.vue';
 import NanoScrollArea from 'nano-grid/vue/scroll-area.vue';
 import NumberInput from 'nano-grid/vue/number-input.vue';
 
+import Container from '../components/container.vue';
+
+Vue.component("container", Container);
+
 Vue.component("row", NanoRow);
 Vue.component("column", NanoColumn);
 Vue.component("icon", NanoIcon);

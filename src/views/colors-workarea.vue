@@ -1,6 +1,6 @@
 <template>
   <scroll-area color="royal-purple">
-    <div class="container">
+    <container>
       <ul class="palette">
         <template v-for="(color, colorIndex) in gColorsDB">
           <row v-bind:key="colorIndex" tag="li" vertical>
@@ -16,7 +16,7 @@
           </row>
         </template>
       </ul>
-    </div>
+    </container>
   </scroll-area>
 </template>
 

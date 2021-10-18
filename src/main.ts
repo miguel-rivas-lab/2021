@@ -13,6 +13,7 @@ import "nano-grid/modules/tooltip";
 import 'firebase/firestore';
 import { formatDBtoJSON } from "./modules/format-db";
 import './modules/google-maps';
+import axios from "axios";
 
 const db = firebaseApp.firestore();
 
@@ -55,6 +56,7 @@ db.collection('projects')
 
 analytics(firebaseApp);
 
+Vue.prototype.$axios = axios;
 Vue.use(firestorePlugin);
 Vue.config.productionTip = false;
 

@@ -1598,6 +1598,8 @@ const projects: ProjectsType = [
       toolEnum.chartJS,
       toolEnum.firebase,
       toolEnum.highlight,
+      toolEnum.gmap,
+      toolEnum.axios,
     ],
     links: [
       {

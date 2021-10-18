@@ -1,10 +1,6 @@
 <template>
-  <section class="modal login" v-if="modal.visible">
-    <div class="container sz400">
-      <button class="close-btn" @click="closeModal()">
-        <m-icon glyph="close" />
-      </button>
-
+  <scroll-area color="royal-purple">
+    <container size="400">
       <h1>Login</h1>
 
       <form @submit.prevent="pressed">
@@ -38,43 +34,33 @@
           </row>
 
           <row>
-            <column size="50%">
-              <btn
-                class="fsz"
-                type="reset"
-                color="silver"
-                text="Return"
-                @click="closeModal()"
-              />
-            </column>
-            <column size="50%">
+            <column size="100%">
               <btn class="fsz" type="submit" color="gold-tips" text="Login" />
             </column>
           </row>
         </column>
       </form>
-    </div>
-  </section>
+    </container>
+  </scroll-area>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import { firebaseApp } from "../modules/firebase";
 import "firebase/auth";
-
 import { mapGetters } from "vuex";
 
 export default Vue.extend({
-  data: () => ({
-    selection: {},
-  }),
-  created() {
-    this.selection = this.$store.getters.getLoginSelection;
-  },
   computed: {
     ...mapGetters({
-      modal: "getModal",
+      selection: "getLoginSelection",
     }),
+  },
+  created() {
+    this.$store.commit("setValue", {
+      name: "panel",
+      value: false,
+    });
   },
   methods: {
     async pressed() {
@@ -86,7 +72,7 @@ export default Vue.extend({
             this.selection.password
           );
         this.selection.logged = true;
-        this.closeModal();
+        this.$router.push("home");
         this.$store.commit("setValue", {
           name: "alert",
           value: {
@@ -103,14 +89,6 @@ export default Vue.extend({
           },
         });
       }
-    },
-    closeModal() {
-      this.$store.commit("setValue", {
-        name: "modal",
-        value: {
-          visible: false,
-        },
-      });
     },
   },
 });

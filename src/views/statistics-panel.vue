@@ -2,7 +2,7 @@
   <scroll-area color="royal-purple">
     <row class="row-block" tag="fieldset" v-if="!selection.logged">
       <column size="100%">
-        <btn @click="openModal()" color="gold-tips" text="Login" />
+        <btn :to="{ name: 'login' }" color="gold-tips" text="Login" />
       </column>
     </row>
 
@@ -19,12 +19,6 @@
             />
           </column>
         </row>
-
-        <row>
-          <column size="100%">
-            <btn @click="logoutFirebase()" color="persian-red" text="Log out" />
-          </column>
-        </row>
       </column>
     </row>
   </scroll-area>
@@ -37,7 +31,6 @@ import "firebase/firestore";
 import { all as ProjectsDB } from "../db/projects";
 import h from "mr-kernel/modules/helpers";
 import { client, clientEnum } from "mr-kernel/enums/clients";
-import "firebase/auth";
 
 const db = firebaseApp.firestore();
 
@@ -49,22 +42,11 @@ export default Vue.extend({
     this.selection = this.$store.getters.getLoginSelection;
   },
   methods: {
-    openModal() {
+    openLoginModal() {
       this.$store.commit("setValue", {
         name: "modal",
         value: {
           visible: true,
-        },
-      });
-    },
-    logoutFirebase() {
-      firebaseApp.auth().signOut();
-      this.selection.logged = false;
-      this.$store.commit("setValue", {
-        name: "alert",
-        value: {
-          message: "You have successfully logged out.",
-          status: "success",
         },
       });
     },

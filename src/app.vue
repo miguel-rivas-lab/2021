@@ -1,7 +1,6 @@
 <template>
   <main class="vue-theme" :class="classes">
     <alert />
-    <modal-login />
     <row class="nano-app">
       <panel-navigation />
       <column
@@ -25,13 +24,11 @@ import Vue from "vue";
 import { mapGetters } from "vuex";
 import PanelNavigation from "./components/panel-navigation.vue";
 import Alert from "./components/alert.vue";
-import ModalLogin from "./components/modal-login.vue";
 
 export default Vue.extend({
   components: {
     PanelNavigation,
     Alert,
-    ModalLogin,
   },
   computed: {
     ...mapGetters({

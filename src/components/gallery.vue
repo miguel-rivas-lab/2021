@@ -1,6 +1,6 @@
 <template>
   <div class="gallery" v-if="database.length > 0">
-    <div class="container">
+    <container size="1450">
       <template v-for="(project, projectIndex) in database">
         <article v-bind:key="projectIndex" class="nano-box">
           <row :spacing="100" breakpoint="lg">
@@ -65,7 +65,7 @@
           </row>
         </article>
       </template>
-    </div>
+    </container>
   </div>
   <div v-else class="loading">
     <m-icon glyph="duck" />
@@ -75,7 +75,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-
 import summaryRow from "./summary.vue";
 import helpers from "mr-kernel/modules/helpers";
 

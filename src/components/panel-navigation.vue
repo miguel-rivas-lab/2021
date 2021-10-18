@@ -1,9 +1,9 @@
 <template>
   <column size="50" class="main-panel">
     <scroll-area color="royal-purple" :horizontal="false">
-      <div class="container">
+      <container>
         <row vertical>
-          <column size=",100%-85">
+          <column size=",100%-135">
             <template v-for="nav in navigation">
               <template v-if="$route.name !== nav.route">
                 <btn
@@ -55,25 +55,32 @@
                 />
               </template>
             </template>
+            <hr />
+            <template v-if="login.logged">
+              <template v-if="$route.name !== 'crypto'">
+                <btn
+                  :to="{ name: 'crypto' }"
+                  color="gravel"
+                  size="md"
+                  title="Monitor button"
+                  v-nano-tooltip.right="'Monitor'"
+                  glyph="bitcoin"
+                />
+              </template>
+              <template v-else>
+                <btn
+                  color="gravel"
+                  size="md"
+                  title="Monitor button"
+                  v-nano-tooltip.right="'Monitor'"
+                  glyph="bitcoin"
+                  @click="toggleValue('panel'), playSound()"
+                  active
+                />
+              </template>
+            </template>
           </column>
-          <suffix size=",85">
-            <!-- <btn
-              href="https://miguel-rivas.github.io/2021-react/"
-              class="btn-react"
-              v-nano-tooltip.right="'React site'"
-              size="md"
-              glyph="react"
-              tag="a"
-            /> -->
-            <btn
-              color="charcoal"
-              size="md"
-              title="Toggle theme button"
-              v-nano-tooltip.right="'Toggle Theme'"
-              glyph="brightness-4"
-              @click="toggleValue('theme'), playSound()"
-              :active="!theme"
-            />
+          <suffix size=",135">
             <btn
               color="persian-red"
               size="md"
@@ -83,9 +90,51 @@
               @click="toggleValue('parallelUniverse'), playSound()"
               :active="universe"
             />
+            <btn
+              color="charcoal"
+              size="md"
+              title="Toggle theme button"
+              v-nano-tooltip.right="'Toggle Theme'"
+              glyph="brightness-4"
+              @click="toggleValue('theme'), playSound()"
+              :active="!theme"
+            />
+            <template v-if="!login.logged">
+              <template v-if="$route.name !== 'login'">
+                <btn
+                  :to="{ name: 'login' }"
+                  color="gold-tips"
+                  size="md"
+                  title="Firebase login button"
+                  v-nano-tooltip.right="'Firebase'"
+                  glyph="firebase"
+                />
+              </template>
+              <template v-else>
+                <btn
+                  color="gravel"
+                  size="md"
+                  title="Firebase login button"
+                  v-nano-tooltip.right="'Firebase'"
+                  glyph="firebase"
+                  @click="toggleValue('panel'), playSound()"
+                  active
+                />
+              </template>
+            </template>
+            <template v-else>
+              <btn
+                color="persian-red"
+                size="md"
+                title="Firebase logout button"
+                v-nano-tooltip.right="'Firebase'"
+                glyph="firebase"
+                @click="logoutFirebase(), playSound()"
+              />
+            </template>
           </suffix>
         </row>
-      </div>
+      </container>
     </scroll-area>
   </column>
 </template>
@@ -93,6 +142,8 @@
 <script lang="ts">
 import Vue from "vue";
 import { mapGetters, mapMutations } from "vuex";
+import { firebaseApp } from "../modules/firebase";
+import "firebase/auth";
 
 export default Vue.extend({
   components: {},
@@ -115,6 +166,7 @@ export default Vue.extend({
     ...mapGetters({
       theme: "getTheme",
       universe: "getUniverse",
+      login: "getLoginSelection",
     }),
   },
   methods: {
@@ -131,6 +183,25 @@ export default Vue.extend({
         0.00000001,
         context.currentTime + 0.5
       );
+    },
+    logoutFirebase() {
+      firebaseApp.auth().signOut();
+      this.login.logged = false;
+      this.$store.commit("setValue", {
+        name: "alert",
+        value: {
+          message: "You have successfully logged out.",
+          status: "success",
+        },
+      });
+    },
+    openLoginModal() {
+      this.$store.commit("setValue", {
+        name: "modal",
+        value: {
+          visible: true,
+        },
+      });
     },
   },
   mounted() {

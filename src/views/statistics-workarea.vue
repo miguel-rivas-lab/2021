@@ -1,7 +1,7 @@
 <template>
   <scroll-area color="royal-purple">
     <div class="gallery">
-      <div class="container">
+      <container size="1450">
         <article class="nano-box">
           <h1>Projects Yearly Average</h1>
           <br />
@@ -17,23 +17,68 @@
         <article class="nano-box">
           <h1>Database</h1>
           <hr />
+
           <div class="table" role="table">
             <div role="rowgroup" class="table-head">
-              <row breakpoint="md" table-element>
+              <row breakpoint="lg" table-element>
                 <column size="40%" table-element>Name</column>
                 <column size="20%" table-element>Type</column>
                 <column size="20%" table-element>Date</column>
-                <column size="20%" table-element>Client</column>
+                <column size="20-35%" table-element>Client</column>
+                <suffix size="35" />
               </row>
             </div>
             <div role="rowgroup" class="table-body">
               <template v-for="(project, projectIndex) in projectsDB">
-                <row-more v-bind:key="projectIndex" :row-data="project" />
+                <toggle-row breakpoint="lg" v-bind:key="projectIndex">
+                  <template v-slot:header>
+                      <t-column size="40%">{{ project.title }}</t-column>
+                      <t-column size="20%">{{ project.types }}</t-column>
+                      <t-column size="20%">{{ project.date }}</t-column>
+                      <t-column size="20%-35">{{
+                        project.clients.join(" & ")
+                      }}</t-column>
+                  </template>
+                  <template v-slot:more>
+                    <t-column size="200">
+                      <template v-if="project.links && project.links[0]">
+                        <btn
+                          tag="a"
+                          size="md"
+                          color="royal-purple"
+                          target="_blank"
+                          :href="project.links[0].url"
+                          text="See Preview"
+                        />
+                      </template>
+                      <template v-else>
+                        <btn
+                          tag="span"
+                          size="md"
+                          color="persian-red"
+                          text="No Link"
+                        />
+                      </template>
+                    </t-column>
+                    <t-column size="100%-200">
+                      <div class="pill-container">
+                        <template v-for="(tool, toolIndex) in project.tools">
+                          <span
+                            class="pill"
+                            v-bind:key="toolIndex"
+                            v-html="tool"
+                          />
+                        </template>
+                      </div>
+                    </t-column>
+                  </template>
+                </toggle-row>
               </template>
             </div>
           </div>
+
         </article>
-      </div>
+      </container>
     </div>
   </scroll-area>
 </template>
@@ -42,16 +87,16 @@
 import Vue from "vue";
 import LineChart from "../components/line-chart.vue";
 import BarChart from "../components/bar-chart.vue";
-import RowMore from "../components/row-more.vue";
+import ToggleRow from "../components/toggle-row.vue";
 import { Project } from "mr-kernel/interfaces/project";
 import { type } from "mr-kernel/enums/types";
 import { sortByDate } from "../modules/format-db";
 
 export default Vue.extend({
   components: {
+    ToggleRow,
     LineChart,
     BarChart,
-    RowMore,
   },
   data: () => ({
     panel: false,

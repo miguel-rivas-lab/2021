@@ -1,5 +1,5 @@
 <template>
-  <t-row>
+  <t-row :breakpoint="breakpoint">
     <slot name="header"/>
     <t-suffix size="35">
       <btn
@@ -25,6 +25,9 @@ export default Vue.extend({
     rowData: {
       type: Object,
     },
+    breakpoint: {
+      type: String
+    }
   },
   data: () => ({
     showData: false,
