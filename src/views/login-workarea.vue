@@ -62,6 +62,12 @@ export default Vue.extend({
       value: false,
     });
   },
+  beforeDestroy(){
+    this.$store.commit("setValue", {
+      name: "panel",
+      value: true,
+    });
+  },
   methods: {
     async pressed() {
       try {

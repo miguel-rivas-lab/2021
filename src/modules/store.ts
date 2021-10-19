@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state: {
     panel: true,
+    panelSize: ['300', '100%-350'],
     theme: false,
     parallelUniverse: false,
     alert: {
@@ -97,6 +98,7 @@ export const store = new Vuex.Store({
   // modules: {},
   getters: {
     getPanelVisibility: state => state.panel,
+    getPanelSize: state => state.panelSize,
     getTheme: state => state.theme,
     getUniverse: state => state.parallelUniverse,
     getAlert: state => state.alert,

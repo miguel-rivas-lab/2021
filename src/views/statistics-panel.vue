@@ -28,9 +28,10 @@
 import Vue from "vue";
 import { firebaseApp } from "../modules/firebase";
 import "firebase/firestore";
-import { all as ProjectsDB } from "../db/projects";
+import { projectsDB } from "../db/projects";
 import h from "mr-kernel/modules/helpers";
 import { client, clientEnum } from "mr-kernel/enums/clients";
+import { formatRawDBToFirebase } from "../modules/format-db";
 
 const db = firebaseApp.firestore();
 
@@ -51,7 +52,7 @@ export default Vue.extend({
       });
     },
     deployProjects() {
-      ProjectsDB.forEach((item) => {
+      projectsDB.map(formatRawDBToFirebase).forEach((item) => {
         const id = h.getNewID(client[clientEnum[item.clients[0]]], item.date);
         db.collection("projects").doc(id).set(item);
       });

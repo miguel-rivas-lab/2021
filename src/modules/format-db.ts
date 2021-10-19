@@ -28,7 +28,7 @@ export interface ProjectComb {
   children?: Array<string>;
 }
 
-export function formatDBToFirebase(item: ProjectFirebase): ProjectFirebase {
+export function formatRawDBToFirebase(item: ProjectFirebase): ProjectFirebase {
   let links = [];
   if (item.links?.length > 0) {
     links = item.links.map(
@@ -64,7 +64,7 @@ export function formatDBToFirebase(item: ProjectFirebase): ProjectFirebase {
   }
 }
 
-export function formatDBtoJSON(querySnapshot) {
+export function formatFirebaseDBtoJSON(querySnapshot) {
   const projectsDB = {};
   querySnapshot.docs.forEach(doc => {
     const p = doc.data();
@@ -124,6 +124,66 @@ export function formatDBtoJSON(querySnapshot) {
   return projectsDB;
 }
 
-export function sortByDate(a: ProjectComb, b: ProjectComb) {
+export function formatRawDBtoJSON(item) {
+  const result = {};
+  item.forEach(doc => {
+    const p = doc;
+
+    const links = p.links.map(
+      link => {
+        const params = link.params.length ? `?${link.params.join("&")}` : '';
+        const url = link.url;
+
+        return {
+          "url": `${url}${params}`,
+          "text": link.text,
+          "self": link.self,
+        }
+      }
+    );
+
+    const roles = p.roles.map(
+      item => role[roleEnum[item]]
+    );
+
+    const tools = p.tools.map(
+      item => tool[toolEnum[item]]
+    );
+
+    const clients = p.clients.map(
+      item => client[clientEnum[item]]
+    );
+
+    const types = p.types.map(
+      item => type[typeEnum[item]]
+    ).join(' & ');
+
+    const project = {
+      "title": p.title,
+      "clients": clients,
+      "date": p.date,
+      "types": types,
+      "disabled": p.disabled,
+      "links": links,
+      "roles": roles,
+      "tools": tools,
+      "children": p.children,
+      "image": ""
+    };
+
+    const id = helpers.getNewID(project.clients[0], project.date);
+
+    try {
+      project.image = `https://miguel-rivas.github.io/zapp/img/preview-wide/${id}.jpg`;
+    }
+    catch {
+      project.image = require(`@/img/miguelrivas.jpg`);
+    }
+    result[id] = project;
+  });
+  return result;
+}
+
+export function sortByDate(a, b) {
   return helpers.dateToNumber(b.date) - helpers.dateToNumber(a.date);
 }

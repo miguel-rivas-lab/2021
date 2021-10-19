@@ -33,10 +33,33 @@
                         <t-column size="100%-35" v-html="location.title" />
                       </template>
                       <template v-slot:more>
-                        <t-column size="100%" v-if="location.description">
-                          <small v-html="location.description" />
-                        </t-column>
                         <t-column size="100%">
+                          <h3 v-html="location.description" />
+                          <h4>
+                            <time v-html="location.date" />
+                          </h4>
+                          <ul class="list">
+                            <template
+                              v-for="(item, itemIndex) in location.list"
+                            >
+                              <li
+                                v-bind:key="`itemIndex-${itemIndex}`"
+                                v-html="item"
+                              />
+                            </template>
+                          </ul>
+                          <ul class="skills">
+                            <template
+                              v-for="(tool, toolIndex) in projectsDB[
+                                location.projectId
+                              ].tools"
+                            >
+                              <li
+                                v-bind:key="`toolIndex${toolIndex}`"
+                                v-html="tool"
+                              />
+                            </template>
+                          </ul>
                           <div class="area-box">
                             <row group>
                               <column size="55">
@@ -96,6 +119,21 @@ export default Vue.extend({
   }),
   created() {
     this.selection = this.$store.getters.getLocationSelection;
+    this.$store.commit("setValue", {
+      name: "panelSize",
+      value: ["35%", "65%-50"],
+    });
+  },
+  beforeDestroy() {
+    this.$store.commit("setValue", {
+      name: "panelSize",
+      value: ["300", "100%-350"],
+    });
+  },
+  computed: {
+    projectsDB() {
+      return this.$root.projects;
+    },
   },
   methods: {
     centerMap(position, zoom = 15) {

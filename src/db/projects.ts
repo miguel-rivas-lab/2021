@@ -3,7 +3,7 @@ import { roleEnum } from "mr-kernel/enums/roles";
 import { typeEnum } from "mr-kernel/enums/types";
 import { client, clientEnum } from "mr-kernel/enums/clients";
 import { ProjectFirebase } from "mr-kernel/interfaces/project-firebase";
-import { formatDBToFirebase, sortByDate } from "../modules/format-db";
+import { sortByDate } from "../modules/format-db";
 import { users } from "./users";
 
 import h from "mr-kernel/modules/helpers";
@@ -3306,7 +3306,6 @@ const projects: ProjectsType = [
       toolEnum.rails,
       toolEnum.scss,
       toolEnum.git,
-      toolEnum.cucumber,
       toolEnum.bootstrap,
     ],
     children: [
@@ -3390,9 +3389,9 @@ const projects: ProjectsType = [
       toolEnum.css,
       toolEnum.javascript,
       toolEnum.php,
-
       toolEnum.flash,
       toolEnum.premiere,
+      toolEnum.afterEffects,
       toolEnum.maya,
       toolEnum.indesign,
       toolEnum.inkscape,
@@ -3437,6 +3436,7 @@ const projects: ProjectsType = [
     tools: [
       toolEnum.illustrator,
       toolEnum.photoshop,
+      toolEnum.indesign,
     ],
     children: [
       h.getNewID(client.socialNetwork, "2013/08/03"),
@@ -3658,7 +3658,6 @@ const projects: ProjectsType = [
       toolEnum.rails,
       toolEnum.bootstrap,
       toolEnum.jQuery,
-      toolEnum.cucumber,
       toolEnum.three,
       toolEnum.svg,
       toolEnum.illustrator,
@@ -3672,8 +3671,6 @@ const projects: ProjectsType = [
       h.getNewID(client.enovational, "2019/01/01"),
     ],
   },
-];
+].sort(sortByDate);
 
-const all = projects.sort(sortByDate).map(formatDBToFirebase);
-
-export { all };
+export { projects as projectsDB };

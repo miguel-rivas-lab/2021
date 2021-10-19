@@ -2,20 +2,21 @@ import Vue from 'vue';
 import app from './app.vue';
 import router from './modules/router';
 import { store } from './modules/store';
-import { firestorePlugin } from 'vuefire';
 import './stylesheets/application.scss';
 import './modules/commons';
+import "nano-grid/modules/tooltip";
+import { formatRawDBtoJSON, formatRawDBToFirebase } from "./modules/format-db";
 import "highlight.js/styles/tomorrow-night-bright.css";
+import './modules/google-maps';
+import axios from "axios";
+//-- db
+import { projectsDB } from "./db/projects";
+import { users } from "./db/users";
+//-- firebase
+import { firestorePlugin } from 'vuefire';
 import { analytics } from 'firebase/app';
 import 'firebase/analytics';
 import { firebaseApp } from "./modules/firebase";
-import "nano-grid/modules/tooltip";
-import 'firebase/firestore';
-import { formatDBtoJSON } from "./modules/format-db";
-import './modules/google-maps';
-import axios from "axios";
-
-const db = firebaseApp.firestore();
 
 // ---------------- Selection
 
@@ -41,31 +42,18 @@ store.commit("addColumn",
   },
 );
 
-db.collection("users")
-  .doc("main")
-  .get()
-  .then((doc) => {
-    vueApp.user = doc.data();
-  });
-
-db.collection('projects')
-  .get()
-  .then(item => {
-    vueApp.projects = formatDBtoJSON(item);
-  });
-
 analytics(firebaseApp);
 
 Vue.prototype.$axios = axios;
 Vue.use(firestorePlugin);
 Vue.config.productionTip = false;
 
-const vueApp = new Vue({
+new Vue({
   router,
   store,
   data: () => ({
-    user: {},
-    projects: {},
+    user: users,
+    projects: formatRawDBtoJSON(projectsDB.map(formatRawDBToFirebase)),
   }),
   render: h => h(app)
 }).$mount('#app');

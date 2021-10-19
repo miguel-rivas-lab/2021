@@ -4,15 +4,17 @@
     <row class="nano-app">
       <panel-navigation />
       <column
-        gsize:width="45"
-        size="300"
         class="panel"
+        :size="panelSize[0]"
         :class="{ 'hide-panel': !panel }"
       >
         <router-view name="panel" />
       </column>
 
-      <column :size="panel ? '100%-350' : '100%-50'" class="workarea">
+      <column
+        :size="panel ? panelSize[1] : '100%-50'"
+        class="workarea"
+      >
         <router-view name="workarea" />
       </column>
     </row>
@@ -35,6 +37,7 @@ export default Vue.extend({
       theme: "getTheme",
       universe: "getUniverse",
       panel: "getPanelVisibility",
+      panelSize: "getPanelSize",
     }),
     sectionName() {
       return `section-${this.$route.name}`;

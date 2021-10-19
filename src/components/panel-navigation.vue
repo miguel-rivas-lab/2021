@@ -55,8 +55,8 @@
                 />
               </template>
             </template>
-            <hr />
             <template v-if="login.logged">
+              <hr />
               <template v-if="$route.name !== 'crypto'">
                 <btn
                   :to="{ name: 'crypto' }"
