@@ -119,16 +119,7 @@ export default Vue.extend({
   }),
   created() {
     this.selection = this.$store.getters.getLocationSelection;
-    this.$store.commit("setValue", {
-      name: "panelSize",
-      value: ["35%", "65%-50"],
-    });
-  },
-  beforeDestroy() {
-    this.$store.commit("setValue", {
-      name: "panelSize",
-      value: ["300", "100%-350"],
-    });
+    
   },
   computed: {
     projectsDB() {
