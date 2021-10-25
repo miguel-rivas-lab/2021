@@ -1867,7 +1867,11 @@ const projects: ProjectsType = [
     ],
     disabled: false,
     links: [
-      // { url: linkWeb("2021-react"), text: "App" },
+      {
+        url: linkWeb("2021-react"),
+        text: "App",
+        self: true,
+      },
       {
         url: linkGithub("2021-react"),
         text: "Github",
