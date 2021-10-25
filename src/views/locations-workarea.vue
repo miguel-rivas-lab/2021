@@ -15,7 +15,7 @@
       <template v-for="(m, index) in locations">
         <pin :key="`marker-${index}`" :position="m.position" :title="m.title" />
       </template>
-      <template v-for="(m, index) in markers">
+      <!-- <template v-for="(m, index) in markers">
         <GmapMarker
           :key="`pin-${index}`"
           :icon="{
@@ -26,7 +26,7 @@
           }"
           :position="m.position"
         />
-      </template>
+      </template> -->
       <GmapPolyline
         v-if="selection.viewPath"
         :path="mapPaths"
