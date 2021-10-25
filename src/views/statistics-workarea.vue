@@ -32,12 +32,12 @@
               <template v-for="(project, projectIndex) in projectsDB">
                 <toggle-row breakpoint="lg" v-bind:key="projectIndex">
                   <template v-slot:header>
-                      <t-column size="40%">{{ project.title }}</t-column>
-                      <t-column size="20%">{{ project.types }}</t-column>
-                      <t-column size="20%">{{ project.date }}</t-column>
-                      <t-column size="20%-35">{{
-                        project.clients.join(" & ")
-                      }}</t-column>
+                    <t-column size="40%">{{ project.title }}</t-column>
+                    <t-column size="20%">{{ project.types }}</t-column>
+                    <t-column size="20%">{{ project.date }}</t-column>
+                    <t-column size="20%-35">{{
+                      project.clients.join(" & ")
+                    }}</t-column>
                   </template>
                   <template v-slot:more>
                     <t-column size="200">
@@ -76,7 +76,6 @@
               </template>
             </div>
           </div>
-
         </article>
       </container>
     </div>
@@ -101,6 +100,18 @@ export default Vue.extend({
   data: () => ({
     panel: false,
   }),
+  created() {
+    this.$store.commit("setValue", {
+      name: "panel",
+      value: false,
+    });
+  },
+  beforeDestroy(){
+    this.$store.commit("setValue", {
+      name: "panel",
+      value: true,
+    });
+  },
   computed: {
     projectsDB() {
       return Object.values(this.$root.projects)

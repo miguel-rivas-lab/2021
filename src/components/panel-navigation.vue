@@ -99,37 +99,25 @@
               @click="toggleValue('theme'), playSound()"
               :active="!theme"
             />
-            <template v-if="!login.logged">
-              <template v-if="$route.name !== 'login'">
-                <btn
-                  :to="{ name: 'login' }"
-                  color="gold-tips"
-                  size="md"
-                  title="Firebase login button"
-                  v-nano-tooltip.right="'Firebase'"
-                  glyph="firebase"
-                />
-              </template>
-              <template v-else>
-                <btn
-                  color="gravel"
-                  size="md"
-                  title="Firebase login button"
-                  v-nano-tooltip.right="'Firebase'"
-                  glyph="firebase"
-                  @click="toggleValue('panel'), playSound()"
-                  active
-                />
-              </template>
+            <template v-if="$route.name !== 'login'">
+              <btn
+                :to="{ name: 'login' }"
+                color="gold-tips"
+                size="md"
+                title="Firebase login button"
+                v-nano-tooltip.right="'Firebase Login'"
+                glyph="firebase"
+              />
             </template>
             <template v-else>
               <btn
-                color="persian-red"
+                color="gravel"
                 size="md"
-                title="Firebase logout button"
-                v-nano-tooltip.right="'Firebase'"
+                title="Firebase login button"
+                v-nano-tooltip.right="'Firebase Login'"
                 glyph="firebase"
-                @click="logoutFirebase(), playSound()"
+                @click="toggleValue('panel'), playSound()"
+                active
               />
             </template>
           </suffix>
@@ -142,8 +130,6 @@
 <script lang="ts">
 import Vue from "vue";
 import { mapGetters, mapMutations } from "vuex";
-import { firebaseApp } from "../modules/firebase";
-import "firebase/auth";
 
 export default Vue.extend({
   components: {},
@@ -183,25 +169,6 @@ export default Vue.extend({
         0.00000001,
         context.currentTime + 0.5
       );
-    },
-    logoutFirebase() {
-      firebaseApp.auth().signOut();
-      this.login.logged = false;
-      this.$store.commit("setValue", {
-        name: "alert",
-        value: {
-          message: "You have successfully logged out.",
-          status: "success",
-        },
-      });
-    },
-    openLoginModal() {
-      this.$store.commit("setValue", {
-        name: "modal",
-        value: {
-          visible: true,
-        },
-      });
     },
   },
   mounted() {

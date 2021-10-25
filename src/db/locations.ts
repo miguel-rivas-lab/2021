@@ -5,7 +5,7 @@ import { tool } from "mr-kernel/enums/tools";
 const locations = [
   {
     title: client.itla,
-    description: "Asociates of Arts, Multimedia",
+    description: "Associates of Arts, Multimedia",
     projectId: '20090901_itla',
     date: '2009/09/01',
     list: [

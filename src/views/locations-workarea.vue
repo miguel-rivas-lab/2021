@@ -15,6 +15,18 @@
       <template v-for="(m, index) in locations">
         <pin :key="`marker-${index}`" :position="m.position" :title="m.title" />
       </template>
+      <template v-for="(m, index) in markers">
+        <GmapMarker
+          :key="`pin-${index}`"
+          :icon="{
+            url: m.image.url,
+            title: m.image.title,
+            size: markersSize.size,
+            scaledSize: markersSize.scaledSize,
+          }"
+          :position="m.position"
+        />
+      </template>
       <GmapPolyline
         v-if="selection.viewPath"
         :path="mapPaths"
@@ -29,12 +41,39 @@
 import Vue from "vue";
 import Pin from "../components/pin.vue";
 import { locations } from "../db/locations";
+// import {google} from "vue2-google-maps";
 
 export default Vue.extend({
   components: { Pin },
   data: () => ({
     locations,
     selection: {},
+    markersSize: {
+      size: { width: 200, height: 200, f: "px", b: "px" },
+      scaledSize: { width: 70, height: 70, f: "px", b: "px" },
+    },
+    markers: [
+      {
+        image: {
+          url: require("@/img/montesino.svg"),
+          title: "Montesino",
+        },
+        position: {
+          lat: 18.468693394566287,
+          lng: -69.88479641117011,
+        },
+      },
+      {
+        image: {
+          url: require("@/img/monument.svg"),
+          title: "Washington Monument",
+        },
+        position: {
+          lat: 38.889509938828944,
+          lng: -77.03527458895584,
+        },
+      },
+    ],
   }),
   computed: {
     mapPaths() {
