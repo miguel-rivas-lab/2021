@@ -52,28 +52,28 @@ export default Vue.extend({
       size: { width: 200, height: 200, f: "px", b: "px" },
       scaledSize: { width: 70, height: 70, f: "px", b: "px" },
     },
-    markers: [
-      {
-        image: {
-          url: require("@/img/montesino.svg"),
-          title: "Montesino",
-        },
-        position: {
-          lat: 18.468693394566287,
-          lng: -69.88479641117011,
-        },
-      },
-      {
-        image: {
-          url: require("@/img/monument.svg"),
-          title: "Washington Monument",
-        },
-        position: {
-          lat: 38.889509938828944,
-          lng: -77.03527458895584,
-        },
-      },
-    ],
+    // markers: [
+    //   {
+    //     image: {
+    //       url: require("@/img/montesino.svg"),
+    //       title: "Montesino",
+    //     },
+    //     position: {
+    //       lat: 18.468693394566287,
+    //       lng: -69.88479641117011,
+    //     },
+    //   },
+    //   {
+    //     image: {
+    //       url: require("@/img/monument.svg"),
+    //       title: "Washington Monument",
+    //     },
+    //     position: {
+    //       lat: 38.889509938828944,
+    //       lng: -77.03527458895584,
+    //     },
+    //   },
+    // ],
   }),
   computed: {
     mapPaths() {
