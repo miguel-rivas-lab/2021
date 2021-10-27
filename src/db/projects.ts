@@ -1845,7 +1845,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2021/03/26",
-    title: "React Portfolio",
+    title: "3D Viewer",
     types: [
       typeEnum.app,
     ],
@@ -1882,6 +1882,8 @@ const projects: ProjectsType = [
       h.getNewID(client.miguelRivas, "2021/03/22"),
       h.getNewID(client.miguelRivas, "2021/09/12"),
       h.getNewID(client.itla, "2011/07/06"),
+      h.getNewID(client.itla, "2011/06/22"),
+      h.getNewID(client.itla, "2011/07/25"),
     ],
   },
   {
