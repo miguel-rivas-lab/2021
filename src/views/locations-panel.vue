@@ -25,7 +25,7 @@
         <row>
           <column size="100%">
             <ul class="summary">
-              <template v-for="(location, locationIndex) in locations">
+              <template v-for="(location, locationIndex) in locationsDB">
                 <li class="table" role="table" v-bind:key="locationIndex">
                   <div role="rowgroup" class="table-body">
                     <toggle-row>
@@ -50,9 +50,7 @@
                           </ul>
                           <ul class="skills">
                             <template
-                              v-for="(tool, toolIndex) in projectsDB[
-                                location.projectId
-                              ].tools"
+                              v-for="(tool, toolIndex) in location.tools"
                             >
                               <li
                                 v-bind:key="`toolIndex${toolIndex}`"
@@ -107,23 +105,23 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { locations } from "../db/locations";
 import toggleRow from "../components/toggle-row.vue";
+import { type } from "mr-kernel/enums/types";
 
 export default Vue.extend({
   components: { toggleRow },
   data: () => ({
     panel: false,
-    locations,
     selection: {},
   }),
   created() {
     this.selection = this.$store.getters.getLocationSelection;
-    
   },
   computed: {
-    projectsDB() {
-      return this.$root.projects;
+    locationsDB() {
+      return Object.values({
+        ...this.$root.groups,
+      }).filter((item) => item.types.includes(type.location));
     },
   },
   methods: {

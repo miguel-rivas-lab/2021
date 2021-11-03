@@ -3,12 +3,20 @@
     <div role="rowgroup" class="table-body">
       <toggle-row>
         <template v-slot:header>
-          <t-column size="100%-35" v-html="projects[project].title" />
+          <template v-if="!projects[project].types.includes('Group')">
+            <t-column size="100%-35" v-html="projects[project].title" />
+          </template>
+          <template v-else>
+            <t-column size="100%-35" v-html="'Summary'" />
+          </template>
         </template>
         <template v-slot:more>
           <t-column size="100%" v-if="projects[project]">
             <h2 v-html="projects[project].clients.join(' & ')" />
-            <h3 v-html="projects[project].types" />
+            <h3
+              v-if="!projects[project].types.includes('Group')"
+              v-html="projects[project].types"
+            />
             <h4>
               <time v-html="projects[project].date" />
             </h4>
@@ -78,19 +86,22 @@ export default Vue.extend({
   }),
   computed: {
     projects() {
-      return this.$root.projects;
+      return {
+        ...this.$root.projects,
+        ...this.$root.groups,
+      };
     },
   },
   methods: {
-    sentToProjector(src){
+    sentToProjector(src) {
       this.$store.commit("setProject", {
         value: src,
       });
       console.clear();
-    }
+    },
   },
-  mounted(){
-    this.hasSlots = this.$slots.default?.length
+  mounted() {
+    this.hasSlots = this.$slots.default?.length;
   },
 });
 </script>

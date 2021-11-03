@@ -64,7 +64,7 @@ export function formatRawDBToFirebase(item: ProjectFirebase): ProjectFirebase {
   }
 }
 
-export function formatFirebaseDBtoJSON(querySnapshot) {
+export function formatFirebaseDBToJSON(querySnapshot) {
   const projectsDB = {};
   querySnapshot.docs.forEach(doc => {
     const p = doc.data();
@@ -108,7 +108,7 @@ export function formatFirebaseDBtoJSON(querySnapshot) {
       "roles": roles,
       "tools": tools,
       "children": p.children,
-      "image": ""
+      "image": "",
     };
 
     const id = helpers.getNewID(project.clients[0], project.date);
@@ -124,7 +124,7 @@ export function formatFirebaseDBtoJSON(querySnapshot) {
   return projectsDB;
 }
 
-export function formatRawDBtoJSON(item) {
+export function formatRawDBToJSON(item) {
   const result = {};
   item.forEach(doc => {
     const p = doc;
@@ -168,7 +168,7 @@ export function formatRawDBtoJSON(item) {
       "roles": roles,
       "tools": tools,
       "children": p.children,
-      "image": ""
+      "image": "",
     };
 
     const id = helpers.getNewID(project.clients[0], project.date);
@@ -181,6 +181,54 @@ export function formatRawDBtoJSON(item) {
     }
     result[id] = project;
   });
+  return result;
+}
+
+export function formatGroupsToProjects(groups) {
+  const result = {};
+  groups.forEach(group => {
+    let position = { lat: '', lng: '' };
+
+    if (group.types.includes(typeEnum.location)) {
+      position = group.position;
+    }
+
+    const tools = group.tools.map(
+      item => tool[toolEnum[item]]
+    );
+
+    const clients = group.clients.map(
+      item => client[clientEnum[item]]
+    );
+
+    const types = group.types.map(
+      item => type[typeEnum[item]]
+    ).join(' & ');
+
+    const project = {
+      "title": clients[0],
+      "clients": clients,
+      "date": group.date,
+      "types": types,
+      "links": [],
+      "disabled": group.disabled,
+      "tools": tools,
+      "children": group.children,
+      "image": "",
+      "position": position,
+    };
+
+    const id = helpers.getNewID(project.clients[0], project.date);
+
+    try {
+      project.image = `https://miguel-rivas.github.io/zapp/img/preview-wide/${id}.jpg`;
+    }
+    catch {
+      project.image = require(`@/img/miguelrivas.jpg`);
+    }
+    result[id + "_group"] = project;
+  });
+
   return result;
 }
 

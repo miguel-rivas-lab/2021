@@ -34,9 +34,13 @@ export default Vue.extend({
   }),
   computed: {
     projectsDB() {
-      let db = Object.values(this.$root.projects)
-      .filter((item: Project) => !item.disabled)
-      .sort(sortByDate)
+      let db = Object.values({
+        ...this.$root.projects,
+        ...this.$root.groups,
+      })
+        .filter((item: Project) => !item.disabled)
+        .sort(sortByDate);
+
       let result = db;
       switch (this.selection.filterData) {
         case "projects":
@@ -44,6 +48,7 @@ export default Vue.extend({
             (item: Project) =>
               !item.clients.includes(client.miguelRivas) &&
               !item.clients.includes(client.itla) &&
+              !item.clients.includes(client.itesa) &&
               !item.clients.includes(client.codepen)
           );
           break;
@@ -52,6 +57,7 @@ export default Vue.extend({
             (item: Project) =>
               item.clients.includes(client.miguelRivas) ||
               item.clients.includes(client.itla) ||
+              item.clients.includes(client.itesa) ||
               item.clients.includes(client.codepen)
           );
           break;
@@ -70,7 +76,10 @@ export default Vue.extend({
         case "homework":
           result = db.filter(
             (item: Project) =>
-              !item.disabled && item.clients.includes(client.itla)
+              !item.disabled && (
+                item.clients.includes(client.itla) ||
+                item.clients.includes(client.itesa)
+              )
           );
           break;
       }

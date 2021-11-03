@@ -5,12 +5,17 @@ import { store } from './modules/store';
 import './stylesheets/application.scss';
 import './modules/commons';
 import "nano-grid/modules/tooltip";
-import { formatRawDBtoJSON, formatRawDBToFirebase } from "./modules/format-db";
+import {
+  formatRawDBToJSON,
+  formatRawDBToFirebase,
+  formatGroupsToProjects,
+} from "./modules/format-db";
 import "highlight.js/styles/tomorrow-night-bright.css";
 import './modules/google-maps';
 import axios from "axios";
 //-- db
 import { projectsDB } from "./db/projects";
+import { groupsDB } from "./db/groups";
 import { users } from "./db/users";
 //-- firebase
 import { firestorePlugin } from 'vuefire';
@@ -48,12 +53,32 @@ Vue.prototype.$axios = axios;
 Vue.use(firestorePlugin);
 Vue.config.productionTip = false;
 
+// axios
+//   .get("https://api.polygon.io/v3/reference/tickers",
+//     {
+//       params:
+//       {
+//         "apiKey": "7Cunpp7BM40fuNlhYfV43V4DiBnl1pHV",
+//         "market": "crypto",
+//         "sort": "ticker",
+//         "active": true,
+//         "limit": 2000,
+//         "order": "asc",
+//         "ticker": "X:BTCUSD",
+//       },
+//     },
+//   )
+//   .then((response) => {
+//     console.log(response);
+//   });
+
 new Vue({
   router,
   store,
   data: () => ({
     user: users,
-    projects: formatRawDBtoJSON(projectsDB.map(formatRawDBToFirebase)),
+    projects: formatRawDBToJSON(projectsDB.map(formatRawDBToFirebase)),
+    groups: formatGroupsToProjects(groupsDB),
   }),
   render: h => h(app)
 }).$mount('#app');

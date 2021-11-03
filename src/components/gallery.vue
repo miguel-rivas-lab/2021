@@ -6,7 +6,6 @@
           <row :spacing="100" breakpoint="lg">
             <column size="60%">
               <img
-                loading="lazy"
                 width="1050"
                 height="551"
                 :src="project.image"
@@ -17,12 +16,23 @@
               <scroll-area color="royal-purple">
                 <h1 v-html="project.clients.join(' & ')" />
                 <ul class="summary">
-                  <summary-row
-                    v-bind:key="`projectIndex-${projectIndex}`"
-                    :project="
-                      helpers.getNewID(project.clients[0], project.date)
-                    "
-                  />
+                  <template v-if="project.types.includes('Group')">
+                    <summary-row
+                      v-bind:key="`projectIndex-${projectIndex}`"
+                      :project="
+                        helpers.getNewID(project.clients[0], project.date) +
+                        '_group'
+                      "
+                    />
+                  </template>
+                  <template v-else>
+                    <summary-row
+                      v-bind:key="`projectIndex-${projectIndex}`"
+                      :project="
+                        helpers.getNewID(project.clients[0], project.date)
+                      "
+                    />
+                  </template>
                   <li>
                     <ul class="summary" v-if="project.children.length">
                       <summary-row
@@ -90,7 +100,10 @@ export default Vue.extend({
   }),
   computed: {
     projects() {
-      return this.$root.projects;
+      return {
+        ...this.$root.projects,
+        ...this.$root.groups,
+      };
     },
     database() {
       return this.db;

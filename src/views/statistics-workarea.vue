@@ -87,8 +87,6 @@ import Vue from "vue";
 import LineChart from "../components/line-chart.vue";
 import BarChart from "../components/bar-chart.vue";
 import ToggleRow from "../components/toggle-row.vue";
-import { Project } from "mr-kernel/interfaces/project";
-import { type } from "mr-kernel/enums/types";
 import { sortByDate } from "../modules/format-db";
 
 export default Vue.extend({
@@ -115,7 +113,6 @@ export default Vue.extend({
   computed: {
     projectsDB() {
       return Object.values(this.$root.projects)
-        .filter((item: Project) => !item.types.includes(type.group))
         .sort(sortByDate);
     },
     tools() {

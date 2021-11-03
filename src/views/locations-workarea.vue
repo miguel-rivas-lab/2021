@@ -12,7 +12,7 @@
         zoomControl: false,
       }"
     >
-      <template v-for="(m, index) in locations">
+      <template v-for="(m, index) in locationsDB">
         <pin :key="`marker-${index}`" :position="m.position" :title="m.title" />
       </template>
       <!-- <template v-for="(m, index) in markers">
@@ -40,13 +40,12 @@
 <script lang="ts">
 import Vue from "vue";
 import Pin from "../components/pin.vue";
-import { locations } from "../db/locations";
+import { type } from "mr-kernel/enums/types";
 // import {google} from "vue2-google-maps";
 
 export default Vue.extend({
   components: { Pin },
   data: () => ({
-    locations,
     selection: {},
     markersSize: {
       size: { width: 200, height: 200, f: "px", b: "px" },
@@ -78,10 +77,15 @@ export default Vue.extend({
   computed: {
     mapPaths() {
       const paths = [];
-      this.locations.forEach((item) => {
+      this.locationsDB.forEach((item) => {
         paths.push(item.position);
       });
       return paths;
+    },
+    locationsDB() {
+      return Object.values({
+        ...this.$root.groups,
+      }).filter((item) => item.types.includes(type.location));
     },
   },
   created() {
