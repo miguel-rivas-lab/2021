@@ -48,7 +48,7 @@ const groups: GroupsType = [
       h.getNewID(client.itesa, "2006/01/03"),
       h.getNewID(client.itesa, "2006/01/04"),
     ],
-    description: "Associates of Arts, Multimedia",
+    description: "Computer Science, High School",
     list: [
       tool.html,
       tool.css,
