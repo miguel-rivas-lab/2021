@@ -216,6 +216,9 @@ export function formatGroupsToProjects(groups) {
       "children": group.children,
       "image": "",
       "position": position,
+      "description": group.description,
+      "list": group.list,
+      "zoom": group.zoom,
     };
 
     const id = helpers.getNewID(project.clients[0], project.date);
