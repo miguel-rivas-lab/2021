@@ -44,7 +44,7 @@ const projects: ProjectsType = [
       {
         url: linkVimeo("643739212"),
         text: "Video",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -1382,7 +1382,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("main-front"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -1416,7 +1416,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("css-study"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -1445,36 +1445,36 @@ const projects: ProjectsType = [
         url: `${linkWeb("hello")}`,
         text: "berlin",
         params: ["city=berlin"],
-        self: true,
+        self: false,
       },
       {
         url: `${linkWeb("hello")}`,
         text: "dusseldorf",
         params: ["city=dusseldorf"],
-        self: true,
+        self: false,
       },
       {
         url: `${linkWeb("hello")}`,
         text: "melbourne",
         params: ["city=melbourne"],
-        self: true,
+        self: false,
       },
       {
         url: `${linkWeb("hello")}`,
         text: "schwangau",
         params: ["city=schwangau"],
-        self: true,
+        self: false,
       },
       {
         url: `${linkWeb("hello")}`,
         text: "texas",
         params: ["city=texas"],
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("hello"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -1507,7 +1507,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("evolution-web"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -1638,7 +1638,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("svg-101"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -1675,7 +1675,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("tetravex"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -1722,7 +1722,7 @@ const projects: ProjectsType = [
       {
         url: linkVimeo("224945169"),
         text: "Video",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -1746,7 +1746,7 @@ const projects: ProjectsType = [
       {
         url: linkVimeo("175240185"),
         text: "Video",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -1770,7 +1770,7 @@ const projects: ProjectsType = [
       {
         url: linkVimeo("224977703"),
         text: "Video",
-        self: true,
+        self: false,
       },
     ],
     children: [
@@ -1806,7 +1806,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("2014"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
     children: [
@@ -1839,12 +1839,12 @@ const projects: ProjectsType = [
       {
         url: linkWeb("2016"),
         text: "App",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("2016"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -1884,7 +1884,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("2021-vue"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
     children: [
@@ -1919,42 +1919,42 @@ const projects: ProjectsType = [
       {
         url: linkWeb("2018"),
         text: "Home",
-        self: true,
+        self: false,
       },
       {
         url: linkWeb("2018/drlogic.html"),
         text: "DrLogic",
-        self: true,
+        self: false,
       },
       {
         url: linkWeb("2018/apap.html"),
         text: "Apap",
-        self: true,
+        self: false,
       },
       {
         url: linkWeb("2018/bpr.html"),
         text: "BPR Bank",
-        self: true,
+        self: false,
       },
       {
         url: linkWeb("2018/presidente.html"),
         text: "Presidente",
-        self: true,
+        self: false,
       },
       {
         url: linkWeb("2018/tests.html"),
         text: "Tests",
-        self: true,
+        self: false,
       },
       {
         url: linkVimeo("260621089"),
         text: "Video",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("2018"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
     children: [
@@ -1990,7 +1990,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("html-love"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -2021,7 +2021,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("nano-grid"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
     children: [
@@ -2055,7 +2055,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("mr-kernel"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
     disabled: true,
@@ -2149,7 +2149,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("2021-react"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
     children: [
@@ -2188,7 +2188,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("flat-css"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -2213,7 +2213,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("fake_audience"),
         text: "Github",
-        self: true,
+        self: false,
       }
     ],
   },
@@ -2428,7 +2428,7 @@ const projects: ProjectsType = [
       {
         url: "https://sketchfab.com/models/d0f14c73155e460cb848a3db80e1cb07/embed",
         text: "3D Model",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -2629,7 +2629,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("presidente-destapa-coro"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -2653,7 +2653,7 @@ const projects: ProjectsType = [
       {
         url: linkVimeo("175240177"),
         text: "Video",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -2677,7 +2677,7 @@ const projects: ProjectsType = [
       {
         url: linkVimeo("175240184"),
         text: "Video",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -2716,7 +2716,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("presidente-carnaval-2015"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -2740,7 +2740,7 @@ const projects: ProjectsType = [
       {
         url: linkVimeo("175240186"),
         text: "Video",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -2773,7 +2773,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("presidente-retro-brindis"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -2804,7 +2804,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("apap-mineriza-familia"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
     children: [
@@ -2831,7 +2831,7 @@ const projects: ProjectsType = [
       {
         url: linkVimeo("211801157"),
         text: "Video",
-        self: true,
+        self: false,
       },
     ],
     disabled: true,
@@ -2869,7 +2869,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("presidente-verano-2015"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -2922,7 +2922,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("drlogic"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
     children: [
@@ -2949,7 +2949,7 @@ const projects: ProjectsType = [
       {
         url: linkVimeo("207152756"),
         text: "Video",
-        self: true,
+        self: false,
       },
     ],
     disabled: true,
@@ -3006,7 +3006,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("pixel-server-prompt"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -3040,7 +3040,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("voxel-animation"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -3063,7 +3063,7 @@ const projects: ProjectsType = [
       {
         url: linkVimeo("212177083"),
         text: "Video",
-        self: true,
+        self: false,
       },
     ],
     children: [
@@ -3187,7 +3187,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("descubria"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -3220,7 +3220,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("capital-dbg-server-prompt"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -3254,7 +3254,7 @@ const projects: ProjectsType = [
       {
         url: linkGithub("test-pixel-perfect-tree"),
         text: "Github",
-        self: true,
+        self: false,
       },
     ],
   },
