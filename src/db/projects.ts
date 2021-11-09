@@ -19,6 +19,36 @@ type ProjectsType = Array<ProjectFirebase>;
 
 const projects: ProjectsType = [
   {
+    date: "2021/11/08",
+    title: "Bitmap Creator",
+    types: [
+      typeEnum.app,
+    ],
+    disabled: true,
+    roles: [
+      roleEnum.frontend,
+    ],
+    clients: [
+      clientEnum.miguelRivas,
+    ],
+    tools: [
+      toolEnum.python,
+      toolEnum.tkinter,
+    ],
+    links: [
+      {
+        url: "https://github.com/jmiguelrivas/bitmap-creator",
+        text: "Github",
+        self: false,
+      },
+      {
+        url: linkVimeo("643739212"),
+        text: "Video",
+        self: true,
+      },
+    ],
+  },
+  {
     date: "2004/01/01",
     title: "ATM",
     types: [
@@ -56,7 +86,61 @@ const projects: ProjectsType = [
   },
   {
     date: "2004/01/03",
-    title: "Infinite List",
+    title: "Infinite Menu",
+    types: [
+      typeEnum.app,
+    ],
+    disabled: true,
+    roles: [
+      roleEnum.frontend,
+    ],
+    clients: [
+      clientEnum.itesa,
+    ],
+    tools: [
+      toolEnum.pascal,
+    ],
+    links: [],
+  },
+  {
+    date: "2004/01/04",
+    title: "Fibonacci Sequence",
+    types: [
+      typeEnum.app,
+    ],
+    disabled: true,
+    roles: [
+      roleEnum.frontend,
+    ],
+    clients: [
+      clientEnum.itesa,
+    ],
+    tools: [
+      toolEnum.pascal,
+    ],
+    links: [],
+  },
+  {
+    date: "2004/01/05",
+    title: "Summatory / Accumulator",
+    types: [
+      typeEnum.app,
+    ],
+    disabled: true,
+    roles: [
+      roleEnum.frontend,
+    ],
+    clients: [
+      clientEnum.itesa,
+    ],
+    tools: [
+      toolEnum.pascal,
+    ],
+    links: [],
+  },
+  {
+    date: "2004/01/06",
+    title: "Guessing Random Number",
     types: [
       typeEnum.app,
     ],
@@ -89,6 +173,9 @@ const projects: ProjectsType = [
       toolEnum.c,
     ],
     links: [],
+    children: [
+      h.getNewID(client.miguelRivas, "2021/11/08"),
+    ],
   },
   {
     date: "2006/01/01",
@@ -161,6 +248,45 @@ const projects: ProjectsType = [
       toolEnum.vb,
     ],
     links: [],
+    children: [
+      h.getNewID(client.itesa, "2006/01/01"),
+    ],
+  },
+  {
+    date: "2006/01/05",
+    title: "Falling Code / Matrix Effect",
+    types: [
+      typeEnum.app,
+    ],
+    disabled: true,
+    roles: [
+      roleEnum.frontend,
+    ],
+    clients: [
+      clientEnum.itesa,
+    ],
+    tools: [
+      toolEnum.vb,
+    ],
+    links: [],
+  },
+  {
+    date: "2006/01/06",
+    title: "Falling Letters / Game",
+    types: [
+      typeEnum.app,
+    ],
+    disabled: true,
+    roles: [
+      roleEnum.frontend,
+    ],
+    clients: [
+      clientEnum.itesa,
+    ],
+    tools: [
+      toolEnum.vb,
+    ],
+    links: [],
   },
   {
     date: "2013/12/06",
@@ -182,7 +308,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf1_000/8",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -206,7 +332,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf1_000/10",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -230,7 +356,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf1_000/12",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -254,7 +380,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf1_000/14",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -278,7 +404,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf1_000/16",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -302,7 +428,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf1_000/24",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -421,7 +547,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf1_000/40",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -446,7 +572,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf1_000/42",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -470,7 +596,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf1_000/44",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -494,7 +620,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf1_000/48",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -519,12 +645,12 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf2_000/16",
         text: "Document",
-        self: true,
+        self: false,
       },
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf3_005/28",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -548,7 +674,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf2_000/18",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -575,7 +701,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf2_000/20",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -599,7 +725,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf2_000/24",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -623,7 +749,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf2_000/28",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -647,7 +773,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf2_000/34",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -672,7 +798,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf2_000/38",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -696,7 +822,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf2_000/40",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -720,7 +846,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf3_005/48",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -744,7 +870,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf3_005/42",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -769,7 +895,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf3_005/38",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -793,7 +919,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf3_005/32",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -819,7 +945,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf3_005/14",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -843,12 +969,12 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf2_000/10",
         text: "Document",
-        self: true,
+        self: false,
       },
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf2_000/14",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -872,7 +998,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf3_005/12",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -896,7 +1022,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf3_005/16",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -920,7 +1046,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf3_005/18",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -944,7 +1070,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf3_005/20",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -968,7 +1094,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf3_005/22",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -993,7 +1119,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf3_005/24",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -1017,7 +1143,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf3_005/26",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -1041,7 +1167,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf3_005/30",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -1065,7 +1191,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf3_005/34",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -1089,7 +1215,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf3_005/44",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -1113,7 +1239,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf3_005/46",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -1137,7 +1263,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf2_000/8",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -1161,17 +1287,17 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf3_005",
         text: "Portfolio 3",
-        self: true,
+        self: false,
       },
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf2_000",
         text: "Portfolio 2",
-        self: true,
+        self: false,
       },
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf1_000",
         text: "Portfolio 1",
-        self: true,
+        self: false,
       },
     ],
     children: [
@@ -1478,6 +1604,9 @@ const projects: ProjectsType = [
     links: [
       { url: linkCodepen("yNJJpG"), text: "Codepen Prototype" },
     ],
+    children: [
+      h.getNewID(client.itesa, "2006/01/01"),
+    ],
   },
   {
     date: "2015/12/07",
@@ -1683,7 +1812,8 @@ const projects: ProjectsType = [
     children: [
       h.getNewID(client.miguelRivas, "2012/01/16"),
       h.getNewID(client.miguelRivas, "2015/05/14"),
-    ]
+      h.getNewID(client.miguelRivas, "2015/05/28"),
+    ],
   },
   {
     date: "2016/08/11",
@@ -2322,7 +2452,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf1_000/28",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -2346,7 +2476,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf1_000/30",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -2370,7 +2500,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf1_000/30",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -2394,7 +2524,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf1_000/32",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -2418,7 +2548,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf1_000/34",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -2442,7 +2572,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf1_000/36",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },
@@ -2466,7 +2596,7 @@ const projects: ProjectsType = [
       {
         url: "https://issuu.com/jemiguelrivas/docs/ptf1_000/38",
         text: "Document",
-        self: true,
+        self: false,
       },
     ],
   },

@@ -37,16 +37,22 @@ const groups: GroupsType = [
       toolEnum.excel,
       toolEnum.word,
       toolEnum.powerpoint,
+      toolEnum.as2,
     ],
     children: [
       h.getNewID(client.itesa, "2004/01/01"),
       h.getNewID(client.itesa, "2004/01/02"),
       h.getNewID(client.itesa, "2004/01/03"),
+      h.getNewID(client.itesa, "2004/01/04"),
+      h.getNewID(client.itesa, "2004/01/05"),
+      h.getNewID(client.itesa, "2004/01/06"),
       h.getNewID(client.itesa, "2005/01/01"),
       h.getNewID(client.itesa, "2006/01/01"),
       h.getNewID(client.itesa, "2006/01/02"),
       h.getNewID(client.itesa, "2006/01/03"),
       h.getNewID(client.itesa, "2006/01/04"),
+      h.getNewID(client.itesa, "2006/01/05"),
+      h.getNewID(client.itesa, "2006/01/06"),
     ],
     description: "Computer Science, High School",
     list: [
@@ -65,6 +71,7 @@ const groups: GroupsType = [
       tool.excel,
       tool.word,
       tool.powerpoint,
+      tool.as2,
     ],
     position: {
       lat: 18.493212559615365,
@@ -151,6 +158,7 @@ const groups: GroupsType = [
       toolEnum.photoshop,
       toolEnum.fireworks,
       toolEnum.dreamweaver,
+      toolEnum.as3,
     ],
     children: [
       h.getNewID(client.itla, "2010/07/07"),
