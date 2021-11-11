@@ -3594,6 +3594,28 @@ const projects: ProjectsType = [
       h.getNewID(client.miguelRivas, "2018/09/11"),
       h.getNewID(client.enovational, "2020/05/05"),
     ],
+    links: [
+      // {
+      //   url: linkWeb("formability/demo"),
+      //   text: "Demo",
+      //   self: true,
+      // },
+      // {
+      //   url: linkWeb("formability/401"),
+      //   text: "401",
+      //   self: true,
+      // },
+      // {
+      //   url: linkWeb("formability/404"),
+      //   text: "404",
+      //   self: true,
+      // },
+      // {
+      //   url: linkWeb("formability/500"),
+      //   text: "500",
+      //   self: true,
+      // },
+    ],
   },
   {
     date: "2021/06/21",
