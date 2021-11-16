@@ -19,36 +19,6 @@ type ProjectsType = Array<ProjectFirebase>;
 
 const projects: ProjectsType = [
   {
-    date: "2021/11/08",
-    title: "Bitmap Creator",
-    types: [
-      typeEnum.app,
-    ],
-    disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
-    clients: [
-      clientEnum.miguelRivas,
-    ],
-    tools: [
-      toolEnum.python,
-      toolEnum.tkinter,
-    ],
-    links: [
-      {
-        url: "https://github.com/jmiguelrivas/bitmap-creator",
-        text: "Github",
-        self: false,
-      },
-      {
-        url: linkVimeo("643739212"),
-        text: "Video",
-        self: false,
-      },
-    ],
-  },
-  {
     date: "2004/01/01",
     title: "ATM",
     types: [
@@ -64,7 +34,13 @@ const projects: ProjectsType = [
     tools: [
       toolEnum.pascal,
     ],
-    links: [],
+    links: [
+      {
+        url: linkGithub("pascal-2004"),
+        text: "Github",
+        self: false,
+      },
+    ],
   },
   {
     date: "2004/01/02",
@@ -100,7 +76,13 @@ const projects: ProjectsType = [
     tools: [
       toolEnum.pascal,
     ],
-    links: [],
+    links: [
+      {
+        url: linkGithub("pascal-2004"),
+        text: "Github",
+        self: false,
+      },
+    ],
   },
   {
     date: "2004/01/04",
@@ -118,7 +100,13 @@ const projects: ProjectsType = [
     tools: [
       toolEnum.pascal,
     ],
-    links: [],
+    links: [
+      {
+        url: linkGithub("pascal-2004"),
+        text: "Github",
+        self: false,
+      },
+    ],
   },
   {
     date: "2004/01/05",
@@ -136,7 +124,13 @@ const projects: ProjectsType = [
     tools: [
       toolEnum.pascal,
     ],
-    links: [],
+    links: [
+      {
+        url: linkGithub("pascal-2004"),
+        text: "Github",
+        self: false,
+      },
+    ],
   },
   {
     date: "2004/01/06",
@@ -154,7 +148,13 @@ const projects: ProjectsType = [
     tools: [
       toolEnum.pascal,
     ],
-    links: [],
+    links: [
+      {
+        url: linkGithub("pascal-2004"),
+        text: "Github",
+        self: false,
+      },
+    ],
   },
   {
     date: "2005/01/01",
@@ -2426,7 +2426,7 @@ const projects: ProjectsType = [
     ],
     links: [
       {
-        url: "https://sketchfab.com/models/d0f14c73155e460cb848a3db80e1cb07/embed",
+        url: "https://sketchfab.com/3d-models/drakkar-d0f14c73155e460cb848a3db80e1cb07",
         text: "3D Model",
         self: false,
       },
@@ -3638,6 +3638,65 @@ const projects: ProjectsType = [
       toolEnum.git,
       toolEnum.grunt,
     ]
+  },
+  {
+    date: "2021/11/08",
+    title: "Bitmap Creator",
+    types: [
+      typeEnum.app,
+    ],
+    disabled: true,
+    roles: [
+      roleEnum.frontend,
+    ],
+    clients: [
+      clientEnum.miguelRivas,
+    ],
+    tools: [
+      toolEnum.python,
+      toolEnum.tkinter,
+    ],
+    links: [
+      {
+        url: linkGithub("bitmap-creator"),
+        text: "Github",
+        self: false,
+      },
+      {
+        url: linkVimeo("643739212"),
+        text: "Video",
+        self: false,
+      },
+    ],
+  },
+  {
+    date: "2021/11/14",
+    title: "Monster 3D",
+    types: [
+      typeEnum.animation3D,
+    ],
+    roles: [
+      roleEnum.design,
+    ],
+    disabled: true,
+    clients: [
+      clientEnum.miguelRivas,
+    ],
+    tools: [
+      toolEnum.blender,
+    ],
+    links: [
+      {
+        url: "https://sketchfab.com/3d-models/monster-3d-435d64cdb0a042dfba2ae21d7d5a6986",
+        text: "Monster",
+        self: false,
+      },
+      {
+        url: "https://sketchfab.com/3d-models/404-section-4752fcc0d7714e7fbec4747a2fe10ba9",
+        text: "404 section",
+        self: false,
+      },
+    ],
   },
 ].sort(sortByDate);
 

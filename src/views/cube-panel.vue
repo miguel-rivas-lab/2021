@@ -70,11 +70,11 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { gColorsDB } from "../modules/colors";
+import wikiColors from "../db/wiki-colors";
 
 export default Vue.extend({
   data: () => ({
-    gColorsDB: gColorsDB,
+    gColorsDB: wikiColors,
     selection: {},
   }),
   created() {

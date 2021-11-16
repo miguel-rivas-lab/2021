@@ -6,8 +6,8 @@
 import Vue from "vue";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { gColorsDB } from "../modules/colors";
 import { mapGetters } from "vuex";
+import gColorsDB from "../db/wiki-colors";
 
 export default Vue.extend({
   components: {},
