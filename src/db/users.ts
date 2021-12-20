@@ -4,6 +4,7 @@ const users = {
   "lastName": "Rivas",
   "title": "Frontend Developer",
   "website": "miguel-rivas.github.io",
+  "email": "miguel.portfolio.gi7pt@simplelogin.fr",
   "location": {
     "city": "Washington",
     "state": "DC"
@@ -19,11 +20,14 @@ const users = {
       "user": "jemiguelrivas"
     },
     "github": {
-      "user": "jemiguelrivas",
+      "user": "jmiguelrivas",
       "development": "miguel-rivas-lab",
       "production": "miguel-rivas"
     }
   }
 };
 
-export { users };
+const linkGithub = `https://github.com/${users.media.github.user}`;
+const linkLinkedin = `https://www.linkedin.com/in/${users.media.linkedin.user}`
+
+export { users, linkGithub, linkLinkedin };

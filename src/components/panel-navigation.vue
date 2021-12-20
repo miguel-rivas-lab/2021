@@ -79,6 +79,27 @@
                 />
               </template>
             </template>
+            <hr>
+            <btn
+              tag="a"
+              :href="linkLinkedin"
+              color="royal-purple"
+              size="md"
+              title="Linkedin button"
+              v-nano-tooltip.right="'Linkedin'"
+              glyph="linkedin"
+              target="_blank"
+            />
+            <btn
+              tag="a"
+              :href="linkGithub"
+              color="royal-purple"
+              size="md"
+              title="Github button"
+              v-nano-tooltip.right="'Github'"
+              glyph="github"
+              target="_blank"
+            />
           </column>
           <suffix size=",135">
             <btn
@@ -130,6 +151,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { mapGetters, mapMutations } from "vuex";
+import { linkGithub, linkLinkedin } from "../db/users";
 
 export default Vue.extend({
   components: {},
@@ -147,6 +169,8 @@ export default Vue.extend({
       { icon: "cog-transfer-outline", route: "gear" },
       { icon: "palette", route: "wheel" },
     ],
+    linkGithub,
+    linkLinkedin,
   }),
   computed: {
     ...mapGetters({

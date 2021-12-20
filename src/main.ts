@@ -52,25 +52,7 @@ analytics(firebaseApp);
 Vue.prototype.$axios = axios;
 Vue.use(firestorePlugin);
 Vue.config.productionTip = false;
-
-// axios
-//   .get("https://api.polygon.io/v3/reference/tickers",
-//     {
-//       params:
-//       {
-//         "apiKey": "7Cunpp7BM40fuNlhYfV43V4DiBnl1pHV",
-//         "market": "crypto",
-//         "sort": "ticker",
-//         "active": true,
-//         "limit": 2000,
-//         "order": "asc",
-//         "ticker": "X:BTCUSD",
-//       },
-//     },
-//   )
-//   .then((response) => {
-//     console.log(response);
-//   });
+Vue.use(VueThreejs);
 
 new Vue({
   router,
